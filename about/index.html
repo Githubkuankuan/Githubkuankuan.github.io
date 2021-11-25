@@ -238,83 +238,11 @@
     <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
       <div class="mdui-tab" mdui-tab>
         
-          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
-        
-          <a href="#comment-tab1" class="mdui-ripple">livere</a>
-        
-          <a href="#comment-tab2" class="mdui-ripple">disqus</a>
-        
-          <a href="#comment-tab3" class="mdui-ripple">changyan</a>
-        
-          <a href="#comment-tab4" class="mdui-ripple">valine</a>
+          <a href="#comment-tab0" class="mdui-ripple">valine</a>
         
       </div>
       
         <div id="comment-tab0" class="mdui-p-a-2">
-          <div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
-<script>
-  var gitalk = new Gitalk({
-    clientID: '',
-    clientSecret: '',
-    repo: '',
-    owner: '',
-    admin: [''],
-    id:  md5(location.pathname) ,
-    distractionFreeMode: 'true',
-  });
-  gitalk.render('gitalk-container');
-</script>
-        </div>
-      
-        <div id="comment-tab1" class="mdui-p-a-2">
-          <div id="lv-container" data-id="city" data-uid="">
-  <script type="text/javascript">
-    (function (d, s) {
-      var j, e = d.getElementsByTagName(s)[0];
-      if (typeof LivereTower === 'function') { return; }
-      j = d.createElement(s);
-      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-      j.async = true;
-      e.parentNode.insertBefore(j, e);
-    })(document, 'script');
-  </script>
-  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
-</div>
-        </div>
-      
-        <div id="comment-tab2" class="mdui-p-a-2">
-          <div id="disqus_thread"></div>
-<script>
-  var disqus_config = function () {
-    this.page.url = 'http://example.com/about/index.html';
-    this.page.identifier = 'http://example.com/about/index.html';
-  };
-  (function () {
-    var d = document, s = d.createElement('script');
-    s.src = '//.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
-</script>
-<noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        </div>
-      
-        <div id="comment-tab3" class="mdui-p-a-2">
-          <style>#pop_ad,#feedAv{display:none!important;position:absolute!important;z-index:-9999;left:-1000px;opacity:0!important}</style>
-<div id="SOHUCS"></div>
-<script type="text/javascript">
-(function(){
-var appid = '';
-var conf = '';
-var width = window.innerWidth || document.documentElement.clientWidth;
-if (width < 960) {
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("http://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
-        </div>
-      
-        <div id="comment-tab4" class="mdui-p-a-2">
           <div id="vcomments"></div>
 <script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
@@ -330,8 +258,8 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
     el: '#vcomments',
     notify: notify,
     verify: verify,
-    appId: '',
-    appKey: '',
+    appId: 'K384DoBsTJo09tPYtLMxDJz1-gzGzoHsz',
+    appKey: 'Bp5G6BLH11s6zkpTjHkvoG1g',
     placeholder: '',
     pageSize: '',
     avatar: '',
