@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2021/11/09/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Django filter中用contains和icontains区别</title>
     <url>/2021/11/24/Django-filter%E4%B8%AD%E7%94%A8contains%E5%92%8Cicontains%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<p>用 django 的人经常会用到filter过滤集合的功能，这里对比下contains和icontains区别：</p>
@@ -139,24 +157,6 @@ print(&#39;模块B中__name__的值：&#123;&#125;&#39;.format(__name__))
     <title>第一篇博客</title>
     <url>/2021/11/10/one/</url>
     <content><![CDATA[<h1 id="这是第一篇博客内容"><a href="#这是第一篇博客内容" class="headerlink" title="这是第一篇博客内容"></a>这是第一篇博客内容</h1><p>为什么会突然搭建一个自己博客呢？  好问题！<br>在  **B站 ** 上看到一个资深程序员的一篇博客内容: 说一个代码代码习惯良好的程序员都会有自己的博客<br>后来我信誓旦旦的开始了我的搭建之旅！<br>现在也是搭建完成了  因为一个项目，没有及时的发布一篇博客内容。<br>好了认识一个吧   我叫大路宽宽！</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/11/09/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -1332,528 +1332,6 @@ p.then(value =&gt; &#123;
       </tags>
   </entry>
   <entry>
-    <title>Vue  单文件</title>
-    <url>/2021/11/24/vue%E5%8D%95%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h1 id="初识Vue："><a href="#初识Vue：" class="headerlink" title="初识Vue："></a>初识Vue：</h1><p>​        1.想让Vue工作，就必须创建一个Vue实例，且要传入一个配置对象；</p>
-<p>​        2.root容器里的代码依然符合html规范，只不过混入了一些特殊的Vue语法；</p>
-<p>​        3.root容器里的代码被称为【Vue模板】；</p>
-<p>​        4.Vue实例和容器是一一对应的；</p>
-<p>​        5.真实开发中只有一个Vue实例，并且会配合着组件一起使用；</p>
-<p>​        6.中的xxx要写js表达式，且xxx可以自动读取到data中的所有属性；</p>
-<p>​        7.一旦data中的数据发生改变，那么页面中用到该数据的地方也会自动更新；</p>
-<p>​        注意区分：js表达式 和 js代码(语句)</p>
-<pre><code class="javascript">            1.表达式：一个表达式会产生一个值，可以放在任何一个需要值的地方：
-
-​                  (1). a
-
-​                  (2). a+b
-
-​                  (3). demo(1)
-
-​                  (4). x === y ? &#39;a&#39; : &#39;b&#39;
-</code></pre>
-<pre><code>            2.js代码(语句)
-
-​                  (1). if()&#123;&#125;
-
-​                  (2). for()&#123;&#125;
-</code></pre>
-<h1 id="Vue模板语法有2大类："><a href="#Vue模板语法有2大类：" class="headerlink" title="Vue模板语法有2大类："></a>Vue模板语法有2大类：</h1><h2 id="1-插值语法："><a href="#1-插值语法：" class="headerlink" title="1.插值语法："></a>1.插值语法：</h2><p>​              功能：用于解析标签体内容。</p>
-<p>​              写法：，xxx是js表达式，且可以直接读取到data中的所有属性。</p>
-<h2 id="2-指令语法："><a href="#2-指令语法：" class="headerlink" title="2.指令语法："></a>2.指令语法：</h2><p>​              功能：用于解析标签（包括：标签属性、标签体内容、绑定事件…..）。</p>
-<p>​              举例：v-bind:href=”xxx” 或 简写为 :href=”xxx”，xxx同样要写js表达式，</p>
-<p>​                   且可以直接读取到data中的所有属性。</p>
-<p>​              备注：Vue中有很多的指令，且形式都是：v-????，此处我们只是拿v-bind举个例子。</p>
-<h1 id="Vue中有2种数据绑定的方式："><a href="#Vue中有2种数据绑定的方式：" class="headerlink" title="Vue中有2种数据绑定的方式："></a>Vue中有2种数据绑定的方式：</h1><p>​          1.单向绑定(v-bind)：数据只能从data流向页面。</p>
-<p>​          2.双向绑定(v-model)：数据不仅能从data流向页面，还可以从页面流向data。</p>
-<p>​            备注：</p>
-<p>​                1.双向绑定一般都应用在表单类元素上（如：input、select等）</p>
-<p>​                2.v-model:value 可以简写为 v-model，因为v-model默认收集的就是value值。</p>
-<h1 id="data与el的2种写法"><a href="#data与el的2种写法" class="headerlink" title="data与el的2种写法"></a>data与el的2种写法</h1><h2 id="1-el有2种写法"><a href="#1-el有2种写法" class="headerlink" title="1.el有2种写法"></a>1.el有2种写法</h2><p>​                  (1).new Vue时候配置el属性。</p>
-<p>​                  (2).先创建Vue实例，随后再通过vm.$mount(‘#root’)指定el的值。</p>
-<h2 id="2-data有2种写法"><a href="#2-data有2种写法" class="headerlink" title="2.data有2种写法"></a>2.data有2种写法</h2><p>​                  (1).对象式</p>
-<p>​                  (2).函数式</p>
-<p>​                  如何选择：目前哪种写法都可以，以后学习到组件时，data必须使用函数式，否则会报错。</p>
-<h2 id="3-一个重要的原则："><a href="#3-一个重要的原则：" class="headerlink" title="3.一个重要的原则："></a>3.一个重要的原则：</h2><p>​                  由Vue管理的函数，一定不要写箭头函数，一旦写了箭头函数，this就不再是Vue实例了。</p>
-<h1 id="MVVM模型"><a href="#MVVM模型" class="headerlink" title="MVVM模型"></a>MVVM模型</h1><pre><code>            \1. M：模型(Model) ：data中的数据
-
-​            \2. V：视图(View) ：模板代码
-
-​            \3. VM：视图模型(ViewModel)：Vue实例
-</code></pre>
-<p>​      观察发现：</p>
-<p>​            1.data中所有的属性，最后都出现在了vm身上。</p>
-<p>​            2.vm身上所有的属性 及 Vue原型上所有属性，在Vue模板中都可以直接使用。</p>
-<h1 id="回顾Object-defineproperty方法"><a href="#回顾Object-defineproperty方法" class="headerlink" title="回顾Object.defineproperty方法"></a>回顾Object.defineproperty方法</h1><pre><code class="javascript">&lt;script type=&quot;text/javascript&quot; &gt;
-let number = 18
-let person = &#123;
-name:&#39;张三&#39;,
-sex:&#39;男&#39;,
-&#125;
-
-Object.defineProperty(person,&#39;age&#39;,&#123;
-// value:18,
-// enumerable:true, //控制属性是否可以枚举，默认值是false
-// writable:true, //控制属性是否可以被修改，默认值是false
-// configurable:true //控制属性是否可以被删除，默认值是false
-
-//当有人读取person的age属性时，get函数(getter)就会被调用，且返回值就是age的值
-get()&#123;
-console.log(&#39;有人读取age属性了&#39;)
-return number
-&#125;,
-
-//当有人修改person的age属性时，set函数(setter)就会被调用，且会收到修改的具体值
-set(value)&#123;
-console.log(&#39;有人修改了age属性，且值是&#39;,value)
-number = value
-&#125;
-
-&#125;)
-
-// console.log(Object.keys(person))
-
-console.log(person)
-&lt;/script&gt;
-</code></pre>
-<h1 id="何为数据代理"><a href="#何为数据代理" class="headerlink" title="何为数据代理"></a>何为数据代理</h1><pre><code class="javascript">&lt;!-- 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）--&gt;
-        &lt;script type=&quot;text/javascript&quot; &gt;
-            let obj = &#123;x:100&#125;
-            let obj2 = &#123;y:200&#125;
-
-            Object.defineProperty(obj2,&#39;x&#39;,&#123;
-                get()&#123;
-                    return obj.x
-                &#125;,
-                set(value)&#123;
-                    obj.x = value
-                &#125;
-            &#125;)
-        &lt;/script&gt;
-</code></pre>
-<h1 id="Vue中的数据代理"><a href="#Vue中的数据代理" class="headerlink" title="Vue中的数据代理"></a>Vue中的数据代理</h1><pre><code class="javascript">1.Vue中的数据代理：
-    通过vm对象来代理data对象中属性的操作（读/写）
-2.Vue中数据代理的好处：
-    更加方便的操作data中的数据
-3.基本原理：
-    通过Object.defineProperty()把data对象中所有属性添加到vm上。
-    为每一个添加到vm上的属性，都指定一个getter/setter。
-    在getter/setter内部去操作（读/写）data中对应的属性。
-</code></pre>
-<h1 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h1><p>事件的基本使用：</p>
-<pre><code class="javascript">              1.使用v-on:xxx 或 @xxx 绑定事件，其中xxx是事件名；
-
-​              2.事件的回调需要配置在methods对象中，最终会在vm上；
-
-​              3.methods中配置的函数，不要用箭头函数！否则this就不是vm了；
-
-​              4.methods中配置的函数，都是被Vue所管理的函数，this的指向是vm 或 组件实例对象；
-
-​              5.@click=&quot;demo&quot; 和 @click=&quot;demo($event)&quot; 效果一致，但后者可以传参；
-</code></pre>
-<pre><code class="javascript">Vue中的事件修饰符：
-
-​            1.prevent：阻止默认事件（常用）；
-
-​            2.stop：阻止事件冒泡（常用）；
-
-​            3.once：事件只触发一次（常用）；
-
-​            4.capture：使用事件的捕获模式；
-
-​            5.self：只有event.target是当前操作的元素时才触发事件；
-
-​            6.passive：事件的默认行为立即执行，无需等待事件回调执行完毕；
-</code></pre>
-<pre><code class="javascript">1.Vue中常用的按键别名：
-                            回车 =&gt; enter
-                            删除 =&gt; delete (捕获“删除”和“退格”键)
-                            退出 =&gt; esc
-                            空格 =&gt; space
-                            换行 =&gt; tab (特殊，必须配合keydown去使用)
-                            上 =&gt; up
-                            下 =&gt; down
-                            左 =&gt; left
-                            右 =&gt; right
-
-                2.Vue未提供别名的按键，可以使用按键原始的key值去绑定，但注意要转为kebab-case（短横线命名）
-
-                3.系统修饰键（用法特殊）：ctrl、alt、shift、meta
-                            (1).配合keyup使用：按下修饰键的同时，再按下其他键，随后释放其他键，事件才被触发。
-                            (2).配合keydown使用：正常触发事件。
-
-                4.也可以使用keyCode去指定具体的按键（不推荐）
-
-                5.Vue.config.keyCodes.自定义键名 = 键码，可以去定制按键别名
-</code></pre>
-<h1 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h1><h3 id="插值语法实现"><a href="#插值语法实现" class="headerlink" title="插值语法实现"></a>插值语法实现</h3><pre><code>html
-    &lt;!-- 准备好一个容器--&gt;
-        &lt;div id=&quot;root&quot;&gt;
-            姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-            名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-            全名：&lt;span&gt;&#123;&#123;firstName&#125;&#125;-&#123;&#123;lastName&#125;&#125;&lt;/span&gt;
-        &lt;/div&gt;
-js
-    new Vue(&#123;
-            el:&#39;#root&#39;,
-            data:&#123;
-                firstName:&#39;张&#39;,
-                lastName:&#39;三&#39;
-            &#125;
-        &#125;)
-</code></pre>
-<h3 id="methods实现"><a href="#methods实现" class="headerlink" title="methods实现"></a>methods实现</h3><pre><code>html 
-    &lt;!-- 准备好一个容器--&gt;
-        &lt;div id=&quot;root&quot;&gt;
-            姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-            名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-            全名：&lt;span&gt;&#123;&#123;fullName()&#125;&#125;&lt;/span&gt;
-        &lt;/div&gt;
-js 
-    new Vue(&#123;
-            el:&#39;#root&#39;,
-            data:&#123;
-                firstName:&#39;张&#39;,
-                lastName:&#39;三&#39;
-            &#125;,
-            methods: &#123;
-                fullName()&#123;
-                    console.log(&#39;@---fullName&#39;)
-                    return this.firstName + &#39;-&#39; + this.lastName
-                &#125;
-            &#125;,
-        &#125;)
-</code></pre>
-<h3 id="计算属性实现"><a href="#计算属性实现" class="headerlink" title="计算属性实现"></a>计算属性实现</h3><pre><code>计算属性：
-    1.定义：要用的属性不存在，要通过已有属性计算得来。
-    2.原理：底层借助了Objcet.defineproperty方法提供的getter和setter。
-    3.get函数什么时候执行？
-        (1).初次读取时会执行一次。
-        (2).当依赖的数据发生改变时会被再次调用。
-    4.优势：与methods实现相比，内部有缓存机制（复用），效率更高，调试方便。
-    5.备注：
-        1.计算属性最终会出现在vm上，直接读取使用即可。
-        2.如果计算属性要被修改，那必须写set函数去响应修改，且set中要引起计算时依赖的数据发生改变。
-html
-        &lt;div id=&quot;root&quot;&gt;
-            姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-            名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-            测试：&lt;input type=&quot;text&quot; v-model=&quot;x&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-            全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
-            &lt;!-- 全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
-            全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
-            全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; --&gt;
-        &lt;/div&gt;
-js 
-    const vm = new Vue(&#123;
-            el:&#39;#root&#39;,
-            data:&#123;
-                firstName:&#39;张&#39;,
-                lastName:&#39;三&#39;,
-                x:&#39;你好&#39;
-            &#125;,
-            methods: &#123;
-                demo()&#123;
-                    
-                &#125;
-            &#125;,
-            computed:&#123;
-                fullName:&#123;
-                    //get有什么作用？当有人读取fullName时，get就会被调用，且返回值就作为fullName的值
-                    //get什么时候调用？1.初次读取fullName时。2.所依赖的数据发生变化时。
-                    get()&#123;
-                        console.log(&#39;get被调用了&#39;)
-                        // console.log(this) //此处的this是vm
-                        return this.firstName + &#39;-&#39; + this.lastName
-                    &#125;,
-                    //set什么时候调用? 当fullName被修改时。
-                    set(value)&#123;
-                        console.log(&#39;set&#39;,value)
-                        const arr = value.split(&#39;-&#39;)
-                        this.firstName = arr[0]
-                        this.lastName = arr[1]
-                    &#125;
-                &#125;
-            &#125;
-        &#125;)
-</code></pre>
-<h4 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h4><pre><code>html
-    &lt;div id=&quot;root&quot;&gt;
-        姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-        名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-        全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
-    &lt;/div&gt;
-js
-    const vm = new Vue(&#123;
-            el:&#39;#root&#39;,
-            data:&#123;
-                firstName:&#39;张&#39;,
-                lastName:&#39;三&#39;,
-            &#125;,
-            computed:&#123;
-                //简写
-                fullName()&#123;
-                    console.log(&#39;get被调用了&#39;)
-                    return this.firstName + &#39;-&#39; + this.lastName
-                &#125;
-            &#125;
-        &#125;)
-</code></pre>
-<h1 id="监视属性"><a href="#监视属性" class="headerlink" title="监视属性"></a>监视属性</h1><pre><code>html
-    &lt;div id=&quot;root&quot;&gt;
-            &lt;h2&gt;今天天气很&#123;&#123;info&#125;&#125;&lt;/h2&gt;
-            &lt;!-- 绑定事件的时候：@xxx=&quot;yyy&quot; yyy可以写一些简单的语句 --&gt;
-            &lt;!-- &lt;button @click=&quot;isHot = !isHot&quot;&gt;切换天气&lt;/button&gt; --&gt;
-            &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;
-    &lt;/div&gt;
-    
-js
-    const vm = new Vue(&#123;
-            el:&#39;#root&#39;,
-            data:&#123;
-                isHot:true,
-            &#125;,
-            computed:&#123;
-                info()&#123;
-                    return this.isHot ? &#39;炎热&#39; : &#39;凉爽&#39;
-                &#125;
-            &#125;,
-            methods: &#123;
-                changeWeather()&#123;
-                    this.isHot = !this.isHot
-                &#125;
-            &#125;,
-        &#125;)
-</code></pre>
-<h4 id="监视属性watch："><a href="#监视属性watch：" class="headerlink" title="监视属性watch："></a>监视属性watch：</h4><pre><code>          1.当被监视的属性变化时, 回调函数自动调用, 进行相关操作
-
-​          2.监视的属性必须存在，才能进行监视！！
-
-​          3.监视的两种写法：
-
-​              (1).new Vue时传入watch配置
-
-​              (2).通过vm.$watch监视
-</code></pre>
-<pre><code>            /* watch:&#123;
-                isHot:&#123;
-                    immediate:true, //初始化时让handler调用一下
-                    //handler什么时候调用？当isHot发生改变时。
-                    handler(newValue,oldValue)&#123;
-                        console.log(&#39;isHot被修改了&#39;,newValue,oldValue)
-                    &#125;
-                &#125;
-            &#125; */
-            
-            
-            
-            
-            vm.$watch(&#39;isHot&#39;,&#123;
-                immediate:true, //初始化时让handler调用一下
-                //handler什么时候调用？当isHot发生改变时。
-                handler(newValue,oldValue)&#123;
-                console.log(&#39;isHot被修改了&#39;,newValue,oldValue)
-                &#125;
-            &#125;)
-</code></pre>
-<h2 id="深度监视："><a href="#深度监视：" class="headerlink" title="深度监视："></a>深度监视：</h2><pre><code>            (1).Vue中的watch默认不监测对象内部值的改变（一层）。
-
-​            (2).配置deep:true可以监测对象内部值改变（多层）。
-
-​        备注：
-
-​            (1).Vue自身可以监测对象内部值的改变，但Vue提供的watch默认不可以！
-
-​            (2).使用watch时根据数据的具体结构，决定是否采用深度监视。
-</code></pre>
-<h2 id="简写-1"><a href="#简写-1" class="headerlink" title="简写"></a>简写</h2><pre><code>watch: &#123;
-            //正常写法
-            /* isHot:&#123;
-                // immediate:true, //初始化时让handler调用一下
-                // deep:true,//深度监视
-                handler(newValue,oldValue)&#123;
-                    console.log(&#39;isHot被修改了&#39;,newValue,oldValue)
-                &#125;
-            &#125;, */
-            //简写
-            /* isHot(newValue,oldValue)&#123;
-                console.log(&#39;isHot被修改了&#39;,newValue,oldValue,this)
-            &#125; */
-        &#125;
-</code></pre>
-<h1 id="computed和watch之间的区别："><a href="#computed和watch之间的区别：" class="headerlink" title="computed和watch之间的区别："></a>computed和watch之间的区别：</h1><pre><code>            1.computed能完成的功能，watch都可以完成。
-
-​            2.watch能完成的功能，computed不一定能完成，例如：watch可以进行异步操作。
-
-​        两个重要的小原则：
-
-​              1.所被Vue管理的函数，最好写成普通函数，这样this的指向才是vm 或 组件实例对象。
-
-​              2.所有不被Vue所管理的函数（定时器的回调函数、ajax的回调函数等、Promise的回调函数），最好写成箭头函数，
-
-​                这样this的指向才是vm 或 组件实例对象。
-</code></pre>
-<h1 id="收集表单数据"><a href="#收集表单数据" class="headerlink" title="收集表单数据"></a>收集表单数据</h1><pre><code>收集表单数据：
-    若：&lt;input type=&quot;text&quot;/&gt;，则v-model收集的是value值，用户输入的就是value值。
-    若：&lt;input type=&quot;radio&quot;/&gt;，则v-model收集的是value值，且要给标签配置value值。
-    若：&lt;input type=&quot;checkbox&quot;/&gt;
-    1.没有配置input的value属性，那么收集的就是checked（勾选 or 未勾选，是布尔值）
-    2.配置input的value属性:
-    (1)v-model的初始值是非数组，那么收集的就是checked（勾选 or 未勾选，是布尔值）
-    (2)v-model的初始值是数组，那么收集的的就是value组成的数组
-    备注：v-model的三个修饰符：
-    lazy：失去焦点再收集数据
-    number：输入字符串转为有效的数字
-    trim：输入首尾空格过滤
-</code></pre>
-<pre><code>&lt;form @submit.prevent=&quot;demo&quot;&gt;
-                账号：&lt;input type=&quot;text&quot; v-model.trim=&quot;userInfo.account&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-                密码：&lt;input type=&quot;password&quot; v-model=&quot;userInfo.password&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-                年龄：&lt;input type=&quot;number&quot; v-model.number=&quot;userInfo.age&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-                性别：
-                男&lt;input type=&quot;radio&quot; name=&quot;sex&quot; v-model=&quot;userInfo.sex&quot; value=&quot;male&quot;&gt;
-                女&lt;input type=&quot;radio&quot; name=&quot;sex&quot; v-model=&quot;userInfo.sex&quot; value=&quot;female&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-                爱好：
-                学习&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;study&quot;&gt;
-                打游戏&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;game&quot;&gt;
-                吃饭&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;eat&quot;&gt;
-                &lt;br/&gt;&lt;br/&gt;
-                所属校区
-                &lt;select v-model=&quot;userInfo.city&quot;&gt;
-                    &lt;option value=&quot;&quot;&gt;请选择校区&lt;/option&gt;
-                    &lt;option value=&quot;beijing&quot;&gt;北京&lt;/option&gt;
-                    &lt;option value=&quot;shanghai&quot;&gt;上海&lt;/option&gt;
-                    &lt;option value=&quot;shenzhen&quot;&gt;深圳&lt;/option&gt;
-                    &lt;option value=&quot;wuhan&quot;&gt;武汉&lt;/option&gt;
-                &lt;/select&gt;
-                &lt;br/&gt;&lt;br/&gt;
-                其他信息：
-                &lt;textarea v-model.lazy=&quot;userInfo.other&quot;&gt;&lt;/textarea&gt; &lt;br/&gt;&lt;br/&gt;
-                &lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.agree&quot;&gt;阅读并接受&lt;a href=&quot;http://www.atguigu.com&quot;&gt;《用户协议》&lt;/a&gt;
-                &lt;button&gt;提交&lt;/button&gt;
-&lt;/form&gt;
-            
-            
-            
-            
-data:&#123;
-    userInfo:&#123;
-    account:&#39;&#39;,
-    password:&#39;&#39;,
-    age:18,
-    sex:&#39;female&#39;,
-    hobby:[],
-    city:&#39;beijing&#39;,
-    other:&#39;&#39;,
-    agree:&#39;&#39;
-&#125;
-</code></pre>
-<h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1><pre><code>过滤器：
-    定义：对要显示的数据进行特定格式化后再显示（适用于一些简单逻辑的处理）。
-    语法：
-    1.注册过滤器：Vue.filter(name,callback) 或 new Vue&#123;filters:&#123;&#125;&#125;
-    2.使用过滤器：&#123;&#123; xxx | 过滤器名&#125;&#125;  或  v-bind:属性 = &quot;xxx | 过滤器名&quot;
-    备注：
-    1.过滤器也可以接收额外参数、多个过滤器也可以串联
-    2.并没有改变原本的数据, 是产生新的对应的数据
-</code></pre>
-<pre><code>    //全局过滤器
-    Vue.filter(&#39;mySlice&#39;,function(value)&#123;
-        return value.slice(0,4)
-    &#125;)
-
-    //局部过滤器
-    filters:&#123;
-        timeFormater(value,str=&#39;YYYY年MM月DD日 HH:mm:ss&#39;)&#123;
-        // console.log(&#39;@&#39;,value)
-        return dayjs(value).format(str)
-        &#125;
-    &#125;
-</code></pre>
-<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><pre><code>我们学过的指令：
-    v-bind    : 单向绑定解析表达式, 可简写为 :xxx
-    v-model    : 双向数据绑定
-    v-for      : 遍历数组/对象/字符串
-    v-on       : 绑定事件监听, 可简写为@
-    v-if          : 条件渲染（动态控制节点是否存存在）
-    v-else     : 条件渲染（动态控制节点是否存存在）
-    v-show     : 条件渲染 (动态控制节点是否展示)
-    v-text指令：
-    1.作用：向其所在的节点中渲染文本内容。
-    2.与插值语法的区别：v-text会替换掉节点中的内容，&#123;&#123;xx&#125;&#125;则不会。
-</code></pre>
-<pre><code>v-html指令：
-    1.作用：向指定节点中渲染包含html结构的内容。
-    2.与插值语法的区别：
-    (1).v-html会替换掉节点中所有的内容，&#123;&#123;xx&#125;&#125;则不会。
-    (2).v-html可以识别html结构。
-    3.严重注意：v-html有安全性问题！！！！
-    (1).在网站上动态渲染任意HTML是非常危险的，容易导致XSS攻击。
-    (2).一定要在可信的内容上使用v-html，永不要用在用户提交的内容上！
-</code></pre>
-<pre><code>v-cloak指令（没有值）：
-
-            1.本质是一个特殊属性，Vue实例创建完毕并接管容器后，会删掉v-cloak属性。
-            2.使用css配合v-cloak可以解决网速慢时页面展示出&#123;&#123;xxx&#125;&#125;的问题。
-v-once指令：
-            1.v-once所在节点在初次动态渲染后，就视为静态内容了。
-            2.以后数据的改变不会引起v-once所在结构的更新，可以用于优化性能。
-v-pre指令：
-            1.跳过其所在节点的编译过程。
-            2.可利用它跳过：没有使用指令语法、没有使用插值语法的节点，会加快编译。
-</code></pre>
-<h1 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h1><img src="C:\Users\kuankuan\AppData\Roaming\Typora\typora-user-images\image-20210910095050679.png" alt="image-20210910095050679" style="zoom:150%;" />
-
-<pre><code>directives:&#123;
-            //big函数何时会被调用？1.指令与元素成功绑定时（一上来）。2.指令所在的模板被重新解析时。
-            /* &#39;big-number&#39;(element,binding)&#123;
-            // console.log(&#39;big&#39;)
-                element.innerText = binding.value * 10
-            &#125;, */
-            big(element,binding)&#123;
-            console.log(&#39;big&#39;,this) //注意此处的this是window
-            // console.log(&#39;big&#39;)
-                element.innerText = binding.value * 10
-            &#125;,
-            fbind:&#123;
-            //指令与元素成功绑定时（一上来）
-            bind(element,binding)&#123;
-                element.value = binding.value
-            &#125;,
-            //指令所在元素被插入页面时
-            inserted(element,binding)&#123;
-                element.focus()
-            &#125;,
-            //指令所在的模板被重新解析时
-            update(element,binding)&#123;
-                element.value = binding.value
-            &#125;
-           &#125;
-        &#125;
-</code></pre>
-<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><p>生命周期：</p>
-<p>​            1.又名：生命周期回调函数、生命周期函数、生命周期钩子。</p>
-<p>​            2.是什么：Vue在关键时刻帮我们调用的一些特殊名称的函数。</p>
-<p>​            3.生命周期函数的名字不可更改，但函数的具体内容是程序员根据需求编写的。</p>
-<p>​            4.生命周期函数中的this指向是vm 或 组件实例对象。</p>
-<pre><code>常用的生命周期钩子：
-                        1.mounted: 发送ajax请求、启动定时器、绑定自定义事件、订阅消息等【初始化操作】。
-                        2.beforeDestroy: 清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】。
-
-                关于销毁Vue实例
-                        1.销毁后借助Vue开发者工具看不到任何信息。
-                        2.销毁后自定义事件会失效，但原生DOM事件依然有效。
-                        3.一般不会在beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了。
-</code></pre>
-<h1 id="1-一个重要的内置关系：VueComponent-prototype-proto-Vue-prototype"><a href="#1-一个重要的内置关系：VueComponent-prototype-proto-Vue-prototype" class="headerlink" title="1.一个重要的内置关系：VueComponent.prototype.proto === Vue.prototype"></a>1.一个重要的内置关系：VueComponent.prototype.<strong>proto</strong> === Vue.prototype</h1><h1 id="2-为什么要有这个关系：让组件实例对象（vc）可以访问到-Vue原型上的属性、方法。"><a href="#2-为什么要有这个关系：让组件实例对象（vc）可以访问到-Vue原型上的属性、方法。" class="headerlink" title="2.为什么要有这个关系：让组件实例对象（vc）可以访问到 Vue原型上的属性、方法。"></a>2.为什么要有这个关系：让组件实例对象（vc）可以访问到 Vue原型上的属性、方法。</h1>]]></content>
-      <categories>
-        <category>vue</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue  脚手架</title>
     <url>/2021/11/24/vue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
     <content><![CDATA[<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><h2 id="脚手架文件结构"><a href="#脚手架文件结构" class="headerlink" title="脚手架文件结构"></a>脚手架文件结构</h2><pre><code>├── node_modules 
@@ -2827,5 +2305,527 @@ beforeRouteLeave (to, from, next) &#123;
 </li>
 </ol>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Vue  单文件</title>
+    <url>/2021/11/24/vue%E5%8D%95%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="初识Vue："><a href="#初识Vue：" class="headerlink" title="初识Vue："></a>初识Vue：</h1><p>​        1.想让Vue工作，就必须创建一个Vue实例，且要传入一个配置对象；</p>
+<p>​        2.root容器里的代码依然符合html规范，只不过混入了一些特殊的Vue语法；</p>
+<p>​        3.root容器里的代码被称为【Vue模板】；</p>
+<p>​        4.Vue实例和容器是一一对应的；</p>
+<p>​        5.真实开发中只有一个Vue实例，并且会配合着组件一起使用；</p>
+<p>​        6.中的xxx要写js表达式，且xxx可以自动读取到data中的所有属性；</p>
+<p>​        7.一旦data中的数据发生改变，那么页面中用到该数据的地方也会自动更新；</p>
+<p>​        注意区分：js表达式 和 js代码(语句)</p>
+<pre><code class="javascript">            1.表达式：一个表达式会产生一个值，可以放在任何一个需要值的地方：
+
+​                  (1). a
+
+​                  (2). a+b
+
+​                  (3). demo(1)
+
+​                  (4). x === y ? &#39;a&#39; : &#39;b&#39;
+</code></pre>
+<pre><code>            2.js代码(语句)
+
+​                  (1). if()&#123;&#125;
+
+​                  (2). for()&#123;&#125;
+</code></pre>
+<h1 id="Vue模板语法有2大类："><a href="#Vue模板语法有2大类：" class="headerlink" title="Vue模板语法有2大类："></a>Vue模板语法有2大类：</h1><h2 id="1-插值语法："><a href="#1-插值语法：" class="headerlink" title="1.插值语法："></a>1.插值语法：</h2><p>​              功能：用于解析标签体内容。</p>
+<p>​              写法：，xxx是js表达式，且可以直接读取到data中的所有属性。</p>
+<h2 id="2-指令语法："><a href="#2-指令语法：" class="headerlink" title="2.指令语法："></a>2.指令语法：</h2><p>​              功能：用于解析标签（包括：标签属性、标签体内容、绑定事件…..）。</p>
+<p>​              举例：v-bind:href=”xxx” 或 简写为 :href=”xxx”，xxx同样要写js表达式，</p>
+<p>​                   且可以直接读取到data中的所有属性。</p>
+<p>​              备注：Vue中有很多的指令，且形式都是：v-????，此处我们只是拿v-bind举个例子。</p>
+<h1 id="Vue中有2种数据绑定的方式："><a href="#Vue中有2种数据绑定的方式：" class="headerlink" title="Vue中有2种数据绑定的方式："></a>Vue中有2种数据绑定的方式：</h1><p>​          1.单向绑定(v-bind)：数据只能从data流向页面。</p>
+<p>​          2.双向绑定(v-model)：数据不仅能从data流向页面，还可以从页面流向data。</p>
+<p>​            备注：</p>
+<p>​                1.双向绑定一般都应用在表单类元素上（如：input、select等）</p>
+<p>​                2.v-model:value 可以简写为 v-model，因为v-model默认收集的就是value值。</p>
+<h1 id="data与el的2种写法"><a href="#data与el的2种写法" class="headerlink" title="data与el的2种写法"></a>data与el的2种写法</h1><h2 id="1-el有2种写法"><a href="#1-el有2种写法" class="headerlink" title="1.el有2种写法"></a>1.el有2种写法</h2><p>​                  (1).new Vue时候配置el属性。</p>
+<p>​                  (2).先创建Vue实例，随后再通过vm.$mount(‘#root’)指定el的值。</p>
+<h2 id="2-data有2种写法"><a href="#2-data有2种写法" class="headerlink" title="2.data有2种写法"></a>2.data有2种写法</h2><p>​                  (1).对象式</p>
+<p>​                  (2).函数式</p>
+<p>​                  如何选择：目前哪种写法都可以，以后学习到组件时，data必须使用函数式，否则会报错。</p>
+<h2 id="3-一个重要的原则："><a href="#3-一个重要的原则：" class="headerlink" title="3.一个重要的原则："></a>3.一个重要的原则：</h2><p>​                  由Vue管理的函数，一定不要写箭头函数，一旦写了箭头函数，this就不再是Vue实例了。</p>
+<h1 id="MVVM模型"><a href="#MVVM模型" class="headerlink" title="MVVM模型"></a>MVVM模型</h1><pre><code>            \1. M：模型(Model) ：data中的数据
+
+​            \2. V：视图(View) ：模板代码
+
+​            \3. VM：视图模型(ViewModel)：Vue实例
+</code></pre>
+<p>​      观察发现：</p>
+<p>​            1.data中所有的属性，最后都出现在了vm身上。</p>
+<p>​            2.vm身上所有的属性 及 Vue原型上所有属性，在Vue模板中都可以直接使用。</p>
+<h1 id="回顾Object-defineproperty方法"><a href="#回顾Object-defineproperty方法" class="headerlink" title="回顾Object.defineproperty方法"></a>回顾Object.defineproperty方法</h1><pre><code class="javascript">&lt;script type=&quot;text/javascript&quot; &gt;
+let number = 18
+let person = &#123;
+name:&#39;张三&#39;,
+sex:&#39;男&#39;,
+&#125;
+
+Object.defineProperty(person,&#39;age&#39;,&#123;
+// value:18,
+// enumerable:true, //控制属性是否可以枚举，默认值是false
+// writable:true, //控制属性是否可以被修改，默认值是false
+// configurable:true //控制属性是否可以被删除，默认值是false
+
+//当有人读取person的age属性时，get函数(getter)就会被调用，且返回值就是age的值
+get()&#123;
+console.log(&#39;有人读取age属性了&#39;)
+return number
+&#125;,
+
+//当有人修改person的age属性时，set函数(setter)就会被调用，且会收到修改的具体值
+set(value)&#123;
+console.log(&#39;有人修改了age属性，且值是&#39;,value)
+number = value
+&#125;
+
+&#125;)
+
+// console.log(Object.keys(person))
+
+console.log(person)
+&lt;/script&gt;
+</code></pre>
+<h1 id="何为数据代理"><a href="#何为数据代理" class="headerlink" title="何为数据代理"></a>何为数据代理</h1><pre><code class="javascript">&lt;!-- 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）--&gt;
+        &lt;script type=&quot;text/javascript&quot; &gt;
+            let obj = &#123;x:100&#125;
+            let obj2 = &#123;y:200&#125;
+
+            Object.defineProperty(obj2,&#39;x&#39;,&#123;
+                get()&#123;
+                    return obj.x
+                &#125;,
+                set(value)&#123;
+                    obj.x = value
+                &#125;
+            &#125;)
+        &lt;/script&gt;
+</code></pre>
+<h1 id="Vue中的数据代理"><a href="#Vue中的数据代理" class="headerlink" title="Vue中的数据代理"></a>Vue中的数据代理</h1><pre><code class="javascript">1.Vue中的数据代理：
+    通过vm对象来代理data对象中属性的操作（读/写）
+2.Vue中数据代理的好处：
+    更加方便的操作data中的数据
+3.基本原理：
+    通过Object.defineProperty()把data对象中所有属性添加到vm上。
+    为每一个添加到vm上的属性，都指定一个getter/setter。
+    在getter/setter内部去操作（读/写）data中对应的属性。
+</code></pre>
+<h1 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h1><p>事件的基本使用：</p>
+<pre><code class="javascript">              1.使用v-on:xxx 或 @xxx 绑定事件，其中xxx是事件名；
+
+​              2.事件的回调需要配置在methods对象中，最终会在vm上；
+
+​              3.methods中配置的函数，不要用箭头函数！否则this就不是vm了；
+
+​              4.methods中配置的函数，都是被Vue所管理的函数，this的指向是vm 或 组件实例对象；
+
+​              5.@click=&quot;demo&quot; 和 @click=&quot;demo($event)&quot; 效果一致，但后者可以传参；
+</code></pre>
+<pre><code class="javascript">Vue中的事件修饰符：
+
+​            1.prevent：阻止默认事件（常用）；
+
+​            2.stop：阻止事件冒泡（常用）；
+
+​            3.once：事件只触发一次（常用）；
+
+​            4.capture：使用事件的捕获模式；
+
+​            5.self：只有event.target是当前操作的元素时才触发事件；
+
+​            6.passive：事件的默认行为立即执行，无需等待事件回调执行完毕；
+</code></pre>
+<pre><code class="javascript">1.Vue中常用的按键别名：
+                            回车 =&gt; enter
+                            删除 =&gt; delete (捕获“删除”和“退格”键)
+                            退出 =&gt; esc
+                            空格 =&gt; space
+                            换行 =&gt; tab (特殊，必须配合keydown去使用)
+                            上 =&gt; up
+                            下 =&gt; down
+                            左 =&gt; left
+                            右 =&gt; right
+
+                2.Vue未提供别名的按键，可以使用按键原始的key值去绑定，但注意要转为kebab-case（短横线命名）
+
+                3.系统修饰键（用法特殊）：ctrl、alt、shift、meta
+                            (1).配合keyup使用：按下修饰键的同时，再按下其他键，随后释放其他键，事件才被触发。
+                            (2).配合keydown使用：正常触发事件。
+
+                4.也可以使用keyCode去指定具体的按键（不推荐）
+
+                5.Vue.config.keyCodes.自定义键名 = 键码，可以去定制按键别名
+</code></pre>
+<h1 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h1><h3 id="插值语法实现"><a href="#插值语法实现" class="headerlink" title="插值语法实现"></a>插值语法实现</h3><pre><code>html
+    &lt;!-- 准备好一个容器--&gt;
+        &lt;div id=&quot;root&quot;&gt;
+            姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+            名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+            全名：&lt;span&gt;&#123;&#123;firstName&#125;&#125;-&#123;&#123;lastName&#125;&#125;&lt;/span&gt;
+        &lt;/div&gt;
+js
+    new Vue(&#123;
+            el:&#39;#root&#39;,
+            data:&#123;
+                firstName:&#39;张&#39;,
+                lastName:&#39;三&#39;
+            &#125;
+        &#125;)
+</code></pre>
+<h3 id="methods实现"><a href="#methods实现" class="headerlink" title="methods实现"></a>methods实现</h3><pre><code>html 
+    &lt;!-- 准备好一个容器--&gt;
+        &lt;div id=&quot;root&quot;&gt;
+            姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+            名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+            全名：&lt;span&gt;&#123;&#123;fullName()&#125;&#125;&lt;/span&gt;
+        &lt;/div&gt;
+js 
+    new Vue(&#123;
+            el:&#39;#root&#39;,
+            data:&#123;
+                firstName:&#39;张&#39;,
+                lastName:&#39;三&#39;
+            &#125;,
+            methods: &#123;
+                fullName()&#123;
+                    console.log(&#39;@---fullName&#39;)
+                    return this.firstName + &#39;-&#39; + this.lastName
+                &#125;
+            &#125;,
+        &#125;)
+</code></pre>
+<h3 id="计算属性实现"><a href="#计算属性实现" class="headerlink" title="计算属性实现"></a>计算属性实现</h3><pre><code>计算属性：
+    1.定义：要用的属性不存在，要通过已有属性计算得来。
+    2.原理：底层借助了Objcet.defineproperty方法提供的getter和setter。
+    3.get函数什么时候执行？
+        (1).初次读取时会执行一次。
+        (2).当依赖的数据发生改变时会被再次调用。
+    4.优势：与methods实现相比，内部有缓存机制（复用），效率更高，调试方便。
+    5.备注：
+        1.计算属性最终会出现在vm上，直接读取使用即可。
+        2.如果计算属性要被修改，那必须写set函数去响应修改，且set中要引起计算时依赖的数据发生改变。
+html
+        &lt;div id=&quot;root&quot;&gt;
+            姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+            名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+            测试：&lt;input type=&quot;text&quot; v-model=&quot;x&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+            全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
+            &lt;!-- 全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
+            全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
+            全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; --&gt;
+        &lt;/div&gt;
+js 
+    const vm = new Vue(&#123;
+            el:&#39;#root&#39;,
+            data:&#123;
+                firstName:&#39;张&#39;,
+                lastName:&#39;三&#39;,
+                x:&#39;你好&#39;
+            &#125;,
+            methods: &#123;
+                demo()&#123;
+                    
+                &#125;
+            &#125;,
+            computed:&#123;
+                fullName:&#123;
+                    //get有什么作用？当有人读取fullName时，get就会被调用，且返回值就作为fullName的值
+                    //get什么时候调用？1.初次读取fullName时。2.所依赖的数据发生变化时。
+                    get()&#123;
+                        console.log(&#39;get被调用了&#39;)
+                        // console.log(this) //此处的this是vm
+                        return this.firstName + &#39;-&#39; + this.lastName
+                    &#125;,
+                    //set什么时候调用? 当fullName被修改时。
+                    set(value)&#123;
+                        console.log(&#39;set&#39;,value)
+                        const arr = value.split(&#39;-&#39;)
+                        this.firstName = arr[0]
+                        this.lastName = arr[1]
+                    &#125;
+                &#125;
+            &#125;
+        &#125;)
+</code></pre>
+<h4 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h4><pre><code>html
+    &lt;div id=&quot;root&quot;&gt;
+        姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+        名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+        全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
+    &lt;/div&gt;
+js
+    const vm = new Vue(&#123;
+            el:&#39;#root&#39;,
+            data:&#123;
+                firstName:&#39;张&#39;,
+                lastName:&#39;三&#39;,
+            &#125;,
+            computed:&#123;
+                //简写
+                fullName()&#123;
+                    console.log(&#39;get被调用了&#39;)
+                    return this.firstName + &#39;-&#39; + this.lastName
+                &#125;
+            &#125;
+        &#125;)
+</code></pre>
+<h1 id="监视属性"><a href="#监视属性" class="headerlink" title="监视属性"></a>监视属性</h1><pre><code>html
+    &lt;div id=&quot;root&quot;&gt;
+            &lt;h2&gt;今天天气很&#123;&#123;info&#125;&#125;&lt;/h2&gt;
+            &lt;!-- 绑定事件的时候：@xxx=&quot;yyy&quot; yyy可以写一些简单的语句 --&gt;
+            &lt;!-- &lt;button @click=&quot;isHot = !isHot&quot;&gt;切换天气&lt;/button&gt; --&gt;
+            &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;
+    &lt;/div&gt;
+    
+js
+    const vm = new Vue(&#123;
+            el:&#39;#root&#39;,
+            data:&#123;
+                isHot:true,
+            &#125;,
+            computed:&#123;
+                info()&#123;
+                    return this.isHot ? &#39;炎热&#39; : &#39;凉爽&#39;
+                &#125;
+            &#125;,
+            methods: &#123;
+                changeWeather()&#123;
+                    this.isHot = !this.isHot
+                &#125;
+            &#125;,
+        &#125;)
+</code></pre>
+<h4 id="监视属性watch："><a href="#监视属性watch：" class="headerlink" title="监视属性watch："></a>监视属性watch：</h4><pre><code>          1.当被监视的属性变化时, 回调函数自动调用, 进行相关操作
+
+​          2.监视的属性必须存在，才能进行监视！！
+
+​          3.监视的两种写法：
+
+​              (1).new Vue时传入watch配置
+
+​              (2).通过vm.$watch监视
+</code></pre>
+<pre><code>            /* watch:&#123;
+                isHot:&#123;
+                    immediate:true, //初始化时让handler调用一下
+                    //handler什么时候调用？当isHot发生改变时。
+                    handler(newValue,oldValue)&#123;
+                        console.log(&#39;isHot被修改了&#39;,newValue,oldValue)
+                    &#125;
+                &#125;
+            &#125; */
+            
+            
+            
+            
+            vm.$watch(&#39;isHot&#39;,&#123;
+                immediate:true, //初始化时让handler调用一下
+                //handler什么时候调用？当isHot发生改变时。
+                handler(newValue,oldValue)&#123;
+                console.log(&#39;isHot被修改了&#39;,newValue,oldValue)
+                &#125;
+            &#125;)
+</code></pre>
+<h2 id="深度监视："><a href="#深度监视：" class="headerlink" title="深度监视："></a>深度监视：</h2><pre><code>            (1).Vue中的watch默认不监测对象内部值的改变（一层）。
+
+​            (2).配置deep:true可以监测对象内部值改变（多层）。
+
+​        备注：
+
+​            (1).Vue自身可以监测对象内部值的改变，但Vue提供的watch默认不可以！
+
+​            (2).使用watch时根据数据的具体结构，决定是否采用深度监视。
+</code></pre>
+<h2 id="简写-1"><a href="#简写-1" class="headerlink" title="简写"></a>简写</h2><pre><code>watch: &#123;
+            //正常写法
+            /* isHot:&#123;
+                // immediate:true, //初始化时让handler调用一下
+                // deep:true,//深度监视
+                handler(newValue,oldValue)&#123;
+                    console.log(&#39;isHot被修改了&#39;,newValue,oldValue)
+                &#125;
+            &#125;, */
+            //简写
+            /* isHot(newValue,oldValue)&#123;
+                console.log(&#39;isHot被修改了&#39;,newValue,oldValue,this)
+            &#125; */
+        &#125;
+</code></pre>
+<h1 id="computed和watch之间的区别："><a href="#computed和watch之间的区别：" class="headerlink" title="computed和watch之间的区别："></a>computed和watch之间的区别：</h1><pre><code>            1.computed能完成的功能，watch都可以完成。
+
+​            2.watch能完成的功能，computed不一定能完成，例如：watch可以进行异步操作。
+
+​        两个重要的小原则：
+
+​              1.所被Vue管理的函数，最好写成普通函数，这样this的指向才是vm 或 组件实例对象。
+
+​              2.所有不被Vue所管理的函数（定时器的回调函数、ajax的回调函数等、Promise的回调函数），最好写成箭头函数，
+
+​                这样this的指向才是vm 或 组件实例对象。
+</code></pre>
+<h1 id="收集表单数据"><a href="#收集表单数据" class="headerlink" title="收集表单数据"></a>收集表单数据</h1><pre><code>收集表单数据：
+    若：&lt;input type=&quot;text&quot;/&gt;，则v-model收集的是value值，用户输入的就是value值。
+    若：&lt;input type=&quot;radio&quot;/&gt;，则v-model收集的是value值，且要给标签配置value值。
+    若：&lt;input type=&quot;checkbox&quot;/&gt;
+    1.没有配置input的value属性，那么收集的就是checked（勾选 or 未勾选，是布尔值）
+    2.配置input的value属性:
+    (1)v-model的初始值是非数组，那么收集的就是checked（勾选 or 未勾选，是布尔值）
+    (2)v-model的初始值是数组，那么收集的的就是value组成的数组
+    备注：v-model的三个修饰符：
+    lazy：失去焦点再收集数据
+    number：输入字符串转为有效的数字
+    trim：输入首尾空格过滤
+</code></pre>
+<pre><code>&lt;form @submit.prevent=&quot;demo&quot;&gt;
+                账号：&lt;input type=&quot;text&quot; v-model.trim=&quot;userInfo.account&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+                密码：&lt;input type=&quot;password&quot; v-model=&quot;userInfo.password&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+                年龄：&lt;input type=&quot;number&quot; v-model.number=&quot;userInfo.age&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+                性别：
+                男&lt;input type=&quot;radio&quot; name=&quot;sex&quot; v-model=&quot;userInfo.sex&quot; value=&quot;male&quot;&gt;
+                女&lt;input type=&quot;radio&quot; name=&quot;sex&quot; v-model=&quot;userInfo.sex&quot; value=&quot;female&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+                爱好：
+                学习&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;study&quot;&gt;
+                打游戏&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;game&quot;&gt;
+                吃饭&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;eat&quot;&gt;
+                &lt;br/&gt;&lt;br/&gt;
+                所属校区
+                &lt;select v-model=&quot;userInfo.city&quot;&gt;
+                    &lt;option value=&quot;&quot;&gt;请选择校区&lt;/option&gt;
+                    &lt;option value=&quot;beijing&quot;&gt;北京&lt;/option&gt;
+                    &lt;option value=&quot;shanghai&quot;&gt;上海&lt;/option&gt;
+                    &lt;option value=&quot;shenzhen&quot;&gt;深圳&lt;/option&gt;
+                    &lt;option value=&quot;wuhan&quot;&gt;武汉&lt;/option&gt;
+                &lt;/select&gt;
+                &lt;br/&gt;&lt;br/&gt;
+                其他信息：
+                &lt;textarea v-model.lazy=&quot;userInfo.other&quot;&gt;&lt;/textarea&gt; &lt;br/&gt;&lt;br/&gt;
+                &lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.agree&quot;&gt;阅读并接受&lt;a href=&quot;http://www.atguigu.com&quot;&gt;《用户协议》&lt;/a&gt;
+                &lt;button&gt;提交&lt;/button&gt;
+&lt;/form&gt;
+            
+            
+            
+            
+data:&#123;
+    userInfo:&#123;
+    account:&#39;&#39;,
+    password:&#39;&#39;,
+    age:18,
+    sex:&#39;female&#39;,
+    hobby:[],
+    city:&#39;beijing&#39;,
+    other:&#39;&#39;,
+    agree:&#39;&#39;
+&#125;
+</code></pre>
+<h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1><pre><code>过滤器：
+    定义：对要显示的数据进行特定格式化后再显示（适用于一些简单逻辑的处理）。
+    语法：
+    1.注册过滤器：Vue.filter(name,callback) 或 new Vue&#123;filters:&#123;&#125;&#125;
+    2.使用过滤器：&#123;&#123; xxx | 过滤器名&#125;&#125;  或  v-bind:属性 = &quot;xxx | 过滤器名&quot;
+    备注：
+    1.过滤器也可以接收额外参数、多个过滤器也可以串联
+    2.并没有改变原本的数据, 是产生新的对应的数据
+</code></pre>
+<pre><code>    //全局过滤器
+    Vue.filter(&#39;mySlice&#39;,function(value)&#123;
+        return value.slice(0,4)
+    &#125;)
+
+    //局部过滤器
+    filters:&#123;
+        timeFormater(value,str=&#39;YYYY年MM月DD日 HH:mm:ss&#39;)&#123;
+        // console.log(&#39;@&#39;,value)
+        return dayjs(value).format(str)
+        &#125;
+    &#125;
+</code></pre>
+<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><pre><code>我们学过的指令：
+    v-bind    : 单向绑定解析表达式, 可简写为 :xxx
+    v-model    : 双向数据绑定
+    v-for      : 遍历数组/对象/字符串
+    v-on       : 绑定事件监听, 可简写为@
+    v-if          : 条件渲染（动态控制节点是否存存在）
+    v-else     : 条件渲染（动态控制节点是否存存在）
+    v-show     : 条件渲染 (动态控制节点是否展示)
+    v-text指令：
+    1.作用：向其所在的节点中渲染文本内容。
+    2.与插值语法的区别：v-text会替换掉节点中的内容，&#123;&#123;xx&#125;&#125;则不会。
+</code></pre>
+<pre><code>v-html指令：
+    1.作用：向指定节点中渲染包含html结构的内容。
+    2.与插值语法的区别：
+    (1).v-html会替换掉节点中所有的内容，&#123;&#123;xx&#125;&#125;则不会。
+    (2).v-html可以识别html结构。
+    3.严重注意：v-html有安全性问题！！！！
+    (1).在网站上动态渲染任意HTML是非常危险的，容易导致XSS攻击。
+    (2).一定要在可信的内容上使用v-html，永不要用在用户提交的内容上！
+</code></pre>
+<pre><code>v-cloak指令（没有值）：
+
+            1.本质是一个特殊属性，Vue实例创建完毕并接管容器后，会删掉v-cloak属性。
+            2.使用css配合v-cloak可以解决网速慢时页面展示出&#123;&#123;xxx&#125;&#125;的问题。
+v-once指令：
+            1.v-once所在节点在初次动态渲染后，就视为静态内容了。
+            2.以后数据的改变不会引起v-once所在结构的更新，可以用于优化性能。
+v-pre指令：
+            1.跳过其所在节点的编译过程。
+            2.可利用它跳过：没有使用指令语法、没有使用插值语法的节点，会加快编译。
+</code></pre>
+<h1 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h1><img src="C:\Users\kuankuan\AppData\Roaming\Typora\typora-user-images\image-20210910095050679.png" alt="image-20210910095050679" style="zoom:150%;" />
+
+<pre><code>directives:&#123;
+            //big函数何时会被调用？1.指令与元素成功绑定时（一上来）。2.指令所在的模板被重新解析时。
+            /* &#39;big-number&#39;(element,binding)&#123;
+            // console.log(&#39;big&#39;)
+                element.innerText = binding.value * 10
+            &#125;, */
+            big(element,binding)&#123;
+            console.log(&#39;big&#39;,this) //注意此处的this是window
+            // console.log(&#39;big&#39;)
+                element.innerText = binding.value * 10
+            &#125;,
+            fbind:&#123;
+            //指令与元素成功绑定时（一上来）
+            bind(element,binding)&#123;
+                element.value = binding.value
+            &#125;,
+            //指令所在元素被插入页面时
+            inserted(element,binding)&#123;
+                element.focus()
+            &#125;,
+            //指令所在的模板被重新解析时
+            update(element,binding)&#123;
+                element.value = binding.value
+            &#125;
+           &#125;
+        &#125;
+</code></pre>
+<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><p>生命周期：</p>
+<p>​            1.又名：生命周期回调函数、生命周期函数、生命周期钩子。</p>
+<p>​            2.是什么：Vue在关键时刻帮我们调用的一些特殊名称的函数。</p>
+<p>​            3.生命周期函数的名字不可更改，但函数的具体内容是程序员根据需求编写的。</p>
+<p>​            4.生命周期函数中的this指向是vm 或 组件实例对象。</p>
+<pre><code>常用的生命周期钩子：
+                        1.mounted: 发送ajax请求、启动定时器、绑定自定义事件、订阅消息等【初始化操作】。
+                        2.beforeDestroy: 清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】。
+
+                关于销毁Vue实例
+                        1.销毁后借助Vue开发者工具看不到任何信息。
+                        2.销毁后自定义事件会失效，但原生DOM事件依然有效。
+                        3.一般不会在beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了。
+</code></pre>
+<h1 id="1-一个重要的内置关系：VueComponent-prototype-proto-Vue-prototype"><a href="#1-一个重要的内置关系：VueComponent-prototype-proto-Vue-prototype" class="headerlink" title="1.一个重要的内置关系：VueComponent.prototype.proto === Vue.prototype"></a>1.一个重要的内置关系：VueComponent.prototype.<strong>proto</strong> === Vue.prototype</h1><h1 id="2-为什么要有这个关系：让组件实例对象（vc）可以访问到-Vue原型上的属性、方法。"><a href="#2-为什么要有这个关系：让组件实例对象（vc）可以访问到-Vue原型上的属性、方法。" class="headerlink" title="2.为什么要有这个关系：让组件实例对象（vc）可以访问到 Vue原型上的属性、方法。"></a>2.为什么要有这个关系：让组件实例对象（vc）可以访问到 Vue原型上的属性、方法。</h1>]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
   </entry>
 </search>
