@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            JavaScript-es9、10、11 | ぎ大路宽宽
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">ぎ大路宽宽</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="https://s3.bmp.ovh/imgs/2021/11/b74ba8f7a70ffeb0.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">Dalu Kuankuan</div>
+            <div class="sidebar-description">选择有时候比努力更重要</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:xxx@xxx.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2021/11/26/JavaScript-es9%E3%80%8110%E3%80%8111/">JavaScript-es9、10、11</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2021-11-26
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2021-11-26
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=JavaScript-es9、10、11&url=http://example.com/2021/11/26/JavaScript-es9%E3%80%8110%E3%80%8111/&pic=http://example.com/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=JavaScript-es9、10、11&url=http://example.com/2021/11/26/JavaScript-es9%E3%80%8110%E3%80%8111/&via=Dalu Kuankuan" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/11/26/JavaScript-es9%E3%80%8110%E3%80%8111/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://example.com/2021/11/26/JavaScript-es9%E3%80%8110%E3%80%8111/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2021/11/26/JavaScript-es9%E3%80%8110%E3%80%8111/&title=JavaScript-es9、10、11" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=ぎ大路宽宽&title=JavaScript-es9、10、11&summary=选择有时候比努力更重要&pics=http://example.com/null&url=http://example.com/2021/11/26/JavaScript-es9%E3%80%8110%E3%80%8111/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://example.com/2021/11/26/JavaScript-es9%E3%80%8110%E3%80%8111/&text=JavaScript-es9、10、11" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/es9%E3%80%81es10%E3%80%81es11/ >es9、es10、es11</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h1 id="ECMASript-9-新特性"><a href="#ECMASript-9-新特性" class="headerlink" title="ECMASript 9 新特性"></a>ECMASript 9 新特性</h1><h2 id="Rest-Spread-属性"><a href="#Rest-Spread-属性" class="headerlink" title="Rest/Spread 属性"></a>Rest/Spread 属性</h2><blockquote>
+<p>Rest 参数与 spread 扩展运算符在 ES6 中已经引入，不过 ES6 中只针对于数组， 在 ES9 中为对象提供了像数组一样的 rest 参数和扩展运算符</p>
+</blockquote>
+<pre><code class="javascript">&lt;!-- 
+    Rest 参数与 spread 扩展运算符在 ES6 中已经引入，不过 ES6 中只针对于数组，
+    在 ES9 中为对象提供了像数组一样的 rest 参数和扩展运算符
+    --&gt;
+&lt;script&gt;
+    //rest 参数
+    function connect(&#123;host, port, ...user&#125;)&#123;
+        console.log(host);
+        console.log(port);
+        console.log(user);
+    &#125;
+
+    connect(&#123;
+        host: &#39;127.0.0.1&#39;,
+        port: 3306,
+        username: &#39;root&#39;,
+        password: &#39;root&#39;,
+        type: &#39;master&#39;
+    &#125;);
+
+
+    //对象合并
+    const skillOne = &#123;
+        q: &#39;天音波&#39;
+    &#125;
+
+    const skillTwo = &#123;
+        w: &#39;金钟罩&#39;
+    &#125;
+
+    const skillThree = &#123;
+        e: &#39;天雷破&#39;
+    &#125;
+    const skillFour = &#123;
+        r: &#39;猛龙摆尾&#39;
+    &#125;
+
+    const mangseng = &#123;...skillOne, ...skillTwo, ...skillThree, ...skillFour&#125;;
+
+    console.log(mangseng)
+
+    // ...skillOne   =&gt;  q: &#39;天音波&#39;, w: &#39;金钟罩&#39;
+
+&lt;/script&gt;
+</code></pre>
+<h2 id="正则表达式命名捕获组"><a href="#正则表达式命名捕获组" class="headerlink" title="正则表达式命名捕获组"></a>正则表达式命名捕获组</h2><blockquote>
+<p>ES9 允许命名捕获组使用符号『?』,这样获取捕获结果可读性更强</p>
+</blockquote>
+<pre><code class="javascript">&lt;script&gt;
+    //声明一个字符串
+    // let str = &#39;&lt;a href=&quot;https://kuankuan.xyz/&quot;&gt;宽宽博客&lt;/a&gt;&#39;;
+
+    // //提取 url 与 『标签文本』
+    // const reg = /&lt;a href=&quot;(.*)&quot;&gt;(.*)&lt;\/a&gt;/;
+
+    // //执行
+    // const result = reg.exec(str);
+
+    // console.log(result);
+    // // console.log(result[1]);
+    // // console.log(result[2]);
+
+    
+    let str = &#39;&lt;a href=&quot;https://kuankuan.xyz/&quot;&gt;宽宽博客&lt;/a&gt;&#39;;
+    //分组命名
+    const reg = /&lt;a href=&quot;(?&lt;url&gt;.*)&quot;&gt;(?&lt;text&gt;.*)&lt;\/a&gt;/;
+
+    const result = reg.exec(str);
+
+    console.log(result.groups.url);
+
+    console.log(result.groups.text);
+&lt;/script&gt;
+</code></pre>
+<h2 id="正则表达式反向断言"><a href="#正则表达式反向断言" class="headerlink" title="正则表达式反向断言"></a>正则表达式反向断言</h2><blockquote>
+<p>ES9 支持反向断言，通过对匹配结果前面的内容进行判断，对匹配进行筛选。</p>
+</blockquote>
+<pre><code class="javascript">&lt;script&gt;
+    //声明字符串
+    let str = &#39;JS5211314你知道么555啦啦啦&#39;;
+    //正向断言
+    const reg = /\d+(?=啦)/;
+    const result = reg.exec(str);
+
+    //反向断言
+    const reg = /(?&lt;=么)\d+/;
+    const result = reg.exec(str);
+    console.log(result);
+&lt;/script&gt;
+</code></pre>
+<h2 id="正则表达式-dotAll-模式"><a href="#正则表达式-dotAll-模式" class="headerlink" title="正则表达式 dotAll 模式"></a>正则表达式 dotAll 模式</h2><blockquote>
+<p>正则表达式中点.匹配除回车外的任何单字符，标记『s』改变这种行为，允许行 终止符出现</p>
+</blockquote>
+<pre><code class="javascript">&lt;script&gt;
+    //dot  .  元字符  除换行符以外的任意单个字符
+    let str = `
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;a&gt;肖生克的救赎&lt;/a&gt;
+            &lt;p&gt;上映日期: 1994-09-10&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a&gt;阿甘正传&lt;/a&gt;
+            &lt;p&gt;上映日期: 1994-07-06&lt;/p&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;`;
+    //声明正则
+    // const reg = /&lt;li&gt;\s+&lt;a&gt;(.*?)&lt;\/a&gt;\s+&lt;p&gt;(.*?)&lt;\/p&gt;/;
+    const reg = /&lt;li&gt;.*?&lt;a&gt;(.*?)&lt;\/a&gt;.*?&lt;p&gt;(.*?)&lt;\/p&gt;/gs;
+    //执行匹配
+    // const result = reg.exec(str);
+    let result;
+    let data = [];
+    while(result = reg.exec(str))&#123;
+        data.push(&#123;title: result[1], time: result[2]&#125;);
+    &#125;
+    //输出结果
+    console.log(data);
+&lt;/script&gt;
+</code></pre>
+<h1 id="ECMASript-10-新特性"><a href="#ECMASript-10-新特性" class="headerlink" title="ECMASript 10 新特性"></a>ECMASript 10 新特性</h1><h2 id="1-Object-fromEntries"><a href="#1-Object-fromEntries" class="headerlink" title="1-Object.fromEntries"></a>1-Object.fromEntries</h2><pre><code class="javascript">&lt;script&gt;
+    //二维数组
+    // const result = Object.fromEntries([
+    //     [&#39;name&#39;,&#39;恋爱学院&#39;],
+    //     [&#39;xueke&#39;, &#39;Java,大数据,前端,云计算&#39;]
+    // ]);
+
+    //Map
+    // const m = new Map();
+    // m.set(&#39;name&#39;,&#39;ATGUIGU&#39;);
+    // const result = Object.fromEntries(m);
+
+    //Object.entries ES8
+    const arr = Object.entries(&#123;
+        name: &quot;恋爱学院&quot;
+    &#125;)
+    console.log(arr);
+&lt;/script&gt;
+</code></pre>
+<h2 id="2-trimStart与trimEnd"><a href="#2-trimStart与trimEnd" class="headerlink" title="2-trimStart与trimEnd"></a>2-trimStart与trimEnd</h2><pre><code class="javascript">&lt;script&gt;    
+    // trim
+    let str = &#39;   iloveyou   &#39;;
+
+    console.log(str);
+    console.log(str.trimStart());
+    console.log(str.trimEnd());
+&lt;/script&gt;
+</code></pre>
+<h2 id="3-Array-prototype-flat与flatMap"><a href="#3-Array-prototype-flat与flatMap" class="headerlink" title="3-Array.prototype.flat与flatMap"></a>3-Array.prototype.flat与flatMap</h2><pre><code class="javascript">&lt;script&gt;
+    //flat 平
+    //将多维数组转化为低位数组
+    // const arr = [1,2,3,4,[5,6]];
+    // const arr = [1,2,3,4,[5,6,[7,8,9]]];
+    //参数为深度 是一个数字
+    // console.log(arr.flat(2));  
+
+    //flatMap
+    const arr = [1,2,3,4];
+    const result = arr.flatMap(item =&gt; [item * 10]);
+    console.log(result);
+&lt;/script&gt;
+</code></pre>
+<h2 id="4-Symbol-prototype-description"><a href="#4-Symbol-prototype-description" class="headerlink" title="4-Symbol.prototype.description"></a>4-Symbol.prototype.description</h2><pre><code class="javascript">&lt;script&gt;
+    //创建 Symbol
+    let s = Symbol(&#39;恋爱学院&#39;);
+
+    console.log(s.description);
+&lt;/script&gt;
+</code></pre>
+<h1 id="ECMASript-11-新特性"><a href="#ECMASript-11-新特性" class="headerlink" title="ECMASript 11 新特性"></a>ECMASript 11 新特性</h1><h2 id="1-私有属性"><a href="#1-私有属性" class="headerlink" title="1-私有属性"></a>1-私有属性</h2><pre><code class="JavaScript">&lt;script&gt;
+    class Person&#123;
+        //公有属性
+        name;
+        //私有属性
+        #age;
+        #weight;
+        //构造方法
+        constructor(name, age, weight)&#123;
+            this.name = name;
+            this.#age = age;
+            this.#weight = weight;
+        &#125;
+
+        intro()&#123;
+            console.log(this.name);
+            console.log(this.#age);
+            console.log(this.#weight);
+        &#125;
+    &#125;
+
+    //实例化
+    const girl = new Person(&#39;晓红&#39;, 18, &#39;45kg&#39;);
+
+    // console.log(girl.name);
+    // console.log(girl.#age);
+    // console.log(girl.#weight);
+
+    girl.intro();
+&lt;/script&gt;
+</code></pre>
+<h2 id="2-Promise-allSettled"><a href="#2-Promise-allSettled" class="headerlink" title="2-Promise.allSettled"></a>2-Promise.allSettled</h2><pre><code class="JavaScript">&lt;script&gt;
+    //声明两个promise对象
+    const p1 = new Promise((resolve, reject)=&gt;&#123;
+        setTimeout(()=&gt;&#123;
+            resolve(&#39;商品数据 - 1&#39;);
+        &#125;,1000)
+    &#125;);
+
+    const p2 = new Promise((resolve, reject)=&gt;&#123;
+        setTimeout(()=&gt;&#123;
+            resolve(&#39;商品数据 - 2&#39;);
+            // reject(&#39;出错啦!&#39;);
+        &#125;,1000)
+    &#125;);
+
+    //调用 allsettled 方法
+    // const result = Promise.allSettled([p1, p2]);
+    
+    // const res = Promise.all([p1, p2]);
+
+    console.log(res);
+
+&lt;/script&gt;
+</code></pre>
+<h2 id="3-String-prototype-matchAll"><a href="#3-String-prototype-matchAll" class="headerlink" title="3-String.prototype.matchAll"></a>3-String.prototype.matchAll</h2><pre><code class="JavaScript">&lt;script&gt;
+    let str = `&lt;ul&gt;
+        &lt;li&gt;
+            &lt;a&gt;肖生克的救赎&lt;/a&gt;
+            &lt;p&gt;上映日期: 1994-09-10&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a&gt;阿甘正传&lt;/a&gt;
+            &lt;p&gt;上映日期: 1994-07-06&lt;/p&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;`;
+
+    //声明正则
+    const reg = /&lt;li&gt;.*?&lt;a&gt;(.*?)&lt;\/a&gt;.*?&lt;p&gt;(.*?)&lt;\/p&gt;/sg
+
+    //调用方法
+    const result = str.matchAll(reg);
+
+    // for(let v of result)&#123;
+    //     console.log(v);
+    // &#125;
+
+    const arr = [...result];
+
+    console.log(arr);    
+&lt;/script&gt;
+</code></pre>
+<h2 id="4-可选链操作符"><a href="#4-可选链操作符" class="headerlink" title="4-可选链操作符"></a>4-可选链操作符</h2><pre><code class="JavaScript">&lt;script&gt;
+    // ?.
+    function main(config)&#123;
+        // const dbHost = config &amp;&amp; config.db &amp;&amp; config.db.host;
+        const dbHost = config?.db?.host;
+
+        console.log(dbHost);
+    &#125;
+
+    main(&#123;
+        db: &#123;
+            host:&#39;192.168.1.100&#39;,
+            username: &#39;root&#39;
+        &#125;,
+        cache: &#123;
+            host: &#39;192.168.1.200&#39;,
+            username:&#39;admin&#39;
+        &#125;
+    &#125;)
+&lt;/script&gt;
+</code></pre>
+<h2 id="5-动态import加载"><a href="#5-动态import加载" class="headerlink" title="5-动态import加载"></a>5-动态import加载</h2><pre><code class="javascript">&lt;body&gt;
+    &lt;button id=&quot;btn&quot;&gt;点击&lt;/button&gt;
+    &lt;script src=&quot;./js/app.js&quot; type=&quot;module&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="javascript">// import * as m1 from &quot;./hello.js&quot;;
+//获取元素
+const btn = document.getElementById(&#39;btn&#39;);
+
+btn.onclick = function()&#123;
+    import(&#39;./hello.js&#39;).then(module =&gt; &#123;
+        module.hello();
+    &#125;);
+&#125;
+</code></pre>
+<pre><code class="javascript">export function hello()&#123;
+    alert(&#39;Hello&#39;);
+&#125;
+</code></pre>
+<h2 id="6-BigInt"><a href="#6-BigInt" class="headerlink" title="6-BigInt"></a>6-BigInt</h2><pre><code class="JavaScript">&lt;script&gt;
+    //大整形
+    // let n = 521n;
+    // console.log(n, typeof(n));
+
+    //函数
+    // let n = 123;
+    // console.log(BigInt(n));
+    // console.log(BigInt(1.2));
+
+    //大数值运算
+    let max = Number.MAX_SAFE_INTEGER;
+    console.log(max);
+    console.log(max + 1);
+    console.log(max + 2);
+
+    console.log(BigInt(max))
+    console.log(BigInt(max) + BigInt(1))
+    console.log(BigInt(max) + BigInt(2))
+&lt;/script&gt;
+</code></pre>
+<h2 id="7-globalThis"><a href="#7-globalThis" class="headerlink" title="7-globalThis"></a>7-globalThis</h2><pre><code class="javascript">&lt;script&gt;
+    console.log(globalThis);
+&lt;/script&gt;
+</code></pre>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2021/11/26/JavaScript-es7%E3%80%818/">
+        <span>JavaScript-es7、8</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2021/11/26/JavaScript-es9%E3%80%8110%E3%80%8111/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ECMASript-9-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text">ECMASript 9 新特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Rest-Spread-%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.</span> <span class="toc-text">Rest&#x2F;Spread 属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%91%BD%E5%90%8D%E6%8D%95%E8%8E%B7%E7%BB%84"><span class="toc-number">1.2.</span> <span class="toc-text">正则表达式命名捕获组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8F%8D%E5%90%91%E6%96%AD%E8%A8%80"><span class="toc-number">1.3.</span> <span class="toc-text">正则表达式反向断言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-dotAll-%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.4.</span> <span class="toc-text">正则表达式 dotAll 模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ECMASript-10-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">ECMASript 10 新特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Object-fromEntries"><span class="toc-number">2.1.</span> <span class="toc-text">1-Object.fromEntries</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-trimStart%E4%B8%8EtrimEnd"><span class="toc-number">2.2.</span> <span class="toc-text">2-trimStart与trimEnd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Array-prototype-flat%E4%B8%8EflatMap"><span class="toc-number">2.3.</span> <span class="toc-text">3-Array.prototype.flat与flatMap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Symbol-prototype-description"><span class="toc-number">2.4.</span> <span class="toc-text">4-Symbol.prototype.description</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ECMASript-11-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">ECMASript 11 新特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%A7%81%E6%9C%89%E5%B1%9E%E6%80%A7"><span class="toc-number">3.1.</span> <span class="toc-text">1-私有属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Promise-allSettled"><span class="toc-number">3.2.</span> <span class="toc-text">2-Promise.allSettled</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-String-prototype-matchAll"><span class="toc-number">3.3.</span> <span class="toc-text">3-String.prototype.matchAll</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%8F%AF%E9%80%89%E9%93%BE%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">3.4.</span> <span class="toc-text">4-可选链操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%8A%A8%E6%80%81import%E5%8A%A0%E8%BD%BD"><span class="toc-number">3.5.</span> <span class="toc-text">5-动态import加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-BigInt"><span class="toc-number">3.6.</span> <span class="toc-text">6-BigInt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-globalThis"><span class="toc-number">3.7.</span> <span class="toc-text">7-globalThis</span></a></li></ol></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">valine</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="vcomments"></div>
+<script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = ''.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  var notify = '' === 'true';
+  var verify = '' === 'true';
+  new Valine({
+    el: '#vcomments',
+    notify: notify,
+    verify: verify,
+    appId: 'K384DoBsTJo09tPYtLMxDJz1-gzGzoHsz',
+    appKey: 'Bp5G6BLH11s6zkpTjHkvoG1g',
+    placeholder: '',
+    pageSize: '',
+    avatar: '',
+    lang: '',
+    guest_info: guest_info
+  });
+</script>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2021 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Dalu Kuankuan
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >
