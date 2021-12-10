@@ -259,6 +259,136 @@ main();
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2021/11/09/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>if__name__==&#39;__main__&#39; 理解和总结</title>
+    <url>/2021/11/24/if-name-main-%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h1><p>在Python当中，如果代码写得规范一些，通常会写上一句“if <strong>name</strong>==’<strong>main</strong>:”作为程序的入口，但似乎没有这么一句代码，程序也能正常运行。这句代码多余吗？原理又在哪里？本篇博文对此进行总结说明。</p>
+<h1 id="二、程序入口"><a href="#二、程序入口" class="headerlink" title="二、程序入口"></a>二、程序入口</h1><p> 学过Java、C、C++的程序员应该都知道，每次开启一个程序，都必须写一个主函数作为程序的入口，也就是我们常说的main函数。如下所示， main()就是Java中的一个main函数。</p>
+<pre><code class="java">public class HelloWorld &#123;
+
+    public static void main(String[] args) &#123;
+
+        System.out.println(&quot;HelloWorld&quot;);
+
+    &#125;
+&#125;    
+</code></pre>
+<p>与 Java、C、C++ 等几种语言不同的是，Python是一种解释型脚本语言，在执行之前不同要将所有代码先编译成中间代码，Python程序运行时是从模块顶行开始，逐行进行翻译执行，所以，最顶层（没有被缩进）的代码都会被执行，所以Python中并不需要一个统一的main()作为程序的入口。在某种意义上讲，“if <strong>name</strong>==’<strong>main</strong>:”也像是一个标志，象征着Java等语言中的程序主入口，告诉其他程序员，代码入口在此——这是“if <strong>name</strong>==’<strong>main</strong>:”这条代码的意义之一。</p>
+<h1 id="三、模块引入"><a href="#三、模块引入" class="headerlink" title="三、模块引入"></a>三、模块引入</h1><p> 我们知道，当我们把模块A中的代码在模块B中进行import A时，只要B模块代码运行到该import语句，模块A的代码会被执行。</p>
+<h4 id="模块A："><a href="#模块A：" class="headerlink" title="模块A："></a>模块A：</h4><pre><code class="python"># 模块A
+
+a = 100
+
+print(&#39;你好，我是模块A……&#39;)
+
+print(a)
+</code></pre>
+<h4 id="模块B："><a href="#模块B：" class="headerlink" title="模块B："></a>模块B：</h4><pre><code class="python"># 模块B
+
+from package01 import A
+
+b = 200
+
+print(&#39;你好，我是模块B……&#39;)
+
+print(b)
+</code></pre>
+<p>运行模块B时，输出结果如下：</p>
+<pre><code class="python">你好，我是模块A……
+
+100
+
+你好，我是模块B……
+
+200
+</code></pre>
+<p>如果在模块A中，我们有部分的代码不想在被导入到B时直接被运行，但在直接运行A时可直接运行，那该怎么做呢？那就可以用到“if <strong>name</strong>==’<strong>main</strong>:”这行代码了，我们队上面用到的A模块代码进行修改：</p>
+<h4 id="A模块代码修改为："><a href="#A模块代码修改为：" class="headerlink" title="A模块代码修改为："></a>A模块代码修改为：</h4><pre><code class="python"># 模块A
+
+a = 100
+
+print(&#39;你好，我是模块A……&#39;)
+
+if __name__==&#39;__main__&#39;:
+
+    print(a)
+</code></pre>
+<h4 id="B模块不做修改，直接执行B模块，输出结果如下："><a href="#B模块不做修改，直接执行B模块，输出结果如下：" class="headerlink" title="B模块不做修改，直接执行B模块，输出结果如下："></a>B模块不做修改，直接执行B模块，输出结果如下：</h4><pre><code class="python">你好，我是模块A……
+
+你好，我是模块B……
+
+200
+</code></pre>
+<p>看到了吗，A模块中的a的值就没有再被输出了。所以，当你要导入某个模块，但又不想改模块的部分代码被直接执行，那就可以这一部分代码放在“if <strong>name</strong>==’<strong>main</strong>‘:”内部。</p>
+<h1 id="四、’name‘与“-main-”"><a href="#四、’name‘与“-main-”" class="headerlink" title="四、’name‘与“____main____”"></a>四、’<strong><strong>name</strong></strong>‘与“____main____”</h1><p>看到现在也许心中还是疑惑，为什么会这样，那么现在我们来说一说“if <strong>name</strong>==’<strong>main</strong>‘:”的原理。</p>
+<p>“____name____”是Python的内置变量，用于指代当前模块。我们修改上面用到的A模块和B模块，在模块中分别输出模块的名称：</p>
+<h4 id="模块A"><a href="#模块A" class="headerlink" title="模块A:"></a>模块A:</h4><pre><code class="python"># 模块A
+
+print(&#39;你好，我是模块A……&#39;)
+
+print(&#39;模块A中__name__的值：&#123;&#125;&#39;.format(__name__))
+
+print(&#39;-------------------------&#39;)
+</code></pre>
+<h4 id="模块B：-1"><a href="#模块B：-1" class="headerlink" title="模块B："></a>模块B：</h4><pre><code class="python"># 模块B
+
+from package01 import A
+
+print(&#39;你好，我是模块B……&#39;)
+
+print(&#39;模块B中__name__的值：&#123;&#125;&#39;.format(__name__))
+</code></pre>
+<h4 id="执行A模块时，输出结果："><a href="#执行A模块时，输出结果：" class="headerlink" title="执行A模块时，输出结果："></a>执行A模块时，输出结果：</h4><pre><code class="python">你好，我是模块A……
+
+模块A中__name__的值：__main__
+
+-------------------------
+
+执行B模块时，输出结果：
+
+你好，我是模块A……
+
+模块A中__name__的值：package01.A
+
+-------------------------
+
+你好，我是模块B……
+
+模块B中__name__的值：__main__
+</code></pre>
+<blockquote>
+<p>发现神奇之处了吗？当哪个模块被直接执行时，该模块“____name____”的值就是“____main____”，当被导入另一模块时，“__name__”的值就是模块的真实名称。用一个类比来解释一下：记得小时候要轮流打算教室，轮到自己的时候（模块被直接执行的时候），我们会说今天是“我”（__main__）值日，称呼其他人时，我们就会直接喊他们的名字。所以，“__main__”就相当于当事人，或者说第一人称的“我”。</p>
+</blockquote>
+<blockquote>
+<p>所以，当运行“if <strong>name</strong>==’<strong>main</strong>‘:”语句时，如果当前模块时被直接执行，__name__的值就是__main__，条件判断的结果为True，“if <strong>name</strong>==’<strong>main</strong>‘:”下面的代码块就会被执行。</p>
+</blockquote>
+<h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><p>“if <strong>name</strong>==’<strong>main</strong>‘:”语句的用处与原理大概也讲清楚了，如果没说明白，或者是我没理解到位，请给我留言。另外多说一句，“if <strong>name</strong>==’<strong>main</strong>‘:”很多时候看似无用，但是，出于代码的规范性，还是有必要的。</p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript-es9、10、11</title>
     <url>/2021/11/26/JavaScript-es9%E3%80%8110%E3%80%8111/</url>
     <content><![CDATA[<h1 id="ECMASript-9-新特性"><a href="#ECMASript-9-新特性" class="headerlink" title="ECMASript 9 新特性"></a>ECMASript 9 新特性</h1><h2 id="Rest-Spread-属性"><a href="#Rest-Spread-属性" class="headerlink" title="Rest/Spread 属性"></a>Rest/Spread 属性</h2><blockquote>
@@ -587,136 +717,6 @@ btn.onclick = function()&#123;
       <tags>
         <tag>es9、es10、es11</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>if__name__==&#39;__main__&#39; 理解和总结</title>
-    <url>/2021/11/24/if-name-main-%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h1><p>在Python当中，如果代码写得规范一些，通常会写上一句“if <strong>name</strong>==’<strong>main</strong>:”作为程序的入口，但似乎没有这么一句代码，程序也能正常运行。这句代码多余吗？原理又在哪里？本篇博文对此进行总结说明。</p>
-<h1 id="二、程序入口"><a href="#二、程序入口" class="headerlink" title="二、程序入口"></a>二、程序入口</h1><p> 学过Java、C、C++的程序员应该都知道，每次开启一个程序，都必须写一个主函数作为程序的入口，也就是我们常说的main函数。如下所示， main()就是Java中的一个main函数。</p>
-<pre><code class="java">public class HelloWorld &#123;
-
-    public static void main(String[] args) &#123;
-
-        System.out.println(&quot;HelloWorld&quot;);
-
-    &#125;
-&#125;    
-</code></pre>
-<p>与 Java、C、C++ 等几种语言不同的是，Python是一种解释型脚本语言，在执行之前不同要将所有代码先编译成中间代码，Python程序运行时是从模块顶行开始，逐行进行翻译执行，所以，最顶层（没有被缩进）的代码都会被执行，所以Python中并不需要一个统一的main()作为程序的入口。在某种意义上讲，“if <strong>name</strong>==’<strong>main</strong>:”也像是一个标志，象征着Java等语言中的程序主入口，告诉其他程序员，代码入口在此——这是“if <strong>name</strong>==’<strong>main</strong>:”这条代码的意义之一。</p>
-<h1 id="三、模块引入"><a href="#三、模块引入" class="headerlink" title="三、模块引入"></a>三、模块引入</h1><p> 我们知道，当我们把模块A中的代码在模块B中进行import A时，只要B模块代码运行到该import语句，模块A的代码会被执行。</p>
-<h4 id="模块A："><a href="#模块A：" class="headerlink" title="模块A："></a>模块A：</h4><pre><code class="python"># 模块A
-
-a = 100
-
-print(&#39;你好，我是模块A……&#39;)
-
-print(a)
-</code></pre>
-<h4 id="模块B："><a href="#模块B：" class="headerlink" title="模块B："></a>模块B：</h4><pre><code class="python"># 模块B
-
-from package01 import A
-
-b = 200
-
-print(&#39;你好，我是模块B……&#39;)
-
-print(b)
-</code></pre>
-<p>运行模块B时，输出结果如下：</p>
-<pre><code class="python">你好，我是模块A……
-
-100
-
-你好，我是模块B……
-
-200
-</code></pre>
-<p>如果在模块A中，我们有部分的代码不想在被导入到B时直接被运行，但在直接运行A时可直接运行，那该怎么做呢？那就可以用到“if <strong>name</strong>==’<strong>main</strong>:”这行代码了，我们队上面用到的A模块代码进行修改：</p>
-<h4 id="A模块代码修改为："><a href="#A模块代码修改为：" class="headerlink" title="A模块代码修改为："></a>A模块代码修改为：</h4><pre><code class="python"># 模块A
-
-a = 100
-
-print(&#39;你好，我是模块A……&#39;)
-
-if __name__==&#39;__main__&#39;:
-
-    print(a)
-</code></pre>
-<h4 id="B模块不做修改，直接执行B模块，输出结果如下："><a href="#B模块不做修改，直接执行B模块，输出结果如下：" class="headerlink" title="B模块不做修改，直接执行B模块，输出结果如下："></a>B模块不做修改，直接执行B模块，输出结果如下：</h4><pre><code class="python">你好，我是模块A……
-
-你好，我是模块B……
-
-200
-</code></pre>
-<p>看到了吗，A模块中的a的值就没有再被输出了。所以，当你要导入某个模块，但又不想改模块的部分代码被直接执行，那就可以这一部分代码放在“if <strong>name</strong>==’<strong>main</strong>‘:”内部。</p>
-<h1 id="四、’name‘与“-main-”"><a href="#四、’name‘与“-main-”" class="headerlink" title="四、’name‘与“____main____”"></a>四、’<strong><strong>name</strong></strong>‘与“____main____”</h1><p>看到现在也许心中还是疑惑，为什么会这样，那么现在我们来说一说“if <strong>name</strong>==’<strong>main</strong>‘:”的原理。</p>
-<p>“____name____”是Python的内置变量，用于指代当前模块。我们修改上面用到的A模块和B模块，在模块中分别输出模块的名称：</p>
-<h4 id="模块A"><a href="#模块A" class="headerlink" title="模块A:"></a>模块A:</h4><pre><code class="python"># 模块A
-
-print(&#39;你好，我是模块A……&#39;)
-
-print(&#39;模块A中__name__的值：&#123;&#125;&#39;.format(__name__))
-
-print(&#39;-------------------------&#39;)
-</code></pre>
-<h4 id="模块B：-1"><a href="#模块B：-1" class="headerlink" title="模块B："></a>模块B：</h4><pre><code class="python"># 模块B
-
-from package01 import A
-
-print(&#39;你好，我是模块B……&#39;)
-
-print(&#39;模块B中__name__的值：&#123;&#125;&#39;.format(__name__))
-</code></pre>
-<h4 id="执行A模块时，输出结果："><a href="#执行A模块时，输出结果：" class="headerlink" title="执行A模块时，输出结果："></a>执行A模块时，输出结果：</h4><pre><code class="python">你好，我是模块A……
-
-模块A中__name__的值：__main__
-
--------------------------
-
-执行B模块时，输出结果：
-
-你好，我是模块A……
-
-模块A中__name__的值：package01.A
-
--------------------------
-
-你好，我是模块B……
-
-模块B中__name__的值：__main__
-</code></pre>
-<blockquote>
-<p>发现神奇之处了吗？当哪个模块被直接执行时，该模块“____name____”的值就是“____main____”，当被导入另一模块时，“__name__”的值就是模块的真实名称。用一个类比来解释一下：记得小时候要轮流打算教室，轮到自己的时候（模块被直接执行的时候），我们会说今天是“我”（__main__）值日，称呼其他人时，我们就会直接喊他们的名字。所以，“__main__”就相当于当事人，或者说第一人称的“我”。</p>
-</blockquote>
-<blockquote>
-<p>所以，当运行“if <strong>name</strong>==’<strong>main</strong>‘:”语句时，如果当前模块时被直接执行，__name__的值就是__main__，条件判断的结果为True，“if <strong>name</strong>==’<strong>main</strong>‘:”下面的代码块就会被执行。</p>
-</blockquote>
-<h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><p>“if <strong>name</strong>==’<strong>main</strong>‘:”语句的用处与原理大概也讲清楚了，如果没说明白，或者是我没理解到位，请给我留言。另外多说一句，“if <strong>name</strong>==’<strong>main</strong>‘:”很多时候看似无用，但是，出于代码的规范性，还是有必要的。</p>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/11/09/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>第一篇博客</title>
@@ -2126,6 +2126,607 @@ p.then(value =&gt; &#123;
       </categories>
   </entry>
   <entry>
+    <title>数据统计</title>
+    <url>/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/</url>
+    <content><![CDATA[<h1 id="第9章-数据统计分析案例"><a href="#第9章-数据统计分析案例" class="headerlink" title="第9章　数据统计分析案例"></a>第9章　数据统计分析案例</h1><p>本章以案例为主，通过简单的知识讲解使读者了解数据统计分析中常用的分析方法，如对比分析，同比、定比和环比分析，贡献度分析，差异化分析，相关性分析和时间序列分析的概念。通过典型案例，将数据统计分析方法与前面学习的内容相结合，力求将所学内容应用到实践中。</p>
+<h1 id="9-1-对比分析"><a href="#9-1-对比分析" class="headerlink" title="9.1　对比分析"></a>9.1　对比分析</h1><h2 id="9-1-1-什么是对比分析"><a href="#9-1-1-什么是对比分析" class="headerlink" title="9.1.1　什么是对比分析"></a>9.1.1　什么是对比分析</h2><p>对比分析法是将两个或两个以上的数据进行比较，分析其中的差异，从而揭示这些事物代表的发展变化情况和规律性。 特点：非常直观地看出事物某方面的变化或差距，而且可以准确、量化地表示出变化的差距是多少。 对比分析法通常是把两个相互联系的指标数据进行比较，从数量上展示和说明研究对象规模的大小、水平的高低、速度的快慢，以及各种关系是否协调。对比分析一般来说有以下几种对比方法：纵向对比、横向对比、标准对比、实际与计划对比。</p>
+<h2 id="9-1-2-案例：对比分析各品牌销量表现TOP10"><a href="#9-1-2-案例：对比分析各品牌销量表现TOP10" class="headerlink" title="9.1.2　案例：对比分析各品牌销量表现TOP10"></a>9.1.2　案例：对比分析各品牌销量表现TOP10</h2><p>案例位置：资源包\MR\Code\09\example\01 对比国产各品牌汽车2020年1月销量，效果如图9.1所示。 程序代码如下：</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091340914.png" alt="image-20211101091340914"></p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091429952.png" alt="image-20211101091429952"></p>
+<p>​                                                                                     图9.1　对比分析各品牌销量表现TOP10</p>
+<h1 id="9-2-同比、定比和环比分析"><a href="#9-2-同比、定比和环比分析" class="headerlink" title="9.2　同比、定比和环比分析"></a>9.2　同比、定比和环比分析</h1><p>在数据分析中，有一个重要的分析方法，叫趋势分析法，即将两期或连续数期报告中某一指标进行对比，确定其增减变动的方向、数额和幅度，以确定该指标的变动趋势。趋势分析法中的指标，有同比分析、定比（定基比）分析和环比分析，以及同比增长率分析、定比（定基比）增长率分析和环比增长率分析。</p>
+<h2 id="9-2-1-同比、定比和环比概述"><a href="#9-2-1-同比、定比和环比概述" class="headerlink" title="9.2.1　同比、定比和环比概述"></a>9.2.1　同比、定比和环比概述</h2><p>首先了解一下同比、定比和环比的概念。　</p>
+<p>同比：本期数据与历史同期数据比较。例如，2021年11月份与2020年11月份相比较。　</p>
+<p>定比：本期数据与特定时期的数据比较。例如，2021年11月与2019年12月份相比较。　</p>
+<p>环比：本期数据与上期数据比较。例如，2021年11月份与2020年11月份相比较。</p>
+<p>同比的好处是可以排除一部分季节因素；环比的好处是可以更直观地表明阶段性的变换，但是会受季节性因素影响；定比常用于财务数据分析。下面来看一个生活中经常出现的场景。　同比：去年这个这时候这条裙子我还能穿，现在穿不进去啦！　定比：年龄，50岁是25岁的两倍。　环比：这个月好像比上个月胖了。 下面简单介绍一下同比、定比和环比计算的公式。</p>
+<h3 id="1．同比"><a href="#1．同比" class="headerlink" title="1．同比"></a>1．同比</h3><p>同比的计算公式如下：</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091544403.png" alt="image-20211101091544403"></p>
+<h3 id="2．定比"><a href="#2．定比" class="headerlink" title="2．定比"></a>2．定比</h3><p>定比的计算公式如下：</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091601809.png" alt="image-20211101091601809"></p>
+<h3 id="3．环比"><a href="#3．环比" class="headerlink" title="3．环比"></a>3．环比</h3><p>环比增长率反映本期比上期增长了多少，公式如下：</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091624602.png" alt="image-20211101091624602"></p>
+<p>环比发展速度是本期水平与前一期水平之比，反映前后两期的发展变化情况，公式如下：</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091640229.png" alt="image-20211101091640229"></p>
+<h2 id="9-2-2-案例1：京东电商单品销量同比增长情况分析"><a href="#9-2-2-案例1：京东电商单品销量同比增长情况分析" class="headerlink" title="9.2.2　案例1：京东电商单品销量同比增长情况分析"></a>9.2.2　案例1：京东电商单品销量同比增长情况分析</h2><p>案例位置：资源包\MR\Code\09\example\02\01 下面分析2020年2月与2019年2月相比，京东电商《零基础学Python（全彩版）》一书销量同比增长情况，效果如图9.2所示。 从分析结果得知：上海、武汉同比增长较小。</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091708101.png" alt="image-20211101091708101"></p>
+<p>​                                                                                                              图9.2　同比分析 程序代码如下：</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091740885.png" alt="image-20211101091740885"></p>
+<h2 id="9-2-3-案例2：单品销量定比分析"><a href="#9-2-3-案例2：单品销量定比分析" class="headerlink" title="9.2.3　案例2：单品销量定比分析"></a>9.2.3　案例2：单品销量定比分析</h2><p>案例位置：资源包\MR\Code\09\example\02\02 下面实现京东电商《零基础学Python（全彩版）》一书2019年销量定比分析，以2019年1月为基期，基点为1，效果如图9.3所示。</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091933203.png" alt="image-20211101091933203"></p>
+<p>​                                                                                                      图9.3　定比分析 从图9.3中可以看到，6月开始呈现连续小幅度增长，到11月开始大幅度增长，定比指数较10月提高了3.028个点。 程序代码如下：</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092002261.png" alt="image-20211101092002261"></p>
+<h2 id="9-2-4-案例3：单品销量环比增长情况分析"><a href="#9-2-4-案例3：单品销量环比增长情况分析" class="headerlink" title="9.2.4　案例3：单品销量环比增长情况分析"></a>9.2.4　案例3：单品销量环比增长情况分析</h2><p>案例位置：资源包\MR\Code\09\example\02\03 下面分析京东电商《零基础学Python（全彩版）》一书2019年销量环比增长情况，效果如图9.4所示。</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092041392.png" alt="image-20211101092041392"></p>
+<p>​                                                                                                    图9.4　环比分析 程序代码如下：</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092113806.png" alt="image-20211101092113806"></p>
+<p>实用技巧 在使用Matplotlib绘制图表时，发现了一个警告Warining，如图9.5所示。</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092157969.png" alt="image-20211101092157969"></p>
+<p>​                                                                                                                  图9.5　警告信息 完整警告信息如下： MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance. In a future version, a new instance will always be created and returned. Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance. “Adding an axes using the same arguments as a previous axes “ 解决方法： 出现上述警告，原因是在创建画布fig=plt.figure()后就设置了图表标题或坐标轴标签，将图表标题或坐标轴标签相关代码放置在定义子图ax=fig.add_subplot(111)代码后就不会出现警告信息了。</p>
+<h1 id="9-3-贡献度分析（帕累托法则）"><a href="#9-3-贡献度分析（帕累托法则）" class="headerlink" title="9.3　贡献度分析（帕累托法则）"></a>9.3　贡献度分析（帕累托法则）</h1><h2 id="9-3-1-什么是贡献度分析"><a href="#9-3-1-什么是贡献度分析" class="headerlink" title="9.3.1　什么是贡献度分析"></a>9.3.1　什么是贡献度分析</h2><p>贡献度分析又称80/20法则、二八法则、帕累托法则、帕累托定律、最省力法则或不平衡原则。 该法则是由意大利经济学家“帕累托”提出的。80/20法则认为：原因和结果、投入和产出、努力和报酬之间本来存在着无法解释的不平衡。例如，一个公司80%的利润常常来自20%的产品，那么使用贡献度分析就可以分析获利最高的20%的产品。 下面简单介绍一下贡献率相关算法。</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092249403.png" alt="image-20211101092249403"></p>
+<p>通过上述公式得出累计贡献率，当累计贡献率接近80%时（不一定正好是80%)，然后找到该产品在图表中相应的位置并进行标注。说明 真正的比例不一定正好是80%:20%。80/20法则表明在多数情况下该关系很可能是不平衡的，并且接近于80/20。</p>
+<h2 id="9-3-2-案例：产品贡献度分析"><a href="#9-3-2-案例：产品贡献度分析" class="headerlink" title="9.3.2　案例：产品贡献度分析"></a>9.3.2　案例：产品贡献度分析</h2><p>案例位置：资源包\MR\Code\09\example\03 下面分析淘宝电商全彩系列图书2018年上半年销售收入占比80%的产品。首先，使用9.3.1节中的公式计算产品累计贡献率，结果如图9.6所示。从图9.6中可以看出，到图书编号B13时，累计贡献率就已达到了0.817665（接近总销售收入的80%），其中共有10种产品，接下来在图表中进行标注，如图9.7所示。</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092358482.png" alt="image-20211101092358482"></p>
+<p>​                                                                                         图9.6　输出累计贡献率</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092428830.png" alt="image-20211101092428830"></p>
+<p>​                                                                                                   图9.7　产品贡献度分析 程序代码如下：</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092455112.png" alt="image-20211101092455112"></p>
+<h1 id="9-4-差异化分析"><a href="#9-4-差异化分析" class="headerlink" title="9.4　差异化分析"></a>9.4　差异化分析</h1><h2 id="9-4-1-差异化概述"><a href="#9-4-1-差异化概述" class="headerlink" title="9.4.1　差异化概述"></a>9.4.1　差异化概述</h2><p>任何事物都存在差异，如同上课听讲，有人津津有味，有人昏昏欲睡。 那么，通过差异化分析，比较不同事物之间在某个指标上存在的差异，根据差异定制不同的策略。对于产品而言，差异化分析是指企业在其提供给顾客的产品上，通过各种方法满足顾客的偏好，使顾客能够把它同其他竞争企业提供的同类产品有效地区别开来，从而使企业在市场竞争中占据有利的地位。 比较常见的有性别差异、年龄差异。通过差异化分析比较不同性别之间在某个指标上存在的差异，通过分析结果对不同性别定制不同的方案。例如，分析不同性别的同学在学习成绩上的差异，了解男生和女生之间的这些差异，因材施教，定制不同的弥补弱项的方案。对于女生，可以有意识地培养她的思维能力；而对于男生，可以买些书籍，来增强他薄弱的方面。 年龄差异化分析，了解不同年龄的需求，投其所好，使企业的利润最大化。例如，网购、自媒体、汽车、旅游等行业，通过年龄差异化分析，找出不同年龄段用户群体的喜好，从而增加产品销量。</p>
+<h2 id="9-4-2-案例：学生成绩性别差异分析"><a href="#9-4-2-案例：学生成绩性别差异分析" class="headerlink" title="9.4.2　案例：学生成绩性别差异分析"></a>9.4.2　案例：学生成绩性别差异分析</h2><p>案例位置：资源包\MR\Code\09\example\04 “女孩喜欢毛绒玩具，男孩喜欢车”这大概是天生的。 科学研究表明，男孩和女孩的差别在相当程度上是由生理基础决定的。通过高科技扫描就可以发现，男孩和女孩的大脑都会有某些部位比对方相应的部位更发达、更忙碌。 随着孩子的成长，这种天生的性别差异就会对孩子的学习有所影响，并且不断强化。而反过来，学习的本身也在改变着大脑的机能发育。因为当孩子玩耍和学习时，相对应的脑细胞就会更加活跃且随时更新，而那些不经常使用的部分将会逐渐退化萎缩。 下面我们用数据说话，通过雷达图分析男生、女生各科成绩差异，效果如图9.8所示。</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101093258671.png" alt="image-20211101093258671"></p>
+<p>​                                                                                 图9.8　男生、女生各科成绩差异分析 从分析结果得知：男生数学和物理高于女生，而女生在英语和语文上略占优势。针对性别差异造成学习成绩的差距，应该采取因材施教，从而提高女生的数学和物理成绩</p>
+<p>男生的语文和英语成绩。 程序代码如下：</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101093347266.png" alt="image-20211101093347266"></p>
+<h1 id="9-5-相关性分析"><a href="#9-5-相关性分析" class="headerlink" title="9.5　相关性分析"></a>9.5　相关性分析</h1><h2 id="9-5-1-相关性概述"><a href="#9-5-1-相关性概述" class="headerlink" title="9.5.1　相关性概述"></a>9.5.1　相关性概述</h2><p>任何事物之间都存在一定的联系。例如，夏天温度的高低与空调的销量就存在相关性。当温度升高时，空调的销量也会相应提高。 相关性分析是指对多个具备相关关系的数据进行分析，从而衡量数据之间的相关程度或密切程度。相关性可以应用到所有数据的分析过程中。如果一组数据的改变引发另一组数据朝相同方向变化，那么这两组数据存在正相关性，例如，身高与体重，一般个子高的人体重会重一些，个子矮的人体重会轻一些；如果一组数据的改变引发另一组数据朝相反方向变化，那么这两组数据存在负相关性，例如，运动与体重。</p>
+<h2 id="9-5-2-案例：广告展现量与费用成本相关性分析"><a href="#9-5-2-案例：广告展现量与费用成本相关性分析" class="headerlink" title="9.5.2　案例：广告展现量与费用成本相关性分析"></a>9.5.2　案例：广告展现量与费用成本相关性分析</h2><p>案例位置：资源包\MR\Code\09\example\05 为了促进销售，电商营销必然要投入广告，这样就会产生广告展现量和费用成本相关的数据。通常情况下，我们认为费用高，广告效果就好，它们之间必然存在联系，但仅通过主观判断没有说服力，无法证明数据之间关系的真实存在，也无法度量它们之间关系的强弱。因此，我们要通过相关性分析来找出数据之间的关系。 下面来看一下费用成本与广告展现量相关数据情况（由于数据太多，只显示部分数据），如图9.9和图9.10所示。</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101093655985.png" alt="image-20211101093655985"></p>
+<p>​                                                                                                图9.9　费用成本</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101093722813.png" alt="image-20211101093722813"></p>
+<p>​                                                                                                图9.10　广告展现量 相关性分析方法很多，简单的相关性分析方法是将数据进行可视化处理，单纯从数据的角度很难发现数据之间的趋势和联系，而将数据绘制成图表后就可以直观地看出数据之间的趋势和联系。 下面通过散点图看一看广告展现量与费用成本的相关性，效果如图9.11所示。</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101093751243.png" alt="image-20211101093751243"></p>
+<p>​                                                                                                            图9.11　散点图 首先对数据进行简单处理，由于“费用.xlsx”表中同一天会产生多个类型的费用，所以需要按天统计费用，然后将“展现量.xlsx”和“费用.xlsx”两张表的数据合并，最后绘制散点图，程序代码如下：</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101093837899.png" alt="image-20211101093837899"></p>
+<p>虽然图表清晰地展示了广告展现量与费用成本的相关性，但无法判断数据之间有什么关系，相关关系也没有准确地度量，并且数据超过两组时也无法完成各组数据的相关性分析。 下面再介绍一种方法——相关系数方法。相关系数是反映数据之间关系密切程度的统计指标，相关系数的取值区间为1～-1。1表示数据之间完全正相关（线性相关）；-1表示数据之间完全负相关；0表示数据之间不相关。数据越接近0表示相关关系越弱，越接近1表示相关关系越强。 计算相关系数需要一定的计算公式，而在Python中无须使用烦琐的公式，通过DataFrame对象提供的corr()函数就可以轻松实现，关键代码如下：</p>
+<p>data.corr() 运行程序，输出结果如图9.12所示。</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101093902187.png" alt="image-20211101093902187"></p>
+<pre><code>                                                                                             图9.12　各组数据的相关系数
+</code></pre>
+<p>从分析结果得知：“费用”与“费用”自身的相关性是1，与“展现量”“点击量”的相关系数分别是0.856013、0.858597；“展现量”与“展现量”自身的相关性是1，与“点击量”“订单金额”的相关系数分别是0.938554、0.728037。那么，除了“商品关注数”相关系数比较低，其他都很高，可以看出“费用”与“展现量”“点击量”等有一定的正相关性，而且相关性很强。 相关系数的优点是可以通过数字对变量的关系进行度量，并且带有方向性，1表示正相关，-1表示负相关，越靠近0相关性越弱。缺点是无法利用这种关系对数据进行预测。</p>
+<h1 id="9-6-时间序列分析"><a href="#9-6-时间序列分析" class="headerlink" title="9.6　时间序列分析"></a>9.6　时间序列分析</h1><h2 id="9-6-1-时间序列概述"><a href="#9-6-1-时间序列概述" class="headerlink" title="9.6.1　时间序列概述"></a>9.6.1　时间序列概述</h2><p>顾名思义，时间序列就是按照时间顺序排列的一组数据序列。时间序列分析就是找出数据变化发展的规律，从而预测未来的走势。 时间序列分析有以下几种表现形式。　长期趋势变化：受某种因素的影响，数据依据时间变化，按某种规则稳步增长或下降。使用的分析方法有移动平均法、指数平滑法等。　季节性周期变化：受季节更替等因素影响，数据依据固定周期规则性的变化。季节性周期变化，不局限于自然季节，还包括月、周等短期周期。例如，空调、羽绒服、冷饮的销售，双十一、双十二流量在一周之内的波动等。采用的方法为季节指数。　循环变化：指一种较长时间的上、下起伏周期性波动，一般循环时间为2～15年。　随机性变化：由许多不确定因素引起的数据变化，在时间序列中无法预计。</p>
+<h2 id="9-6-2-案例：年增长趋势和季节性波动分析"><a href="#9-6-2-案例：年增长趋势和季节性波动分析" class="headerlink" title="9.6.2　案例：年增长趋势和季节性波动分析"></a>9.6.2　案例：年增长趋势和季节性波动分析</h2><p>案例位置：资源包\MR\Code\09\example\06 下面分析淘宝店铺近3年增长趋势和季节性波动，如图9.13所示。从分析结果得出，近3年淘宝店铺收入呈现持续稳定增长趋势，但2019年有所下降，季节性波动比较明显，每年的第4季度是销售“旺季”。 程序代码如下：</p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101094004956.png" alt="image-20211101094004956"></p>
+<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101094315925.png" alt="image-20211101094315925"></p>
+<p>​                                                                                                             图9.13　年增长趋势和季节性波动</p>
+<h1 id="9-7-小结"><a href="#9-7-小结" class="headerlink" title="9.7　小结"></a>9.7　小结</h1><p>本章通过常用的数据分析方法并结合图表，以案例的形式呈现，每一种分析方法都对应一个恰当的分析案例，一张贴切的图表，力求使读者能够真正理解数据分析，并将其应用到实际数据分析工作中。每一个案例都经过作者反复揣摩，希望能够对读者有所帮助。</p>
+]]></content>
+      <categories>
+        <category>数据分析</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Vue  单文件</title>
+    <url>/2021/11/24/vue%E5%8D%95%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="初识Vue："><a href="#初识Vue：" class="headerlink" title="初识Vue："></a>初识Vue：</h1><p>​        1.想让Vue工作，就必须创建一个Vue实例，且要传入一个配置对象；</p>
+<p>​        2.root容器里的代码依然符合html规范，只不过混入了一些特殊的Vue语法；</p>
+<p>​        3.root容器里的代码被称为【Vue模板】；</p>
+<p>​        4.Vue实例和容器是一一对应的；</p>
+<p>​        5.真实开发中只有一个Vue实例，并且会配合着组件一起使用；</p>
+<p>​        6.中的xxx要写js表达式，且xxx可以自动读取到data中的所有属性；</p>
+<p>​        7.一旦data中的数据发生改变，那么页面中用到该数据的地方也会自动更新；</p>
+<p>​        注意区分：js表达式 和 js代码(语句)</p>
+<pre><code class="javascript">            1.表达式：一个表达式会产生一个值，可以放在任何一个需要值的地方：
+
+​                  (1). a
+
+​                  (2). a+b
+
+​                  (3). demo(1)
+
+​                  (4). x === y ? &#39;a&#39; : &#39;b&#39;
+</code></pre>
+<pre><code>            2.js代码(语句)
+
+​                  (1). if()&#123;&#125;
+
+​                  (2). for()&#123;&#125;
+</code></pre>
+<h1 id="Vue模板语法有2大类："><a href="#Vue模板语法有2大类：" class="headerlink" title="Vue模板语法有2大类："></a>Vue模板语法有2大类：</h1><h2 id="1-插值语法："><a href="#1-插值语法：" class="headerlink" title="1.插值语法："></a>1.插值语法：</h2><p>​              功能：用于解析标签体内容。</p>
+<p>​              写法：，xxx是js表达式，且可以直接读取到data中的所有属性。</p>
+<h2 id="2-指令语法："><a href="#2-指令语法：" class="headerlink" title="2.指令语法："></a>2.指令语法：</h2><p>​              功能：用于解析标签（包括：标签属性、标签体内容、绑定事件…..）。</p>
+<p>​              举例：v-bind:href=”xxx” 或 简写为 :href=”xxx”，xxx同样要写js表达式，</p>
+<p>​                   且可以直接读取到data中的所有属性。</p>
+<p>​              备注：Vue中有很多的指令，且形式都是：v-????，此处我们只是拿v-bind举个例子。</p>
+<h1 id="Vue中有2种数据绑定的方式："><a href="#Vue中有2种数据绑定的方式：" class="headerlink" title="Vue中有2种数据绑定的方式："></a>Vue中有2种数据绑定的方式：</h1><p>​          1.单向绑定(v-bind)：数据只能从data流向页面。</p>
+<p>​          2.双向绑定(v-model)：数据不仅能从data流向页面，还可以从页面流向data。</p>
+<p>​            备注：</p>
+<p>​                1.双向绑定一般都应用在表单类元素上（如：input、select等）</p>
+<p>​                2.v-model:value 可以简写为 v-model，因为v-model默认收集的就是value值。</p>
+<h1 id="data与el的2种写法"><a href="#data与el的2种写法" class="headerlink" title="data与el的2种写法"></a>data与el的2种写法</h1><h2 id="1-el有2种写法"><a href="#1-el有2种写法" class="headerlink" title="1.el有2种写法"></a>1.el有2种写法</h2><p>​                  (1).new Vue时候配置el属性。</p>
+<p>​                  (2).先创建Vue实例，随后再通过vm.$mount(‘#root’)指定el的值。</p>
+<h2 id="2-data有2种写法"><a href="#2-data有2种写法" class="headerlink" title="2.data有2种写法"></a>2.data有2种写法</h2><p>​                  (1).对象式</p>
+<p>​                  (2).函数式</p>
+<p>​                  如何选择：目前哪种写法都可以，以后学习到组件时，data必须使用函数式，否则会报错。</p>
+<h2 id="3-一个重要的原则："><a href="#3-一个重要的原则：" class="headerlink" title="3.一个重要的原则："></a>3.一个重要的原则：</h2><p>​                  由Vue管理的函数，一定不要写箭头函数，一旦写了箭头函数，this就不再是Vue实例了。</p>
+<h1 id="MVVM模型"><a href="#MVVM模型" class="headerlink" title="MVVM模型"></a>MVVM模型</h1><pre><code>            \1. M：模型(Model) ：data中的数据
+
+​            \2. V：视图(View) ：模板代码
+
+​            \3. VM：视图模型(ViewModel)：Vue实例
+</code></pre>
+<p>​      观察发现：</p>
+<p>​            1.data中所有的属性，最后都出现在了vm身上。</p>
+<p>​            2.vm身上所有的属性 及 Vue原型上所有属性，在Vue模板中都可以直接使用。</p>
+<h1 id="回顾Object-defineproperty方法"><a href="#回顾Object-defineproperty方法" class="headerlink" title="回顾Object.defineproperty方法"></a>回顾Object.defineproperty方法</h1><pre><code class="javascript">&lt;script type=&quot;text/javascript&quot; &gt;
+let number = 18
+let person = &#123;
+name:&#39;张三&#39;,
+sex:&#39;男&#39;,
+&#125;
+
+Object.defineProperty(person,&#39;age&#39;,&#123;
+// value:18,
+// enumerable:true, //控制属性是否可以枚举，默认值是false
+// writable:true, //控制属性是否可以被修改，默认值是false
+// configurable:true //控制属性是否可以被删除，默认值是false
+
+//当有人读取person的age属性时，get函数(getter)就会被调用，且返回值就是age的值
+get()&#123;
+console.log(&#39;有人读取age属性了&#39;)
+return number
+&#125;,
+
+//当有人修改person的age属性时，set函数(setter)就会被调用，且会收到修改的具体值
+set(value)&#123;
+console.log(&#39;有人修改了age属性，且值是&#39;,value)
+number = value
+&#125;
+
+&#125;)
+
+// console.log(Object.keys(person))
+
+console.log(person)
+&lt;/script&gt;
+</code></pre>
+<h1 id="何为数据代理"><a href="#何为数据代理" class="headerlink" title="何为数据代理"></a>何为数据代理</h1><pre><code class="javascript">&lt;!-- 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）--&gt;
+        &lt;script type=&quot;text/javascript&quot; &gt;
+            let obj = &#123;x:100&#125;
+            let obj2 = &#123;y:200&#125;
+
+            Object.defineProperty(obj2,&#39;x&#39;,&#123;
+                get()&#123;
+                    return obj.x
+                &#125;,
+                set(value)&#123;
+                    obj.x = value
+                &#125;
+            &#125;)
+        &lt;/script&gt;
+</code></pre>
+<h1 id="Vue中的数据代理"><a href="#Vue中的数据代理" class="headerlink" title="Vue中的数据代理"></a>Vue中的数据代理</h1><pre><code class="javascript">1.Vue中的数据代理：
+    通过vm对象来代理data对象中属性的操作（读/写）
+2.Vue中数据代理的好处：
+    更加方便的操作data中的数据
+3.基本原理：
+    通过Object.defineProperty()把data对象中所有属性添加到vm上。
+    为每一个添加到vm上的属性，都指定一个getter/setter。
+    在getter/setter内部去操作（读/写）data中对应的属性。
+</code></pre>
+<h1 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h1><p>事件的基本使用：</p>
+<pre><code class="javascript">              1.使用v-on:xxx 或 @xxx 绑定事件，其中xxx是事件名；
+
+​              2.事件的回调需要配置在methods对象中，最终会在vm上；
+
+​              3.methods中配置的函数，不要用箭头函数！否则this就不是vm了；
+
+​              4.methods中配置的函数，都是被Vue所管理的函数，this的指向是vm 或 组件实例对象；
+
+​              5.@click=&quot;demo&quot; 和 @click=&quot;demo($event)&quot; 效果一致，但后者可以传参；
+</code></pre>
+<pre><code class="javascript">Vue中的事件修饰符：
+
+​            1.prevent：阻止默认事件（常用）；
+
+​            2.stop：阻止事件冒泡（常用）；
+
+​            3.once：事件只触发一次（常用）；
+
+​            4.capture：使用事件的捕获模式；
+
+​            5.self：只有event.target是当前操作的元素时才触发事件；
+
+​            6.passive：事件的默认行为立即执行，无需等待事件回调执行完毕；
+</code></pre>
+<pre><code class="javascript">1.Vue中常用的按键别名：
+                            回车 =&gt; enter
+                            删除 =&gt; delete (捕获“删除”和“退格”键)
+                            退出 =&gt; esc
+                            空格 =&gt; space
+                            换行 =&gt; tab (特殊，必须配合keydown去使用)
+                            上 =&gt; up
+                            下 =&gt; down
+                            左 =&gt; left
+                            右 =&gt; right
+
+                2.Vue未提供别名的按键，可以使用按键原始的key值去绑定，但注意要转为kebab-case（短横线命名）
+
+                3.系统修饰键（用法特殊）：ctrl、alt、shift、meta
+                            (1).配合keyup使用：按下修饰键的同时，再按下其他键，随后释放其他键，事件才被触发。
+                            (2).配合keydown使用：正常触发事件。
+
+                4.也可以使用keyCode去指定具体的按键（不推荐）
+
+                5.Vue.config.keyCodes.自定义键名 = 键码，可以去定制按键别名
+</code></pre>
+<h1 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h1><h3 id="插值语法实现"><a href="#插值语法实现" class="headerlink" title="插值语法实现"></a>插值语法实现</h3><pre><code>html
+    &lt;!-- 准备好一个容器--&gt;
+        &lt;div id=&quot;root&quot;&gt;
+            姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+            名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+            全名：&lt;span&gt;&#123;&#123;firstName&#125;&#125;-&#123;&#123;lastName&#125;&#125;&lt;/span&gt;
+        &lt;/div&gt;
+js
+    new Vue(&#123;
+            el:&#39;#root&#39;,
+            data:&#123;
+                firstName:&#39;张&#39;,
+                lastName:&#39;三&#39;
+            &#125;
+        &#125;)
+</code></pre>
+<h3 id="methods实现"><a href="#methods实现" class="headerlink" title="methods实现"></a>methods实现</h3><pre><code>html 
+    &lt;!-- 准备好一个容器--&gt;
+        &lt;div id=&quot;root&quot;&gt;
+            姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+            名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+            全名：&lt;span&gt;&#123;&#123;fullName()&#125;&#125;&lt;/span&gt;
+        &lt;/div&gt;
+js 
+    new Vue(&#123;
+            el:&#39;#root&#39;,
+            data:&#123;
+                firstName:&#39;张&#39;,
+                lastName:&#39;三&#39;
+            &#125;,
+            methods: &#123;
+                fullName()&#123;
+                    console.log(&#39;@---fullName&#39;)
+                    return this.firstName + &#39;-&#39; + this.lastName
+                &#125;
+            &#125;,
+        &#125;)
+</code></pre>
+<h3 id="计算属性实现"><a href="#计算属性实现" class="headerlink" title="计算属性实现"></a>计算属性实现</h3><pre><code>计算属性：
+    1.定义：要用的属性不存在，要通过已有属性计算得来。
+    2.原理：底层借助了Objcet.defineproperty方法提供的getter和setter。
+    3.get函数什么时候执行？
+        (1).初次读取时会执行一次。
+        (2).当依赖的数据发生改变时会被再次调用。
+    4.优势：与methods实现相比，内部有缓存机制（复用），效率更高，调试方便。
+    5.备注：
+        1.计算属性最终会出现在vm上，直接读取使用即可。
+        2.如果计算属性要被修改，那必须写set函数去响应修改，且set中要引起计算时依赖的数据发生改变。
+html
+        &lt;div id=&quot;root&quot;&gt;
+            姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+            名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+            测试：&lt;input type=&quot;text&quot; v-model=&quot;x&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+            全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
+            &lt;!-- 全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
+            全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
+            全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; --&gt;
+        &lt;/div&gt;
+js 
+    const vm = new Vue(&#123;
+            el:&#39;#root&#39;,
+            data:&#123;
+                firstName:&#39;张&#39;,
+                lastName:&#39;三&#39;,
+                x:&#39;你好&#39;
+            &#125;,
+            methods: &#123;
+                demo()&#123;
+                    
+                &#125;
+            &#125;,
+            computed:&#123;
+                fullName:&#123;
+                    //get有什么作用？当有人读取fullName时，get就会被调用，且返回值就作为fullName的值
+                    //get什么时候调用？1.初次读取fullName时。2.所依赖的数据发生变化时。
+                    get()&#123;
+                        console.log(&#39;get被调用了&#39;)
+                        // console.log(this) //此处的this是vm
+                        return this.firstName + &#39;-&#39; + this.lastName
+                    &#125;,
+                    //set什么时候调用? 当fullName被修改时。
+                    set(value)&#123;
+                        console.log(&#39;set&#39;,value)
+                        const arr = value.split(&#39;-&#39;)
+                        this.firstName = arr[0]
+                        this.lastName = arr[1]
+                    &#125;
+                &#125;
+            &#125;
+        &#125;)
+</code></pre>
+<h4 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h4><pre><code>html
+    &lt;div id=&quot;root&quot;&gt;
+        姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+        名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+        全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
+    &lt;/div&gt;
+js
+    const vm = new Vue(&#123;
+            el:&#39;#root&#39;,
+            data:&#123;
+                firstName:&#39;张&#39;,
+                lastName:&#39;三&#39;,
+            &#125;,
+            computed:&#123;
+                //简写
+                fullName()&#123;
+                    console.log(&#39;get被调用了&#39;)
+                    return this.firstName + &#39;-&#39; + this.lastName
+                &#125;
+            &#125;
+        &#125;)
+</code></pre>
+<h1 id="监视属性"><a href="#监视属性" class="headerlink" title="监视属性"></a>监视属性</h1><pre><code>html
+    &lt;div id=&quot;root&quot;&gt;
+            &lt;h2&gt;今天天气很&#123;&#123;info&#125;&#125;&lt;/h2&gt;
+            &lt;!-- 绑定事件的时候：@xxx=&quot;yyy&quot; yyy可以写一些简单的语句 --&gt;
+            &lt;!-- &lt;button @click=&quot;isHot = !isHot&quot;&gt;切换天气&lt;/button&gt; --&gt;
+            &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;
+    &lt;/div&gt;
+    
+js
+    const vm = new Vue(&#123;
+            el:&#39;#root&#39;,
+            data:&#123;
+                isHot:true,
+            &#125;,
+            computed:&#123;
+                info()&#123;
+                    return this.isHot ? &#39;炎热&#39; : &#39;凉爽&#39;
+                &#125;
+            &#125;,
+            methods: &#123;
+                changeWeather()&#123;
+                    this.isHot = !this.isHot
+                &#125;
+            &#125;,
+        &#125;)
+</code></pre>
+<h4 id="监视属性watch："><a href="#监视属性watch：" class="headerlink" title="监视属性watch："></a>监视属性watch：</h4><pre><code>          1.当被监视的属性变化时, 回调函数自动调用, 进行相关操作
+
+​          2.监视的属性必须存在，才能进行监视！！
+
+​          3.监视的两种写法：
+
+​              (1).new Vue时传入watch配置
+
+​              (2).通过vm.$watch监视
+</code></pre>
+<pre><code>            /* watch:&#123;
+                isHot:&#123;
+                    immediate:true, //初始化时让handler调用一下
+                    //handler什么时候调用？当isHot发生改变时。
+                    handler(newValue,oldValue)&#123;
+                        console.log(&#39;isHot被修改了&#39;,newValue,oldValue)
+                    &#125;
+                &#125;
+            &#125; */
+            
+            
+            
+            
+            vm.$watch(&#39;isHot&#39;,&#123;
+                immediate:true, //初始化时让handler调用一下
+                //handler什么时候调用？当isHot发生改变时。
+                handler(newValue,oldValue)&#123;
+                console.log(&#39;isHot被修改了&#39;,newValue,oldValue)
+                &#125;
+            &#125;)
+</code></pre>
+<h2 id="深度监视："><a href="#深度监视：" class="headerlink" title="深度监视："></a>深度监视：</h2><pre><code>            (1).Vue中的watch默认不监测对象内部值的改变（一层）。
+
+​            (2).配置deep:true可以监测对象内部值改变（多层）。
+
+​        备注：
+
+​            (1).Vue自身可以监测对象内部值的改变，但Vue提供的watch默认不可以！
+
+​            (2).使用watch时根据数据的具体结构，决定是否采用深度监视。
+</code></pre>
+<h2 id="简写-1"><a href="#简写-1" class="headerlink" title="简写"></a>简写</h2><pre><code>watch: &#123;
+            //正常写法
+            /* isHot:&#123;
+                // immediate:true, //初始化时让handler调用一下
+                // deep:true,//深度监视
+                handler(newValue,oldValue)&#123;
+                    console.log(&#39;isHot被修改了&#39;,newValue,oldValue)
+                &#125;
+            &#125;, */
+            //简写
+            /* isHot(newValue,oldValue)&#123;
+                console.log(&#39;isHot被修改了&#39;,newValue,oldValue,this)
+            &#125; */
+        &#125;
+</code></pre>
+<h1 id="computed和watch之间的区别："><a href="#computed和watch之间的区别：" class="headerlink" title="computed和watch之间的区别："></a>computed和watch之间的区别：</h1><pre><code>            1.computed能完成的功能，watch都可以完成。
+
+​            2.watch能完成的功能，computed不一定能完成，例如：watch可以进行异步操作。
+
+​        两个重要的小原则：
+
+​              1.所被Vue管理的函数，最好写成普通函数，这样this的指向才是vm 或 组件实例对象。
+
+​              2.所有不被Vue所管理的函数（定时器的回调函数、ajax的回调函数等、Promise的回调函数），最好写成箭头函数，
+
+​                这样this的指向才是vm 或 组件实例对象。
+</code></pre>
+<h1 id="收集表单数据"><a href="#收集表单数据" class="headerlink" title="收集表单数据"></a>收集表单数据</h1><pre><code>收集表单数据：
+    若：&lt;input type=&quot;text&quot;/&gt;，则v-model收集的是value值，用户输入的就是value值。
+    若：&lt;input type=&quot;radio&quot;/&gt;，则v-model收集的是value值，且要给标签配置value值。
+    若：&lt;input type=&quot;checkbox&quot;/&gt;
+    1.没有配置input的value属性，那么收集的就是checked（勾选 or 未勾选，是布尔值）
+    2.配置input的value属性:
+    (1)v-model的初始值是非数组，那么收集的就是checked（勾选 or 未勾选，是布尔值）
+    (2)v-model的初始值是数组，那么收集的的就是value组成的数组
+    备注：v-model的三个修饰符：
+    lazy：失去焦点再收集数据
+    number：输入字符串转为有效的数字
+    trim：输入首尾空格过滤
+</code></pre>
+<pre><code>&lt;form @submit.prevent=&quot;demo&quot;&gt;
+                账号：&lt;input type=&quot;text&quot; v-model.trim=&quot;userInfo.account&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+                密码：&lt;input type=&quot;password&quot; v-model=&quot;userInfo.password&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+                年龄：&lt;input type=&quot;number&quot; v-model.number=&quot;userInfo.age&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+                性别：
+                男&lt;input type=&quot;radio&quot; name=&quot;sex&quot; v-model=&quot;userInfo.sex&quot; value=&quot;male&quot;&gt;
+                女&lt;input type=&quot;radio&quot; name=&quot;sex&quot; v-model=&quot;userInfo.sex&quot; value=&quot;female&quot;&gt; &lt;br/&gt;&lt;br/&gt;
+                爱好：
+                学习&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;study&quot;&gt;
+                打游戏&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;game&quot;&gt;
+                吃饭&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;eat&quot;&gt;
+                &lt;br/&gt;&lt;br/&gt;
+                所属校区
+                &lt;select v-model=&quot;userInfo.city&quot;&gt;
+                    &lt;option value=&quot;&quot;&gt;请选择校区&lt;/option&gt;
+                    &lt;option value=&quot;beijing&quot;&gt;北京&lt;/option&gt;
+                    &lt;option value=&quot;shanghai&quot;&gt;上海&lt;/option&gt;
+                    &lt;option value=&quot;shenzhen&quot;&gt;深圳&lt;/option&gt;
+                    &lt;option value=&quot;wuhan&quot;&gt;武汉&lt;/option&gt;
+                &lt;/select&gt;
+                &lt;br/&gt;&lt;br/&gt;
+                其他信息：
+                &lt;textarea v-model.lazy=&quot;userInfo.other&quot;&gt;&lt;/textarea&gt; &lt;br/&gt;&lt;br/&gt;
+                &lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.agree&quot;&gt;阅读并接受&lt;a href=&quot;http://www.atguigu.com&quot;&gt;《用户协议》&lt;/a&gt;
+                &lt;button&gt;提交&lt;/button&gt;
+&lt;/form&gt;
+            
+            
+            
+            
+data:&#123;
+    userInfo:&#123;
+    account:&#39;&#39;,
+    password:&#39;&#39;,
+    age:18,
+    sex:&#39;female&#39;,
+    hobby:[],
+    city:&#39;beijing&#39;,
+    other:&#39;&#39;,
+    agree:&#39;&#39;
+&#125;
+</code></pre>
+<h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1><pre><code>过滤器：
+    定义：对要显示的数据进行特定格式化后再显示（适用于一些简单逻辑的处理）。
+    语法：
+    1.注册过滤器：Vue.filter(name,callback) 或 new Vue&#123;filters:&#123;&#125;&#125;
+    2.使用过滤器：&#123;&#123; xxx | 过滤器名&#125;&#125;  或  v-bind:属性 = &quot;xxx | 过滤器名&quot;
+    备注：
+    1.过滤器也可以接收额外参数、多个过滤器也可以串联
+    2.并没有改变原本的数据, 是产生新的对应的数据
+</code></pre>
+<pre><code>    //全局过滤器
+    Vue.filter(&#39;mySlice&#39;,function(value)&#123;
+        return value.slice(0,4)
+    &#125;)
+
+    //局部过滤器
+    filters:&#123;
+        timeFormater(value,str=&#39;YYYY年MM月DD日 HH:mm:ss&#39;)&#123;
+        // console.log(&#39;@&#39;,value)
+        return dayjs(value).format(str)
+        &#125;
+    &#125;
+</code></pre>
+<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><pre><code>我们学过的指令：
+    v-bind    : 单向绑定解析表达式, 可简写为 :xxx
+    v-model    : 双向数据绑定
+    v-for      : 遍历数组/对象/字符串
+    v-on       : 绑定事件监听, 可简写为@
+    v-if          : 条件渲染（动态控制节点是否存存在）
+    v-else     : 条件渲染（动态控制节点是否存存在）
+    v-show     : 条件渲染 (动态控制节点是否展示)
+    v-text指令：
+    1.作用：向其所在的节点中渲染文本内容。
+    2.与插值语法的区别：v-text会替换掉节点中的内容，&#123;&#123;xx&#125;&#125;则不会。
+</code></pre>
+<pre><code>v-html指令：
+    1.作用：向指定节点中渲染包含html结构的内容。
+    2.与插值语法的区别：
+    (1).v-html会替换掉节点中所有的内容，&#123;&#123;xx&#125;&#125;则不会。
+    (2).v-html可以识别html结构。
+    3.严重注意：v-html有安全性问题！！！！
+    (1).在网站上动态渲染任意HTML是非常危险的，容易导致XSS攻击。
+    (2).一定要在可信的内容上使用v-html，永不要用在用户提交的内容上！
+</code></pre>
+<pre><code>v-cloak指令（没有值）：
+
+            1.本质是一个特殊属性，Vue实例创建完毕并接管容器后，会删掉v-cloak属性。
+            2.使用css配合v-cloak可以解决网速慢时页面展示出&#123;&#123;xxx&#125;&#125;的问题。
+v-once指令：
+            1.v-once所在节点在初次动态渲染后，就视为静态内容了。
+            2.以后数据的改变不会引起v-once所在结构的更新，可以用于优化性能。
+v-pre指令：
+            1.跳过其所在节点的编译过程。
+            2.可利用它跳过：没有使用指令语法、没有使用插值语法的节点，会加快编译。
+</code></pre>
+<h1 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h1><img src="/2021/11/24/vue%E5%8D%95%E6%96%87%E4%BB%B6/Users\kuankuan\AppData\Roaming\Typora\typora-user-images\image-20210910095050679.png" alt="image-20210910095050679" style="zoom:150%;">
+
+<pre><code>directives:&#123;
+            //big函数何时会被调用？1.指令与元素成功绑定时（一上来）。2.指令所在的模板被重新解析时。
+            /* &#39;big-number&#39;(element,binding)&#123;
+            // console.log(&#39;big&#39;)
+                element.innerText = binding.value * 10
+            &#125;, */
+            big(element,binding)&#123;
+            console.log(&#39;big&#39;,this) //注意此处的this是window
+            // console.log(&#39;big&#39;)
+                element.innerText = binding.value * 10
+            &#125;,
+            fbind:&#123;
+            //指令与元素成功绑定时（一上来）
+            bind(element,binding)&#123;
+                element.value = binding.value
+            &#125;,
+            //指令所在元素被插入页面时
+            inserted(element,binding)&#123;
+                element.focus()
+            &#125;,
+            //指令所在的模板被重新解析时
+            update(element,binding)&#123;
+                element.value = binding.value
+            &#125;
+           &#125;
+        &#125;
+</code></pre>
+<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><p>生命周期：</p>
+<p>​            1.又名：生命周期回调函数、生命周期函数、生命周期钩子。</p>
+<p>​            2.是什么：Vue在关键时刻帮我们调用的一些特殊名称的函数。</p>
+<p>​            3.生命周期函数的名字不可更改，但函数的具体内容是程序员根据需求编写的。</p>
+<p>​            4.生命周期函数中的this指向是vm 或 组件实例对象。</p>
+<pre><code>常用的生命周期钩子：
+                        1.mounted: 发送ajax请求、启动定时器、绑定自定义事件、订阅消息等【初始化操作】。
+                        2.beforeDestroy: 清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】。
+
+                关于销毁Vue实例
+                        1.销毁后借助Vue开发者工具看不到任何信息。
+                        2.销毁后自定义事件会失效，但原生DOM事件依然有效。
+                        3.一般不会在beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了。
+</code></pre>
+<h1 id="1-一个重要的内置关系：VueComponent-prototype-proto-Vue-prototype"><a href="#1-一个重要的内置关系：VueComponent-prototype-proto-Vue-prototype" class="headerlink" title="1.一个重要的内置关系：VueComponent.prototype.proto === Vue.prototype"></a>1.一个重要的内置关系：VueComponent.prototype.<strong>proto</strong> === Vue.prototype</h1><h1 id="2-为什么要有这个关系：让组件实例对象（vc）可以访问到-Vue原型上的属性、方法。"><a href="#2-为什么要有这个关系：让组件实例对象（vc）可以访问到-Vue原型上的属性、方法。" class="headerlink" title="2.为什么要有这个关系：让组件实例对象（vc）可以访问到 Vue原型上的属性、方法。"></a>2.为什么要有这个关系：让组件实例对象（vc）可以访问到 Vue原型上的属性、方法。</h1>]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue  脚手架</title>
     <url>/2021/11/24/vue%E8%84%9A%E6%89%8B%E6%9E%B6/</url>
     <content><![CDATA[<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><h2 id="脚手架文件结构"><a href="#脚手架文件结构" class="headerlink" title="脚手架文件结构"></a>脚手架文件结构</h2><pre><code>├── node_modules 
@@ -3099,607 +3700,6 @@ beforeRouteLeave (to, from, next) &#123;
 </li>
 </ol>
 ]]></content>
-  </entry>
-  <entry>
-    <title>数据统计</title>
-    <url>/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/</url>
-    <content><![CDATA[<h1 id="第9章-数据统计分析案例"><a href="#第9章-数据统计分析案例" class="headerlink" title="第9章　数据统计分析案例"></a>第9章　数据统计分析案例</h1><p>本章以案例为主，通过简单的知识讲解使读者了解数据统计分析中常用的分析方法，如对比分析，同比、定比和环比分析，贡献度分析，差异化分析，相关性分析和时间序列分析的概念。通过典型案例，将数据统计分析方法与前面学习的内容相结合，力求将所学内容应用到实践中。</p>
-<h1 id="9-1-对比分析"><a href="#9-1-对比分析" class="headerlink" title="9.1　对比分析"></a>9.1　对比分析</h1><h2 id="9-1-1-什么是对比分析"><a href="#9-1-1-什么是对比分析" class="headerlink" title="9.1.1　什么是对比分析"></a>9.1.1　什么是对比分析</h2><p>对比分析法是将两个或两个以上的数据进行比较，分析其中的差异，从而揭示这些事物代表的发展变化情况和规律性。 特点：非常直观地看出事物某方面的变化或差距，而且可以准确、量化地表示出变化的差距是多少。 对比分析法通常是把两个相互联系的指标数据进行比较，从数量上展示和说明研究对象规模的大小、水平的高低、速度的快慢，以及各种关系是否协调。对比分析一般来说有以下几种对比方法：纵向对比、横向对比、标准对比、实际与计划对比。</p>
-<h2 id="9-1-2-案例：对比分析各品牌销量表现TOP10"><a href="#9-1-2-案例：对比分析各品牌销量表现TOP10" class="headerlink" title="9.1.2　案例：对比分析各品牌销量表现TOP10"></a>9.1.2　案例：对比分析各品牌销量表现TOP10</h2><p>案例位置：资源包\MR\Code\09\example\01 对比国产各品牌汽车2020年1月销量，效果如图9.1所示。 程序代码如下：</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091340914.png" alt="image-20211101091340914"></p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091429952.png" alt="image-20211101091429952"></p>
-<p>​                                                                                     图9.1　对比分析各品牌销量表现TOP10</p>
-<h1 id="9-2-同比、定比和环比分析"><a href="#9-2-同比、定比和环比分析" class="headerlink" title="9.2　同比、定比和环比分析"></a>9.2　同比、定比和环比分析</h1><p>在数据分析中，有一个重要的分析方法，叫趋势分析法，即将两期或连续数期报告中某一指标进行对比，确定其增减变动的方向、数额和幅度，以确定该指标的变动趋势。趋势分析法中的指标，有同比分析、定比（定基比）分析和环比分析，以及同比增长率分析、定比（定基比）增长率分析和环比增长率分析。</p>
-<h2 id="9-2-1-同比、定比和环比概述"><a href="#9-2-1-同比、定比和环比概述" class="headerlink" title="9.2.1　同比、定比和环比概述"></a>9.2.1　同比、定比和环比概述</h2><p>首先了解一下同比、定比和环比的概念。　</p>
-<p>同比：本期数据与历史同期数据比较。例如，2021年11月份与2020年11月份相比较。　</p>
-<p>定比：本期数据与特定时期的数据比较。例如，2021年11月与2019年12月份相比较。　</p>
-<p>环比：本期数据与上期数据比较。例如，2021年11月份与2020年11月份相比较。</p>
-<p>同比的好处是可以排除一部分季节因素；环比的好处是可以更直观地表明阶段性的变换，但是会受季节性因素影响；定比常用于财务数据分析。下面来看一个生活中经常出现的场景。　同比：去年这个这时候这条裙子我还能穿，现在穿不进去啦！　定比：年龄，50岁是25岁的两倍。　环比：这个月好像比上个月胖了。 下面简单介绍一下同比、定比和环比计算的公式。</p>
-<h3 id="1．同比"><a href="#1．同比" class="headerlink" title="1．同比"></a>1．同比</h3><p>同比的计算公式如下：</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091544403.png" alt="image-20211101091544403"></p>
-<h3 id="2．定比"><a href="#2．定比" class="headerlink" title="2．定比"></a>2．定比</h3><p>定比的计算公式如下：</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091601809.png" alt="image-20211101091601809"></p>
-<h3 id="3．环比"><a href="#3．环比" class="headerlink" title="3．环比"></a>3．环比</h3><p>环比增长率反映本期比上期增长了多少，公式如下：</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091624602.png" alt="image-20211101091624602"></p>
-<p>环比发展速度是本期水平与前一期水平之比，反映前后两期的发展变化情况，公式如下：</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091640229.png" alt="image-20211101091640229"></p>
-<h2 id="9-2-2-案例1：京东电商单品销量同比增长情况分析"><a href="#9-2-2-案例1：京东电商单品销量同比增长情况分析" class="headerlink" title="9.2.2　案例1：京东电商单品销量同比增长情况分析"></a>9.2.2　案例1：京东电商单品销量同比增长情况分析</h2><p>案例位置：资源包\MR\Code\09\example\02\01 下面分析2020年2月与2019年2月相比，京东电商《零基础学Python（全彩版）》一书销量同比增长情况，效果如图9.2所示。 从分析结果得知：上海、武汉同比增长较小。</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091708101.png" alt="image-20211101091708101"></p>
-<p>​                                                                                                              图9.2　同比分析 程序代码如下：</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091740885.png" alt="image-20211101091740885"></p>
-<h2 id="9-2-3-案例2：单品销量定比分析"><a href="#9-2-3-案例2：单品销量定比分析" class="headerlink" title="9.2.3　案例2：单品销量定比分析"></a>9.2.3　案例2：单品销量定比分析</h2><p>案例位置：资源包\MR\Code\09\example\02\02 下面实现京东电商《零基础学Python（全彩版）》一书2019年销量定比分析，以2019年1月为基期，基点为1，效果如图9.3所示。</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101091933203.png" alt="image-20211101091933203"></p>
-<p>​                                                                                                      图9.3　定比分析 从图9.3中可以看到，6月开始呈现连续小幅度增长，到11月开始大幅度增长，定比指数较10月提高了3.028个点。 程序代码如下：</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092002261.png" alt="image-20211101092002261"></p>
-<h2 id="9-2-4-案例3：单品销量环比增长情况分析"><a href="#9-2-4-案例3：单品销量环比增长情况分析" class="headerlink" title="9.2.4　案例3：单品销量环比增长情况分析"></a>9.2.4　案例3：单品销量环比增长情况分析</h2><p>案例位置：资源包\MR\Code\09\example\02\03 下面分析京东电商《零基础学Python（全彩版）》一书2019年销量环比增长情况，效果如图9.4所示。</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092041392.png" alt="image-20211101092041392"></p>
-<p>​                                                                                                    图9.4　环比分析 程序代码如下：</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092113806.png" alt="image-20211101092113806"></p>
-<p>实用技巧 在使用Matplotlib绘制图表时，发现了一个警告Warining，如图9.5所示。</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092157969.png" alt="image-20211101092157969"></p>
-<p>​                                                                                                                  图9.5　警告信息 完整警告信息如下： MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance. In a future version, a new instance will always be created and returned. Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance. “Adding an axes using the same arguments as a previous axes “ 解决方法： 出现上述警告，原因是在创建画布fig=plt.figure()后就设置了图表标题或坐标轴标签，将图表标题或坐标轴标签相关代码放置在定义子图ax=fig.add_subplot(111)代码后就不会出现警告信息了。</p>
-<h1 id="9-3-贡献度分析（帕累托法则）"><a href="#9-3-贡献度分析（帕累托法则）" class="headerlink" title="9.3　贡献度分析（帕累托法则）"></a>9.3　贡献度分析（帕累托法则）</h1><h2 id="9-3-1-什么是贡献度分析"><a href="#9-3-1-什么是贡献度分析" class="headerlink" title="9.3.1　什么是贡献度分析"></a>9.3.1　什么是贡献度分析</h2><p>贡献度分析又称80/20法则、二八法则、帕累托法则、帕累托定律、最省力法则或不平衡原则。 该法则是由意大利经济学家“帕累托”提出的。80/20法则认为：原因和结果、投入和产出、努力和报酬之间本来存在着无法解释的不平衡。例如，一个公司80%的利润常常来自20%的产品，那么使用贡献度分析就可以分析获利最高的20%的产品。 下面简单介绍一下贡献率相关算法。</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092249403.png" alt="image-20211101092249403"></p>
-<p>通过上述公式得出累计贡献率，当累计贡献率接近80%时（不一定正好是80%)，然后找到该产品在图表中相应的位置并进行标注。说明 真正的比例不一定正好是80%:20%。80/20法则表明在多数情况下该关系很可能是不平衡的，并且接近于80/20。</p>
-<h2 id="9-3-2-案例：产品贡献度分析"><a href="#9-3-2-案例：产品贡献度分析" class="headerlink" title="9.3.2　案例：产品贡献度分析"></a>9.3.2　案例：产品贡献度分析</h2><p>案例位置：资源包\MR\Code\09\example\03 下面分析淘宝电商全彩系列图书2018年上半年销售收入占比80%的产品。首先，使用9.3.1节中的公式计算产品累计贡献率，结果如图9.6所示。从图9.6中可以看出，到图书编号B13时，累计贡献率就已达到了0.817665（接近总销售收入的80%），其中共有10种产品，接下来在图表中进行标注，如图9.7所示。</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092358482.png" alt="image-20211101092358482"></p>
-<p>​                                                                                         图9.6　输出累计贡献率</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092428830.png" alt="image-20211101092428830"></p>
-<p>​                                                                                                   图9.7　产品贡献度分析 程序代码如下：</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101092455112.png" alt="image-20211101092455112"></p>
-<h1 id="9-4-差异化分析"><a href="#9-4-差异化分析" class="headerlink" title="9.4　差异化分析"></a>9.4　差异化分析</h1><h2 id="9-4-1-差异化概述"><a href="#9-4-1-差异化概述" class="headerlink" title="9.4.1　差异化概述"></a>9.4.1　差异化概述</h2><p>任何事物都存在差异，如同上课听讲，有人津津有味，有人昏昏欲睡。 那么，通过差异化分析，比较不同事物之间在某个指标上存在的差异，根据差异定制不同的策略。对于产品而言，差异化分析是指企业在其提供给顾客的产品上，通过各种方法满足顾客的偏好，使顾客能够把它同其他竞争企业提供的同类产品有效地区别开来，从而使企业在市场竞争中占据有利的地位。 比较常见的有性别差异、年龄差异。通过差异化分析比较不同性别之间在某个指标上存在的差异，通过分析结果对不同性别定制不同的方案。例如，分析不同性别的同学在学习成绩上的差异，了解男生和女生之间的这些差异，因材施教，定制不同的弥补弱项的方案。对于女生，可以有意识地培养她的思维能力；而对于男生，可以买些书籍，来增强他薄弱的方面。 年龄差异化分析，了解不同年龄的需求，投其所好，使企业的利润最大化。例如，网购、自媒体、汽车、旅游等行业，通过年龄差异化分析，找出不同年龄段用户群体的喜好，从而增加产品销量。</p>
-<h2 id="9-4-2-案例：学生成绩性别差异分析"><a href="#9-4-2-案例：学生成绩性别差异分析" class="headerlink" title="9.4.2　案例：学生成绩性别差异分析"></a>9.4.2　案例：学生成绩性别差异分析</h2><p>案例位置：资源包\MR\Code\09\example\04 “女孩喜欢毛绒玩具，男孩喜欢车”这大概是天生的。 科学研究表明，男孩和女孩的差别在相当程度上是由生理基础决定的。通过高科技扫描就可以发现，男孩和女孩的大脑都会有某些部位比对方相应的部位更发达、更忙碌。 随着孩子的成长，这种天生的性别差异就会对孩子的学习有所影响，并且不断强化。而反过来，学习的本身也在改变着大脑的机能发育。因为当孩子玩耍和学习时，相对应的脑细胞就会更加活跃且随时更新，而那些不经常使用的部分将会逐渐退化萎缩。 下面我们用数据说话，通过雷达图分析男生、女生各科成绩差异，效果如图9.8所示。</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101093258671.png" alt="image-20211101093258671"></p>
-<p>​                                                                                 图9.8　男生、女生各科成绩差异分析 从分析结果得知：男生数学和物理高于女生，而女生在英语和语文上略占优势。针对性别差异造成学习成绩的差距，应该采取因材施教，从而提高女生的数学和物理成绩</p>
-<p>男生的语文和英语成绩。 程序代码如下：</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101093347266.png" alt="image-20211101093347266"></p>
-<h1 id="9-5-相关性分析"><a href="#9-5-相关性分析" class="headerlink" title="9.5　相关性分析"></a>9.5　相关性分析</h1><h2 id="9-5-1-相关性概述"><a href="#9-5-1-相关性概述" class="headerlink" title="9.5.1　相关性概述"></a>9.5.1　相关性概述</h2><p>任何事物之间都存在一定的联系。例如，夏天温度的高低与空调的销量就存在相关性。当温度升高时，空调的销量也会相应提高。 相关性分析是指对多个具备相关关系的数据进行分析，从而衡量数据之间的相关程度或密切程度。相关性可以应用到所有数据的分析过程中。如果一组数据的改变引发另一组数据朝相同方向变化，那么这两组数据存在正相关性，例如，身高与体重，一般个子高的人体重会重一些，个子矮的人体重会轻一些；如果一组数据的改变引发另一组数据朝相反方向变化，那么这两组数据存在负相关性，例如，运动与体重。</p>
-<h2 id="9-5-2-案例：广告展现量与费用成本相关性分析"><a href="#9-5-2-案例：广告展现量与费用成本相关性分析" class="headerlink" title="9.5.2　案例：广告展现量与费用成本相关性分析"></a>9.5.2　案例：广告展现量与费用成本相关性分析</h2><p>案例位置：资源包\MR\Code\09\example\05 为了促进销售，电商营销必然要投入广告，这样就会产生广告展现量和费用成本相关的数据。通常情况下，我们认为费用高，广告效果就好，它们之间必然存在联系，但仅通过主观判断没有说服力，无法证明数据之间关系的真实存在，也无法度量它们之间关系的强弱。因此，我们要通过相关性分析来找出数据之间的关系。 下面来看一下费用成本与广告展现量相关数据情况（由于数据太多，只显示部分数据），如图9.9和图9.10所示。</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101093655985.png" alt="image-20211101093655985"></p>
-<p>​                                                                                                图9.9　费用成本</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101093722813.png" alt="image-20211101093722813"></p>
-<p>​                                                                                                图9.10　广告展现量 相关性分析方法很多，简单的相关性分析方法是将数据进行可视化处理，单纯从数据的角度很难发现数据之间的趋势和联系，而将数据绘制成图表后就可以直观地看出数据之间的趋势和联系。 下面通过散点图看一看广告展现量与费用成本的相关性，效果如图9.11所示。</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101093751243.png" alt="image-20211101093751243"></p>
-<p>​                                                                                                            图9.11　散点图 首先对数据进行简单处理，由于“费用.xlsx”表中同一天会产生多个类型的费用，所以需要按天统计费用，然后将“展现量.xlsx”和“费用.xlsx”两张表的数据合并，最后绘制散点图，程序代码如下：</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101093837899.png" alt="image-20211101093837899"></p>
-<p>虽然图表清晰地展示了广告展现量与费用成本的相关性，但无法判断数据之间有什么关系，相关关系也没有准确地度量，并且数据超过两组时也无法完成各组数据的相关性分析。 下面再介绍一种方法——相关系数方法。相关系数是反映数据之间关系密切程度的统计指标，相关系数的取值区间为1～-1。1表示数据之间完全正相关（线性相关）；-1表示数据之间完全负相关；0表示数据之间不相关。数据越接近0表示相关关系越弱，越接近1表示相关关系越强。 计算相关系数需要一定的计算公式，而在Python中无须使用烦琐的公式，通过DataFrame对象提供的corr()函数就可以轻松实现，关键代码如下：</p>
-<p>data.corr() 运行程序，输出结果如图9.12所示。</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101093902187.png" alt="image-20211101093902187"></p>
-<pre><code>                                                                                             图9.12　各组数据的相关系数
-</code></pre>
-<p>从分析结果得知：“费用”与“费用”自身的相关性是1，与“展现量”“点击量”的相关系数分别是0.856013、0.858597；“展现量”与“展现量”自身的相关性是1，与“点击量”“订单金额”的相关系数分别是0.938554、0.728037。那么，除了“商品关注数”相关系数比较低，其他都很高，可以看出“费用”与“展现量”“点击量”等有一定的正相关性，而且相关性很强。 相关系数的优点是可以通过数字对变量的关系进行度量，并且带有方向性，1表示正相关，-1表示负相关，越靠近0相关性越弱。缺点是无法利用这种关系对数据进行预测。</p>
-<h1 id="9-6-时间序列分析"><a href="#9-6-时间序列分析" class="headerlink" title="9.6　时间序列分析"></a>9.6　时间序列分析</h1><h2 id="9-6-1-时间序列概述"><a href="#9-6-1-时间序列概述" class="headerlink" title="9.6.1　时间序列概述"></a>9.6.1　时间序列概述</h2><p>顾名思义，时间序列就是按照时间顺序排列的一组数据序列。时间序列分析就是找出数据变化发展的规律，从而预测未来的走势。 时间序列分析有以下几种表现形式。　长期趋势变化：受某种因素的影响，数据依据时间变化，按某种规则稳步增长或下降。使用的分析方法有移动平均法、指数平滑法等。　季节性周期变化：受季节更替等因素影响，数据依据固定周期规则性的变化。季节性周期变化，不局限于自然季节，还包括月、周等短期周期。例如，空调、羽绒服、冷饮的销售，双十一、双十二流量在一周之内的波动等。采用的方法为季节指数。　循环变化：指一种较长时间的上、下起伏周期性波动，一般循环时间为2～15年。　随机性变化：由许多不确定因素引起的数据变化，在时间序列中无法预计。</p>
-<h2 id="9-6-2-案例：年增长趋势和季节性波动分析"><a href="#9-6-2-案例：年增长趋势和季节性波动分析" class="headerlink" title="9.6.2　案例：年增长趋势和季节性波动分析"></a>9.6.2　案例：年增长趋势和季节性波动分析</h2><p>案例位置：资源包\MR\Code\09\example\06 下面分析淘宝店铺近3年增长趋势和季节性波动，如图9.13所示。从分析结果得出，近3年淘宝店铺收入呈现持续稳定增长趋势，但2019年有所下降，季节性波动比较明显，每年的第4季度是销售“旺季”。 程序代码如下：</p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101094004956.png" alt="image-20211101094004956"></p>
-<p><img src="/2020/12/09/plt%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1/%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%5Cimage-20211101094315925.png" alt="image-20211101094315925"></p>
-<p>​                                                                                                             图9.13　年增长趋势和季节性波动</p>
-<h1 id="9-7-小结"><a href="#9-7-小结" class="headerlink" title="9.7　小结"></a>9.7　小结</h1><p>本章通过常用的数据分析方法并结合图表，以案例的形式呈现，每一种分析方法都对应一个恰当的分析案例，一张贴切的图表，力求使读者能够真正理解数据分析，并将其应用到实际数据分析工作中。每一个案例都经过作者反复揣摩，希望能够对读者有所帮助。</p>
-]]></content>
-      <categories>
-        <category>数据分析</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Vue  单文件</title>
-    <url>/2021/11/24/vue%E5%8D%95%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h1 id="初识Vue："><a href="#初识Vue：" class="headerlink" title="初识Vue："></a>初识Vue：</h1><p>​        1.想让Vue工作，就必须创建一个Vue实例，且要传入一个配置对象；</p>
-<p>​        2.root容器里的代码依然符合html规范，只不过混入了一些特殊的Vue语法；</p>
-<p>​        3.root容器里的代码被称为【Vue模板】；</p>
-<p>​        4.Vue实例和容器是一一对应的；</p>
-<p>​        5.真实开发中只有一个Vue实例，并且会配合着组件一起使用；</p>
-<p>​        6.中的xxx要写js表达式，且xxx可以自动读取到data中的所有属性；</p>
-<p>​        7.一旦data中的数据发生改变，那么页面中用到该数据的地方也会自动更新；</p>
-<p>​        注意区分：js表达式 和 js代码(语句)</p>
-<pre><code class="javascript">            1.表达式：一个表达式会产生一个值，可以放在任何一个需要值的地方：
-
-​                  (1). a
-
-​                  (2). a+b
-
-​                  (3). demo(1)
-
-​                  (4). x === y ? &#39;a&#39; : &#39;b&#39;
-</code></pre>
-<pre><code>            2.js代码(语句)
-
-​                  (1). if()&#123;&#125;
-
-​                  (2). for()&#123;&#125;
-</code></pre>
-<h1 id="Vue模板语法有2大类："><a href="#Vue模板语法有2大类：" class="headerlink" title="Vue模板语法有2大类："></a>Vue模板语法有2大类：</h1><h2 id="1-插值语法："><a href="#1-插值语法：" class="headerlink" title="1.插值语法："></a>1.插值语法：</h2><p>​              功能：用于解析标签体内容。</p>
-<p>​              写法：，xxx是js表达式，且可以直接读取到data中的所有属性。</p>
-<h2 id="2-指令语法："><a href="#2-指令语法：" class="headerlink" title="2.指令语法："></a>2.指令语法：</h2><p>​              功能：用于解析标签（包括：标签属性、标签体内容、绑定事件…..）。</p>
-<p>​              举例：v-bind:href=”xxx” 或 简写为 :href=”xxx”，xxx同样要写js表达式，</p>
-<p>​                   且可以直接读取到data中的所有属性。</p>
-<p>​              备注：Vue中有很多的指令，且形式都是：v-????，此处我们只是拿v-bind举个例子。</p>
-<h1 id="Vue中有2种数据绑定的方式："><a href="#Vue中有2种数据绑定的方式：" class="headerlink" title="Vue中有2种数据绑定的方式："></a>Vue中有2种数据绑定的方式：</h1><p>​          1.单向绑定(v-bind)：数据只能从data流向页面。</p>
-<p>​          2.双向绑定(v-model)：数据不仅能从data流向页面，还可以从页面流向data。</p>
-<p>​            备注：</p>
-<p>​                1.双向绑定一般都应用在表单类元素上（如：input、select等）</p>
-<p>​                2.v-model:value 可以简写为 v-model，因为v-model默认收集的就是value值。</p>
-<h1 id="data与el的2种写法"><a href="#data与el的2种写法" class="headerlink" title="data与el的2种写法"></a>data与el的2种写法</h1><h2 id="1-el有2种写法"><a href="#1-el有2种写法" class="headerlink" title="1.el有2种写法"></a>1.el有2种写法</h2><p>​                  (1).new Vue时候配置el属性。</p>
-<p>​                  (2).先创建Vue实例，随后再通过vm.$mount(‘#root’)指定el的值。</p>
-<h2 id="2-data有2种写法"><a href="#2-data有2种写法" class="headerlink" title="2.data有2种写法"></a>2.data有2种写法</h2><p>​                  (1).对象式</p>
-<p>​                  (2).函数式</p>
-<p>​                  如何选择：目前哪种写法都可以，以后学习到组件时，data必须使用函数式，否则会报错。</p>
-<h2 id="3-一个重要的原则："><a href="#3-一个重要的原则：" class="headerlink" title="3.一个重要的原则："></a>3.一个重要的原则：</h2><p>​                  由Vue管理的函数，一定不要写箭头函数，一旦写了箭头函数，this就不再是Vue实例了。</p>
-<h1 id="MVVM模型"><a href="#MVVM模型" class="headerlink" title="MVVM模型"></a>MVVM模型</h1><pre><code>            \1. M：模型(Model) ：data中的数据
-
-​            \2. V：视图(View) ：模板代码
-
-​            \3. VM：视图模型(ViewModel)：Vue实例
-</code></pre>
-<p>​      观察发现：</p>
-<p>​            1.data中所有的属性，最后都出现在了vm身上。</p>
-<p>​            2.vm身上所有的属性 及 Vue原型上所有属性，在Vue模板中都可以直接使用。</p>
-<h1 id="回顾Object-defineproperty方法"><a href="#回顾Object-defineproperty方法" class="headerlink" title="回顾Object.defineproperty方法"></a>回顾Object.defineproperty方法</h1><pre><code class="javascript">&lt;script type=&quot;text/javascript&quot; &gt;
-let number = 18
-let person = &#123;
-name:&#39;张三&#39;,
-sex:&#39;男&#39;,
-&#125;
-
-Object.defineProperty(person,&#39;age&#39;,&#123;
-// value:18,
-// enumerable:true, //控制属性是否可以枚举，默认值是false
-// writable:true, //控制属性是否可以被修改，默认值是false
-// configurable:true //控制属性是否可以被删除，默认值是false
-
-//当有人读取person的age属性时，get函数(getter)就会被调用，且返回值就是age的值
-get()&#123;
-console.log(&#39;有人读取age属性了&#39;)
-return number
-&#125;,
-
-//当有人修改person的age属性时，set函数(setter)就会被调用，且会收到修改的具体值
-set(value)&#123;
-console.log(&#39;有人修改了age属性，且值是&#39;,value)
-number = value
-&#125;
-
-&#125;)
-
-// console.log(Object.keys(person))
-
-console.log(person)
-&lt;/script&gt;
-</code></pre>
-<h1 id="何为数据代理"><a href="#何为数据代理" class="headerlink" title="何为数据代理"></a>何为数据代理</h1><pre><code class="javascript">&lt;!-- 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）--&gt;
-        &lt;script type=&quot;text/javascript&quot; &gt;
-            let obj = &#123;x:100&#125;
-            let obj2 = &#123;y:200&#125;
-
-            Object.defineProperty(obj2,&#39;x&#39;,&#123;
-                get()&#123;
-                    return obj.x
-                &#125;,
-                set(value)&#123;
-                    obj.x = value
-                &#125;
-            &#125;)
-        &lt;/script&gt;
-</code></pre>
-<h1 id="Vue中的数据代理"><a href="#Vue中的数据代理" class="headerlink" title="Vue中的数据代理"></a>Vue中的数据代理</h1><pre><code class="javascript">1.Vue中的数据代理：
-    通过vm对象来代理data对象中属性的操作（读/写）
-2.Vue中数据代理的好处：
-    更加方便的操作data中的数据
-3.基本原理：
-    通过Object.defineProperty()把data对象中所有属性添加到vm上。
-    为每一个添加到vm上的属性，都指定一个getter/setter。
-    在getter/setter内部去操作（读/写）data中对应的属性。
-</code></pre>
-<h1 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h1><p>事件的基本使用：</p>
-<pre><code class="javascript">              1.使用v-on:xxx 或 @xxx 绑定事件，其中xxx是事件名；
-
-​              2.事件的回调需要配置在methods对象中，最终会在vm上；
-
-​              3.methods中配置的函数，不要用箭头函数！否则this就不是vm了；
-
-​              4.methods中配置的函数，都是被Vue所管理的函数，this的指向是vm 或 组件实例对象；
-
-​              5.@click=&quot;demo&quot; 和 @click=&quot;demo($event)&quot; 效果一致，但后者可以传参；
-</code></pre>
-<pre><code class="javascript">Vue中的事件修饰符：
-
-​            1.prevent：阻止默认事件（常用）；
-
-​            2.stop：阻止事件冒泡（常用）；
-
-​            3.once：事件只触发一次（常用）；
-
-​            4.capture：使用事件的捕获模式；
-
-​            5.self：只有event.target是当前操作的元素时才触发事件；
-
-​            6.passive：事件的默认行为立即执行，无需等待事件回调执行完毕；
-</code></pre>
-<pre><code class="javascript">1.Vue中常用的按键别名：
-                            回车 =&gt; enter
-                            删除 =&gt; delete (捕获“删除”和“退格”键)
-                            退出 =&gt; esc
-                            空格 =&gt; space
-                            换行 =&gt; tab (特殊，必须配合keydown去使用)
-                            上 =&gt; up
-                            下 =&gt; down
-                            左 =&gt; left
-                            右 =&gt; right
-
-                2.Vue未提供别名的按键，可以使用按键原始的key值去绑定，但注意要转为kebab-case（短横线命名）
-
-                3.系统修饰键（用法特殊）：ctrl、alt、shift、meta
-                            (1).配合keyup使用：按下修饰键的同时，再按下其他键，随后释放其他键，事件才被触发。
-                            (2).配合keydown使用：正常触发事件。
-
-                4.也可以使用keyCode去指定具体的按键（不推荐）
-
-                5.Vue.config.keyCodes.自定义键名 = 键码，可以去定制按键别名
-</code></pre>
-<h1 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h1><h3 id="插值语法实现"><a href="#插值语法实现" class="headerlink" title="插值语法实现"></a>插值语法实现</h3><pre><code>html
-    &lt;!-- 准备好一个容器--&gt;
-        &lt;div id=&quot;root&quot;&gt;
-            姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-            名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-            全名：&lt;span&gt;&#123;&#123;firstName&#125;&#125;-&#123;&#123;lastName&#125;&#125;&lt;/span&gt;
-        &lt;/div&gt;
-js
-    new Vue(&#123;
-            el:&#39;#root&#39;,
-            data:&#123;
-                firstName:&#39;张&#39;,
-                lastName:&#39;三&#39;
-            &#125;
-        &#125;)
-</code></pre>
-<h3 id="methods实现"><a href="#methods实现" class="headerlink" title="methods实现"></a>methods实现</h3><pre><code>html 
-    &lt;!-- 准备好一个容器--&gt;
-        &lt;div id=&quot;root&quot;&gt;
-            姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-            名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-            全名：&lt;span&gt;&#123;&#123;fullName()&#125;&#125;&lt;/span&gt;
-        &lt;/div&gt;
-js 
-    new Vue(&#123;
-            el:&#39;#root&#39;,
-            data:&#123;
-                firstName:&#39;张&#39;,
-                lastName:&#39;三&#39;
-            &#125;,
-            methods: &#123;
-                fullName()&#123;
-                    console.log(&#39;@---fullName&#39;)
-                    return this.firstName + &#39;-&#39; + this.lastName
-                &#125;
-            &#125;,
-        &#125;)
-</code></pre>
-<h3 id="计算属性实现"><a href="#计算属性实现" class="headerlink" title="计算属性实现"></a>计算属性实现</h3><pre><code>计算属性：
-    1.定义：要用的属性不存在，要通过已有属性计算得来。
-    2.原理：底层借助了Objcet.defineproperty方法提供的getter和setter。
-    3.get函数什么时候执行？
-        (1).初次读取时会执行一次。
-        (2).当依赖的数据发生改变时会被再次调用。
-    4.优势：与methods实现相比，内部有缓存机制（复用），效率更高，调试方便。
-    5.备注：
-        1.计算属性最终会出现在vm上，直接读取使用即可。
-        2.如果计算属性要被修改，那必须写set函数去响应修改，且set中要引起计算时依赖的数据发生改变。
-html
-        &lt;div id=&quot;root&quot;&gt;
-            姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-            名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-            测试：&lt;input type=&quot;text&quot; v-model=&quot;x&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-            全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
-            &lt;!-- 全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
-            全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
-            全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; --&gt;
-        &lt;/div&gt;
-js 
-    const vm = new Vue(&#123;
-            el:&#39;#root&#39;,
-            data:&#123;
-                firstName:&#39;张&#39;,
-                lastName:&#39;三&#39;,
-                x:&#39;你好&#39;
-            &#125;,
-            methods: &#123;
-                demo()&#123;
-                    
-                &#125;
-            &#125;,
-            computed:&#123;
-                fullName:&#123;
-                    //get有什么作用？当有人读取fullName时，get就会被调用，且返回值就作为fullName的值
-                    //get什么时候调用？1.初次读取fullName时。2.所依赖的数据发生变化时。
-                    get()&#123;
-                        console.log(&#39;get被调用了&#39;)
-                        // console.log(this) //此处的this是vm
-                        return this.firstName + &#39;-&#39; + this.lastName
-                    &#125;,
-                    //set什么时候调用? 当fullName被修改时。
-                    set(value)&#123;
-                        console.log(&#39;set&#39;,value)
-                        const arr = value.split(&#39;-&#39;)
-                        this.firstName = arr[0]
-                        this.lastName = arr[1]
-                    &#125;
-                &#125;
-            &#125;
-        &#125;)
-</code></pre>
-<h4 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h4><pre><code>html
-    &lt;div id=&quot;root&quot;&gt;
-        姓：&lt;input type=&quot;text&quot; v-model=&quot;firstName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-        名：&lt;input type=&quot;text&quot; v-model=&quot;lastName&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-        全名：&lt;span&gt;&#123;&#123;fullName&#125;&#125;&lt;/span&gt; &lt;br/&gt;&lt;br/&gt;
-    &lt;/div&gt;
-js
-    const vm = new Vue(&#123;
-            el:&#39;#root&#39;,
-            data:&#123;
-                firstName:&#39;张&#39;,
-                lastName:&#39;三&#39;,
-            &#125;,
-            computed:&#123;
-                //简写
-                fullName()&#123;
-                    console.log(&#39;get被调用了&#39;)
-                    return this.firstName + &#39;-&#39; + this.lastName
-                &#125;
-            &#125;
-        &#125;)
-</code></pre>
-<h1 id="监视属性"><a href="#监视属性" class="headerlink" title="监视属性"></a>监视属性</h1><pre><code>html
-    &lt;div id=&quot;root&quot;&gt;
-            &lt;h2&gt;今天天气很&#123;&#123;info&#125;&#125;&lt;/h2&gt;
-            &lt;!-- 绑定事件的时候：@xxx=&quot;yyy&quot; yyy可以写一些简单的语句 --&gt;
-            &lt;!-- &lt;button @click=&quot;isHot = !isHot&quot;&gt;切换天气&lt;/button&gt; --&gt;
-            &lt;button @click=&quot;changeWeather&quot;&gt;切换天气&lt;/button&gt;
-    &lt;/div&gt;
-    
-js
-    const vm = new Vue(&#123;
-            el:&#39;#root&#39;,
-            data:&#123;
-                isHot:true,
-            &#125;,
-            computed:&#123;
-                info()&#123;
-                    return this.isHot ? &#39;炎热&#39; : &#39;凉爽&#39;
-                &#125;
-            &#125;,
-            methods: &#123;
-                changeWeather()&#123;
-                    this.isHot = !this.isHot
-                &#125;
-            &#125;,
-        &#125;)
-</code></pre>
-<h4 id="监视属性watch："><a href="#监视属性watch：" class="headerlink" title="监视属性watch："></a>监视属性watch：</h4><pre><code>          1.当被监视的属性变化时, 回调函数自动调用, 进行相关操作
-
-​          2.监视的属性必须存在，才能进行监视！！
-
-​          3.监视的两种写法：
-
-​              (1).new Vue时传入watch配置
-
-​              (2).通过vm.$watch监视
-</code></pre>
-<pre><code>            /* watch:&#123;
-                isHot:&#123;
-                    immediate:true, //初始化时让handler调用一下
-                    //handler什么时候调用？当isHot发生改变时。
-                    handler(newValue,oldValue)&#123;
-                        console.log(&#39;isHot被修改了&#39;,newValue,oldValue)
-                    &#125;
-                &#125;
-            &#125; */
-            
-            
-            
-            
-            vm.$watch(&#39;isHot&#39;,&#123;
-                immediate:true, //初始化时让handler调用一下
-                //handler什么时候调用？当isHot发生改变时。
-                handler(newValue,oldValue)&#123;
-                console.log(&#39;isHot被修改了&#39;,newValue,oldValue)
-                &#125;
-            &#125;)
-</code></pre>
-<h2 id="深度监视："><a href="#深度监视：" class="headerlink" title="深度监视："></a>深度监视：</h2><pre><code>            (1).Vue中的watch默认不监测对象内部值的改变（一层）。
-
-​            (2).配置deep:true可以监测对象内部值改变（多层）。
-
-​        备注：
-
-​            (1).Vue自身可以监测对象内部值的改变，但Vue提供的watch默认不可以！
-
-​            (2).使用watch时根据数据的具体结构，决定是否采用深度监视。
-</code></pre>
-<h2 id="简写-1"><a href="#简写-1" class="headerlink" title="简写"></a>简写</h2><pre><code>watch: &#123;
-            //正常写法
-            /* isHot:&#123;
-                // immediate:true, //初始化时让handler调用一下
-                // deep:true,//深度监视
-                handler(newValue,oldValue)&#123;
-                    console.log(&#39;isHot被修改了&#39;,newValue,oldValue)
-                &#125;
-            &#125;, */
-            //简写
-            /* isHot(newValue,oldValue)&#123;
-                console.log(&#39;isHot被修改了&#39;,newValue,oldValue,this)
-            &#125; */
-        &#125;
-</code></pre>
-<h1 id="computed和watch之间的区别："><a href="#computed和watch之间的区别：" class="headerlink" title="computed和watch之间的区别："></a>computed和watch之间的区别：</h1><pre><code>            1.computed能完成的功能，watch都可以完成。
-
-​            2.watch能完成的功能，computed不一定能完成，例如：watch可以进行异步操作。
-
-​        两个重要的小原则：
-
-​              1.所被Vue管理的函数，最好写成普通函数，这样this的指向才是vm 或 组件实例对象。
-
-​              2.所有不被Vue所管理的函数（定时器的回调函数、ajax的回调函数等、Promise的回调函数），最好写成箭头函数，
-
-​                这样this的指向才是vm 或 组件实例对象。
-</code></pre>
-<h1 id="收集表单数据"><a href="#收集表单数据" class="headerlink" title="收集表单数据"></a>收集表单数据</h1><pre><code>收集表单数据：
-    若：&lt;input type=&quot;text&quot;/&gt;，则v-model收集的是value值，用户输入的就是value值。
-    若：&lt;input type=&quot;radio&quot;/&gt;，则v-model收集的是value值，且要给标签配置value值。
-    若：&lt;input type=&quot;checkbox&quot;/&gt;
-    1.没有配置input的value属性，那么收集的就是checked（勾选 or 未勾选，是布尔值）
-    2.配置input的value属性:
-    (1)v-model的初始值是非数组，那么收集的就是checked（勾选 or 未勾选，是布尔值）
-    (2)v-model的初始值是数组，那么收集的的就是value组成的数组
-    备注：v-model的三个修饰符：
-    lazy：失去焦点再收集数据
-    number：输入字符串转为有效的数字
-    trim：输入首尾空格过滤
-</code></pre>
-<pre><code>&lt;form @submit.prevent=&quot;demo&quot;&gt;
-                账号：&lt;input type=&quot;text&quot; v-model.trim=&quot;userInfo.account&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-                密码：&lt;input type=&quot;password&quot; v-model=&quot;userInfo.password&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-                年龄：&lt;input type=&quot;number&quot; v-model.number=&quot;userInfo.age&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-                性别：
-                男&lt;input type=&quot;radio&quot; name=&quot;sex&quot; v-model=&quot;userInfo.sex&quot; value=&quot;male&quot;&gt;
-                女&lt;input type=&quot;radio&quot; name=&quot;sex&quot; v-model=&quot;userInfo.sex&quot; value=&quot;female&quot;&gt; &lt;br/&gt;&lt;br/&gt;
-                爱好：
-                学习&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;study&quot;&gt;
-                打游戏&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;game&quot;&gt;
-                吃饭&lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.hobby&quot; value=&quot;eat&quot;&gt;
-                &lt;br/&gt;&lt;br/&gt;
-                所属校区
-                &lt;select v-model=&quot;userInfo.city&quot;&gt;
-                    &lt;option value=&quot;&quot;&gt;请选择校区&lt;/option&gt;
-                    &lt;option value=&quot;beijing&quot;&gt;北京&lt;/option&gt;
-                    &lt;option value=&quot;shanghai&quot;&gt;上海&lt;/option&gt;
-                    &lt;option value=&quot;shenzhen&quot;&gt;深圳&lt;/option&gt;
-                    &lt;option value=&quot;wuhan&quot;&gt;武汉&lt;/option&gt;
-                &lt;/select&gt;
-                &lt;br/&gt;&lt;br/&gt;
-                其他信息：
-                &lt;textarea v-model.lazy=&quot;userInfo.other&quot;&gt;&lt;/textarea&gt; &lt;br/&gt;&lt;br/&gt;
-                &lt;input type=&quot;checkbox&quot; v-model=&quot;userInfo.agree&quot;&gt;阅读并接受&lt;a href=&quot;http://www.atguigu.com&quot;&gt;《用户协议》&lt;/a&gt;
-                &lt;button&gt;提交&lt;/button&gt;
-&lt;/form&gt;
-            
-            
-            
-            
-data:&#123;
-    userInfo:&#123;
-    account:&#39;&#39;,
-    password:&#39;&#39;,
-    age:18,
-    sex:&#39;female&#39;,
-    hobby:[],
-    city:&#39;beijing&#39;,
-    other:&#39;&#39;,
-    agree:&#39;&#39;
-&#125;
-</code></pre>
-<h1 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h1><pre><code>过滤器：
-    定义：对要显示的数据进行特定格式化后再显示（适用于一些简单逻辑的处理）。
-    语法：
-    1.注册过滤器：Vue.filter(name,callback) 或 new Vue&#123;filters:&#123;&#125;&#125;
-    2.使用过滤器：&#123;&#123; xxx | 过滤器名&#125;&#125;  或  v-bind:属性 = &quot;xxx | 过滤器名&quot;
-    备注：
-    1.过滤器也可以接收额外参数、多个过滤器也可以串联
-    2.并没有改变原本的数据, 是产生新的对应的数据
-</code></pre>
-<pre><code>    //全局过滤器
-    Vue.filter(&#39;mySlice&#39;,function(value)&#123;
-        return value.slice(0,4)
-    &#125;)
-
-    //局部过滤器
-    filters:&#123;
-        timeFormater(value,str=&#39;YYYY年MM月DD日 HH:mm:ss&#39;)&#123;
-        // console.log(&#39;@&#39;,value)
-        return dayjs(value).format(str)
-        &#125;
-    &#125;
-</code></pre>
-<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><pre><code>我们学过的指令：
-    v-bind    : 单向绑定解析表达式, 可简写为 :xxx
-    v-model    : 双向数据绑定
-    v-for      : 遍历数组/对象/字符串
-    v-on       : 绑定事件监听, 可简写为@
-    v-if          : 条件渲染（动态控制节点是否存存在）
-    v-else     : 条件渲染（动态控制节点是否存存在）
-    v-show     : 条件渲染 (动态控制节点是否展示)
-    v-text指令：
-    1.作用：向其所在的节点中渲染文本内容。
-    2.与插值语法的区别：v-text会替换掉节点中的内容，&#123;&#123;xx&#125;&#125;则不会。
-</code></pre>
-<pre><code>v-html指令：
-    1.作用：向指定节点中渲染包含html结构的内容。
-    2.与插值语法的区别：
-    (1).v-html会替换掉节点中所有的内容，&#123;&#123;xx&#125;&#125;则不会。
-    (2).v-html可以识别html结构。
-    3.严重注意：v-html有安全性问题！！！！
-    (1).在网站上动态渲染任意HTML是非常危险的，容易导致XSS攻击。
-    (2).一定要在可信的内容上使用v-html，永不要用在用户提交的内容上！
-</code></pre>
-<pre><code>v-cloak指令（没有值）：
-
-            1.本质是一个特殊属性，Vue实例创建完毕并接管容器后，会删掉v-cloak属性。
-            2.使用css配合v-cloak可以解决网速慢时页面展示出&#123;&#123;xxx&#125;&#125;的问题。
-v-once指令：
-            1.v-once所在节点在初次动态渲染后，就视为静态内容了。
-            2.以后数据的改变不会引起v-once所在结构的更新，可以用于优化性能。
-v-pre指令：
-            1.跳过其所在节点的编译过程。
-            2.可利用它跳过：没有使用指令语法、没有使用插值语法的节点，会加快编译。
-</code></pre>
-<h1 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h1><img src="/2021/11/24/vue%E5%8D%95%E6%96%87%E4%BB%B6/Users\kuankuan\AppData\Roaming\Typora\typora-user-images\image-20210910095050679.png" alt="image-20210910095050679" style="zoom:150%;">
-
-<pre><code>directives:&#123;
-            //big函数何时会被调用？1.指令与元素成功绑定时（一上来）。2.指令所在的模板被重新解析时。
-            /* &#39;big-number&#39;(element,binding)&#123;
-            // console.log(&#39;big&#39;)
-                element.innerText = binding.value * 10
-            &#125;, */
-            big(element,binding)&#123;
-            console.log(&#39;big&#39;,this) //注意此处的this是window
-            // console.log(&#39;big&#39;)
-                element.innerText = binding.value * 10
-            &#125;,
-            fbind:&#123;
-            //指令与元素成功绑定时（一上来）
-            bind(element,binding)&#123;
-                element.value = binding.value
-            &#125;,
-            //指令所在元素被插入页面时
-            inserted(element,binding)&#123;
-                element.focus()
-            &#125;,
-            //指令所在的模板被重新解析时
-            update(element,binding)&#123;
-                element.value = binding.value
-            &#125;
-           &#125;
-        &#125;
-</code></pre>
-<h1 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h1><p>生命周期：</p>
-<p>​            1.又名：生命周期回调函数、生命周期函数、生命周期钩子。</p>
-<p>​            2.是什么：Vue在关键时刻帮我们调用的一些特殊名称的函数。</p>
-<p>​            3.生命周期函数的名字不可更改，但函数的具体内容是程序员根据需求编写的。</p>
-<p>​            4.生命周期函数中的this指向是vm 或 组件实例对象。</p>
-<pre><code>常用的生命周期钩子：
-                        1.mounted: 发送ajax请求、启动定时器、绑定自定义事件、订阅消息等【初始化操作】。
-                        2.beforeDestroy: 清除定时器、解绑自定义事件、取消订阅消息等【收尾工作】。
-
-                关于销毁Vue实例
-                        1.销毁后借助Vue开发者工具看不到任何信息。
-                        2.销毁后自定义事件会失效，但原生DOM事件依然有效。
-                        3.一般不会在beforeDestroy操作数据，因为即便操作数据，也不会再触发更新流程了。
-</code></pre>
-<h1 id="1-一个重要的内置关系：VueComponent-prototype-proto-Vue-prototype"><a href="#1-一个重要的内置关系：VueComponent-prototype-proto-Vue-prototype" class="headerlink" title="1.一个重要的内置关系：VueComponent.prototype.proto === Vue.prototype"></a>1.一个重要的内置关系：VueComponent.prototype.<strong>proto</strong> === Vue.prototype</h1><h1 id="2-为什么要有这个关系：让组件实例对象（vc）可以访问到-Vue原型上的属性、方法。"><a href="#2-为什么要有这个关系：让组件实例对象（vc）可以访问到-Vue原型上的属性、方法。" class="headerlink" title="2.为什么要有这个关系：让组件实例对象（vc）可以访问到 Vue原型上的属性、方法。"></a>2.为什么要有这个关系：让组件实例对象（vc）可以访问到 Vue原型上的属性、方法。</h1>]]></content>
-      <categories>
-        <category>vue</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-      </tags>
   </entry>
   <entry>
     <title>matplotlib</title>
