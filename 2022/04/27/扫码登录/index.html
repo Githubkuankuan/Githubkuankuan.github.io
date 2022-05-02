@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="https://z3.ax1x.com/2021/11/29/oM334O.png">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            扫码登录（uniapp&amp;vue） | KKBlog
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">KKBlog</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="https://s3.bmp.ovh/imgs/2021/11/b74ba8f7a70ffeb0.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">Dalu Kuankuan</div>
+            <div class="sidebar-description">选择有时候比努力更重要</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:xxx@xxx.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2022/04/27/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/">扫码登录（uniapp&amp;vue）</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-04-27
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-04-27
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/vue/">vue</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=扫码登录（uniapp&amp;vue）&url=http://example.com/2022/04/27/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/&pic=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=扫码登录（uniapp&amp;vue）&url=http://example.com/2022/04/27/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/&via=Dalu Kuankuan" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2022/04/27/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://example.com/2022/04/27/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2022/04/27/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/&title=扫码登录（uniapp&amp;vue）" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=KKBlog&title=扫码登录（uniapp&amp;vue）&summary=选择有时候比努力更重要&pics=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&url=http://example.com/2022/04/27/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://example.com/2022/04/27/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/&text=扫码登录（uniapp&amp;vue）" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/ >扫码登录</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h2 id="手机app扫码登录网站"><a href="#手机app扫码登录网站" class="headerlink" title="手机app扫码登录网站"></a>手机app扫码登录网站</h2><ol>
+<li>用户打开web端网页，进入扫码登录的界面；</li>
+<li>从web端服务器获取二维码的唯一标识，用于表示该二维码所对应的用户，方便后面 PC端网页异步轮询xmlhttprequest (ajax)，定期轮询后台 查看用户是否扫描二维码</li>
+<li>web端服务器在生成二维码时，与请求会的唯一标识（uuid）进行关联，后端将uuid存储到数据库中，方便后面轮询后台</li>
+<li>用户打开APP端，扫描二维码进行授权登录操作</li>
+<li>APP客户端从二维码中读取到uuid，带着APP内的身份信息访问服务器 也就是token</li>
+<li>服务器获取到用户信息之后，将用户的id更新到数据库前面存储的单条数据uuid中，此时web服务器就能拿到对应的用户id，之后生成登录身份信息返回给浏览器，即用户在web端完成了登录</li>
+</ol>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="pc端："><a href="#pc端：" class="headerlink" title="pc端："></a>pc端：</h3><pre><code class="vue">// 首先下载 qrcodejs2 模块  npm i qrcodejs2 --save
+// 在组件中使用
+&lt;template&gt;
+    &lt;div class=&quot;qrcode&quot; ref=&quot;qrCodeUrl&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import QRCode from &quot;qrcodejs2&quot;;
+import axios from &quot;axios&quot;;
+export default &#123;
+  data() &#123;
+    return &#123;
+      uuid: &quot;&quot;,  // 请求回来的唯一标识
+      timer: &quot;&quot;,
+    &#125;;
+  &#125;,
+  methods: &#123;
+    // 获取唯一id生成二维码
+    async getUuid() &#123;
+      const &#123;
+        data: &#123; uuid &#125;,
+      &#125; = await axios.get(&quot;http://127.0.0.1:3000/ewm&quot;);
+      this.uuid = uuid;
+      // 生成二维码
+      this.creatQrCode();
+    &#125;,
+    creatQrCode() &#123;
+      var qrcode = new QRCode(this.$refs.qrCodeUrl, &#123;
+        text: JSON.stringify(&#123;
+          uuid: this.uuid,
+          token: &quot;123&quot;,
+        &#125;), // 需要转换为二维码的内容
+        width: 100,
+        height: 100,
+        colorDark: &quot;#000000&quot;,
+        colorLight: &quot;#ffffff&quot;,
+        correctLevel: QRCode.CorrectLevel.H,
+      &#125;);
+
+      // 二维码显示成功之后 运行PC端网页异步轮询xmlhttprequest (ajax)，定期轮询后台  每隔200毫秒向后端发送一次请求 查看是否登录成功
+      this.getStatus();
+    &#125;,
+    // 轮询后端
+    async getStatus() &#123;
+      let _this = this;
+      const &#123;
+        data: &#123; status &#125;,
+      &#125; = await axios.get(&quot;http://127.0.0.1:3000/isLogin&quot;, &#123;
+        params: &#123;
+          uuid: this.uuid,
+        &#125;,
+      &#125;);
+      // 如果没有登录成功的话  一直询问是否登录成功
+      if (status === 400) &#123;
+        this.timer = setTimeout(function () &#123;
+          _this.getStatus();
+        &#125;, 200);
+      &#125;
+      clearTimeout(this.timer);
+    &#125;,
+  &#125;,
+  mounted() &#123;
+    this.getUuid();
+  &#125;,
+&#125;;
+&lt;/script&gt;
+</code></pre>
+<h3 id="APP端"><a href="#APP端" class="headerlink" title="APP端"></a>APP端</h3><pre><code class="vue">&lt;template&gt;
+    &lt;view class=&quot;content&quot;&gt;
+        &lt;view @click=&quot;scan&quot;&gt;扫码验证&lt;/view&gt;
+    &lt;/view&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    export default &#123;
+        data() &#123;
+            return &#123;
+            &#125;
+        &#125;,
+        methods: &#123;
+            scan() &#123; //扫码验证
+                var _this = this;
+                uni.scanCode(&#123;
+                    onlyFromCamera: false, //为true只允许相机扫码，不加允许相册扫码
+                    success: function(res) &#123;
+                        console.log(res.result, &#39;@@@&#39;)
+                        // 发送请求将获取的  &#123;&quot;uuid&quot;:1650462410424,&quot;token&quot;:&quot;123&quot;&#125;  数据发送到服务端  服务端返回用户数据到浏览器  浏览器页面进行跳转页面
+                        
+                        uni.showToast(&#123;
+                            title: &#39;扫码成功&#39;
+                        &#125;)
+                    &#125;,
+                    fail: function(err) &#123;
+                        console.log(&#39;扫码失败&#39;, err)
+                    &#125;
+                &#125;)
+            &#125;,
+        &#125;
+    &#125;
+&lt;/script&gt;
+</code></pre>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2022/04/27/webpack%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>webpack的工作原理</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2022/04/27/JS%E6%A8%A1%E5%9D%97%E8%A7%84%E8%8C%83/">
+        <span>JS模块规范</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2022/04/27/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E6%9C%BAapp%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95%E7%BD%91%E7%AB%99"><span class="toc-number">1.</span> <span class="toc-text">手机app扫码登录网站</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.</span> <span class="toc-text">代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pc%E7%AB%AF%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">pc端：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#APP%E7%AB%AF"><span class="toc-number">2.2.</span> <span class="toc-text">APP端</span></a></li></ol></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">valine</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="vcomments"></div>
+<script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = ''.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  var notify = '' === 'true';
+  var verify = '' === 'true';
+  new Valine({
+    el: '#vcomments',
+    notify: notify,
+    verify: verify,
+    appId: 'K384DoBsTJo09tPYtLMxDJz1-gzGzoHsz',
+    appKey: 'Bp5G6BLH11s6zkpTjHkvoG1g',
+    placeholder: '',
+    pageSize: '',
+    avatar: '',
+    lang: '',
+    guest_info: guest_info
+  });
+</script>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2022 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Dalu Kuankuan
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >
