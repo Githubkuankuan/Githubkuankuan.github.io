@@ -62,7 +62,7 @@
     </title>
     
     
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 <body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
   
   <header class="mdui-appbar mdui-appbar-fixed">
@@ -324,7 +324,7 @@
     console.log(&#39;添加元素后的 b=&#39; + b);
 &lt;/script&gt;
 </code></pre>
-<p><img src="/.com//2.png"><br><img src="/.com//3.png"><br>如上图，b拷贝a就是浅拷贝，b拷贝的仅是a的地址，当b改变时其实就是堆里面的数据改变了，因为a的地址指向的也是这个堆，所以a的内容也改变了。</p>
+<p><img src="/2021/04/27/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/2.png"><br><img src="/2021/04/27/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/3.png"><br>如上图，b拷贝a就是浅拷贝，b拷贝的仅是a的地址，当b改变时其实就是堆里面的数据改变了，因为a的地址指向的也是这个堆，所以a的内容也改变了。</p>
 <h2 id="4、深拷贝"><a href="#4、深拷贝" class="headerlink" title="4、深拷贝"></a>4、深拷贝</h2><p><strong>深拷贝是指拷贝一个对象的数据之前先给拷贝的对象创建一个堆地址，这样当拷贝的对象指向的堆中的数据改变时，被拷贝的对象堆中的数据并不会被改变（意思就是a，b指向不同的堆）</strong></p>
 <pre><code class="js">&lt;script&gt;
     let a = [1,2,3];
@@ -339,7 +339,7 @@
     console.log(&#39;添加元素后的 b=&#39; + b);
 &lt;/script&gt;
 </code></pre>
-<p><img src="/.com//4.png"><br>（2）深拷贝方法二</p>
+<p><img src="/2021/04/27/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/4.png"><br>（2）深拷贝方法二</p>
 <pre><code class="js">&lt;script&gt;
     let a = [1,2,3];
     let b = [...a];
@@ -350,7 +350,8 @@
     console.log(&#39;添加元素后的 b=&#39; + b);
 &lt;/script&gt;
 </code></pre>
-<p><img src="/.com//5.png"><br><img src="/.com//6.png"></p>
+<p><img src="/2021/04/27/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/5.png"></p>
+<p><img src="/2021/04/27/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/6.png"></p>
 <h2 id="5、JS中拷贝Array的slice和concat方法"><a href="#5、JS中拷贝Array的slice和concat方法" class="headerlink" title="5、JS中拷贝Array的slice和concat方法"></a>5、JS中拷贝Array的slice和concat方法</h2><h3 id="5-1-slice拷贝"><a href="#5-1-slice拷贝" class="headerlink" title="5.1 slice拷贝"></a>5.1 slice拷贝</h3><pre><code class="js">&lt;script&gt;
     let a = [1,2,3];
     let b = a.slice();
@@ -362,7 +363,7 @@
     console.log(&#39;添加元素后的 b=&#39; + b);
 &lt;/script&gt;
 </code></pre>
-<p><img src="/.com//7.png"></p>
+<p><img src="/2021/04/27/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/7.png"></p>
 <h3 id="5-2-concat拷贝"><a href="#5-2-concat拷贝" class="headerlink" title="5.2 concat拷贝"></a>5.2 concat拷贝</h3><pre><code class="js">&lt;script&gt;
     let a = [1,2,3];
     let b = a.concat();
@@ -374,7 +375,7 @@
     console.log(&#39;添加元素后的 b=&#39; + b);
 &lt;/script&gt;
 </code></pre>
-<p><img src="/.com//8.png"><br>看到结果，如果你觉得，这两个方法是深拷贝，那就恭喜你跳进了坑里！<br>来看看有意思的例子吧</p>
+<p><img src="/2021/04/27/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/8.png"><br>看到结果，如果你觉得，这两个方法是深拷贝，那就恭喜你跳进了坑里！<br>来看看有意思的例子吧</p>
 <pre><code class="js">var a = [[1,2,3],4,5];
 var b = a.slice();
 console.log(a === b);
@@ -382,7 +383,7 @@ a[0][0] = 6;
 console.log(a);
 console.log(b);
 </code></pre>
-<p><img src="/.com//9.png"></p>
+<p><img src="/2021/04/27/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/9.png"></p>
 <p>可以看到slice和contact对于第一层是深拷贝，但对于多层的时候，是复制的引用，所以是浅拷贝</p>
 <h2 id="6、JSON对象的parse和stringify都是深拷贝"><a href="#6、JSON对象的parse和stringify都是深拷贝" class="headerlink" title="6、JSON对象的parse和stringify都是深拷贝"></a>6、JSON对象的parse和stringify都是深拷贝</h2><pre><code class="js">&lt;script&gt;
     let obj = &#123;name:&#39;cancan&#39;,age:23,company : &#123; name : &#39;阿里&#39;, address : &#39;杭州&#39;&#125; &#125;;
@@ -394,7 +395,7 @@ console.log(b);
     console.log(obj_json);
 &lt;/script&gt;
 </code></pre>
-<p><img src="/.com//10.png"></p>
+<p><img src="/2021/04/27/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/10.png"></p>
 <h2 id="浅拷贝实现方法"><a href="#浅拷贝实现方法" class="headerlink" title="浅拷贝实现方法"></a>浅拷贝实现方法</h2><pre><code class="js">1.Object.assign方法
 var obj = &#123;
     a:1,
