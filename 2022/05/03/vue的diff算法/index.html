@@ -308,6 +308,10 @@
 <p>第二次循环后，同样是旧节点的末尾和新节点的开头(都是 C)相同，同理，diff 后创建了 C 的真实节点插入到第一次创建的 B 节点后面。同时旧节点的 endIndex 移动到了 B，新节点的 startIndex 移动到了 E</p>
 <p><img src="/2022/05/03/vue%E7%9A%84diff%E7%AE%97%E6%B3%95/5.png"></p>
 <p>第三次循环中，发现E没有找到，这时候只能直接创建新的真实节点 E，插入到第二次创建的 C 节点之后。同时新节点的 startIndex 移动到了 A。旧节点的 startIndex 和 endIndex 都保持不动</p>
+<p><img src="/2022/05/03/vue%E7%9A%84diff%E7%AE%97%E6%B3%95/6.png"><br>第四次循环中，发现了新旧节点的开头(都是 A)相同，于是 diff 后创建了 A 的真实节点，插入到前一次创建的 E 节点后面。同时旧节点的 startIndex 移动到了 B，新节点的startIndex 移动到了 B</p>
+<p><img src="/2022/05/03/vue%E7%9A%84diff%E7%AE%97%E6%B3%95/7.png"></p>
+<p>第五次循环中，情形同第四次循环一样，因此 diff 后创建了 B 真实节点 插入到前一次创建的 A 节点后面。同时旧节点的 startIndex移动到了 C，新节点的 startIndex 移动到了 F<br><img src="/2022/05/03/vue%E7%9A%84diff%E7%AE%97%E6%B3%95/8.png"></p>
+<p>新节点的 startIndex 已经大于 endIndex 了，需要创建 newStartIdx 和 newEndIdx 之间的所有节点，也就是节点F，直接创建 F 节点对应的真实节点放到 B 节点后面<br><img src="/2022/05/03/vue%E7%9A%84diff%E7%AE%97%E6%B3%95/9.png"></p>
 
   </div>
   <!--文末结束语-->
@@ -319,6 +323,11 @@
   <div class="mdui-divider"></div>
   
   <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2022/05/03/%E5%AE%9E%E4%BE%8B/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>js中构造函数 原型对象 实例</span>
+      </a>
     
     
       <a rel="next" class="post-nav-item mdui-float-right" href="/2022/05/03/%E4%BB%80%E4%B9%88%E6%98%AF%E8%99%9A%E6%8B%9FDOM%EF%BC%9F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9FDOM%EF%BC%9F/">

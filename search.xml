@@ -13449,6 +13449,10 @@ Dep.prototype = &#123;
 <p>第二次循环后，同样是旧节点的末尾和新节点的开头(都是 C)相同，同理，diff 后创建了 C 的真实节点插入到第一次创建的 B 节点后面。同时旧节点的 endIndex 移动到了 B，新节点的 startIndex 移动到了 E</p>
 <p><img src="/2022/05/03/vue%E7%9A%84diff%E7%AE%97%E6%B3%95/5.png"></p>
 <p>第三次循环中，发现E没有找到，这时候只能直接创建新的真实节点 E，插入到第二次创建的 C 节点之后。同时新节点的 startIndex 移动到了 A。旧节点的 startIndex 和 endIndex 都保持不动</p>
+<p><img src="/2022/05/03/vue%E7%9A%84diff%E7%AE%97%E6%B3%95/6.png"><br>第四次循环中，发现了新旧节点的开头(都是 A)相同，于是 diff 后创建了 A 的真实节点，插入到前一次创建的 E 节点后面。同时旧节点的 startIndex 移动到了 B，新节点的startIndex 移动到了 B</p>
+<p><img src="/2022/05/03/vue%E7%9A%84diff%E7%AE%97%E6%B3%95/7.png"></p>
+<p>第五次循环中，情形同第四次循环一样，因此 diff 后创建了 B 真实节点 插入到前一次创建的 A 节点后面。同时旧节点的 startIndex移动到了 C，新节点的 startIndex 移动到了 F<br><img src="/2022/05/03/vue%E7%9A%84diff%E7%AE%97%E6%B3%95/8.png"></p>
+<p>新节点的 startIndex 已经大于 endIndex 了，需要创建 newStartIdx 和 newEndIdx 之间的所有节点，也就是节点F，直接创建 F 节点对应的真实节点放到 B 节点后面<br><img src="/2022/05/03/vue%E7%9A%84diff%E7%AE%97%E6%B3%95/9.png"></p>
 ]]></content>
       <categories>
         <category>vue</category>
@@ -15990,5 +15994,503 @@ function extend(data) &#123;
       <tags>
         <tag>深浅拷贝</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>react与vue的虚拟dom有什么区别</title>
+    <url>/2022/05/05/react%E4%B8%8Evue%E7%9A%84%E8%99%9A%E6%8B%9Fdom%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h2 id="react与vue的虚拟dom有什么区别"><a href="#react与vue的虚拟dom有什么区别" class="headerlink" title="react与vue的虚拟dom有什么区别"></a>react与vue的虚拟dom有什么区别</h2><p>没有区别</p>
+<p>react和vue的虚拟dom都是一样的，都是用js对象来模拟真是dom，然后用虚拟dom的diff最小化更新真实dom。<br>除了极个别实现外，前者前半部分（用js对象来模拟真实dom）几乎是一样的。<br>而对于后半部分（用虚拟dom的diff来最小化更新真实dom）两者算法也是类似的，包括replace delete insert等</p>
+<p>vue和react都采用虚拟dom算法，以最小化更新真实dom，从而减小不必要的性能损耗。<br>按颗粒度分为 tree diff， component diff， element diff。<br>tree diff 比较同层级dom节点，进行增、删、移操作。如果遇到component， 就会重新tree diff流程。</p>
+<p>虽然两者对于dom的更新策略不太一样，react采用自顶向下的全量diff，vue是局部订阅的模式。但是这其实和虚拟dom并与关系</p>
+<h2 id="dom的更新策略不同"><a href="#dom的更新策略不同" class="headerlink" title="dom的更新策略不同"></a>dom的更新策略不同</h2><p>react 会自顶向下全diff.</p>
+<p>vue会跟踪每一个组件的依赖关系,不需要重新渲染整个组件树。 </p>
+<ol>
+<li>在react中，当状态发生改变时，组件树就会自顶向下的全diff, 重新render页面， 重新生成新的虚拟dom tree, 新旧dom tree进行比较， 进行patch打补丁方式，局部跟新dom. 所以react为了避免父组件跟新而引起不必要的子组件更新， 可以在shouldComponentUpdate做逻辑判断，减少没必要的render， 以及重新生成虚拟dom，做差量对比过程.</li>
+<li>在 vue中， 通过Object.defineProperty 把这些 data 属性 全部转为 getter/setter。同时watcher实例对象会在组件渲染时，将属性记录为dep, 当dep 项中的 setter被调用时，通知watch重新计算，使得关联组件更新。<br>Diff 算法借助元素的 Key 判断元素是新增、删除、修改，从而减少不必要的元素重渲染。</li>
+</ol>
+<p>—————————————————————————–、<br>react中数据发生变化（调用setstate时），render函数就会执行，重新生成一个新的虚拟dom，这个虚拟dom和旧的虚拟dom做比较，得出差异然后渲染。<br>而vue组件中数据发生变化，由于数据变化会触发setter，由于vue组件中数据的getter的作用，收集了依赖，setter触发会根据这些依赖，生成新的虚拟dom，然后对比新旧虚拟dom进行渲染。</p>
+<p>react 函数式组件思想 当你 setstate 就会遍历 diff 当前组件所有的子节点子组件, 这种方式开销是很大的, 所以 react 16 采用了 fiber 链表代替之前的树，可以中断的，分片的在浏览器空闲时候执行</p>
+<p>vue 组件响应式思想 采用代理监听数据，我在某个组件里修改数据，就会明确知道那个组件产生了变化，只用 diff 这个组件就可以了</p>
+]]></content>
+      <categories>
+        <category>vue&amp;&amp;react</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>js中构造函数 原型对象 实例</title>
+    <url>/2022/05/03/%E5%AE%9E%E4%BE%8B/</url>
+    <content><![CDATA[<h2 id="一、构造函数"><a href="#一、构造函数" class="headerlink" title="一、构造函数"></a>一、构造函数</h2><p>工作原理：</p>
+<ol>
+<li>创建一个新对象</li>
+<li>让构造函数的this，指向新对象</li>
+<li>执行构造函数</li>
+<li>返回实例</li>
+</ol>
+<h2 id="二、原型对象-prototype"><a href="#二、原型对象-prototype" class="headerlink" title="二、原型对象 prototype"></a>二、原型对象 prototype</h2><p>只要是函数 系统一定会自动给函数产生一个原型对象<br>原型中有一个属性：constructor构造器，指向构造函数自身<br>[JS中，构造函数负责提供属性，原型负责提供方法]</p>
+<h2 id="三、原型链"><a href="#三、原型链" class="headerlink" title="三、原型链"></a>三、原型链</h2><ul>
+<li>所有的函数，都是由一个特殊的函数创建的，那就是Function构造函数。</li>
+<li>换言之，所有的构造函数都是Function的实例对象。</li>
+<li>所有的原型对象，都是由Object创建的。</li>
+<li>换言之，Function的原型对象由Object创建</li>
+<li>Object.prototype===Function.prototype.<strong>proto</strong></li>
+<li>Object的顶端：Object.prototype.<strong>proto</strong> === null</li>
+</ul>
+<p><img src="/2022/05/03/%E5%AE%9E%E4%BE%8B/1.png"></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>React-Router的实现原理及工作方式分别是什么</title>
+    <url>/2022/05/05/React-Router%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%8F%8A%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88/</url>
+    <content><![CDATA[<p>React Router 路由的基础实现原理分为两种，如果是切换 Hash 的方式，那么依靠浏览器 Hash 变化即可；如果是切换网址中的 Path，就要用到 HTML5 History API 中的 pushState、replaceState 等。在使用这个方式时，还需要在服务端完成 historyApiFallback 配置<br>在 React Router 内部主要依靠 history 库完成，这是由 React Router 自己封装的库，为了实现跨平台运行的特性，内部提供两套基础 history，一套是直接使用浏览器的 History API，用于支持 react-router-dom；另一套是基于内存实现的版本，这是自己做的一个数组，用于支持 react-router-native。<br>React Router 的工作方式可以分为设计模式与关键模块两个部分。从设计模式的角度出发，在架构上通过 Monorepo进行库的管理。Monorepo 具有团队间透明、迭代便利的优点。其次在整体的数据通信上使用了 Context API 完成上下文传递。<br>在关键模块上，主要分为三类组件：第一类是 Context 容器，比如 Router 与 MemoryRouter；第二类是消费者组件，用以匹配路由，主要有 Route、Redirect、Switch 等；第三类是与平台关联的功能组件，比如 Link、NavLink、DeepLinking 等。</p>
+<p><img src="/2022/05/05/React-Router%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%8F%8A%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88/1.png"><br><img src="/2022/05/05/React-Router%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%8F%8A%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88/2.png"></p>
+]]></content>
+      <categories>
+        <category>reactRouter</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>react受控组件和非受控组件</title>
+    <url>/2022/05/05/react%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6%E5%92%8C%E9%9D%9E%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6/</url>
+    <content><![CDATA[<pre><code class="jsx">&lt;FInput value = &#123;x&#125; onChange = &#123;fn&#125; /&gt; 
+// 上面的是受控组件 下面的是非受控组件
+&lt;FInput defaultValue = &#123;x&#125; /&gt;
+</code></pre>
+<ul>
+<li>当你一个组件同时传递一个value以及onChange事件时，它就是一个受控组件，收入输出都是我来控制的。</li>
+<li>第二个只是传递了默认的初时值，并没有传onchange事件，</li>
+<li>非受控组件是一种反模式，它的值不受组件自身的state或props控制</li>
+</ul>
+]]></content>
+      <categories>
+        <category>react</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JS中call()、apply()、bind()的区别及用法</title>
+    <url>/2022/05/05/JS%E4%B8%ADcall-%E3%80%81apply-%E3%80%81bind-%E7%9A%84%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="1-区别"><a href="#1-区别" class="headerlink" title="1.区别"></a>1.区别</h1><h2 id="1-1三者的相同点：都是用来改变this的指向"><a href="#1-1三者的相同点：都是用来改变this的指向" class="headerlink" title="1.1三者的相同点：都是用来改变this的指向"></a>1.1三者的相同点：都是用来改变this的指向</h2><h2 id="1-2-call-和apply-的区别："><a href="#1-2-call-和apply-的区别：" class="headerlink" title="1.2 call()和apply()的区别："></a>1.2 call()和apply()的区别：</h2><p>相同点：都是调用一个对象的一个方法，用另一个对象替换当前对象（功能相同）<br>例如： B.call(A, args1,args2);即A对象调用B对象的方法<br>F.apply(G, arguments);即G对象应用F对象的方法<br>不同点：参数书写方式不同<br>call()的第一个参数是this要指向的对象，后面传入的是参数列表，参数可以是任意类型，当第一个参数为null、undefined的时候，默认指向window；<br>apply()：第一个参数是this要指向的对象，第二个参数是数组</p>
+<pre><code class="js">//例如：
+var obj = &#123;&#125;//定义一个空的对象
+function f(x,y)&#123;
+console.log(x,y)
+console.log(this) //this是指obj
+&#125;
+f.apply(obj,[1,2]) //后面的值需要用[]括起来
+f.call(obj,1,2) //直接写
+</code></pre>
+<h2 id="1-3call-和bind-的区别："><a href="#1-3call-和bind-的区别：" class="headerlink" title="1.3call()和bind()的区别："></a>1.3call()和bind()的区别：</h2><p>相同点：都是用来改变this的指向<br>不同点：call()改过this的指向后，会再执行函数，bind()改过this后，不执行函数，会返回一个绑定新this的函数</p>
+<pre><code class="js">//例如：
+function f()&#123;
+console.log(&quot;看我怎么被调用&quot;);
+console.log(this) //指向this
+&#125;
+var obj = &#123;&#125;;
+f.call(obj) //直接调用函数
+var g = f.bind(obj); //bind()不能调用函数
+g();  //此时才调用函数
+</code></pre>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>react组件之间通信</title>
+    <url>/2022/05/05/react%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E9%80%9A%E4%BF%A1/</url>
+    <content><![CDATA[<ul>
+<li><p>父子组件通信</p>
+</li>
+<li><p>自定义事件</p>
+</li>
+<li><p>redux和context</p>
+</li>
+<li><p><em>context如何运用</em>*</p>
+</li>
+<li><p>父组件向其下所有子孙组件传递信息</p>
+</li>
+<li><p>如一些简单的信息：主题、语言</p>
+</li>
+<li><p>复杂的公共信息用redux</p>
+<blockquote>
+<p>在跨层级通信中，主要分为一层或多层的情况</p>
+</blockquote>
+</li>
+<li><p>如果只有一层，那么按照 React 的树形结构进行分类的话，主要有以下三种情况：父组件向子组件通信，子组件向父组件通信以及平级的兄弟组件间互相通信。</p>
+</li>
+<li><p>在父与子的情况下，因为 React 的设计实际上就是传递 Props 即可。那么场景体现在容器组件与展示组件之间，通过 Props 传递 state，让展示组件受控。</p>
+</li>
+<li><p>在子与父的情况下，有两种方式，分别是回调函数与实例函数。回调函数，比如输入框向父级组件返回输入内容，按钮向父级组件传递点击事件等。实例函数的情况有些特别，主要是在父组件中通过 React 的 ref API 获取子组件的实例，然后是通过实例调用子组件的实例函数。这种方式在过去常见于 Modal 框的显示与隐藏</p>
+</li>
+<li><p>多层级间的数据通信，有两种情况。第一种是一个容器中包含了多层子组件，需要最底部的子组件与顶部组件进行通信。在这种情况下，如果不断透传 Props 或回调函数，不仅代码层级太深，后续也很不好维护。第二种是两个组件不相关，在整个 React 的组件树的两侧，完全不相交。那么基于多层级间的通信一般有三个方案。</p>
+<ul>
+<li>第一个是使用 React 的 Context API，最常见的用途是做语言包国际化</li>
+<li>第二个是使用全局变量与事件。</li>
+<li>第三个是使用状态管理框架，比如 Flux、Redux 及 Mobx。优点是由于引入了状态管理，使得项目的开发模式与代码结构得以约束，缺点是学习成本相对较高</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>react</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>redux原理</title>
+    <url>/2022/05/05/redux%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<p>本次主要分享一下redux的源码解析，以及我在阅读源码的过程中遇到的一些问题。主要分为两部分，第一部分为实现基本的redux功能，主要包含两个js文件的分析，一个是用来生成store对象，另一个是用来实现reduce函数的拆分与合并。第二部分是实现异步的dispatch，主要是通过中间件函数来加强dispatch实现的。</p>
+<h2 id="一-实现基本的redux功能"><a href="#一-实现基本的redux功能" class="headerlink" title="一.实现基本的redux功能"></a>一.实现基本的redux功能</h2><p>我们先来讲第一部门，如何实现基本的redux功能。<br>下图是redux官网一张动图，解释了redux的基本运作原理。</p>
+<p><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/1.png"><br>先用createStore函数生成一个store对象，store是一个全局状态机，存放全局的状态state。添加订阅函数，可以在state对象发生变化的时候通知你。如果想改变其中某一个状态，用dispatch发出一个action，dispatch会自动执行reduce函数，该函数会在原来state的基础上重新计算并返回一个新的state对象，状态改变之后，通知所有的订阅函数，改变页面UI。</p>
+<h2 id="一-createStore-js文件"><a href="#一-createStore-js文件" class="headerlink" title="一.createStore.js文件"></a>一.createStore.js文件</h2><p>接下来，我们先来讲一下createStore的源码，该文件主要包含三个方法：<br>getState:用来获取store中的状态变量<br>dispatch：发出一个action，改变store中state的值<br>subscribe：订阅state更新的事件，状态改变时通知订阅事件<br>下面是createStore.js的源码</p>
+<pre><code class="js">
+function createStore(reducer, preloadedState, enhancer)&#123;
+
+  // 增强dispatch函数 start
+  if (typeof preloadedState === &#39;function&#39; &amp;&amp; typeof enhancer === &#39;undefined&#39;) &#123;
+    enhancer = preloadedState
+    preloadedState = undefined
+  &#125;
+
+  if (typeof enhancer !== &#39;undefined&#39;) &#123;
+    // 判断 enhancer 不是一个函数
+    if (typeof enhancer !== &#39;function&#39;) &#123;
+      // 抛出一个异常 (enhancer 必须是一个函数)
+      throw new Error(&#39;Expected the enhancer to be a function.&#39;)
+    &#125;
+    // 调用 enhancer ,返回一个增强版的 store creator
+    return enhancer(createStore)(reducer, preloadedState)
+  &#125;
+  // 增强dispatch函数 end
+  
+  let currentState = preloadedState // 当前的state
+  let isDispatching = false // 是否正在执行dispatch函数
+  let currentListeners = [] //当前的监听函数列表
+  let nextListeners = currentListeners // 新生成的监听函数列表
+
+  // 获取store中的变量值
+  function getState () &#123;
+    if (isDispatching) &#123;
+      throw new Error(&#39;currentState已经传输给reducer函数，不希望我们通过getState的方法获取state对象&#39;)
+    &#125;
+    return currentState
+  &#125;
+
+  /**
+    触发reducer函数改变state
+    通知所有的订阅函数
+   */
+  function dispatch (action) &#123;
+    try &#123;
+      isDispatching = true
+      // 执行reduce函数，改变state，返回新的state对象
+      currentState = reducer(currentState, action)
+    &#125; finally &#123;
+      isDispatching = false
+    &#125;
+    // state发生变化时，通知所有的订阅函数
+    let listeners = (currentListeners = nextListeners)
+    for(let i = 0;i&lt;listeners.length;i++)&#123;
+      listeners[i]()
+    &#125;
+    return action
+  &#125;
+
+  /**
+    新增订阅函数
+    返回取消订阅函数
+  */
+  function subscribe(listener)&#123;
+    let isSubscribed = true
+    // 保证 nextListeners 的变化不影响当前currentListeners
+    ensureCanMutateNextListeners()
+    // 添加新的监听函数到nextListeners
+    nextListeners.push(listener)
+    // 返回该订阅函数的取消订阅函数
+    return function unsubscribe()&#123;
+      // 防止取消订阅两次
+      if (!isSubscribed) &#123;
+        return 
+      &#125;
+      isSubscribed = false
+      ensureCanMutateNextListeners()
+      const index = nextListeners.indexOf(listener)
+      nextListeners.splice(index,1)
+      // TODO 为啥
+      currentListeners = null
+    &#125;
+  &#125;
+  // 保证 nextListeners 的变化不影响当前 currentListeners
+  function ensureCanMutateNextListeners() &#123;
+    if (nextListeners === currentListeners) &#123;
+      nextListeners = currentListeners.slice()
+    &#125;
+  &#125;
+
+  // 调用reducer初始化state对象
+  dispatch(&#123;&#125;)
+
+  return &#123;
+    getState,
+    dispatch,
+    subscribe
+  &#125;
+&#125;
+</code></pre>
+<p>程序中主要的方法有三个，注释也记录的比较清晰，这里就不细讲了。<br>在分析源码以及重写源码的过程中，我遇到了几个问题，希望能给大家带来一点帮助：</p>
+<p>问题1:可以不通过dispatch而直接修改store中state的值吗？ 为什么不推荐这样做？<br>问题2:在dispatch的时候 为什么不能执行getState方法<br>问题3:为什么要用currentListeners和nextListeners(store.subscribe嵌套的情况)<br>问题4:为什么要在最后执行一次dispatch？将state初始化，使得state在初始值的情况下进行更新<br>问题一：<br>这个问题之前在项目中遇到过，印象比较深刻。由于getState方法中返回的是currentState本身，而不是它的拷贝，所以可以直接改变currentState对象。但是redux不推荐这样做，因为这样改变state之后，不会通知订阅函数。dispatch是唯一推荐改变state的方式。</p>
+<p>问题二：<br>currentState已经传输给reducer函数，不希望我们通过getState的方法获取state对象</p>
+<p>问题三：<br>问题可以总结为：dispatch时将nextlisteners赋值给currentListeners，并执行currentListeners中的每一个订阅函数。subscribe时nextListeners用来添加删除listener，并确保nextListeners的增删不会影响currentListeners。<br>既然currentListeners只用到了一处，并且还等于nextlisteners。为什么不能只用一个？<br>我发现只用nextListeners不用currentListeners，也可以实现基本的功能。但是当订阅函数相互嵌套时，就会出现不一致的情况。我们来举例说明：</p>
+<p><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/2.png"></p>
+<p>上面的程序当中，订阅函数里面又嵌套了一个订阅函数，这意味着当遍历currentLIsteners数组执行订阅函数时，又会添加一个新的订阅函数到nextListeners数组中，造成结果输出不一致的情况出现。</p>
+<p><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/3.png"><br>通过上图可以发现，两者是同一个引用时、两者引用不同时，得到的打印结果不一样。主要区别在于dispatch方法执行时（遍历currentLIsteners）添加了新的listeners到nextListeners中，这个时候如果currentLIsteners和nextListeners是同一个引用时，相当于遍历currentLIsteners事件的同时，添加了一个新的事件到currentLIsteners中。<br>所以，要用两个订阅事件集合。我们不希望在dispatch的时候改变订阅函数集。</p>
+<p>问题四：<br>store创建好之后，立即发出一个初始化action，是为了让reducer返回store的初始化状态，否则，创建store之后，调用getState方法得到的就是undefined。</p>
+<h2 id="二-combineReducers-js方法"><a href="#二-combineReducers-js方法" class="headerlink" title="二 .combineReducers.js方法"></a>二 .combineReducers.js方法</h2><p>reducer函数负责生成state，整个应用只有一个state对象，包含所有的数据，对于一个大型应用来说，state必然比较庞大，会导致reducer函数也十分庞大，所以需要对reducer函数进行拆分。并且几个人开发的项目中，我们需要编写各自的reucer函数并合并在一起，因为createStore只能接收一个reducer函数。这就是combineReducers函数做的事情。下面来举例说明：<br>假设我们项目当中有两个reducer函数，reducerI 和 reducerII 函数，将两个reducer函数以对象的形式传入combinereducers函数，函数执行返回的finalReducer作为reducer函数传给createStore,实现了原本reducer函数相同的功能。<br>假设我们项目当中有两个reducer函数，reducerI 和 reducerII 函数，分别负责项目中不同的模块，由于传入到createStore中的reducer函数只有一个，所以我们需要将两个reducer函数合并成一个。<br>将两个reducer函数传入combinereducers函数，返回一个合成的reducer函数，就可以实现一样的redux功能。</p>
+<p><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/4.png"></p>
+<p><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/5.png"></p>
+<p>发现：combineReducers实现了合并reducer函数的功能，我们好奇的是，combineReducers是如何通过传入的action来改变其对应的state，并将state合并成一个对象输出的。接下来，我们来看combineReducers.js源码：</p>
+<pre><code class="js">// 参数reducers是一个对象，key值和state的key值一样，value是一个reducer函数
+function combineReducers(reducers) &#123;
+  const reducerKeys = Object.keys(reducers)
+  const finalReducers = &#123;&#125;
+  // 遍历key值，过滤掉value不是reducer函数的值
+  for (let i = 0; i &lt; reducerKeys.length; i++) &#123;
+    const key = reducerKeys[i]
+    // 过滤掉value不是reducer函数的值
+    if (typeof reducers[key] === &#39;function&#39;) &#123;
+      finalReducers[key] = reducers[key]
+    &#125;
+  &#125;
+  const finalReducerKeys = Object.keys(finalReducers)
+
+  // 返回一个合成的reducer函数(接收state和action作为参数)
+  return function combination(state = &#123;&#125;, action) &#123;
+    
+    let hasChanged = false  // 记录state对象是否改变的变量
+    const nextState = &#123;&#125;  // 下一个状态
+    // 遍历key值
+    for (let i = 0; i &lt; finalReducerKeys.length; i++) &#123;
+      const key = finalReducerKeys[i]
+      const reducer = finalReducers[key]
+      const previousStateForKey = state[key] // 当前key值对应的状态
+      const nextStateForKey = reducer(previousStateForKey, action) //调用reducer后新生成的状态
+      nextState[key] = nextStateForKey //将新生成的状态赋值到新状态的对应key值上
+      // 通过对比previousStateForKey 和 nextStateForKey是否相等来表明状态是否改变
+      hasChanged = hasChanged || nextStateForKey !== previousStateForKey
+    &#125;
+    // 如果状态改变就返回新的状态，没有，就返回原来的state对象
+    return hasChanged ? nextState : state
+  &#125;
+&#125;
+// combineReducers函数实际上也是一个reducer函数，接收state和action作为参数，返回一个新的state
+</code></pre>
+<p>combineReducers接收reducers对象为入参，返回一个合成的reducer函数，利用闭包，实现了reducer合成的功能。实质是通过遍历的形式，将action传入每一个reducer函数，获取初始值或者改变state，返回新的state对象，与普通的reducer函数很相像。</p>
+<h2 id="三-applyMiddleware-js文件"><a href="#三-applyMiddleware-js文件" class="headerlink" title="三. applyMiddleware.js文件"></a>三. applyMiddleware.js文件</h2><p>在一个项目当中，如果在两个文件中需要请求相同的数据，以往的做法是分别在两个文件中请求，得到数据之后再分别dispatch进行数据保存。这样请求数据的函数其实写了两遍，redux将异步函数的执行封装在了dispatch方法内部，用redux实现异步dispatch之后，只需要在两个文件当中dispatch调用该异步方法即可。<br>从一开始的dispatch只能接收对象，到现在的dispatch可以执行异步函数，其实是redux用中间件函数增强了dispatch，让dispatch做了更多的事情。<br>如何能让reducer函数在异步函数结束后自动执行？这就需要用到中间件（middleware）来增强dispatch函数。<br>下面，我们来举例说明：<br><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/6.png"></p>
+<p>上述程序运行以及结果说明，加入中间件thunk之后，我们dispatch一个异步的操作，可以在异步操作执行结束之后再执行reducer函数，达到了我们想要的目标。<br>下面我们来分析一下applyMiddleware.js的源码，搞明白中间件是怎么实现异步操作的。<br>为了搞明白applyMiddleware.js，我们需要提前了解compose函数和reduce函数的源码：</p>
+<h3 id="1）reduce函数的源码"><a href="#1）reduce函数的源码" class="headerlink" title="1）reduce函数的源码"></a>1）reduce函数的源码</h3><pre><code class="js">Array.prototype.myReduce = function (fn, init) &#123;
+  //数组的长度
+  var len = this.length;
+  var pre = init;
+  var i = 0;
+  //判断是否传入初始值
+  if (init == undefined) &#123;
+    //没有传入初始值，数组第一位默认为初始值，当前元素索引值变为1。
+    pre = this[0];
+    i = 1;
+  &#125;
+  for (i; i &lt; len; i++) &#123;
+    //当前函数返回值为下一次的初始值
+    pre = fn(pre, this[i], i)
+  &#125;
+  return pre;
+&#125;
+</code></pre>
+<pre><code class="js">var arr = [1, 2, 5, 4, 3];
+var add = arr.myReduce(function (preTotal, ele, index) &#123;
+  return preTotal + ele;
+&#125;, 100)
+console.log(add);//115
+</code></pre>
+<p>是我们常见的用reduce函数实现的数组迭代求和的例子，在数组上调用reduce，reduce接收的入参是函数fn和数组迭代初始值100，第一次函数的执行是取初始值100和数组第一项1相加，将函数执行的结果101作为函数的第一个入参，并取数组第二项2作为函数fn的第二个入参，第二次执行函数fn，如此迭代下去，直到返回整个数组和初始值相加的结果115。</p>
+<p>在数组上执行reduce函数，实际上是迭代数组的每一项，将结果作为入参返回给下一次执行的函数</p>
+<h3 id="2）compose函数的源码"><a href="#2）compose函数的源码" class="headerlink" title="2）compose函数的源码"></a>2）compose函数的源码</h3><pre><code class="js">function compose() &#123;
+  // 将arguments的每一项拷贝到func中去
+  var _len = arguments.length;
+  var funcs = [];
+  for (var i = 0; i &lt; _len; i++) &#123;
+    funcs[i] = arguments[i];
+  &#125;
+
+  if (funcs.length === 0) &#123;
+    return function (arg) &#123;
+      return arg;
+    &#125;;
+  &#125; 
+
+  if (funcs.length === 1) &#123;
+    return funcs[0];
+  &#125;
+
+  return funcs.reduce(function (a, b) &#123;
+    return function () &#123;
+      // arguments是返回函数的入参
+      return a(b.apply(undefined, arguments));
+    &#125;;
+  &#125;);
+&#125;
+</code></pre>
+<p>下面，我们举例说明compose函数的作用：</p>
+<pre><code class="js">const value = compose(function (value) &#123;
+  return value + 1;
+&#125;, function (value) &#123;
+  return value * 2;
+&#125;, function (value) &#123;
+  return value - 3;
+&#125;)(2); //-1
+</code></pre>
+<p>将f1 f2 f3 三个函数依次传入compose函数，compose函数的精髓在于reduce函数，其实就是将上一次函数执行的值作为下一次函数的入参。下图是将参数依次带入reduce函数得到的执行结果。可以发现，传入compose的函数数组是按照从右往左的顺序依次执行的。（洋葱函数）</p>
+<p><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/8.png"></p>
+<h3 id="3）applyMiddleware-js函数的源码"><a href="#3）applyMiddleware-js函数的源码" class="headerlink" title="3）applyMiddleware.js函数的源码"></a>3）applyMiddleware.js函数的源码</h3><p>在熟悉了上面两个函数之后，我们就来啃最后一根最难啃的骨头，即中间件函数。中间件函数是在哪里用的呢，它是作为第三个参数传入createStore函数中的，接下来我们先完善createStore，看看它在传入中间件函数时是怎么处理的。<br>createStore.js 源码：</p>
+<pre><code class="js">
+function createStore(reducer, preloadedState, enhancer)&#123;
+
+  // 增强dispatch函数 start
+  if (typeof preloadedState === &#39;function&#39; &amp;&amp; typeof enhancer === &#39;undefined&#39;) &#123;
+    enhancer = preloadedState
+    preloadedState = undefined
+  &#125;
+
+  if (typeof enhancer !== &#39;undefined&#39;) &#123;
+    //判断 enhancer 不是一个函数
+    if (typeof enhancer !== &#39;function&#39;) &#123;
+      //抛出一个异常 (enhancer 必须是一个函数)
+      throw new Error(&#39;Expected the enhancer to be a function.&#39;)
+    &#125;
+    //调用 enhancer ,返回一个新强化过的 store creator
+    return enhancer(createStore)(reducer, preloadedState)
+  &#125;
+  // 增强dispatch函数 end
+
+  // 确保 nextListeners 与 currentListeners 保持一致，且保证 nextListeners 的变化不影响当前 currentListeners
+  function ensureCanMutateNextListeners() &#123;
+    if (nextListeners === currentListeners) &#123;
+      nextListeners = currentListeners.slice()
+    &#125;
+  &#125;
+  
+  let currentState = preloadedState // 当前的state
+  let isDispatching = false // 是否正在执行dispatch
+  let currentReducer = reducer // 当前的reducer
+  let currentListeners = [] //当前的监听函数列表
+  let nextListeners = currentListeners // 新生成的监听函数列表
+
+  function getState () &#123;
+    // 正在执行 dispatch 中，不能调用 store.getState()
+    if (isDispatching) &#123;
+      throw new Error(&#39;改变数据的同时不能获取数据&#39;)
+    &#125;
+    return currentState
+  &#125;
+
+  /**
+   * 核心函数：触发 state 改变的唯一方法
+   * 当发送 dispatch(aciton) 时，用于创建的 store 的 ‘reducer(纯函数)’ 都会被调用一次。调用的传入的参数是当前的 state 和发送 ‘action’，
+   * 调用完成后，所有的 state 监听函数都会触发。
+   */
+  function dispatch (action) &#123;
+    if (isDispatching) &#123;
+      throw new Error(&#39;不能同时改变数据&#39;)
+    &#125;
+    try &#123;
+      isDispatching = true
+      // 执行reduce函数，改变state，返回新的state对象
+      currentState = currentReducer(currentState, action)
+    &#125; finally &#123;
+      isDispatching = false
+    &#125;
+    // state发生变化时，通知所有的订阅函数
+    let listeners = (currentListeners = nextListeners)
+    for(let i = 0;i&lt;listeners.length;i++)&#123;
+      listeners[i]()
+    &#125;
+    return action
+  &#125;
+
+  // 新增一个变更监听函数且返回一个解绑函数，作用于 dispatch 内部执行，每当dispatch(action)后所有监听函数都会被触发一次
+  function subscribe(listener)&#123;
+    if (isDispatching) &#123;
+      throw new Error(&#39;改变数据的同时不能订阅事件&#39;)
+    &#125;
+    let isSubscribed = true
+    ensureCanMutateNextListeners()
+    // 添加新的监听函数到nextListeners
+    nextListeners.push(listener)
+    // 返回该订阅函数的取消订阅函数
+    return function unsubscribe()&#123;
+      if (!isSubscribed) &#123;
+        return 
+      &#125;
+      isSubscribed = false
+      ensureCanMutateNextListeners()
+      const index = nextListeners.indexOf(listener)
+      nextListeners.splice(index,1)
+    &#125;
+  &#125;
+  // 初始化state对象
+  // dispatch(&#123;&#125;)
+
+  return &#123;
+    getState,
+    dispatch,
+    subscribe
+  &#125;
+&#125;
+</code></pre>
+<p>上面是加入enhancer入参之后的程序，其中最主要的一行代码就是：</p>
+<pre><code class="js">
+return enhancer(createStore)(reducer, preloadedState)
+</code></pre>
+<p>现在，我们贴上applyMiddleware.js的代码进行对比，看看中间件到底做了什么？</p>
+<pre><code class="js">// enhancer(createStore)(reducer, preloadedState) = applyMiddleware(...middlewares)
+function applyMiddleware(...middlewares) &#123;
+  // applyMiddleware返回一个enhancer函数
+  return  (createStore)=&gt; &#123;
+    //enhancer函数返回一个生成store的函数
+    return (...args) =&gt; &#123;
+      //生成基本的store函数
+      const store = createStore(...args)
+      let dispatch = () =&gt; &#123;
+        throw new Error(
+          `Dispatching while constructing your middleware is not allowed. ` +
+          `Other middleware would not be applied to this dispatch.`
+        )
+      &#125;
+      //中间件需要的入参
+      const middlewareAPI = &#123;
+        getState: store.getState,
+        dispatch: (...args) =&gt; dispatch(...args)
+      &#125;
+      //将middlewareAPI 注入到中间件 得到中间件函数第二层函数的数组
+      const chain = middlewares.map(middleware =&gt; middleware(middlewareAPI))
+      dispatch = compose(...chain)(store.dispatch)
+
+      return &#123;
+        ...store,
+        dispatch
+      &#125;
+    &#125;
+  &#125; 
+&#125;
+</code></pre>
+<p><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/9.png"></p>
+<p>对比上图中的程序可以发现，applyMiddleware函数返回的是一个enhancer函数，enhancer函数接受一个createStore函数作为入参，enhancer函数执行后返回的函数接收reducer、preloadedState作为入参，该函数执行之后，返回的是一个具有加强版disptach方法的store对象。我们再来看applyMiddleware函数的下半部分：<br><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/10.png"><br>上图中，做的事情主要就是生成基本的store对象，利用中间件对dispatch函数进行增强，返回一个新的store对象。那，中间件函数是如何对dispatch函数进行加强的呢？我们用两个中间件函数进行举例：<br><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/11.png"><br>thunk函数和logger函数是react-redux封装的两个比较常用的中间件函数，分别用来处理异步操作和打印state，他们都有统一的格式：({dispatch,getState}) =&gt;{return next =&gt; action =&gt; {}}<br>applyMiddleware得到的chain数组，就是将dispatch和getState注入到中间件函数得到的第二层函数数组，数组的形式为：next =&gt; action =&gt; {}<br>下面的f1 f2函数是将中间件入参传入到中间件函数之后得到的chain数组中的函数<br><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/12.png"><br>接下来，到最重要的一步：<br><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/13.png"><br>执行代码过后，将f1 f2函数带入到代码当中，可以得到新的dispatch为：</p>
+<p><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/14.png"></p>
+<p>可以发现dispatch真的被增强了，不仅可以实现异步，还可以打印dispatch前后的state。<br><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/15.png"><br>我们用新的dispatch执行异步函数，程序判断action是一个函数，进入到上半部分，开始执行异步函数，setTimeout执行过后，又dispatch一次，又进入到下半部分，开始打印dispatch之前的state，然后调用store.dispatch（原来的dispatch）更新state，最后打印dispatch之后的state。<br>最后的执行结果是：<br><img src="/2022/05/05/redux%E5%8E%9F%E7%90%86/16.png"><br>可以发现dispatch真的被增强了，不仅可以实现异步，还可以打印dispatch前后的state。</p>
+<p>到底为止，我们就解析结束了redux的源码，希望能给大家带来一丝帮助。</p>
+]]></content>
+      <categories>
+        <category>redux</category>
+      </categories>
   </entry>
 </search>
