@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="https://z3.ax1x.com/2021/11/29/oM334O.png">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            JavaScript-es7、8 | KKBlog
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">KKBlog</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="https://s3.bmp.ovh/imgs/2021/11/b74ba8f7a70ffeb0.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">Dalu Kuankuan</div>
+            <div class="sidebar-description">选择有时候比努力更重要</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:xxx@xxx.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2021/11/26/JavaScript/JavaScript-es7%E3%80%818/">JavaScript-es7、8</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2021-11-26
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2021-11-30
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=JavaScript-es7、8&url=http://example.com/2021/11/26/JavaScript/JavaScript-es7%E3%80%818/&pic=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=JavaScript-es7、8&url=http://example.com/2021/11/26/JavaScript/JavaScript-es7%E3%80%818/&via=Dalu Kuankuan" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/11/26/JavaScript/JavaScript-es7%E3%80%818/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://example.com/2021/11/26/JavaScript/JavaScript-es7%E3%80%818/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2021/11/26/JavaScript/JavaScript-es7%E3%80%818/&title=JavaScript-es7、8" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=KKBlog&title=JavaScript-es7、8&summary=选择有时候比努力更重要&pics=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&url=http://example.com/2021/11/26/JavaScript/JavaScript-es7%E3%80%818/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://example.com/2021/11/26/JavaScript/JavaScript-es7%E3%80%818/&text=JavaScript-es7、8" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/es7%E3%80%81es8/ >es7、es8</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h1 id="ECMASript-7-新特性"><a href="#ECMASript-7-新特性" class="headerlink" title="ECMASript 7 新特性"></a>ECMASript 7 新特性</h1><h2 id="Array-prototype-includes"><a href="#Array-prototype-includes" class="headerlink" title="Array.prototype.includes"></a>Array.prototype.includes</h2><blockquote>
+<p> includes 方法用来检测数组中是否包含某个元素，返回布尔类型值</p>
+</blockquote>
+<pre><code class="javascript">&lt;script&gt;
+    // includes   indexOf
+    // const mingzhu = [&#39;西游记&#39;,&#39;红楼梦&#39;,&#39;三国演义&#39;,&#39;水浒传&#39;];
+
+    //判断
+    // console.log(mingzhu.includes(&#39;西游记&#39;));
+    // console.log(mingzhu.includes(&#39;金瓶梅&#39;));    
+&lt;/script&gt;
+</code></pre>
+<h2 id="指数操作符"><a href="#指数操作符" class="headerlink" title="指数操作符"></a>指数操作符</h2><blockquote>
+<p>在 ES7 中引入指数运算符「**」，用来实现幂运算，功能与 Math.pow 结果相同</p>
+</blockquote>
+<pre><code class="javascript">// **
+console.log(2 ** 10);// 
+console.log(Math.pow(2, 10));
+</code></pre>
+<h1 id="ECMASript-8-新特性"><a href="#ECMASript-8-新特性" class="headerlink" title="ECMASript 8 新特性"></a>ECMASript 8 新特性</h1><h2 id="async-和-await"><a href="#async-和-await" class="headerlink" title="async 和 await"></a>async 和 await</h2><h3 id="async-函数"><a href="#async-函数" class="headerlink" title="async 函数"></a>async 函数</h3><blockquote>
+<ol>
+<li><p>async 函数的返回值为 promise 对象， </p>
+</li>
+<li><p>promise 对象的结果由 async 函数执行的返回值决定</p>
+</li>
+</ol>
+</blockquote>
+<pre><code class="javascript">&lt;script&gt;
+    //async 函数
+    async function fn()&#123;
+        // 返回一个字符串
+        // return &#39;尚硅谷&#39;;
+        // 返回的结果不是一个 Promise 类型的对象, 返回的结果就是成功 Promise 对象
+        // return;
+        //抛出错误, 返回的结果是一个失败的 Promise
+        // throw new Error(&#39;出错啦!&#39;);
+        //返回的结果如果是一个 Promise 对象
+        return new Promise((resolve, reject)=&gt;&#123;
+            resolve(&#39;成功的数据&#39;);
+            // reject(&quot;失败的错误&quot;);
+        &#125;);
+    &#125;
+
+    const result = fn();
+
+    //调用 then 方法
+    result.then(value =&gt; &#123;
+        console.log(value);
+    &#125;, reason =&gt; &#123;
+        console.warn(reason);
+    &#125;)
+&lt;/script&gt;
+</code></pre>
+<h3 id="await-表达式"><a href="#await-表达式" class="headerlink" title="await 表达式"></a>await 表达式</h3><blockquote>
+<ol>
+<li>await 必须写在 async 函数中</li>
+<li>await 右侧的表达式一般为 promise 对象 </li>
+<li> await 返回的是 promise 成功的值 </li>
+<li>await 的 promise 失败了, 就会抛出异常, 需要通过 try…catch 捕获处理</li>
+</ol>
+</blockquote>
+<pre><code class="javascript">&lt;script&gt;
+    //创建 promise 对象
+    const p = new Promise((resolve, reject) =&gt; &#123;
+        // resolve(&quot;用户数据&quot;);
+        reject(&quot;失败啦!&quot;);
+    &#125;)
+
+    // await 要放在 async 函数中.
+    async function main() &#123;
+        try &#123;
+            let result = await p;
+            //
+            console.log(result);
+        &#125; catch (e) &#123;
+            console.log(e);
+        &#125;
+    &#125;
+    //调用函数
+    main();
+&lt;/script&gt;
+</code></pre>
+<h3 id="async和await结合读取文件"><a href="#async和await结合读取文件" class="headerlink" title="async和await结合读取文件"></a>async和await结合读取文件</h3><pre><code class="javascript">//1. 引入 fs 模块
+const fs = require(&quot;fs&quot;);
+
+//读取『为学』
+function readWeiXue() &#123;
+    return new Promise((resolve, reject) =&gt; &#123;
+        fs.readFile(&quot;./resources/为学.md&quot;, (err, data) =&gt; &#123;
+            //如果失败
+            if (err) reject(err);
+            //如果成功
+            resolve(data);
+        &#125;)
+    &#125;)
+&#125;
+
+function readChaYangShi() &#123;
+    return new Promise((resolve, reject) =&gt; &#123;
+        fs.readFile(&quot;./resources/插秧诗.md&quot;, (err, data) =&gt; &#123;
+            //如果失败
+            if (err) reject(err);
+            //如果成功
+            resolve(data);
+        &#125;)
+    &#125;)
+&#125;
+
+function readGuanShu() &#123;
+    return new Promise((resolve, reject) =&gt; &#123;
+        fs.readFile(&quot;./resources/观书有感.md&quot;, (err, data) =&gt; &#123;
+            //如果失败
+            if (err) reject(err);
+            //如果成功
+            resolve(data);
+        &#125;)
+    &#125;)
+&#125;
+
+//声明一个 async 函数
+async function main()&#123;
+    //获取为学内容
+    let weixue = await readWeiXue();
+    //获取插秧诗内容
+    let chayang = await readChaYangShi();
+    // 获取观书有感
+    let guanshu = await readGuanShu();
+
+    console.log(weixue.toString());
+    console.log(chayang.toString());
+    console.log(guanshu.toString());
+&#125;
+
+main();
+</code></pre>
+<h3 id="async与await封装AJAX请求"><a href="#async与await封装AJAX请求" class="headerlink" title="async与await封装AJAX请求"></a>async与await封装AJAX请求</h3><pre><code class="javascript">&lt;script&gt;
+    // 发送 AJAX 请求, 返回的结果是 Promise 对象
+    function sendAJAX(url) &#123;
+        return new Promise((resolve, reject) =&gt; &#123;
+            //1. 创建对象
+            const x = new XMLHttpRequest();
+
+            //2. 初始化
+            x.open(&#39;GET&#39;, url);
+
+            //3. 发送
+            x.send();
+
+            //4. 事件绑定
+            x.onreadystatechange = function () &#123;
+                if (x.readyState === 4) &#123;
+                    if (x.status &gt;= 200 &amp;&amp; x.status &lt; 300) &#123;
+                        //成功啦
+                        resolve(x.response);
+                    &#125;else&#123;
+                        //如果失败
+                        reject(x.status);
+                    &#125;
+                &#125;
+            &#125;
+        &#125;)
+    &#125;
+
+    //promise then 方法测试
+    // sendAJAX(&quot;https://api.apiopen.top/getJoke&quot;).then(value=&gt;&#123;
+    //     console.log(value);
+    // &#125;, reason=&gt;&#123;&#125;)
+
+    // async 与 await 测试  axios
+    async function main()&#123;
+        //发送 AJAX 请求
+        let result = await sendAJAX(&quot;https://api.apiopen.top/getJoke&quot;);
+        //再次测试
+        let tianqi = await sendAJAX(&#39;https://www.tianqiapi.com/api/?version=v1&amp;city=%E5%8C%97%E4%BA%AC&amp;appid=23941491&amp;appsecret=TXoD5e8P&#39;)
+
+        console.log(tianqi);
+    &#125;
+
+    main();
+    
+&lt;/script&gt;
+</code></pre>
+<h3 id="对象方法扩展"><a href="#对象方法扩展" class="headerlink" title="对象方法扩展"></a>对象方法扩展</h3><h4 id="Object-values-和-Object-entries"><a href="#Object-values-和-Object-entries" class="headerlink" title="Object.values 和 Object.entries"></a>Object.values 和 Object.entries</h4><blockquote>
+<ol>
+<li>Object.values()方法返回一个给定对象的所有可枚举属性值的数组</li>
+<li>Object.entries()方法返回一个给定对象自身可遍历属性 [key,value] 的数组</li>
+</ol>
+</blockquote>
+<h4 id="Object-getOwnPropertyDescriptors"><a href="#Object-getOwnPropertyDescriptors" class="headerlink" title="Object.getOwnPropertyDescriptors"></a>Object.getOwnPropertyDescriptors</h4><blockquote>
+<p>该方法返回指定对象所有自身属性的描述对象</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+    //声明对象
+    const school = &#123;
+        name:&quot;恋爱学院&quot;,
+        cities:[&#39;北京&#39;,&#39;上海&#39;,&#39;深圳&#39;],
+        xueke: [&#39;前端&#39;,&#39;Java&#39;,&#39;大数据&#39;,&#39;运维&#39;]
+    &#125;;
+
+    //获取对象所有的键
+    // console.log(Object.keys(school));
+    //获取对象所有的值
+    // console.log(Object.values(school));
+    //entries
+    // console.log(Object.entries(school));
+    //创建 Map
+    // const m = new Map(Object.entries(school));
+    // console.log(m.get(&#39;cities&#39;));
+
+    //对象属性的描述对象
+    // console.log(Object.getOwnPropertyDescriptors(school));
+
+    // const obj = Object.create(null, &#123;
+    //     name: &#123;
+    //         //设置值
+    //         value: &#39;恋爱学院&#39;,
+    //         //属性特性
+    //         writable: true,
+    //         configurable: true,
+    //         enumerable: true
+    //     &#125; 
+    // &#125;);
+&lt;/script&gt;
+</code></pre>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2021/11/26/JavaScript/JavaScript-es9%E3%80%8110%E3%80%8111/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>JavaScript-es9、10、11</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2021/11/26/JavaScript/javascript-es6/">
+        <span>javascript-es6</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2021/11/26/JavaScript/JavaScript-es7%E3%80%818/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ECMASript-7-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text">ECMASript 7 新特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Array-prototype-includes"><span class="toc-number">1.1.</span> <span class="toc-text">Array.prototype.includes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.2.</span> <span class="toc-text">指数操作符</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ECMASript-8-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">ECMASript 8 新特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#async-%E5%92%8C-await"><span class="toc-number">2.1.</span> <span class="toc-text">async 和 await</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#async-%E5%87%BD%E6%95%B0"><span class="toc-number">2.1.1.</span> <span class="toc-text">async 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#await-%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">2.1.2.</span> <span class="toc-text">await 表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#async%E5%92%8Cawait%E7%BB%93%E5%90%88%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6"><span class="toc-number">2.1.3.</span> <span class="toc-text">async和await结合读取文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#async%E4%B8%8Eawait%E5%B0%81%E8%A3%85AJAX%E8%AF%B7%E6%B1%82"><span class="toc-number">2.1.4.</span> <span class="toc-text">async与await封装AJAX请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95%E6%89%A9%E5%B1%95"><span class="toc-number">2.1.5.</span> <span class="toc-text">对象方法扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Object-values-%E5%92%8C-Object-entries"><span class="toc-number">2.1.5.1.</span> <span class="toc-text">Object.values 和 Object.entries</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Object-getOwnPropertyDescriptors"><span class="toc-number">2.1.5.2.</span> <span class="toc-text">Object.getOwnPropertyDescriptors</span></a></li></ol></li></ol></li></ol></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">valine</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="vcomments"></div>
+<script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = ''.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  var notify = '' === 'true';
+  var verify = '' === 'true';
+  new Valine({
+    el: '#vcomments',
+    notify: notify,
+    verify: verify,
+    appId: 'K384DoBsTJo09tPYtLMxDJz1-gzGzoHsz',
+    appKey: 'Bp5G6BLH11s6zkpTjHkvoG1g',
+    placeholder: '',
+    pageSize: '',
+    avatar: '',
+    lang: '',
+    guest_info: guest_info
+  });
+</script>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2022 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Dalu Kuankuan
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

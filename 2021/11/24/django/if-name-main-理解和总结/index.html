@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="https://z3.ax1x.com/2021/11/29/oM334O.png">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            if__name__==&#39;__main__&#39; 理解和总结 | KKBlog
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">KKBlog</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="https://s3.bmp.ovh/imgs/2021/11/b74ba8f7a70ffeb0.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">Dalu Kuankuan</div>
+            <div class="sidebar-description">选择有时候比努力更重要</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:xxx@xxx.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2021/11/24/django/if-name-main-%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/">if__name__==&#39;__main__&#39; 理解和总结</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2021-11-24
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2021-11-30
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/python/">python</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=if__name__==&#39;__main__&#39; 理解和总结&url=http://example.com/2021/11/24/django/if-name-main-%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/&pic=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=if__name__==&#39;__main__&#39; 理解和总结&url=http://example.com/2021/11/24/django/if-name-main-%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/&via=Dalu Kuankuan" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/11/24/django/if-name-main-%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://example.com/2021/11/24/django/if-name-main-%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2021/11/24/django/if-name-main-%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/&title=if__name__==&#39;__main__&#39; 理解和总结" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=KKBlog&title=if__name__==&#39;__main__&#39; 理解和总结&summary=选择有时候比努力更重要&pics=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&url=http://example.com/2021/11/24/django/if-name-main-%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://example.com/2021/11/24/django/if-name-main-%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/&text=if__name__==&#39;__main__&#39; 理解和总结" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/python/ >python</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h1 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h1><p>在Python当中，如果代码写得规范一些，通常会写上一句“if <strong>name</strong>==’<strong>main</strong>:”作为程序的入口，但似乎没有这么一句代码，程序也能正常运行。这句代码多余吗？原理又在哪里？本篇博文对此进行总结说明。</p>
+<h1 id="二、程序入口"><a href="#二、程序入口" class="headerlink" title="二、程序入口"></a>二、程序入口</h1><p> 学过Java、C、C++的程序员应该都知道，每次开启一个程序，都必须写一个主函数作为程序的入口，也就是我们常说的main函数。如下所示， main()就是Java中的一个main函数。</p>
+<pre><code class="java">public class HelloWorld &#123;
+
+    public static void main(String[] args) &#123;
+
+        System.out.println(&quot;HelloWorld&quot;);
+
+    &#125;
+&#125;    
+</code></pre>
+<p>与 Java、C、C++ 等几种语言不同的是，Python是一种解释型脚本语言，在执行之前不同要将所有代码先编译成中间代码，Python程序运行时是从模块顶行开始，逐行进行翻译执行，所以，最顶层（没有被缩进）的代码都会被执行，所以Python中并不需要一个统一的main()作为程序的入口。在某种意义上讲，“if <strong>name</strong>==’<strong>main</strong>:”也像是一个标志，象征着Java等语言中的程序主入口，告诉其他程序员，代码入口在此——这是“if <strong>name</strong>==’<strong>main</strong>:”这条代码的意义之一。</p>
+<h1 id="三、模块引入"><a href="#三、模块引入" class="headerlink" title="三、模块引入"></a>三、模块引入</h1><p> 我们知道，当我们把模块A中的代码在模块B中进行import A时，只要B模块代码运行到该import语句，模块A的代码会被执行。</p>
+<h4 id="模块A："><a href="#模块A：" class="headerlink" title="模块A："></a>模块A：</h4><pre><code class="python"># 模块A
+
+a = 100
+
+print(&#39;你好，我是模块A……&#39;)
+
+print(a)
+</code></pre>
+<h4 id="模块B："><a href="#模块B：" class="headerlink" title="模块B："></a>模块B：</h4><pre><code class="python"># 模块B
+
+from package01 import A
+
+b = 200
+
+print(&#39;你好，我是模块B……&#39;)
+
+print(b)
+</code></pre>
+<p>运行模块B时，输出结果如下：</p>
+<pre><code class="python">你好，我是模块A……
+
+100
+
+你好，我是模块B……
+
+200
+</code></pre>
+<p>如果在模块A中，我们有部分的代码不想在被导入到B时直接被运行，但在直接运行A时可直接运行，那该怎么做呢？那就可以用到“if <strong>name</strong>==’<strong>main</strong>:”这行代码了，我们队上面用到的A模块代码进行修改：</p>
+<h4 id="A模块代码修改为："><a href="#A模块代码修改为：" class="headerlink" title="A模块代码修改为："></a>A模块代码修改为：</h4><pre><code class="python"># 模块A
+
+a = 100
+
+print(&#39;你好，我是模块A……&#39;)
+
+if __name__==&#39;__main__&#39;:
+
+    print(a)
+</code></pre>
+<h4 id="B模块不做修改，直接执行B模块，输出结果如下："><a href="#B模块不做修改，直接执行B模块，输出结果如下：" class="headerlink" title="B模块不做修改，直接执行B模块，输出结果如下："></a>B模块不做修改，直接执行B模块，输出结果如下：</h4><pre><code class="python">你好，我是模块A……
+
+你好，我是模块B……
+
+200
+</code></pre>
+<p>看到了吗，A模块中的a的值就没有再被输出了。所以，当你要导入某个模块，但又不想改模块的部分代码被直接执行，那就可以这一部分代码放在“if <strong>name</strong>==’<strong>main</strong>‘:”内部。</p>
+<h1 id="四、’name‘与“-main-”"><a href="#四、’name‘与“-main-”" class="headerlink" title="四、’name‘与“____main____”"></a>四、’<strong><strong>name</strong></strong>‘与“____main____”</h1><p>看到现在也许心中还是疑惑，为什么会这样，那么现在我们来说一说“if <strong>name</strong>==’<strong>main</strong>‘:”的原理。</p>
+<p>“____name____”是Python的内置变量，用于指代当前模块。我们修改上面用到的A模块和B模块，在模块中分别输出模块的名称：</p>
+<h4 id="模块A"><a href="#模块A" class="headerlink" title="模块A:"></a>模块A:</h4><pre><code class="python"># 模块A
+
+print(&#39;你好，我是模块A……&#39;)
+
+print(&#39;模块A中__name__的值：&#123;&#125;&#39;.format(__name__))
+
+print(&#39;-------------------------&#39;)
+</code></pre>
+<h4 id="模块B：-1"><a href="#模块B：-1" class="headerlink" title="模块B："></a>模块B：</h4><pre><code class="python"># 模块B
+
+from package01 import A
+
+print(&#39;你好，我是模块B……&#39;)
+
+print(&#39;模块B中__name__的值：&#123;&#125;&#39;.format(__name__))
+</code></pre>
+<h4 id="执行A模块时，输出结果："><a href="#执行A模块时，输出结果：" class="headerlink" title="执行A模块时，输出结果："></a>执行A模块时，输出结果：</h4><pre><code class="python">你好，我是模块A……
+
+模块A中__name__的值：__main__
+
+-------------------------
+
+执行B模块时，输出结果：
+
+你好，我是模块A……
+
+模块A中__name__的值：package01.A
+
+-------------------------
+
+你好，我是模块B……
+
+模块B中__name__的值：__main__
+</code></pre>
+<blockquote>
+<p>发现神奇之处了吗？当哪个模块被直接执行时，该模块“____name____”的值就是“____main____”，当被导入另一模块时，“__name__”的值就是模块的真实名称。用一个类比来解释一下：记得小时候要轮流打算教室，轮到自己的时候（模块被直接执行的时候），我们会说今天是“我”（__main__）值日，称呼其他人时，我们就会直接喊他们的名字。所以，“__main__”就相当于当事人，或者说第一人称的“我”。</p>
+</blockquote>
+<blockquote>
+<p>所以，当运行“if <strong>name</strong>==’<strong>main</strong>‘:”语句时，如果当前模块时被直接执行，__name__的值就是__main__，条件判断的结果为True，“if <strong>name</strong>==’<strong>main</strong>‘:”下面的代码块就会被执行。</p>
+</blockquote>
+<h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><p>“if <strong>name</strong>==’<strong>main</strong>‘:”语句的用处与原理大概也讲清楚了，如果没说明白，或者是我没理解到位，请给我留言。另外多说一句，“if <strong>name</strong>==’<strong>main</strong>‘:”很多时候看似无用，但是，出于代码的规范性，还是有必要的。</p>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2021/11/26/JavaScript/javascript-es6/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>javascript-es6</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2021/11/24/django/Django-filter%E4%B8%AD%E7%94%A8contains%E5%92%8Cicontains%E5%8C%BA%E5%88%AB/">
+        <span>Django filter中用contains和icontains区别</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2021/11/24/django/if-name-main-%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">一、引言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3"><span class="toc-number">2.</span> <span class="toc-text">二、程序入口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%A8%A1%E5%9D%97%E5%BC%95%E5%85%A5"><span class="toc-number">3.</span> <span class="toc-text">三、模块引入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97A%EF%BC%9A"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">模块A：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97B%EF%BC%9A"><span class="toc-number">3.0.0.2.</span> <span class="toc-text">模块B：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#A%E6%A8%A1%E5%9D%97%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9%E4%B8%BA%EF%BC%9A"><span class="toc-number">3.0.0.3.</span> <span class="toc-text">A模块代码修改为：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B%E6%A8%A1%E5%9D%97%E4%B8%8D%E5%81%9A%E4%BF%AE%E6%94%B9%EF%BC%8C%E7%9B%B4%E6%8E%A5%E6%89%A7%E8%A1%8CB%E6%A8%A1%E5%9D%97%EF%BC%8C%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">3.0.0.4.</span> <span class="toc-text">B模块不做修改，直接执行B模块，输出结果如下：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E2%80%99name%E2%80%98%E4%B8%8E%E2%80%9C-main-%E2%80%9D"><span class="toc-number">4.</span> <span class="toc-text">四、’name‘与“____main____”</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97A"><span class="toc-number">4.0.0.1.</span> <span class="toc-text">模块A:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97B%EF%BC%9A-1"><span class="toc-number">4.0.0.2.</span> <span class="toc-text">模块B：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8CA%E6%A8%A1%E5%9D%97%E6%97%B6%EF%BC%8C%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C%EF%BC%9A"><span class="toc-number">4.0.0.3.</span> <span class="toc-text">执行A模块时，输出结果：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">五、总结</span></a></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">valine</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="vcomments"></div>
+<script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = ''.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  var notify = '' === 'true';
+  var verify = '' === 'true';
+  new Valine({
+    el: '#vcomments',
+    notify: notify,
+    verify: verify,
+    appId: 'K384DoBsTJo09tPYtLMxDJz1-gzGzoHsz',
+    appKey: 'Bp5G6BLH11s6zkpTjHkvoG1g',
+    placeholder: '',
+    pageSize: '',
+    avatar: '',
+    lang: '',
+    guest_info: guest_info
+  });
+</script>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2022 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Dalu Kuankuan
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="https://z3.ax1x.com/2021/11/29/oM334O.png">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            mustache | KKBlog
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">KKBlog</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="https://s3.bmp.ovh/imgs/2021/11/b74ba8f7a70ffeb0.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">Dalu Kuankuan</div>
+            <div class="sidebar-description">选择有时候比努力更重要</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:xxx@xxx.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2022/05/18/vue/mustache/">mustache</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-05-18
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-05-18
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/vue/">vue</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=mustache&url=http://example.com/2022/05/18/vue/mustache/&pic=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=mustache&url=http://example.com/2022/05/18/vue/mustache/&via=Dalu Kuankuan" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2022/05/18/vue/mustache/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://example.com/2022/05/18/vue/mustache/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2022/05/18/vue/mustache/&title=mustache" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=KKBlog&title=mustache&summary=选择有时候比努力更重要&pics=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&url=http://example.com/2022/05/18/vue/mustache/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://example.com/2022/05/18/vue/mustache/&text=mustache" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/mustache/ >mustache</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <p><img src="/2022/05/18/vue/mustache/1.png"></p>
+<p><img src="/2022/05/18/vue/mustache/2.png"></p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p><img src="/2022/05/18/vue/mustache/3.png"><br><img src="/2022/05/18/vue/mustache/4.png"><br><img src="/2022/05/18/vue/mustache/5.png"><br><img src="/2022/05/18/vue/mustache/6.png"></p>
+<h2 id="mustache库的机理"><a href="#mustache库的机理" class="headerlink" title="mustache库的机理"></a>mustache库的机理</h2><p><img src="/2022/05/18/vue/mustache/7.png"></p>
+<h2 id="什么是tokens"><a href="#什么是tokens" class="headerlink" title="什么是tokens"></a>什么是tokens</h2><ul>
+<li>tokens 是一个js的嵌套数组，说白了，就是模板字符串的js表示</li>
+<li>他是“抽象语法树”、“虚拟节点”等等的开山鼻祖</li>
+</ul>
+<h3 id="简单模板字符串"><a href="#简单模板字符串" class="headerlink" title="简单模板字符串"></a>简单模板字符串</h3><pre><code class="js">&lt;h1&gt;我买了一个&#123;&#123;thing&#125;&#125;，好&#123;&#123;mood&#125;&#125;啊&lt;/h1&gt;
+</code></pre>
+<p>tokens</p>
+<pre><code class="js">[
+    [&quot;text&quot;, &quot;&lt;h1&gt;我买了一个&quot;],
+    [&quot;name&quot;, &quot;thing&quot;],
+    [&quot;text&quot;, &quot;，好&quot;], 
+    [&quot;name&quot;, &quot;mood&quot;],
+    [&quot;text&quot;, &quot;啊&lt;/h1&gt;&quot;],
+]
+</code></pre>
+<h3 id="复杂模板字符串"><a href="#复杂模板字符串" class="headerlink" title="复杂模板字符串"></a>复杂模板字符串</h3><pre><code class="js">&lt;div&gt;
+    &lt;ol&gt;
+        &#123;&#123;#students&#125;&#125;
+        &lt;li&gt;
+            学生&#123;&#123;name&#125;&#125;的爱好是
+            &lt;ol&gt;
+                &#123;&#123;#hobbies&#125;&#125;
+                &lt;li&gt;&#123;&#123;.&#125;&#125;&lt;/li&gt;
+                &#123;&#123;/hobbies&#125;&#125;
+            &lt;/ol&gt;
+        &lt;/li&gt;
+        &#123;&#123;/students&#125;&#125;
+    &lt;/ol&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="js">[
+    [&quot;text&quot;, &quot;&lt;div&gt;&lt;ol&gt;&quot;],
+    [&quot;#&quot;, &quot;students&quot;, [
+        [&quot;text&quot;, &quot;&lt;li&gt;学生&quot;],
+        [&quot;name&quot;, &quot;name&quot;],
+        [&quot;text&quot;, &quot;的爱好是&lt;ol&gt;&quot;],
+        [&quot;#&quot;, &quot;hobbies&quot;, [
+            [&quot;text&quot;, &quot;&lt;li&gt;&quot;],
+            [&quot;name&quot;, &quot;.&quot;],
+            [&quot;text&quot;, &quot;&lt;/li&gt;&quot;],
+        ]],
+        [&quot;text&quot;, &quot;&lt;/ol&gt;&lt;/li&gt;&quot;],
+    ]],
+    [&quot;text&quot;, &quot;&lt;/ol&gt;&lt;/div&gt;&quot;]
+]
+</code></pre>
+<h2 id="mustache库底层重点要做两个事情"><a href="#mustache库底层重点要做两个事情" class="headerlink" title="mustache库底层重点要做两个事情"></a>mustache库底层重点要做两个事情</h2><ol>
+<li>将模板字符串编译为tokens形式</li>
+<li>将tokens结合数据，解析为dom字符串</li>
+</ol>
+<h2 id="简单的源码实现"><a href="#简单的源码实现" class="headerlink" title="简单的源码实现"></a>简单的源码实现</h2><pre><code class="js">/**
+ * index.html
+ */
+
+&lt;script src=&quot;/xuni/bundle.js&quot;&gt;&lt;/script&gt;
+// 模板字符串
+var templateStr = `
+    &lt;div&gt;
+        &lt;ul&gt;
+            &#123;&#123;#students&#125;&#125;
+            &lt;li class=&quot;myli&quot;&gt;
+                学生&#123;&#123;name&#125;&#125;的爱好是
+                &lt;ol&gt;
+                    &#123;&#123;#hobbies&#125;&#125;
+                    &lt;li&gt;&#123;&#123;.&#125;&#125;&lt;/li&gt;
+                    &#123;&#123;/hobbies&#125;&#125;
+                &lt;/ol&gt;
+            &lt;/li&gt;
+            &#123;&#123;/students&#125;&#125;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+`;
+
+// 数据
+var data = &#123;
+    students: [
+        &#123; &#39;name&#39;: &#39;小明&#39;, &#39;hobbies&#39;: [&#39;编程&#39;, &#39;游泳&#39;] &#125;,
+        &#123; &#39;name&#39;: &#39;小红&#39;, &#39;hobbies&#39;: [&#39;看书&#39;, &#39;弹琴&#39;, &#39;画画&#39;] &#125;,
+        &#123; &#39;name&#39;: &#39;小强&#39;, &#39;hobbies&#39;: [&#39;锻炼&#39;] &#125;
+    ]
+&#125;;
+// 调用render
+var domStr = TemplateEngine.render(templateStr, data);
+console.log(domStr);
+
+// 渲染上树
+var container = document.getElementById(&#39;container&#39;);
+container.innerHTML = domStr;
+</code></pre>
+<pre><code class="js">/**
+ * index.js
+ */
+ 
+import parseTemplateToTokens from &#39;./parseTemplateToTokens.js&#39;;
+import renderTemplate from &#39;./renderTemplate.js&#39;;
+
+// 全局提供TemplateEngine对象
+window.TemplateEngine = &#123;
+    // 渲染方法
+    render(templateStr, data) &#123;
+        // 调用parseTemplateToTokens函数，让模板字符串能够变为tokens数组
+        var tokens = parseTemplateToTokens(templateStr);
+        // 调用renderTemplate函数，让tokens数组变为dom字符串
+        var domStr = renderTemplate(tokens, data);
+        
+        return domStr;
+    &#125;
+&#125;;
+</code></pre>
+<p>上面调用 parseTemplateToTokens 这个方法，将模板字符串能够变成tokens数组，那么下面来进行一个实现</p>
+<pre><code class="js">/*
+ * parseTemplateToTokens.js
+ */
+
+import Scanner from &#39;./Scanner.js&#39;;
+import nestTokens from &#39;./nestTokens.js&#39;;
+
+/* 
+    将模板字符串变为tokens数组
+*/
+export default function parseTemplateToTokens(templateStr) &#123;
+    var tokens = [];
+    // 创建扫描器 --&gt; 看到这个先别往下面看 去看 scanner.js 中的实现
+    var scanner = new Scanner(templateStr);
+    var words;
+    // 让扫描器工作
+    while (!scanner.eos()) &#123;
+        // 收集开始标记出现之前的文字
+        words = scanner.scanUtil(&#39;&#123;&#123;');
+        if (words != '') &#123;
+            // 尝试写一下去掉空格，智能判断是普通文字的空格，还是标签中的空格
+            // 标签中的空格不能去掉，比如<div class="box">不能去掉class前面的空格
+            let isInJJH = false;
+            // 空白字符串
+            var _words = '';
+            for (let i = 0; i < words.length; i++) &#123;
+                // 判断是否在标签里
+                if (words[i] == '<') &#123; isinjjh="true;" &#125; else if (words[i]="=" '>') &#123;
+                    isInJJH = false;
+                &#125;
+                // 如果这项不是空格，拼接上
+                if (!/\s/.test(words[i])) &#123;
+                    _words += words[i];
+                &#125; else &#123;
+                    // 如果这项是空格，只有当它在标签内的时候，才拼接上
+                    if (isInJJH) &#123;
+                        _words += ' ';
+                    &#125;
+                &#125;
+            &#125;
+            // 存起来，去掉空格
+            tokens.push(['text', _words]);
+        &#125;
+        // 过双大括号
+        scanner.scan('&#123;&#123;');
+        // 收集开始标记出现之前的文字
+        words = scanner.scanUtil('&#125;&#125;&#39;);
+        if (words != &#39;&#39;) &#123;
+            // 这个words就是&#123;&#123;&#125;&#125;中间的东西。判断一下首字符
+            if (words[0] == '#') &#123;
+                // 存起来，从下标为1的项开始存，因为下标为0的项是#
+                tokens.push(['#', words.substring(1)]);
+            &#125; else if (words[0] == '/') &#123;
+                // 存起来，从下标为1的项开始存，因为下标为0的项是/
+                tokens.push(['/', words.substring(1)]);
+            &#125; else &#123;
+                // 存起来
+                tokens.push(['name', words]);
+            &#125;
+        &#125;
+        // 过双大括号
+        scanner.scan('&#125;&#125;&#39;);
+    &#125;
+
+    // 返回折叠收集的tokens
+    return nestTokens(tokens);
+&#125;
+</')></div></code></pre>
+<pre><code class="js">/*
+    scanner.js
+*/
+
+/* 
+    扫描器类
+*/
+export default class Scanner &#123;
+    constructor(templateStr) &#123;
+        // 将模板字符串写到实例身上
+        this.templateStr = templateStr;
+        // 指针
+        this.pos = 0;
+        // 尾巴，一开始就是模板字符串原文
+        this.tail = templateStr;
+    &#125;
+
+    // 功能弱，就是走过指定内容，没有返回值
+    scan(tag) &#123;
+        if (this.tail.indexOf(tag) == 0) &#123;
+            // tag有多长，比如&#123;&#123;长度是2，就让指针后移多少位
+            this.pos += tag.length;
+            // 尾巴也要变，改变尾巴为从当前指针这个字符开始，到最后的全部字符
+            this.tail = this.templateStr.substring(this.pos);
+        &#125;
+    &#125;
+
+    // 让指针进行扫描，直到遇见指定内容结束，并且能够返回结束之前路过的文字
+    scanUtil(stopTag) &#123;
+        // 记录一下执行本方法的时候pos的值
+        const pos_backup = this.pos;
+        // 当尾巴的开头不是stopTag的时候，就说明还没有扫描到stopTag
+        // 写&amp;&amp;很有必要，因为防止找不到，那么寻找到最后也要停止下来
+        while (!this.eos() &amp;&amp; this.tail.indexOf(stopTag) != 0) &#123;
+            this.pos++;
+            // 改变尾巴为从当前指针这个字符开始，到最后的全部字符
+            this.tail = this.templateStr.substring(this.pos);
+        &#125;
+
+        // 最后返回的是 路过的所有文字  所有需要记录一下本方法开始时的 pos 值
+        return this.templateStr.substring(pos_backup, this.pos);
+    &#125;
+
+    // 指针是否已经到头，返回布尔值。end of string
+    eos() &#123;
+        return this.pos &gt;= this.templateStr.length;
+    &#125;
+&#125;;
+</code></pre>
+<p>将生成的数组变成折叠的tokens</p>
+<pre><code class="js">/*
+nestTokens.js
+*/
+
+/* 
+    函数的功能是折叠tokens，将#和/之间的tokens能够整合起来，作为它的下标为3的项
+*/
+export default function nestTokens(tokens) &#123;
+    // 结果数组
+    var nestedTokens = [];
+    // 栈结构，存放小tokens，栈顶（靠近端口的，最新进入的）的tokens数组中当前操作的这个tokens小数组
+    var sections = [];
+    // 收集器，天生指向nestedTokens结果数组，引用类型值，所以指向的是同一个数组
+    // 收集器的指向会变化，当遇见#的时候，收集器会指向这个token的下标为2的新数组
+    var collector = nestedTokens;
+
+    for (let i = 0; i &lt; tokens.length; i++) &#123;
+        let token = tokens[i];
+
+        switch (token[0]) &#123;
+            case &#39;#&#39;:
+                // 收集器中放入这个token
+                collector.push(token);
+                // 入栈
+                sections.push(token);
+                // 收集器要换人。给token添加下标为2的项，并且让收集器指向它
+                collector = token[2] = [];
+                break;
+            case &#39;/&#39;:
+                // 出栈。pop()会返回刚刚弹出的项
+                sections.pop();
+                // 改变收集器为栈结构队尾（队尾是栈顶）那项的下标为2的数组
+                collector = sections.length &gt; 0 ? sections[sections.length - 1][2] : nestedTokens;
+                break;
+            default:
+                // 甭管当前的collector是谁，可能是结果nestedTokens，也可能是某个token的下标为2的数组，甭管是谁，推入collctor即可。
+                collector.push(token);
+        &#125;
+    &#125;
+
+    return nestedTokens;
+&#125;;
+</code></pre>
+<p>看到这里已经将模板字符串转换成了我们想要的结果<br>现在就需要将 生成的tokens 再变成dom字符串 并且填充数据</p>
+<pre><code class="js">// index.js
+
+// 调用renderTemplate函数，让tokens数组变为dom字符串
+var domStr = renderTemplate(tokens, data);
+</code></pre>
+<p>现在就是在返回来</p>
+<pre><code class="js">/**
+ * renderTemplate.js
+ */
+
+import lookup from &#39;./lookup.js&#39;;
+import parseArray from &#39;./parseArray.js&#39;;
+/* 
+    函数的功能是让tokens数组变为dom字符串
+*/
+export default function renderTemplate(tokens, data) &#123;
+    // 结果字符串
+    var resultStr = &#39;&#39;;
+    // 遍历tokens
+    for (let i = 0; i &lt; tokens.length; i++) &#123;
+        let token = tokens[i];
+        // 看类型
+        if (token[0] == &#39;text&#39;) &#123;
+            // 拼起来
+            resultStr += token[1];
+        &#125; else if (token[0] == &#39;name&#39;) &#123;
+            // 如果是name类型，那么就直接使用它的值，当然要用lookup
+            // 因为防止这里是“a.b.c”有逗号的形式
+            resultStr += lookup(data, token[1]);
+        &#125; else if (token[0] == &#39;#&#39;) &#123;
+            resultStr += parseArray(token, data);
+        &#125;
+    &#125;
+
+    return resultStr;
+&#125;
+</code></pre>
+<pre><code class="js">/**
+ * lookup.js
+ */
+/* 
+    功能是可以在dataObj对象中，寻找用连续点符号的keyName属性
+    比如，dataObj是
+    &#123;
+        a: &#123;
+            b: &#123;
+                c: 100
+            &#125;
+        &#125;
+    &#125;
+    那么lookup(dataObj, &#39;a.b.c&#39;)结果就是100
+    不忽悠大家，这个函数是某个大厂的面试题
+*/
+export default function lookup(dataObj, keyName) &#123;
+    // 看看keyName中有没有点符号，但是不能是.本身
+    if (keyName.indexOf(&#39;.&#39;) != -1 &amp;&amp; keyName != &#39;.&#39;) &#123;
+        // 如果有点符号，那么拆开
+        var keys = keyName.split(&#39;.&#39;);
+        // 设置一个临时变量，这个临时变量用于周转，一层一层找下去。
+        var temp = dataObj;
+        // 每找一层，就把它设置为新的临时变量
+        for (let i = 0; i &lt; keys.length; i++) &#123;
+            temp = temp[keys[i]];
+        &#125;
+        return temp;
+    &#125;
+    // 如果这里面没有点符号
+    return dataObj[keyName];
+&#125;;
+</code></pre>
+<p>有一个递归的操作</p>
+<pre><code class="js">/**
+ * parseArray.js
+ * 
+*/
+import lookup from &#39;./lookup.js&#39;;
+import renderTemplate from &#39;./renderTemplate.js&#39;;
+
+/* 
+    处理数组，结合renderTemplate实现递归
+    注意，这个函数收的参数是token！而不是tokens！
+    token是什么，就是一个简单的[&#39;#&#39;, &#39;students&#39;, [
+
+    ]]
+    
+    这个函数要递归调用renderTemplate函数，调用多少次？？？
+    千万别蒙圈！调用的次数由data决定
+    比如data的形式是这样的：
+    &#123;
+        students: [
+            &#123; &#39;name&#39;: &#39;小明&#39;, &#39;hobbies&#39;: [&#39;游泳&#39;, &#39;健身&#39;] &#125;,
+            &#123; &#39;name&#39;: &#39;小红&#39;, &#39;hobbies&#39;: [&#39;足球&#39;, &#39;蓝球&#39;, &#39;羽毛球&#39;] &#125;,
+            &#123; &#39;name&#39;: &#39;小强&#39;, &#39;hobbies&#39;: [&#39;吃饭&#39;, &#39;睡觉&#39;] &#125;,
+        ]
+    &#125;;
+    那么parseArray()函数就要递归调用renderTemplate函数3次，因为数组长度是3
+*/
+
+export default function parseArray(token, data) &#123;
+    // 得到整体数据data中这个数组要使用的部分
+    var v = lookup(data, token[1]);
+    // 结果字符串
+    var resultStr = &#39;&#39;;
+    // 遍历v数组，v一定是数组
+    // 注意，下面这个循环可能是整个包中最难思考的一个循环
+    // 它是遍历数据，而不是遍历tokens。数组中的数据有几条，就要遍历几条。
+    for(let i = 0 ; i &lt; v.length; i++) &#123;
+        // 这里要补一个“.”属性
+        // 拼接
+        resultStr += renderTemplate(token[2], &#123;
+            ...v[i],
+            &#39;.&#39;: v[i]
+        &#125;);
+    &#125;
+    return resultStr;
+&#125;;
+</code></pre>
+<p>以上就是mustache简单的实现过程  我比较难理解的就是在 折叠那里  还有 这个递归调用解析这里！！！</p>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2022/05/18/JavaScript/%E9%97%AD%E5%8C%85/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>闭包</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2022/05/17/JavaScript/event-loop/">
+        <span>event-loop</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2022/05/18/vue/mustache/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mustache%E5%BA%93%E7%9A%84%E6%9C%BA%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">mustache库的机理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFtokens"><span class="toc-number">3.</span> <span class="toc-text">什么是tokens</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">3.1.</span> <span class="toc-text">简单模板字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">3.2.</span> <span class="toc-text">复杂模板字符串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mustache%E5%BA%93%E5%BA%95%E5%B1%82%E9%87%8D%E7%82%B9%E8%A6%81%E5%81%9A%E4%B8%A4%E4%B8%AA%E4%BA%8B%E6%83%85"><span class="toc-number">4.</span> <span class="toc-text">mustache库底层重点要做两个事情</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.</span> <span class="toc-text">简单的源码实现</span></a></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">valine</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="vcomments"></div>
+<script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = ''.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  var notify = '' === 'true';
+  var verify = '' === 'true';
+  new Valine({
+    el: '#vcomments',
+    notify: notify,
+    verify: verify,
+    appId: 'K384DoBsTJo09tPYtLMxDJz1-gzGzoHsz',
+    appKey: 'Bp5G6BLH11s6zkpTjHkvoG1g',
+    placeholder: '',
+    pageSize: '',
+    avatar: '',
+    lang: '',
+    guest_info: guest_info
+  });
+</script>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2022 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Dalu Kuankuan
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

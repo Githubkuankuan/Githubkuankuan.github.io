@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="https://z3.ax1x.com/2021/11/29/oM334O.png">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            JSON.parse(JSON.stringify())实现深拷贝时有什么缺点 | KKBlog
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">KKBlog</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="https://s3.bmp.ovh/imgs/2021/11/b74ba8f7a70ffeb0.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">Dalu Kuankuan</div>
+            <div class="sidebar-description">选择有时候比努力更重要</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:xxx@xxx.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/">JSON.parse(JSON.stringify())实现深拷贝时有什么缺点</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-05-18
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-05-19
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=JSON.parse(JSON.stringify())实现深拷贝时有什么缺点&url=http://example.com/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/&pic=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=JSON.parse(JSON.stringify())实现深拷贝时有什么缺点&url=http://example.com/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/&via=Dalu Kuankuan" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://example.com/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/&title=JSON.parse(JSON.stringify())实现深拷贝时有什么缺点" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=KKBlog&title=JSON.parse(JSON.stringify())实现深拷贝时有什么缺点&summary=选择有时候比努力更重要&pics=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&url=http://example.com/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://example.com/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/&text=JSON.parse(JSON.stringify())实现深拷贝时有什么缺点" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/ >深拷贝</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <blockquote>
+<p>JSON.parse(JOSN.stringify())在实现深拷贝时是有一些弊端的</p>
+</blockquote>
+<p>有以下几种情况时，不能正确的进行深拷贝：</p>
+<p>1、obj里面有new Date()，深拷贝后，时间会变成字符串的形式。而不是时间对象；</p>
+<pre><code class="js">var a = &#123;
+     name: &#39;a&#39;,
+     date: [new Date(1536627600000), new Date(1540047600000)],
+   &#125;;
+
+   let b;
+   b = JSON.parse(JSON.stringify(a))
+console.log(a,b)
+</code></pre>
+<p><img src="/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/1.png"></p>
+<p>2、obj里有RegExp、Error对象，则序列化的结果会变成空对象{}；</p>
+<pre><code class="js">const a = &#123;
+     name: &#39;a&#39;,
+     date: new RegExp(&#39;\\w+&#39;),
+   &#125;;
+   // debugger
+ const b = JSON.parse(JSON.stringify(a));
+ a.name = &#39;test&#39;
+ console.log( a, b)
+</code></pre>
+<p><img src="/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/2.png"></p>
+<p>3、obj里有function，undefined，则序列化的结果会把function或 undefined丢失；</p>
+<pre><code class="js">const a = &#123;
+        name: &#39;a&#39;,
+        date: function hehe() &#123;
+          console.log(&#39;fff&#39;)
+        &#125;,
+      &#125;;
+      // debugger
+      const b = JSON.parse(JSON.stringify(a));
+      a.name = &#39;test&#39;
+      console.log(a, b)
+</code></pre>
+<p><img src="/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/3.png"></p>
+<p>4、obj里有NaN、Infinity和-Infinity，则序列化的结果会变成null;</p>
+<pre><code class="js">const a = &#123;
+        name: &#39;a&#39;,
+        date: NaN,
+      &#125;;
+      // debugger
+      const b = JSON.parse(JSON.stringify(a));
+      a.name = &#39;test&#39;
+      console.log(a, b)
+</code></pre>
+<p><img src="/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/4.png"></p>
+<p>5、JSON.stringify()只能序列化对象的可枚举的自有属性，如果obj中的对象是由构造函数生成的实例对象， 深拷贝后，会丢弃对象的constructor；</p>
+<pre><code class="js">function Person(name)&#123;
+    this.name=name;
+&#125;
+var person = new Person(&#39;jyy&#39;)
+const a = &#123;
+        name: &#39;a&#39;,
+        date: person,
+      &#125;;
+      // debugger
+const b = JSON.parse(JSON.stringify(a));
+a.name = &#39;test&#39;
+console.log(a, b)
+</code></pre>
+<p><img src="/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/5.png"></p>
+<p>6、如果对象中存在循环引用的情况也无法正确实现深拷贝;<br>那么， 以上的6种情况怎么实现深拷贝呢？看下面的代码：</p>
+<pre><code class="js">//实现深拷贝函数
+function deepClone(data) &#123;
+    const type = this.judgeType(data);
+    let obj = null;
+    if (type == &#39;array&#39;) &#123;
+        obj = [];
+        for (let i = 0; i &lt; data.length; i++) &#123;
+            obj.push(this.deepClone(data[i]));
+        &#125;
+    &#125; else if (type == &#39;object&#39;) &#123;
+        obj = &#123;&#125;
+        for (let key in data) &#123;
+            if (data.hasOwnProperty(key)) &#123;
+                obj[key] = this.deepClone(data[key]);
+            &#125;
+        &#125;
+    &#125; else &#123;
+        return data;
+    &#125;
+    return obj;
+&#125;
+
+function judgeType(obj) &#123;
+    // tostring会返回对应不同的标签的构造函数
+    const toString = Object.prototype.toString;
+    const map = &#123;
+        &#39;[object Boolean]&#39;: &#39;boolean&#39;,
+        &#39;[object Number]&#39;: &#39;number&#39;,
+        &#39;[object String]&#39;: &#39;string&#39;,
+        &#39;[object Function]&#39;: &#39;function&#39;,
+        &#39;[object Array]&#39;: &#39;array&#39;,
+        &#39;[object Date]&#39;: &#39;date&#39;,
+        &#39;[object RegExp]&#39;: &#39;regExp&#39;,
+        &#39;[object Undefined]&#39;: &#39;undefined&#39;,
+        &#39;[object Null]&#39;: &#39;null&#39;,
+        &#39;[object Object]&#39;: &#39;object&#39;,
+    &#125;;
+    if (obj instanceof Element) &#123;
+        return &#39;element&#39;;
+    &#125;
+    return map[toString.call(obj)];
+&#125;
+const test = &#123;
+    name: &#39;a&#39;,
+    date: [1,2,3]
+&#125;;
+
+
+console.log(deepClone(test))
+test.date[0] = 6;
+console.log(test);
+</code></pre>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2022/05/22/vue/vue-router/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>vue-router</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2022/05/18/react/flux%E6%80%9D%E6%83%B3%E5%92%8C%E6%B5%81%E7%A8%8B/">
+        <span>flux思想和流程</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/" id="toc-header" class="mdui-ripple">文章目录</a>
+        
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">valine</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="vcomments"></div>
+<script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = ''.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  var notify = '' === 'true';
+  var verify = '' === 'true';
+  new Valine({
+    el: '#vcomments',
+    notify: notify,
+    verify: verify,
+    appId: 'K384DoBsTJo09tPYtLMxDJz1-gzGzoHsz',
+    appKey: 'Bp5G6BLH11s6zkpTjHkvoG1g',
+    placeholder: '',
+    pageSize: '',
+    avatar: '',
+    lang: '',
+    guest_info: guest_info
+  });
+</script>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2022 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Dalu Kuankuan
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

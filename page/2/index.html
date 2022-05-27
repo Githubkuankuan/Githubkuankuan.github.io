@@ -282,15 +282,236 @@
       
       
         <div class="post-header"> 
-  <a class="post-header-title" href="/2022/05/01/hello-world/">Hello World</a>
+  <a class="post-header-title" href="/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/">JSON.parse(JSON.stringify())实现深拷贝时有什么缺点</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-05-01
+      发布于:&nbsp;2022-05-18
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2021-11-30
+      更新于:&nbsp;2022-05-19
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/ >深拷贝</a>
+      </i>
+    
+  </div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <blockquote>
+<p>JSON.parse(JOSN.stringify())在实现深拷贝时是有一些弊端的</p>
+</blockquote>
+<p>有以下几种情况时，不能正确的进行深拷贝：</p>
+<p>1、obj里面有new Date()，深拷贝后，时间会变成字符串的形式。而不是时间对象；</p>
+<pre><code class="js">var a = &#123;
+     name: &#39;a&#39;,
+     date: [new Date(1536627600000), new Date(1540047600000)],
+   &#125;;
+
+   l...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2022/05/18/react/flux%E6%80%9D%E6%83%B3%E5%92%8C%E6%B5%81%E7%A8%8B/">flux思想和流程</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-05-18
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-05-18
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/react/">react</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/flux-%E6%80%9D%E6%83%B3%E5%92%8C%E6%B5%81%E7%A8%8B/ >flux 思想和流程</a>
+      </i>
+    
+  </div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <p>Flux 是一种架构思想，专门解决软件的结构问题。它跟MVC 架构是同一类东西</p>
+<p>Flux将一个应用分成四个部分：</p>
+<p>   View： 视图层</p>
+<p>   Action（动作）：视图层发出的消息（比如mouseClick）</p>
+<p>   Dispatcher（派发器）：用来接收Actions、执行回调函数</p>
+<p>   Store（数据层）：用来存放应用的状态，一旦发生变动，就提醒Views要更新页面</p>
+<p>Flux 的最大特点，就是数据的”单向流动”：数据总是”单向流动”，任何相邻的部分都不会发生数据的”双向流动”。</p>
+<...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/18/react/flux%E6%80%9D%E6%83%B3%E5%92%8C%E6%B5%81%E7%A8%8B/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2022/05/18/JavaScript/%E9%97%AD%E5%8C%85/">闭包</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-05-18
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-05-18
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="tag-line-space"></div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <pre><code class="js">function outer() &#123;
+    let largeObject = 12312312
+
+    return function () &#123;
+        console.log(largeObject)
+    &#125;
+&#125;
+
+
+let inner = outer()
+console.log(inner.largeObject)
+</code></pre>
+<p>一句话可以概括：闭包就是能够读取其他函数内部变量的函数，或者子函数在外调用，子函数所在父函数的作用域不会被释放<br>概念：一个函数访问...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/18/JavaScript/%E9%97%AD%E5%8C%85/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2022/05/18/vue/mustache/">mustache</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-05-18
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-05-18
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/vue/">vue</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/mustache/ >mustache</a>
+      </i>
+    
+  </div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <p><img src="/2022/05/18/vue/mustache/1.png"></p>
+<p><img src="/2022/05/18/vue/mustache/2.png"></p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p><img src="/2022/05/18/vue/mustache/3.png"><br><img src="/2022/05/18/vue/mustache/4.png"><br><img src="/2022/05/18/vue/m...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/18/vue/mustache/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2022/05/17/JavaScript/event-loop/">event-loop</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-05-17
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-05-18
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -311,12 +532,13 @@
       <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
         <div class="post-abstract mdui-typo ">
           
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or yo...
+            <p><img src="/2022/05/17/JavaScript/event-loop/1.png"></p>
+<h2 id="event-loop"><a href="#event-loop" class="headerlink" title="event loop"></a>event loop</h2><p>javascript代码运行时，任务被分为两种，宏任务（MacroTask/Task）和微任务（MircoTask）；Event Loop在执行和协调各种任务时也将任务队列分为Task Queue和MircoTak Queue分别对应管理宏任务（MacroTask/Tas...
           
         </div>
         
         <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/01/hello-world/">阅读更多</a>
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/17/JavaScript/event-loop/">阅读更多</a>
         </div>
       </div>
     </article>
@@ -325,312 +547,15 @@
       
       
         <div class="post-header"> 
-  <a class="post-header-title" href="/2022/04/27/webpack/Loader%E5%92%8CPlugin%E7%9A%84%E4%B8%8D%E5%90%8C%EF%BC%9F/">Loader和Plugin的不同？</a>
+  <a class="post-header-title" href="/2022/05/17/JavaScript/webWorker%E4%BB%8B%E7%BB%8D/">webWorker介绍</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-04-27
+      发布于:&nbsp;2022-05-17
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-04-27
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/webpack/">webpack</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/webpack/ >webpack</a>
-      </i>
-    
-  </div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h2 id="Loader和Plugin的不同？"><a href="#Loader和Plugin的不同？" class="headerlink" title="Loader和Plugin的不同？"></a>Loader和Plugin的不同？</h2><p><strong>不同的作用</strong><br>● Loader直译为”加载器”。Webpack将一切文件视为模块，但是webpack原生是只能解析js文件，如果想将其他文件也打包的话，就会用到loader。 所以Loader的作用是让webpack拥有了加载和解析非JavaScript文件的能力。<br>● Plugin直译为...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/04/27/webpack/Loader%E5%92%8CPlugin%E7%9A%84%E4%B8%8D%E5%90%8C%EF%BC%9F/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2022/04/27/%E6%98%AF%E5%90%A6%E5%86%99%E8%BF%87Loader%E5%92%8CPlugin%EF%BC%9F%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8B%E7%BC%96%E5%86%99loader%E6%88%96plugin%E7%9A%84%E6%80%9D%E8%B7%AF%EF%BC%9F/">是否写过Loader和Plugin？描述一下编写loader或plugin的思路？</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-04-27
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-04-27
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/webpack/">webpack</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/webpack/ >webpack</a>
-      </i>
-    
-  </div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h2 id="是否写过Loader和Plugin？描述一下编写loader或plugin的思路？"><a href="#是否写过Loader和Plugin？描述一下编写loader或plugin的思路？" class="headerlink" title="是否写过Loader和Plugin？描述一下编写loader或plugin的思路？"></a>是否写过Loader和Plugin？描述一下编写loader或plugin的思路？</h2><p>Loader像一个”翻译官”把读到的源文件内容转义成新的文件内容，并且每个Loader通过链式操作，将源文件一步步翻译成想要的样子。<br>编...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/04/27/%E6%98%AF%E5%90%A6%E5%86%99%E8%BF%87Loader%E5%92%8CPlugin%EF%BC%9F%E6%8F%8F%E8%BF%B0%E4%B8%80%E4%B8%8B%E7%BC%96%E5%86%99loader%E6%88%96plugin%E7%9A%84%E6%80%9D%E8%B7%AF%EF%BC%9F/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2022/04/27/webpack%E7%9A%84loader%E6%98%AF%E4%BB%80%E4%B9%88/">webpack的loader是什么</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-04-27
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-04-27
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/webpack/">webpack</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/webpack/ >webpack</a>
-      </i>
-    
-  </div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h2 id="Webpack-的-Loader-是什么？"><a href="#Webpack-的-Loader-是什么？" class="headerlink" title="Webpack 的 Loader 是什么？"></a>Webpack 的 Loader 是什么？</h2><p>Webpack 只能理解 JavaScript 和 JSON 文件，这是 Webpack 开箱可用的自带能力。loader 可以让 Webpack 能够去处理其他类型的文件，比如 .scss 和 .ts，并将它们转换为有效的功能离散的 chunk 文件以供应用程序使用，以及被添加到依赖图中，也可将内联...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/04/27/webpack%E7%9A%84loader%E6%98%AF%E4%BB%80%E4%B9%88/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2022/04/27/webpack%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9/">webpack的优缺点</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-04-27
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-04-27
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/webpack/">webpack</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/webpack/ >webpack</a>
-      </i>
-    
-  </div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <p>优点：<br>（1） webpack 是以 commonJS 的形式来书写脚本滴，但对 AMD/CMD 的支持也很全面，方便旧项目进行代码迁移。<br>（2）能被模块化的不仅仅是 JS 了。<br>（3） 开发便捷，能替代部分 grunt/gulp 的工作，比如打包、压缩混淆、图片转base64等。<br>（4）扩展性强，插件机制完善<br>缺点：<br>● 配置复杂<br>● 不分包bundle.js体积庞大<br>● 只能用于采用模块化开发的项目<br>● 打包慢<br>● ES模块除Module外全用babel转换，但是一部分ES2015 语法的 firefox 与 chro...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/04/27/webpack%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2022/04/27/webpack%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">webpack的工作原理</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-04-27
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-04-27
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/webpack/">webpack</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/webpack/ >webpack</a>
-      </i>
-    
-  </div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h1 id="webpack的工作原理？"><a href="#webpack的工作原理？" class="headerlink" title="webpack的工作原理？"></a>webpack的工作原理？</h1><h2 id="工作原理概括"><a href="#工作原理概括" class="headerlink" title="工作原理概括"></a>工作原理概括</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>在了解webpack原理前，需要掌握以下几个核心概...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/04/27/webpack%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2022/04/27/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/">扫码登录（uniapp&amp;vue）</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-04-27
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-04-27
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/vue/">vue</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/ >扫码登录</a>
-      </i>
-    
-  </div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h2 id="手机app扫码登录网站"><a href="#手机app扫码登录网站" class="headerlink" title="手机app扫码登录网站"></a>手机app扫码登录网站</h2><ol>
-<li>用户打开web端网页，进入扫码登录的界面；</li>
-<li>从web端服务器获取二维码的唯一标识，用于表示该二维码所对应的用户，方便后面 PC端网页异步轮询xmlhttprequest (ajax)，定期轮询后台 查看用户是否扫描二维码</li>
-<li>web端服务器在生成二维码时，与请求会的唯一标识（uuid）进行关联，后端将uuid存储到数据库中，方便后面轮询...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/04/27/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2022/04/27/JS%E6%A8%A1%E5%9D%97%E8%A7%84%E8%8C%83/">JS模块规范</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-04-27
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-04-27
+      更新于:&nbsp;2022-05-17
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -648,7 +573,7 @@
   <div class="post-tags">
     
       <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/js%E6%A8%A1%E5%9D%97%E8%A7%84%E8%8C%83/ >js模块规范</a>
+        <a rel="tag" href = /tags/worker/ >worker</a>
       </i>
     
   </div>
@@ -657,13 +582,17 @@
       <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
         <div class="post-abstract mdui-typo ">
           
-            <h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>commonJS主要用于 Node.js，输出方式有2种：默认输出—module export  和带有名字的输出—exports.area，引入方式为 required。<br>commonJs是同步加载，所以更适合用在服务端，因为服务端是磁盘读取。如果用在客户端，可能会造成阻塞。</p>
-<h2 id="AMD"><a href="#AMD" class="headerlink" title="AM...
+            <h2 id="1-简单使用"><a href="#1-简单使用" class="headerlink" title="1. 简单使用"></a>1. 简单使用</h2><p>介绍</p>
+<ol>
+<li>Web Worker 的作用，就是为 JavaScript 创造多线程环境，允许主线程创建 Worker 线程，将一些任务分配给后者运行。<br>在主线程运行的同时，Worker 线程在后台运行，两者互不干扰。等到 Worker 线程完成计算任务，再把结果返回给主线程。</li>
+<li>Web Worker简单使用</li>
+</ol>
+<pre><code class="js">...
           
         </div>
         
         <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/04/27/JS%E6%A8%A1%E5%9D%97%E8%A7%84%E8%8C%83/">阅读更多</a>
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/17/JavaScript/webWorker%E4%BB%8B%E7%BB%8D/">阅读更多</a>
         </div>
       </div>
     </article>
@@ -672,19 +601,19 @@
       
       
         <div class="post-header"> 
-  <a class="post-header-title" href="/2022/04/27/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/">防抖节流</a>
+  <a class="post-header-title" href="/2022/05/05/JavaScript/cookies-sessionStorage-localStorage%E7%9A%84%E5%8C%BA%E5%88%AB/">cookies,sessionStorage,localStorage的区别</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-04-27
+      发布于:&nbsp;2022-05-05
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-04-27
+      更新于:&nbsp;2022-05-05
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
     </span>
     
   </div>
@@ -695,32 +624,28 @@
 
       
       
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/ >防抖节流</a>
-      </i>
-    
-  </div>
+  <div class="tag-line-space"></div>
 
       
       <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
         <div class="post-abstract mdui-typo ">
           
-            <p><strong>防抖</strong></p>
-<blockquote>
-<p>在事件被触发的n秒后再执行回调,如果这n秒又被触发，则重新计时.高频操作下，只执行最后一次.</p>
-</blockquote>
-<pre><code class="js">    &lt;script&gt;
-        // 防抖  用户触发事件过于频繁
-        let inp = document.getElementsByTagName(&#39;input&#39;)
-        inp[0].oninput = deco(function () &#123;
-        ...
+            <ul>
+<li><p>cookie是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）</p>
+</li>
+<li><p>cookie数据始终在同源的http请求中携带（即使不需要），记会在浏览器和服务器间来回传递</p>
+</li>
+<li><p>sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存</p>
+</li>
+<li><p>存储大小：</p>
+<ul>
+<li>cookie数据大小不能超过4k</li>
+<li>sessionStorage和localStorage虽然也有存储大小的限制，但比c...
           
         </div>
         
         <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/04/27/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/">阅读更多</a>
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/05/JavaScript/cookies-sessionStorage-localStorage%E7%9A%84%E5%8C%BA%E5%88%AB/">阅读更多</a>
         </div>
       </div>
     </article>
@@ -729,19 +654,19 @@
       
       
         <div class="post-header"> 
-  <a class="post-header-title" href="/2022/04/27/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/">前端模块化</a>
+  <a class="post-header-title" href="/2022/05/05/JavaScript/%E4%BB%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9C%B0%E5%9D%80%E6%A0%8F%E8%BE%93%E5%85%A5url%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%AD%A5%E9%AA%A4/">从浏览器地址栏输入url到显示页面的步骤</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-04-27
+      发布于:&nbsp;2022-05-05
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-04-27
+      更新于:&nbsp;2022-05-05
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
     </span>
     
   </div>
@@ -752,33 +677,134 @@
 
       
       
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/es6/ >es6</a>
-      </i>
-    
-  </div>
+  <div class="tag-line-space"></div>
 
       
       <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
         <div class="post-abstract mdui-typo ">
           
-            <h2 id="模块化开发的好处"><a href="#模块化开发的好处" class="headerlink" title="模块化开发的好处"></a>模块化开发的好处</h2><pre><code>1. 避免变量污染，命名冲突
-2. 提高代码复用率
-3. 提高了可维护性
-4. 方便依赖关系管理
-</code></pre>
-<blockquote>
-<p> 在有 Babel 的情况下，我们可以直接使用 ES6的模块化</p>
-</blockquote>
-<pre><code class="js">// file a.js
-export function a() &#123;&#125...
+            <h2 id="基础版本"><a href="#基础版本" class="headerlink" title="基础版本"></a>基础版本</h2><ul>
+<li>浏览器根据请求的URL交给DNS域名解析，找到真实IP，向服务器发起请求；</li>
+<li>服务器交给后台处理完成后返回数据，浏览器接收文件（HTML、JS、CSS、图象等）；</li>
+<li>浏览器对加载到的资源（HTML、JS、CSS等）进行语法解析，建立相应的内部数据结构（如HTML的DOM）；</li>
+<li>载入解析到的资源文件，渲染页面，完成。</li>
+</ul>
+<h2 id="详细版"><a hre...
           
         </div>
         
         <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/04/27/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/">阅读更多</a>
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/05/JavaScript/%E4%BB%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9C%B0%E5%9D%80%E6%A0%8F%E8%BE%93%E5%85%A5url%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%AD%A5%E9%AA%A4/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2022/05/05/%E6%B5%8F%E8%A7%88%E5%99%A8/HTTP%E7%9A%84%E5%87%A0%E7%A7%8D%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E7%94%A8%E9%80%94/">HTTP的几种请求方法用途</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-05-05
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-05-05
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="tag-line-space"></div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <ul>
+<li>GET方法<ul>
+<li>发送一个请求来取得服务器上的某一资源</li>
+</ul>
+</li>
+<li>POST方法<ul>
+<li>向URL指定的资源提交数据或附加新的数据</li>
+</ul>
+</li>
+<li>PUT方法<ul>
+<li>跟POST方法很像，也是想服务器提交数据。但是，它们之间有不同。PUT指定了资源在服务器上的位置，而POST没有</li>
+</ul>
+</li>
+<li>HEAD方法<ul>
+<li>只请求页面的首部</li>
+</ul>
+</li>
+<li>DELETE方法<ul>
+<li>删除服务器上的某资源</li>
+</ul>
+<...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/05/%E6%B5%8F%E8%A7%88%E5%99%A8/HTTP%E7%9A%84%E5%87%A0%E7%A7%8D%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E7%94%A8%E9%80%94/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2022/05/05/JavaScript/%E5%89%8D%E7%AB%AF%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E5%93%AA%E4%BA%9BSEO/">前端需要注意哪些SEO</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-05-05
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-05-05
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="tag-line-space"></div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <ul>
+<li>合理的title、description、keywords：搜索对着三项的权重逐个减小，title值强调重点即可，重要关键词出现不要超过2次，而且要靠前，不同页面title要有所不同；description把页面内容高度概括，长度合适，不可过分堆砌关键词，不同页面description有所不同；keywords列举出重要关键词即可</li>
+<li>语义化的HTML代码，符合W3C规范：语义化代码让搜索引擎容易理解网页</li>
+<li>重要内容HTML代码放在最前：搜索引擎抓取HTML顺序是从上到下，有的搜索引擎对抓取长度有限制，保证重要内容一定会被抓取</li>
+<...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/05/JavaScript/%E5%89%8D%E7%AB%AF%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E5%93%AA%E4%BA%9BSEO/">阅读更多</a>
         </div>
       </div>
     </article>
@@ -787,7 +813,7 @@ export function a() &#123;&#125...
 
   <nav style="text-align: center;">
     <div class="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-angle-right"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-angle-right"></i></a>
     </div>
   </nav>
 

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="https://z3.ax1x.com/2021/11/29/oM334O.png">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            js-复制+粘贴 | KKBlog
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">KKBlog</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="https://s3.bmp.ovh/imgs/2021/11/b74ba8f7a70ffeb0.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">Dalu Kuankuan</div>
+            <div class="sidebar-description">选择有时候比努力更重要</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:xxx@xxx.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2019/11/11/JavaScript/js-%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/">js-复制+粘贴</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2019-11-11
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-05-02
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/javascript/">javascript</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=js-复制+粘贴&url=http://example.com/2019/11/11/JavaScript/js-%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/&pic=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=js-复制+粘贴&url=http://example.com/2019/11/11/JavaScript/js-%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/&via=Dalu Kuankuan" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2019/11/11/JavaScript/js-%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://example.com/2019/11/11/JavaScript/js-%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2019/11/11/JavaScript/js-%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/&title=js-复制+粘贴" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=KKBlog&title=js-复制+粘贴&summary=选择有时候比努力更重要&pics=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&url=http://example.com/2019/11/11/JavaScript/js-%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://example.com/2019/11/11/JavaScript/js-%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/&text=js-复制+粘贴" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/javascript/ >javascript</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h2 id="一、基本使用"><a href="#一、基本使用" class="headerlink" title="一、基本使用"></a>一、基本使用</h2><h3 id="1-1-API-介绍"><a href="#1-1-API-介绍" class="headerlink" title="1.1 API 介绍"></a>1.1 API 介绍</h3><p><strong>复制、剪切、粘贴事件</strong></p>
+<ul>
+<li><code>copy</code> 发生复制操作时触发;</li>
+<li><code>cut</code> 发生剪切操作时触发;</li>
+<li><code>paste</code> 发生粘贴操作时触发</li>
+</ul>
+<blockquote>
+<p>每个事件都有一个 <code>before</code> 事件对应：<code>beforecopy</code>、<code>beforecut</code>、<code>beforepaste</code>。这几个 <code>before</code>一般不怎么用，所以我们把注意力放在另外三个事件就可以了</p>
+</blockquote>
+<p><strong>触发条件</strong></p>
+<ul>
+<li>鼠标右键菜单的<code>复制</code>、<code>粘贴</code>、<code>剪切</code></li>
+<li>使用了相应的键盘组合键，比如:<code>command+c</code>、<code>command+v</code></li>
+</ul>
+<p><strong>使用姿势</strong></p>
+<blockquote>
+<p>以 <code>copy</code> 为例</p>
+</blockquote>
+<pre><code>document.body.oncopy = e =&gt; &#123;
+  // 监听全局复制 做点什么
+&#125;;
+// 还有这种写法：
+document.addEventListener(&#39;copy&#39;, e =&gt; &#123;
+  // 监听全局复制 做点什么
+&#125;);
+</code></pre>
+<blockquote>
+<p>上面是在<code>document.body</code>上全局监听的，然而很多人不知道的是，我们还可以为某些 <code>dom</code> 单独添加剪切板事件</p>
+</blockquote>
+<pre><code>// html结构
+&lt;div id=&quot;test1&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;test2&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    // 写法一样：
+    let test1 = document.querySelector(&#39;#test1&#39;);
+    test1.oncopy = e =&gt; &#123;
+        // 监听test1发生的复制事件 做点什么
+        // test1发生的复制事件会触发回调，其他地方不会触发回调
+    &#125;
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>其他事件也是一样的</p>
+</blockquote>
+<h3 id="1-2-clipboardData"><a href="#1-2-clipboardData" class="headerlink" title="1.2 clipboardData"></a>1.2 clipboardData</h3><p><strong>clipboardData 对象:用于访问以及修改剪贴板中的数据</strong></p>
+<blockquote>
+<p>不同浏览器，所属的对象不同：在 <code>IE</code> 中这个对象是<code>window</code>对象的属性，在<code>Chrome</code>、<code>Safari</code>和<code>Firefox</code>中，这个对象是相应的<code>event</code>对象的属性。所以我们在使用的时候，需要做一下如下兼容</p>
+</blockquote>
+<pre><code>document.body.oncopy = e =&gt; &#123;
+  let clipboardData = e.clipboardData || window.clipboardData;
+  // 获取clipboardData对象 + do something
+&#125;;
+</code></pre>
+<p><strong>对象方法</strong></p>
+<blockquote>
+<p>对象有三个方法: <code>getData()</code>、<code>setData()</code>、<code>clearData()</code></p>
+</blockquote>
+<p><strong>getData() 访问剪切板中的数据</strong></p>
+<blockquote>
+<p><code>getData()</code>接受一个<code>text</code>参数，即要取得的数据的格式</p>
+</blockquote>
+<p><strong>在复制、剪切、粘贴触发的事件的数据</strong></p>
+<blockquote>
+<p>实际上在 <code>chorme</code> 上测试只有<code>paste</code>粘贴的时候才能用<code>getData()</code>访问到数据，用法如下</p>
+</blockquote>
+<pre><code>// 要粘贴的数据：
+
+document.body.onpaste = e =&gt; &#123;
+  let clipboardData = e.clipboardData || window.clipboardData; // 兼容处理
+  console.log(&#39;要粘贴的数据&#39;, clipboardData.getData(&#39;text&#39;));
+&#125;;
+</code></pre>
+<p><strong>被复制/剪切的数据</strong>：</p>
+<blockquote>
+<p>在复制和剪切中的数据，需要通过<code>window.getSelection(0).toString()</code>来访问:</p>
+</blockquote>
+<pre><code>document.body.oncopy = e =&gt; &#123;
+  console.log(&#39;被复制的数据:&#39;, window.getSelection(0).toString());
+&#125;;
+</code></pre>
+<p><strong>setData(): 修改剪切板中的数据</strong></p>
+<blockquote>
+<p>第一个参数也是<code>text</code>，第二个参数是要放在剪切板中的文本</p>
+</blockquote>
+<p><strong>clearData()</strong></p>
+<h2 id="二、应用"><a href="#二、应用" class="headerlink" title="二、应用"></a>二、应用</h2><h3 id="2-1-复制大段文本"><a href="#2-1-复制大段文本" class="headerlink" title="2.1 复制大段文本"></a>2.1 复制大段文本</h3><p><strong>实现类知乎/掘金复制大段文本添加版权信息</strong></p>
+<blockquote>
+<p>实现很简单：取消默认复制之后，主要是在被复制的内容后面添加信息，然后根据 <code>clipboardData</code> 的 <code>setData()</code>方法将信息写入剪贴板</p>
+</blockquote>
+<pre><code>// 掘金这里不是全局监听，应该只是监听文章的dom范围内。
+document.body.oncopy = event =&gt; &#123;
+  event.preventDefault(); // 取消默认的复制事件
+  let textFont,
+    copyFont = window.getSelection(0).toString(); // 被复制的文字 等下插入
+  // 防知乎掘金 复制一两个字则不添加版权信息 超过一定长度的文字 就添加版权信息
+  if (copyFont.length &gt; 10) &#123;
+    textFont =
+      copyFont +
+      &#39;\n&#39; +
+      &#39;作者：OBKoro1\n&#39; +
+      &#39;链接：https://juejin.im/user/58714f0e325b123db4a2eb95372/posts\n&#39; +
+      &#39;来源：掘金\n&#39; +
+      &#39;著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。&#39;;
+  &#125; else &#123;
+    textFont = copyFont; // 没超过十个字 则采用被复制的内容。
+  &#125;
+  if (event.clipboardData) &#123;
+    return event.clipboardData.setData(&#39;text&#39;, textFont); // 将信息写入粘贴板
+  &#125; else &#123;
+    // 兼容IE
+    return window.clipboardData.setData(&#39;text&#39;, textFont);
+  &#125;
+&#125;;
+</code></pre>
+<blockquote>
+<p>然后 <code>command+c</code>、<code>command+v</code>，输出:</p>
+</blockquote>
+<pre><code>你复制的内容
+作者：OBKoro1
+链接：https://juejin.im/user/58714f0eb123db4a2eb95372/posts
+来源：掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+</code></pre>
+<h3 id="2-2-防复制功能"><a href="#2-2-防复制功能" class="headerlink" title="2.2 防复制功能"></a>2.2 防复制功能</h3><ul>
+<li>禁止复制+剪切</li>
+<li>禁止右键，右键某些选项:全选，复制，粘贴等。</li>
+<li>禁用文字选择，能选择却不能复制，体验很差。</li>
+<li><code>user-select</code> 用 <code>css</code> 禁止选择文本</li>
+</ul>
+<pre><code>// 禁止右键菜单
+document.body.oncontextmenu = e =&gt; &#123;
+    console.log(e, &#39;右键&#39;);
+    return false;
+    // e.preventDefault();
+&#125;;
+// 禁止文字选择。
+document.body.onselectstart = e =&gt; &#123;
+    console.log(e, &#39;文字选择&#39;);
+    return false;
+    // e.preventDefault();
+&#125;;
+// 禁止复制
+document.body.oncopy = e =&gt; &#123;
+    console.log(e, &#39;copy&#39;);
+    return false;
+    // e.preventDefault();
+&#125;
+// 禁止剪切
+document.body.oncut = e =&gt; &#123;
+    console.log(e, &#39;cut&#39;);
+    return false;
+    // e.preventDefault();
+&#125;;
+// 禁止粘贴
+document.body.onpaste = e =&gt; &#123;
+    console.log(e, &#39;paste&#39;);
+    return false;
+    // e.preventDefault();
+&#125;;
+/** css 禁止文本选择 这样不会触发js**/
+body &#123;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+&#125;
+</code></pre>
+<ul>
+<li>使用<code>e.preventDefault()</code>也可以禁用，但建议使用<code>return false</code>这样就不用去访问<code>e</code>和<code>e</code>的方法了。</li>
+<li>示例中<code>document.body</code>全局都禁用了，也可以对 <code>dom</code>(某些区域)进行禁用</li>
+</ul>
+<p><strong>破解防复制</strong></p>
+<p>上面的防复制方法通过<code>js+css</code>实现的，所以思路就是：禁用<code>js+取消user-select</code>样式。</p>
+<blockquote>
+<p><code>Chrome</code>浏览器的话：打开浏览器控制台，按<code>F1</code>进入<code>Setting</code>，勾选<code>Disable</code> <code>JavaScript</code>(禁止 <code>js</code>)。</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/1480597-2f3188629fa5a86d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<blockquote>
+<p>此时如果还不能复制的话，就要去找<code>user-select</code>样式,取消这个样式就可以了</p>
+</blockquote>
+<h3 id="2-3-点击复制功能"><a href="#2-3-点击复制功能" class="headerlink" title="2.3 点击复制功能"></a>2.3 点击复制功能</h3><p><strong>不能使用 clipboardData</strong></p>
+<ul>
+<li>在 <code>IE</code> 中可以用<code>window.clipboardData.setData(&#39;text&#39;,&#39;内容&#39;)</code>实现</li>
+<li>上文提到过，在 <code>IE</code> 中<code>clipboardData</code>是<code>window</code>的属性</li>
+<li>而其他浏览器则是相应的<code>event</code>对象的属性，这实际上是一种安全措施，防止未经授权的访问,为了兼容其他浏览器，所以我们不能通过<code>clipboardData</code>来实现这种操作</li>
+</ul>
+<p><strong>具体做法</strong></p>
+<ul>
+<li>创建一个隐藏的<code>input</code>框</li>
+<li>点击的时候，将要复制的内容放进<code>input</code>框中</li>
+<li>选择文本内容<code>input.select()</code>。这里只能用<code>input</code>或者<code>textarea</code>才能选择文本</li>
+<li><code>document.execCommand(&quot;copy&quot;)</code>，执行浏览器的复制命令</li>
+</ul>
+<pre><code>function copyText() &#123;
+  var text = document.getElementById(&#39;text&#39;).innerText; // 获取要复制的内容也可以传进来
+  var input = document.getElementById(&#39;input&#39;); // 获取隐藏input的dom
+  input.value = text; // 修改文本框的内容
+  input.select(); // 选中文本
+  document.execCommand(&#39;copy&#39;); // 执行浏览器复制命令
+  alert(&#39;复制成功&#39;);
+&#125;
+</code></pre>
+<h3 id="2-4-第三方库clipboard"><a href="#2-4-第三方库clipboard" class="headerlink" title="2.4 第三方库clipboard"></a>2.4 第三方库clipboard</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/zenorocha/clipboard.js">https://github.com/zenorocha/clipboard.js</a></p>
+</blockquote>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2020/02/13/JavaScript/Object.defineProperty%E8%AF%A6%E8%A7%A3/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>Object.defineProperty详解</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2019/09/03/vue/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9AWatcher/">
+        <span>vue双向绑定（四）Watcher</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">valine</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="vcomments"></div>
+<script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = ''.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  var notify = '' === 'true';
+  var verify = '' === 'true';
+  new Valine({
+    el: '#vcomments',
+    notify: notify,
+    verify: verify,
+    appId: 'K384DoBsTJo09tPYtLMxDJz1-gzGzoHsz',
+    appKey: 'Bp5G6BLH11s6zkpTjHkvoG1g',
+    placeholder: '',
+    pageSize: '',
+    avatar: '',
+    lang: '',
+    guest_info: guest_info
+  });
+</script>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2022 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Dalu Kuankuan
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="https://z3.ax1x.com/2021/11/29/oM334O.png">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Object.defineProperty详解 | KKBlog
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">KKBlog</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="https://s3.bmp.ovh/imgs/2021/11/b74ba8f7a70ffeb0.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">Dalu Kuankuan</div>
+            <div class="sidebar-description">选择有时候比努力更重要</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:xxx@xxx.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2020/02/13/JavaScript/Object.defineProperty%E8%AF%A6%E8%A7%A3/">Object.defineProperty详解</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2020-02-13
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-05-02
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%8E%9F%E7%90%86/">原理</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=Object.defineProperty详解&url=http://example.com/2020/02/13/JavaScript/Object.defineProperty%E8%AF%A6%E8%A7%A3/&pic=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=Object.defineProperty详解&url=http://example.com/2020/02/13/JavaScript/Object.defineProperty%E8%AF%A6%E8%A7%A3/&via=Dalu Kuankuan" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/02/13/JavaScript/Object.defineProperty%E8%AF%A6%E8%A7%A3/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://example.com/2020/02/13/JavaScript/Object.defineProperty%E8%AF%A6%E8%A7%A3/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2020/02/13/JavaScript/Object.defineProperty%E8%AF%A6%E8%A7%A3/&title=Object.defineProperty详解" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=KKBlog&title=Object.defineProperty详解&summary=选择有时候比努力更重要&pics=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&url=http://example.com/2020/02/13/JavaScript/Object.defineProperty%E8%AF%A6%E8%A7%A3/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://example.com/2020/02/13/JavaScript/Object.defineProperty%E8%AF%A6%E8%A7%A3/&text=Object.defineProperty详解" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/vue/ >vue</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p><strong>兼容性</strong></p>
+<blockquote>
+<p>在<code>ie8</code>下只能在<code>DOM</code>对象上使用，尝试在原生的对象使用 <code>Object.defineProperty()</code>会报错。</p>
+</blockquote>
+<p>定义对象可以使用构造函数或字面量的形式</p>
+<pre><code>var obj = new Object;  //obj = &#123;&#125;
+obj.name = &quot;张三&quot;;  //添加描述
+obj.say = function()&#123;&#125;;  //添加行为
+</code></pre>
+<blockquote>
+<p>除了以上添加属性的方式，还可以使用<code>Object.defineProperty</code>定义新属性或修改原有的属性</p>
+</blockquote>
+<h2 id="二、Object-defineProperty"><a href="#二、Object-defineProperty" class="headerlink" title="二、Object.defineProperty()"></a>二、Object.defineProperty()</h2><h3 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h3><pre><code>Object.defineProperty(obj, prop, descriptor)
+</code></pre>
+<p><strong>参数说明</strong>：</p>
+<ul>
+<li><code>obj</code>：必需。目标对象</li>
+<li><code>prop</code>：必需。需定义或修改的属性的名字</li>
+<li><code>descriptor</code>：必需。目标属性所拥有的特性</li>
+</ul>
+<blockquote>
+<p>返回值：传入函数的对象。即第一个参数<code>obj</code></p>
+</blockquote>
+<ul>
+<li>针对属性，我们可以给这个属性设置一些特性，比如是否只读不可以写；是否可以被<code>for..in</code>或<code>Object.keys()</code>遍历。</li>
+</ul>
+<p><strong>给对象的属性添加特性描述，目前提供两种形式：数据描述和存取器描述</strong></p>
+<h3 id="2-2-数据描述"><a href="#2-2-数据描述" class="headerlink" title="2.2 数据描述"></a>2.2 数据描述</h3><blockquote>
+<p>当修改或定义对象的某个属性的时候，给这个属性添加一些特性</p>
+</blockquote>
+<pre><code>var obj = &#123;
+    test:&quot;hello&quot;
+&#125;
+//对象已有的属性添加特性描述
+Object.defineProperty(obj,&quot;test&quot;,&#123;
+    configurable:true | false,
+    enumerable:true | false,
+    value:任意类型的值,
+    writable:true | false
+&#125;);
+//对象新添加的属性的特性描述
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+    configurable:true | false,
+    enumerable:true | false,
+    value:任意类型的值,
+    writable:true | false
+&#125;);
+</code></pre>
+<blockquote>
+<p>数据描述中的属性都是可选的，来看一下设置每一个属性的作用</p>
+</blockquote>
+<h4 id="2-2-1-value"><a href="#2-2-1-value" class="headerlink" title="2.2.1 value"></a>2.2.1 value</h4><blockquote>
+<p>属性对应的值,可以使任意类型的值，默认为<code>undefined</code></p>
+</blockquote>
+<pre><code>var obj = &#123;&#125;
+//第一种情况：不设置value属性
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+
+&#125;);
+console.log( obj.newKey );  //undefined
+------------------------------
+//第二种情况：设置value属性
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+    value:&quot;hello&quot;
+&#125;);
+console.log( obj.newKey );  //hello
+</code></pre>
+<h4 id="2-2-2-writable"><a href="#2-2-2-writable" class="headerlink" title="2.2.2 writable"></a>2.2.2 writable</h4><blockquote>
+<p>属性的值是否可以被重写。设置为<code>true</code>可以被重写；设置为<code>false</code>，不能被重写。默认为<code>false</code></p>
+</blockquote>
+<pre><code>var obj = &#123;&#125;
+//第一种情况：writable设置为false，不能重写。
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+    value:&quot;hello&quot;,
+    writable:false
+&#125;);
+//更改newKey的值
+obj.newKey = &quot;change value&quot;;
+console.log( obj.newKey );  //hello
+
+//第二种情况：writable设置为true，可以重写
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+    value:&quot;hello&quot;,
+    writable:true
+&#125;);
+//更改newKey的值
+obj.newKey = &quot;change value&quot;;
+console.log( obj.newKey );  //change value
+</code></pre>
+<h4 id="2-2-3-enumerable"><a href="#2-2-3-enumerable" class="headerlink" title="2.2.3 enumerable"></a>2.2.3 enumerable</h4><blockquote>
+<p>此属性是否可以被枚举（使用<code>for...in</code>或<code>Object.keys()</code>）。设置为<code>true</code>可以被枚举；设置为<code>false</code>，不能被枚举。默认为<code>false</code></p>
+</blockquote>
+<pre><code>var obj = &#123;&#125;
+//第一种情况：enumerable设置为false，不能被枚举。
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+    value:&quot;hello&quot;,
+    writable:false,
+    enumerable:false
+&#125;);
+
+//枚举对象的属性
+for( var attr in obj )&#123;
+    console.log( attr );  
+&#125;
+//第二种情况：enumerable设置为true，可以被枚举。
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+    value:&quot;hello&quot;,
+    writable:false,
+    enumerable:true
+&#125;);
+
+//枚举对象的属性
+for( var attr in obj )&#123;
+    console.log( attr );  //newKey
+&#125;
+</code></pre>
+<h4 id="2-2-4-configurable"><a href="#2-2-4-configurable" class="headerlink" title="2.2.4 configurable"></a>2.2.4 configurable</h4><blockquote>
+<p>是否可以删除目标属性或是否可以再次修改属性的特性（<code>writable</code>, <code>configurable</code>, <code>enumerable</code>）。设置为<code>true</code>可以被删除或可以重新设置特性；设置为<code>false</code>，不能被可以被删除或不可以重新设置特性。默认为<code>false</code></p>
+</blockquote>
+<p><strong>这个属性起到两个作用</strong></p>
+<ul>
+<li>目标属性是否可以使用<code>delete</code>删除</li>
+<li>目标属性是否可以再次设置特性</li>
+</ul>
+<pre><code>//-----------------测试目标属性是否能被删除------------------------
+var obj = &#123;&#125;
+//第一种情况：configurable设置为false，不能被删除。
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+    value:&quot;hello&quot;,
+    writable:false,
+    enumerable:false,
+    configurable:false
+&#125;);
+//删除属性
+delete obj.newKey;
+console.log( obj.newKey ); //hello
+
+//第二种情况：configurable设置为true，可以被删除。
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+    value:&quot;hello&quot;,
+    writable:false,
+    enumerable:false,
+    configurable:true
+&#125;);
+//删除属性
+delete obj.newKey;
+console.log( obj.newKey ); //undefined
+//-----------------测试是否可以再次修改特性------------------------
+var obj = &#123;&#125;
+//第一种情况：configurable设置为false，不能再次修改特性。
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+    value:&quot;hello&quot;,
+    writable:false,
+    enumerable:false,
+    configurable:false
+&#125;);
+
+//重新修改特性
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+    value:&quot;hello&quot;,
+    writable:true,
+    enumerable:true,
+    configurable:true
+&#125;);
+console.log( obj.newKey ); //报错：Uncaught TypeError: Cannot redefine property: newKey
+
+//第二种情况：configurable设置为true，可以再次修改特性。
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+    value:&quot;hello&quot;,
+    writable:false,
+    enumerable:false,
+    configurable:true
+&#125;);
+
+//重新修改特性
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+    value:&quot;hello&quot;,
+    writable:true,
+    enumerable:true,
+    configurable:true
+&#125;);
+console.log( obj.newKey ); //hello
+</code></pre>
+<blockquote>
+<p>除了可以给新定义的属性设置特性，也可以给已有的属性设置特性</p>
+</blockquote>
+<pre><code>//定义对象的时候添加的属性，是可删除、可重写、可枚举的。
+var obj = &#123;
+    test:&quot;hello&quot;
+&#125;
+
+//改写值
+obj.test = &#39;change value&#39;;
+
+console.log( obj.test ); //&#39;change value&#39;
+
+Object.defineProperty(obj,&quot;test&quot;,&#123;
+    writable:false
+&#125;)
+
+
+//再次改写值
+obj.test = &#39;change value again&#39;;
+
+console.log( obj.test ); //依然是：&#39;change value&#39;
+</code></pre>
+<blockquote>
+<p>提示：一旦使用<code>Object.defineProperty</code>给对象添加属性，那么如果不设置属性的特性，那么<code>configurable</code>、<code>enumerable</code>、<code>writable</code>这些值都为默认的<code>false</code></p>
+</blockquote>
+<pre><code>var obj = &#123;&#125;;
+//定义的新属性后，这个属性的特性中configurable，enumerable，writable都为默认的值false
+//这就导致了neykey这个是不能重写、不能枚举、不能再次设置特性
+//
+Object.defineProperty(obj,&#39;newKey&#39;,&#123;
+
+&#125;);
+
+//设置值
+obj.newKey = &#39;hello&#39;;
+console.log(obj.newKey);  //undefined
+
+//枚举
+for( var attr in obj )&#123;
+    console.log(attr);
+&#125;
+</code></pre>
+<p><strong>设置的特性总结</strong></p>
+<ul>
+<li><code>value</code>: 设置属性的值</li>
+<li><code>writable</code>: 值是否可以重写。<code>true</code> | <code>false</code></li>
+<li><code>enumerable</code>: 目标属性是否可以被枚举。<code>true</code> | <code>false</code></li>
+<li><code>configurable</code>: 目标属性是否可以被删除或是否可以再次修改特性 <code>true</code> | <code>false</code></li>
+</ul>
+<h3 id="2-3-存取器描述"><a href="#2-3-存取器描述" class="headerlink" title="2.3 存取器描述"></a>2.3 存取器描述</h3><h4 id="2-3-1-定义"><a href="#2-3-1-定义" class="headerlink" title="2.3.1 定义"></a>2.3.1 定义</h4><blockquote>
+<p>当使用存取器描述属性的特性的时候，允许设置以下特性属性</p>
+</blockquote>
+<pre><code>var obj = &#123;&#125;;
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+    get:function ()&#123;&#125; | undefined,
+    set:function (value)&#123;&#125; | undefined
+    configurable: true | false
+    enumerable: true | false
+&#125;);
+</code></pre>
+<blockquote>
+<p>注意：当使用了<code>getter</code>或<code>setter</code>方法，不允许使用<code>writable</code>和<code>value</code>这两个属性</p>
+</blockquote>
+<h4 id="2-3-2-getter-setter"><a href="#2-3-2-getter-setter" class="headerlink" title="2.3.2 getter/setter"></a>2.3.2 getter/setter</h4><blockquote>
+<p>当设置或获取对象的某个属性的值的时候，可以提供<code>getter/setter</code>方法。</p>
+</blockquote>
+<ul>
+<li><code>getter</code> 是一种获得属性值的方法</li>
+<li><code>setter</code>是一种设置属性值的方法</li>
+</ul>
+<blockquote>
+<p>在特性中使用<code>get/set</code>属性来定义对应的方法</p>
+</blockquote>
+<pre><code>var obj = &#123;&#125;;
+var initValue = &#39;hello&#39;;
+Object.defineProperty(obj,&quot;newKey&quot;,&#123;
+    get:function ()&#123;
+        //当获取值的时候触发的函数
+        return initValue;    
+    &#125;,
+    set:function (value)&#123;
+        //当设置值的时候触发的函数,设置的新值通过参数value拿到
+        initValue = value;
+    &#125;
+&#125;);
+//获取值
+console.log( obj.newKey );  //hello
+
+//设置值
+obj.newKey = &#39;change value&#39;;
+
+console.log( obj.newKey ); //change value
+</code></pre>
+<blockquote>
+<p>注意：get或set不是必须成对出现，任写其一就可以。如果不设置方法，则<code>get</code>和<code>set</code>的默认值为<code>undefined</code></p>
+</blockquote>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2020/03/06/vue/mvc-mvp-mvvm%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>MVC、MVP、MVVM之间的关系</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2019/11/11/JavaScript/js-%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/">
+        <span>js-复制+粘贴</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">valine</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="vcomments"></div>
+<script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = ''.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  var notify = '' === 'true';
+  var verify = '' === 'true';
+  new Valine({
+    el: '#vcomments',
+    notify: notify,
+    verify: verify,
+    appId: 'K384DoBsTJo09tPYtLMxDJz1-gzGzoHsz',
+    appKey: 'Bp5G6BLH11s6zkpTjHkvoG1g',
+    placeholder: '',
+    pageSize: '',
+    avatar: '',
+    lang: '',
+    guest_info: guest_info
+  });
+</script>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2022 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Dalu Kuankuan
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

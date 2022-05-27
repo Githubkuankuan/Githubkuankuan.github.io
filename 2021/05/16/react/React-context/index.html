@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="https://z3.ax1x.com/2021/11/29/oM334O.png">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            React context | KKBlog
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">KKBlog</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="https://s3.bmp.ovh/imgs/2021/11/b74ba8f7a70ffeb0.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">Dalu Kuankuan</div>
+            <div class="sidebar-description">选择有时候比努力更重要</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:xxx@xxx.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2021/05/16/react/React-context/">React context</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2021-05-16
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-05-02
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=React context&url=http://example.com/2021/05/16/react/React-context/&pic=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=React context&url=http://example.com/2021/05/16/react/React-context/&via=Dalu Kuankuan" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/05/16/react/React-context/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://example.com/2021/05/16/react/React-context/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2021/05/16/react/React-context/&title=React context" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=KKBlog&title=React context&summary=选择有时候比努力更重要&pics=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&url=http://example.com/2021/05/16/react/React-context/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://example.com/2021/05/16/react/React-context/&text=React context" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/React/ >React</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li><code>React</code> 组件之间的通信是基于 <code>props</code> 的单向数据流，即父组件通过 <code>props</code> 向子组件传值，亦或是子组件执行传入的函数来更新父组件的<code>state</code>，这都满足了我们大部分的使用场景</li>
+<li>一般地，对于兄弟组件之间的通信，是通过它们共同的祖先组件进行的，即 Lifting State Up，官方文档也有介绍。组件一通过事件将状态变更通知它们共同的祖先组件，祖先组再将状态同步到组件二</li>
+<li>但是，如果组件之间嵌套的比较深，即使提升状态到共同父组件，再同步状态到相应的组件还是需要一层一层的传递下去，可能会比较繁琐</li>
+<li>在对应的场景中，<code>context</code> 就可以缩短父组件到子组件的属性传递路径</li>
+</ul>
+<h2 id="例1"><a href="#例1" class="headerlink" title="例1"></a>例1</h2><pre><code>import Parent from &#39;./Parent&#39;
+import ChildOne from &#39;../components/ChildOne&#39;
+import ChildTwo from &#39;../components/ChildTwo&#39;
+
+export default class Container extends React.Component &#123;
+    constructor(props) &#123;
+        super(props);
+        this.state = &#123; value: &#39;&#39; &#125;
+    &#125;
+
+    changeValue = value =&gt; &#123;
+        this.setState(&#123; value &#125;)
+    &#125;
+
+    getChildContext() &#123;
+        return &#123;
+            value: this.state.value,
+            changeValue: this.changeValue
+        &#125;
+    &#125;
+
+    render() &#123;
+        return (
+            &lt;div&gt;
+                &lt;Parent&gt;
+                    &lt;ChildOne /&gt;
+                &lt;/Parent&gt;
+                &lt;Parent&gt;
+                    &lt;ChildTwo /&gt;
+                &lt;/Parent&gt;
+            &lt;/div&gt;
+        )
+    &#125;
+&#125;
+
+Container.childContextTypes = &#123;
+    value: PropTypes.string,
+    changeValue: PropTypes.func
+&#125;
+</code></pre>
+<p>Parent.jsx</p>
+<pre><code>import React from &quot;react&quot;
+
+const Parent = (props) =&gt; (
+    &lt;div &#123;...props&#125; /&gt;
+)
+
+export default Parent
+</code></pre>
+<p>ChildOne.jsx</p>
+<pre><code>export default class ChildOne extends React.Component &#123;
+
+    handleChange = (e) =&gt; &#123;
+        const &#123; changeValue &#125; = this.context
+        changeValue(e.target.value)
+    &#125;
+
+    render() &#123;
+        return (
+            &lt;div&gt;
+                子组件一
+                &lt;input onChange=&#123;this.handleChange&#125; /&gt;
+            &lt;/div&gt;
+        )
+    &#125;
+&#125;
+
+ChildOne.contextTypes = &#123;
+    changeValue: PropTypes.func
+&#125;
+</code></pre>
+<p>ChildTwo.jsx</p>
+<pre><code>export default class ChildTwo extends React.Component &#123;
+    render() &#123;
+        return (
+            &lt;div&gt;
+                子组件二
+                &lt;p&gt;&#123;this.context.value&#125;&lt;/p&gt;
+            &lt;/div&gt;
+        )
+    &#125;
+&#125;
+
+ChildTwo.contextTypes = &#123;
+    value: PropTypes.string
+&#125;
+</code></pre>
+<blockquote>
+<p>在 <code>Container.childContextTypes</code> 中进行接口的声明，通过 <code>getChildContext</code> 返回更新后的<code>state</code>，在 <code>Child.contextTypes</code> 中声明要获取的接口，这样在子组件内部就能通过 <code>this.context</code> 获取到。通过 <code>Context</code> 这样一个中间对象，<code>ChildOne</code> 和 <code>ChildTwo</code> 就可以相互通信了</p>
+</blockquote>
+<h2 id="例2"><a href="#例2" class="headerlink" title="例2"></a>例2</h2><blockquote>
+<p>组件嵌套传递属性，在导航里面引用<code>Page</code>中的变量</p>
+</blockquote>
+<ul>
+<li>使用<code>context</code>来传递</li>
+<li>使用props层级传递</li>
+</ul>
+<blockquote>
+<p>使用<code>context</code>组件需要定义<code>propTypes</code>,需要严格校验、声明类型、字段</p>
+</blockquote>
+<pre><code>class Page extends React.Component &#123;
+    static childContextTypes = &#123;
+       user:PropTypes.string
+    &#125;
+    constructor(props)&#123;
+        super(props)
+        this.state = &#123;user:&#39;poetries&#39;&#125;
+    &#125;
+    getChildContext()&#123;
+        return this.state
+    &#125;
+    render()&#123;
+        return (
+          &lt;div&gt;
+            &lt;p&gt;我是&#123;this.state.user&#125;&lt;/p&gt;
+            &lt;Siderbar /&gt;
+          &lt;/div&gt;
+        )
+    &#125;
+&#125;
+
+class Siderbar extends React.Component &#123;
+    static childContextTypes = &#123;
+       user:PropTypes.string
+    &#125;
+    render()&#123;
+        return (
+          &lt;div&gt;
+            &lt;p&gt;侧边栏&lt;/p&gt;
+            &lt;Navbar /&gt;
+          &lt;/div&gt;
+        )
+    &#125;
+&#125;
+class Navbar extends React.Component &#123;
+    static childContextTypes = &#123;
+       user:PropTypes.string
+    &#125;
+    render()&#123;
+        return (
+          &lt;div&gt;
+            &lt;p&gt;我是&#123;this.context.user&#125;的导航栏&lt;/p&gt;
+            &lt;Siderbar /&gt;
+          &lt;/div&gt;
+        )
+    &#125;
+&#125;
+</code></pre>
+<h2 id="context在Provider种应用"><a href="#context在Provider种应用" class="headerlink" title="context在Provider种应用"></a>context在Provider种应用</h2><blockquote>
+<pre><code>provider`组件就是使用`context`，把`store`放到`context`里，所有的子元素可以直接取到`store
+</code></pre>
+</blockquote>
+<pre><code>import PropTypes from &#39;prop-types&#39;
+class Provider extends Component &#123;
+    static childContextTypes = &#123;
+        store:Protypes.object
+    &#125;
+    constructor(props,context)&#123;
+        super(props,context)
+        this.store = props.store
+    &#125;
+    getChildContext()&#123;
+        //把传进来的store放进全局
+        return &#123;store:this.store&#125;
+    &#125;
+    render()&#123;
+        return this.props.children
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p><code>connect</code> 负责连接组件，给到<code>redux</code>里的数据放到组件的属性里</p>
+</blockquote>
+<ul>
+<li>负责接收一个组件，把<code>state</code>里的一些数据放进去，返回一个组件</li>
+<li>数据变化的时候，能够通知组件</li>
+</ul>
+<pre><code>//高阶组件写法
+const connect = (mapStateToProps=state=&gt;state,mapDispatchToProps=&#123;&#125;)=&gt;(wrapperComponent)=&gt;&#123;
+    return class ConnectComponent extends React.Component &#123;
+        //负责接收组件
+        static contextTypes = &#123;
+            store:PropTypes.obejct
+        &#125;
+        constructor(props)&#123;
+            super(props, context)&#123;
+                this.state = &#123;
+                    props:&#123;&#125;
+                &#125;
+            &#125;
+        &#125;
+        componentDidMount()&#123;
+            const &#123;store&#125; = this.context
+            store.subscribe(()=&gt;this.update())
+            this.update()
+        &#125;
+        update()&#123;
+            //  获取mapStateToProps、mapDispatchToProps 放入this.props里
+            
+            const &#123;store&#125;=this.context
+            const stateProps = mapStateToProps(store.getState())
+            const dispatchProps = bindActionCreators(mapDispatchProps,store.dispatch)
+            this.setState(&#123;
+                props:&#123;
+                    ...this.state.props,
+                    ...stateProps,
+                    ...dispatchProps
+                 &#125;
+            &#125;)
+        &#125;
+        render()&#123;
+            // 把数据放入
+            return &lt;wrapperComponent &#123;...this.state.props&#125;/&gt;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2021/11/10/one/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>第一篇博客</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2021/05/16/vue/vue-v-if%E4%B8%8Ev-for%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%BB%BA%E8%AE%AE%E4%B8%80%E8%B5%B7%E7%94%A8/">
+        <span>vue-v-if与v-for为什么不建议一起用</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">valine</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="vcomments"></div>
+<script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = ''.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  var notify = '' === 'true';
+  var verify = '' === 'true';
+  new Valine({
+    el: '#vcomments',
+    notify: notify,
+    verify: verify,
+    appId: 'K384DoBsTJo09tPYtLMxDJz1-gzGzoHsz',
+    appKey: 'Bp5G6BLH11s6zkpTjHkvoG1g',
+    placeholder: '',
+    pageSize: '',
+    avatar: '',
+    lang: '',
+    guest_info: guest_info
+  });
+</script>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2022 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Dalu Kuankuan
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

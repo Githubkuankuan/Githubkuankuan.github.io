@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="https://z3.ax1x.com/2021/11/29/oM334O.png">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            vue-组件化 | KKBlog
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">KKBlog</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="https://s3.bmp.ovh/imgs/2021/11/b74ba8f7a70ffeb0.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">Dalu Kuankuan</div>
+            <div class="sidebar-description">选择有时候比努力更重要</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:xxx@xxx.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2020/06/10/vue/vue-%E7%BB%84%E4%BB%B6%E5%8C%96/">vue-组件化</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2020-06-10
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-05-02
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%8E%9F%E7%90%86/">原理</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=vue-组件化&url=http://example.com/2020/06/10/vue/vue-%E7%BB%84%E4%BB%B6%E5%8C%96/&pic=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=vue-组件化&url=http://example.com/2020/06/10/vue/vue-%E7%BB%84%E4%BB%B6%E5%8C%96/&via=Dalu Kuankuan" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/06/10/vue/vue-%E7%BB%84%E4%BB%B6%E5%8C%96/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://example.com/2020/06/10/vue/vue-%E7%BB%84%E4%BB%B6%E5%8C%96/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2020/06/10/vue/vue-%E7%BB%84%E4%BB%B6%E5%8C%96/&title=vue-组件化" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=KKBlog&title=vue-组件化&summary=选择有时候比努力更重要&pics=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&url=http://example.com/2020/06/10/vue/vue-%E7%BB%84%E4%BB%B6%E5%8C%96/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://example.com/2020/06/10/vue/vue-%E7%BB%84%E4%BB%B6%E5%8C%96/&text=vue-组件化" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/vue/ >vue</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h2 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h2><blockquote>
+<p>vue组件系统提供了一种抽象，让我们可以使用独立可复用的组件来构建大型应用，任意类型的应用界 面都可以抽象为一个组件树。组件化能提高开发效率，方便重复使用，简化调试步骤，提升项目可维护 性，便于多人协同开发。</p>
+</blockquote>
+<p><img src="https://blog.poetries.top/img/static/images/20210313133919.png" alt="img"></p>
+<h2 id="组件通信常用方式"><a href="#组件通信常用方式" class="headerlink" title="组件通信常用方式"></a>组件通信常用方式</h2><h3 id="1-props"><a href="#1-props" class="headerlink" title="1. props"></a><strong>1. props</strong></h3><blockquote>
+<p>父给子传值</p>
+</blockquote>
+<pre><code>// child
+props: &#123; msg: String &#125;
+// parent
+&lt;HelloWorld msg=&quot;Welcome to Your Vue.js App&quot;/&gt;
+</code></pre>
+<h3 id="2-自定义事件"><a href="#2-自定义事件" class="headerlink" title="2. 自定义事件"></a>2. 自定义事件</h3><blockquote>
+<p>子给父传值</p>
+</blockquote>
+<pre><code>// child this.$emit(&#39;add&#39;, good)
+// parent
+&lt;Cart @add=&quot;cartAdd($event)&quot;&gt;&lt;/Cart&gt;
+</code></pre>
+<h3 id="3-事件总线"><a href="#3-事件总线" class="headerlink" title="3. 事件总线"></a>3. 事件总线</h3><blockquote>
+<p>任意两个组件之间传值常用事件总线 或 vuex的方式。</p>
+</blockquote>
+<pre><code>  // Bus:事件派发、监听和回调管理 class Bus &#123;
+constructor()&#123; this.callbacks = &#123;&#125;
+  &#125;
+  $on(name, fn)&#123;
+this.callbacks[name] = this.callbacks[name] || []
+this.callbacks[name].push(fn) &#125;
+$emit(name, args)&#123; if(this.callbacks[name])&#123;
+this.callbacks[name].forEach(cb =&gt; cb(args)) &#125;
+&#125; &#125;
+// main.js
+Vue.prototype.$bus = new Bus()
+// child1
+this.$bus.$on(&#39;foo&#39;, handle) // child2 this.$bus.$emit(&#39;foo&#39;)
+</code></pre>
+<blockquote>
+<p>实践中通常用Vue代替Bus，因为Vue已经实现了相应接口</p>
+</blockquote>
+<h3 id="4-vuex"><a href="#4-vuex" class="headerlink" title="4. vuex"></a><strong>4. vuex</strong></h3><blockquote>
+<p>创建唯一的全局数据管理者store，通过它管理数据并通知组件状态变更。</p>
+</blockquote>
+<h3 id="5-parent-root"><a href="#5-parent-root" class="headerlink" title="5. $parent/$root"></a>5. <strong>$parent/$root</strong></h3><blockquote>
+<p>兄弟组件之间通信可通过共同祖辈搭桥，<code>$parent</code>或<code>$root</code>。</p>
+</blockquote>
+<pre><code>// brother1
+this.$parent.$on(&#39;foo&#39;, handle)
+// brother2 
+this.$parent.$emit(&#39;foo&#39;)
+</code></pre>
+<h3 id="6-children"><a href="#6-children" class="headerlink" title="6. $children"></a>6. <strong>$children</strong></h3><blockquote>
+<p>父组件可以通过<code>$children</code>访问子组件实现父子通信。</p>
+</blockquote>
+<pre><code>// parent 
+this.$children[0].xx = &#39;xxx&#39;
+</code></pre>
+<h3 id="7-attrs-listeners"><a href="#7-attrs-listeners" class="headerlink" title="7. $attrs/$listeners"></a>7. <strong>$attrs/$listeners</strong></h3><blockquote>
+<p>包含了父作用域中不作为 <strong>prop</strong> 被识别 (且获取) 的特性绑定 ( class 和 style 除外)。当一个组件没有 声明任何 prop 时，这里会包含所有父作用域的绑定 ( class 和 style 除外)，并且可以通过 <code>v- bind=&quot;$attrs&quot;</code> 传入内部组件——在创建高级别的组件时非常有用。</p>
+</blockquote>
+<pre><code>// child:并未在props中声明foo 
+&lt;p&gt;&#123;&#123;$attrs.foo&#125;&#125;&lt;/p&gt;
+// parent
+&lt;HelloWorld foo=&quot;foo&quot;/&gt;
+</code></pre>
+<h3 id="8-refs"><a href="#8-refs" class="headerlink" title="8. refs"></a>8. <strong>refs</strong></h3><blockquote>
+<p>获取子节点引用</p>
+</blockquote>
+<pre><code>// parent
+&lt;HelloWorld ref=&quot;hw&quot;/&gt;
+mounted() &#123; 
+  this.$refs.hw.xx = &#39;xxx&#39;
+&#125;
+</code></pre>
+<h3 id="9-provide-inject"><a href="#9-provide-inject" class="headerlink" title="9. provide/inject"></a>9. <strong>provide/inject</strong></h3><blockquote>
+<p>能够实现祖先和后代之间传值</p>
+</blockquote>
+<pre><code>// ancestor
+provide() &#123;
+  return &#123;foo: &#39;foo&#39;&#125;
+&#125;
+// descendant
+inject: [&#39;foo&#39;]
+</code></pre>
+<p>实例</p>
+<pre><code>// index.vue
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h2&gt;组件通信&lt;/h2&gt;
+    &lt;!-- props, 自定义事件 --&gt;
+    &lt;Child1 msg=&quot;some msg from parent&quot; @some-event=&quot;onSomeEvent&quot;&gt;&lt;/Child1&gt;
+    &lt;!-- 事件总线 --&gt;
+    &lt;Child2 msg=&quot;other msg&quot;&gt;&lt;/Child2&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import Child1 from &#39;@/components/communication/Child1.vue&#39;
+  import Child2 from &#39;@/components/communication/Child2.vue&#39;
+  
+  export default &#123;
+    components: &#123;
+      Child1, Child2,
+      // Child3: () =&gt; import(&#39;./Child3.vue&#39;)
+    &#125;,
+    methods: &#123;
+      onSomeEvent(msg) &#123;
+        console.log(&#39;Communition:&#39;, msg);
+      &#125;
+    &#125;,
+    mounted () &#123;
+      // $children持有所有自定义组件
+      // 它不保证顺序
+      console.log(this.$children);
+    &#125;,
+  &#125;
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+
+&lt;/style&gt;
+// child1.vue
+&lt;template&gt;
+  &lt;div @click=&quot;$emit(&#39;some-event&#39;, &#39;msg from child1&#39;)&quot;&gt;
+    &lt;h3&gt;child1&lt;/h3&gt;
+    &lt;p&gt;&#123;&#123;msg&#125;&#125;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default &#123;
+    props: &#123;
+      msg: &#123;
+        type: String,
+        default: &#39;&#39;
+      &#125;,
+    &#125;,
+    mounted () &#123;
+      // this.$bus.$on(&#39;event-from-child2&#39;, msg =&gt; &#123;
+      //   console.log(&#39;Child1:&#39;, msg);
+      // &#125;);
+      this.$parent.$on(&#39;event-from-child2&#39;, msg =&gt; &#123;
+        console.log(&#39;Child1:&#39;, msg);
+      &#125;);
+    &#125;,
+  &#125;
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+
+&lt;/style&gt;
+// child2.vue
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- 展开$attrs对象 --&gt;
+    &lt;h3 v-bind=&quot;$attrs&quot;&gt;child2&lt;/h3&gt;
+    &lt;button @click=&quot;sendToChild1&quot;&gt;给child1发送消息&lt;/button&gt;
+    &lt;!-- $attrs --&gt;
+    &lt;p&gt;&#123;&#123;$attrs.msg&#125;&#125;&lt;/p&gt;
+    &lt;!-- inject --&gt;
+    &lt;p&gt;&#123;&#123;foo&#125;&#125;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default &#123;
+    inheritAttrs: false,
+    inject: [&#39;foo&#39;],
+    methods: &#123;
+      sendToChild1() &#123;
+        // 利用事件总线发送事件
+        // this.$bus.$emit(&#39;event-from-child2&#39;, &#39;some msg from child2&#39;)
+        this.$parent.$emit(&#39;event-from-child2&#39;, &#39;some msg from child2&#39;)
+      &#125;
+    &#125;,
+  &#125;
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+
+&lt;/style&gt;
+</code></pre>
+<h2 id="插槽"><a href="#插槽" class="headerlink" title="插槽"></a>插槽</h2><blockquote>
+<p>插槽语法是Vue 实现的内容分发 API，用于复合组件开发。该技术在通用组件库开发中有大量应用</p>
+</blockquote>
+<h3 id="1-匿名插槽"><a href="#1-匿名插槽" class="headerlink" title="1. 匿名插槽"></a>1. 匿名插槽</h3><pre><code>// comp1
+&lt;div&gt;
+  &lt;slot&gt;&lt;/slot&gt;
+&lt;/div&gt;
+// parent
+&lt;comp&gt;hello&lt;/comp&gt;
+</code></pre>
+<h3 id="2-具名插槽"><a href="#2-具名插槽" class="headerlink" title="2. 具名插槽"></a>2. 具名插槽</h3><blockquote>
+<p>将内容分发到子组件指定位置</p>
+</blockquote>
+<pre><code>// comp2
+&lt;div&gt;
+&lt;slot&gt;&lt;/slot&gt;
+&lt;slot name=&quot;content&quot;&gt;&lt;/slot&gt;
+&lt;/div&gt;
+// parent
+&lt;Comp2&gt;
+&lt;!-- 默认插槽用default做参数 --&gt;
+&lt;template v-slot:default&gt;具名插槽&lt;/template&gt; &lt;!-- 具名插槽用插槽名做参数 --&gt;
+&lt;template v-slot:content&gt;内容...&lt;/template&gt;
+&lt;/Comp2&gt;
+</code></pre>
+<h3 id="3-作用域插槽"><a href="#3-作用域插槽" class="headerlink" title="3. 作用域插槽"></a>3. 作用域插槽</h3><blockquote>
+<p>分发内容要用到子组件中的数据</p>
+</blockquote>
+<pre><code>// comp3
+&lt;div&gt;
+&lt;slot :foo=&quot;foo&quot;&gt;&lt;/slot&gt;
+&lt;/div&gt;
+// parent
+&lt;Comp3&gt;
+&lt;!-- 把v-slot的值指定为作用域上下文对象 --&gt; &lt;template v-slot:default=&quot;slotProps&quot;&gt; 来自子组件数据:&#123;&#123;slotProps.foo&#125;&#125; &lt;/template&gt;
+&lt;/Comp3&gt;
+</code></pre>
+<p>范例</p>
+<pre><code>// 子组件 Layout.vue
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;div class=&quot;header&quot;&gt;
+      &lt;slot name=&quot;header&quot;&gt;&lt;/slot&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;body&quot;&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;footer&quot;&gt;
+      &lt;slot name=&quot;footer&quot; :fc=&quot;footerContent&quot;&gt;&lt;/slot&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        remark: [
+          &#39;好好学习，天天向上&#39;,
+          &#39;学习永远不晚&#39;,
+          &#39;学习知识要善于思考,思考,再思考&#39;,
+          &#39;学习的敌人是自己的满足,要认真学习一点东西,必须从不自满开始&#39;,
+          &#39;构成我们学习最大障碍的是已知的东西,而不是未知的东西&#39;,
+          &#39;在今天和明天之间,有一段很长的时间;趁你还有精神的时候,学习迅速办事&#39;,
+          &#39;三人行必有我师焉；择其善者而从之，其不善者而改之&#39;
+        ]
+      &#125;
+    &#125;,
+    computed: &#123;
+      footerContent() &#123;
+        return this.remark[new Date().getDay() - 1] 
+      &#125;
+    &#125;,
+  &#125;
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.header &#123;
+  background-color: rgb(252, 175, 175);
+&#125;
+.body &#123;
+  display: flex;
+  background-color: rgb(144, 250, 134);
+  min-height: 100px;
+  align-items: center;
+  justify-content: center;
+&#125;
+.footer &#123;
+  background-color: rgb(114, 116, 255);
+&#125;
+&lt;/style&gt;
+//父组件 index.vue
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h2&gt;插槽&lt;/h2&gt;
+    &lt;!-- 插槽 --&gt;
+    &lt;Layout&gt;
+      &lt;!-- 具名插槽 --&gt;
+      &lt;template v-slot:header&gt;全栈工程师&lt;/template&gt;
+      &lt;!-- 匿名插槽 --&gt;
+      &lt;template&gt;content...&lt;/template&gt;
+      &lt;!-- 作用域插槽 --&gt;
+      &lt;template v-slot:footer=&quot;&#123;fc&#125;&quot;&gt;&#123;&#123;fc&#125;&#125;&lt;/template&gt;
+    &lt;/Layout&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import Layout from &#39;@/components/slots/Layout.vue&#39;
+  
+  export default &#123;
+    components: &#123;
+      Layout
+    &#125;,
+  &#125;
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+
+&lt;/style&gt;
+</code></pre>
+<h2 id="组件化实战"><a href="#组件化实战" class="headerlink" title="组件化实战"></a>组件化实战</h2><h3 id="通用表单组件"><a href="#通用表单组件" class="headerlink" title="通用表单组件"></a>通用表单组件</h3><blockquote>
+<p>收集数据、校验数据并提交。</p>
+</blockquote>
+<ul>
+<li>实现KForm 指定数据、校验规则</li>
+<li>KformItem<ul>
+<li>label标签添加</li>
+<li>执行校验</li>
+<li>显示错误信息</li>
+</ul>
+</li>
+<li>KInput<ul>
+<li>维护数据</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;template&gt;
+  &lt;el-form :model=&quot;userInfo&quot; :rules=&quot;rules&quot; ref=&quot;loginForm&quot;&gt;
+    &lt;el-form-item label=&quot;用户名&quot; prop=&quot;name&quot;&gt;
+      &lt;el-input v-model=&quot;userInfo.name&quot;&gt;&lt;/el-input&gt;
+    &lt;/el-form-item&gt;
+    &lt;el-form-item label=&quot;密码&quot; prop=&quot;password&quot;&gt;
+      &lt;el-input v-model=&quot;userInfo.password&quot; type=&quot;password&quot;&gt;&lt;/el-input&gt;
+    &lt;/el-form-item&gt;
+    &lt;el-form-item&gt;
+      &lt;el-button @click=&quot;login&quot;&gt;登录&lt;/el-button&gt;
+    &lt;/el-form-item&gt;
+  &lt;/el-form&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      userInfo: &#123;
+        username: &quot;&quot;,
+        password: &quot;&quot;
+      &#125;,
+      rules: &#123;
+        username: [&#123; required: true, message: &quot;请输入用户名称&quot; &#125;],
+        password: [&#123; required: true, message: &quot;请输入密码&quot; &#125;]
+      &#125;
+    &#125;;
+  &#125;,
+  methods: &#123;
+    login() &#123;
+      this.$refs[&quot;loginForm&quot;].validate(valid =&gt; &#123;
+        if (valid) &#123;
+          alert(&quot;submit&quot;);
+        &#125; else &#123;
+          console.log(&quot;error submit!&quot;);
+          return false;
+        &#125;
+      &#125;);
+    &#125;
+  &#125;
+&#125;;
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+&lt;/style&gt;
+</code></pre>
+<p><strong>1.</strong> KInput</p>
+<pre><code>// 创建components/form/KInput.vue
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- 管理数据：实现双绑 --&gt;
+    &lt;!-- :value, @input --&gt;
+    &lt;input :type=&quot;type&quot; :value=&quot;value&quot; @input=&quot;onInput&quot;
+      v-bind=&quot;$attrs&quot;&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default &#123;
+    inheritAttrs: false , // 关闭特性继承
+    props: &#123;
+      value: &#123;
+        type: String,
+        default: &#39;&#39;
+      &#125;,
+      type: &#123;
+        type: String,
+        default: &#39;text&#39;
+      &#125;
+    &#125;,
+    methods: &#123;
+      onInput(e) &#123;
+        this.$emit(&#39;input&#39;, e.target.value)
+
+        // 值发生变化的时候就是需要校验的时候
+        this.$parent.$emit(&#39;validate&#39;)
+      &#125;
+    &#125;,
+  &#125;
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+
+&lt;/style&gt;
+</code></pre>
+<ol>
+<li>使用<strong>KInput</strong></li>
+</ol>
+<p>创建components/form/index.vue，添加如下代码:</p>
+<pre><code>&lt;template&gt;
+  &lt;div&gt;
+&lt;h3&gt;KForm表单&lt;/h3&gt;
+&lt;hr&gt;
+&lt;k-input v-model=&quot;model.username&quot;&gt;&lt;/k-input&gt;
+&lt;k-input type=&quot;password&quot; v-model=&quot;model.password&quot;&gt;&lt;/k-input&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+export default &#123;
+  components: &#123;
+  KInput
+&#125;, 
+  data() &#123;
+   return &#123;
+      model: &#123; username: &quot;tom&quot;, password: &quot;&quot; &#125;,
+    &#125;; 
+  &#125;
+&#125;;
+&lt;/script&gt;
+</code></pre>
+<ol>
+<li>实现<strong>KFormItem</strong></li>
+</ol>
+<p>创建components/form/KFormItem.vue</p>
+<pre><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- label标签 --&gt;
+    &lt;label v-if=&quot;label&quot;&gt;&#123;&#123;label&#125;&#125;&lt;/label&gt;
+    &lt;!-- 容器，放插槽 --&gt;
+    &lt;slot&gt;&lt;/slot&gt;
+    &lt;!-- 错误信息展示 --&gt;
+    &lt;p v-if=&quot;error&quot; class=&quot;error&quot;&gt;&#123;&#123;error&#125;&#125;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import Schema from &#39;async-validator&#39;
+
+  export default &#123;
+    inject: [&#39;form&#39;],
+    data() &#123;
+      return &#123;
+        error: &#39;&#39;
+      &#125;
+    &#125;,
+    props: &#123;
+      label: &#123;
+        type: String,
+        default: &#39;&#39;
+      &#125;,
+      prop: &#123;
+        type: String,
+        default: &#39;&#39;
+      &#125;
+    &#125;,
+    mounted () &#123;
+      // 监听校验事件
+      this.$on(&#39;validate&#39;, () =&gt; &#123;
+        this.validate()
+      &#125;)
+    &#125;,
+    methods: &#123;
+      validate() &#123;
+        // 执行校验
+        // 1.获取值和校验规则
+        const rules = this.form.rules[this.prop]
+        const value = this.form.model[this.prop]
+
+        // 2.执行校验：使用官方也使用的async-validator
+        // 创建描述对象
+        const descriptor = &#123;[this.prop]:rules&#125;
+        // 创建校验器
+        const validator = new Schema(descriptor)
+        // 执行校验
+        return validator.validate(&#123;[this.prop]:value&#125;, errors =&gt; &#123;
+          // 如果errors存在，则说明校验失败
+          if (errors) &#123;
+            this.error = errors[0].message
+          &#125; else &#123;
+            this.error = &#39;&#39;
+          &#125;
+        &#125;)
+      &#125;
+    &#125;,
+  &#125;
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.error&#123;
+  color: red
+&#125;
+&lt;/style&gt;
+</code></pre>
+<ol>
+<li>使用<strong>KFormItem</strong></li>
+</ol>
+<p>components/form/index.vue，添加基础代码:</p>
+<pre><code>&lt;template&gt;
+  &lt;div&gt;
+&lt;h3&gt;KForm表单&lt;/h3&gt;
+&lt;hr&gt;
+&lt;k-form-item label=&quot;用户名&quot; prop=&quot;username&quot;&gt;
+&lt;k-input v-model=&quot;model.username&quot;&gt;&lt;/k-input&gt; &lt;/k-form-item&gt;
+&lt;k-form-item label=&quot;确认密码&quot; prop=&quot;password&quot;&gt;
+&lt;k-input type=&quot;password&quot; v-model=&quot;model.password&quot;&gt;&lt;/k-input&gt;
+&lt;/k-form-item&gt; &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ol>
+<li>实现<strong>KForm</strong></li>
+</ol>
+<pre><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- 容器：存放所有表单项 --&gt;
+    &lt;!-- 存储值载体：保存大家数据和校验规则 --&gt;
+    &lt;slot&gt;&lt;/slot&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+// 我们平时写的组件是一个组件配置对象
+export default &#123;
+  provide() &#123;
+    return &#123;
+      // 直接把当前组件实例传递下去
+      // 传递下去的对象是响应式的则还可以响应式
+      form: this
+    &#125;;
+  &#125;,
+  props: &#123;
+    // 数据模型
+    model: &#123;
+      type: Object,
+      required: true
+    &#125;,
+    rules: Object
+  &#125;,
+  methods: &#123;
+    validate(cb) &#123;
+      // 遍历肚子里面的所有FormItem，执行他们的validate方法
+      // 全部通过才算通过
+      // tasks是校验结果的Promise组成的数组
+      const tasks = this.$children
+        .filter(item =&gt; item.prop)
+        .map(item =&gt; item.validate());
+      // 统一判断
+      Promise.all(tasks)
+        .then(() =&gt; cb(true))
+        .catch(() =&gt; cb(false));
+    &#125;
+  &#125;
+&#125;;
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+&lt;/style&gt;
+</code></pre>
+<ol>
+<li>使用<strong>KForm</strong></li>
+</ol>
+<p>components/form/index.vue，添加基础代码:</p>
+<pre><code>&lt; template &gt; &lt;div &gt; &lt;h3 &gt; KForm表单 &lt; /h3&gt;
+&lt;hr&gt;
+&lt;k-form :model=&quot;model&quot; :rules=&quot;rules&quot; ref=&quot;loginForm&quot;&gt;
+...
+&lt;/k - form &gt; &lt;/div&gt;
+&lt;/template &gt; &lt;script &gt; import KForm from &quot;./KForm&quot;;
+export default &#123;
+        components:
+        &#123;
+            KForm,
+        &#125;,
+        data() &#123;
+            return &#123;
+                rules: &#123;
+                    username: [&#123;
+                        required: true,
+                        message: &quot;请输入用户名&quot;
+                    &#125;],
+                    password: [&#123;
+                        required: true,
+                        message: &quot;请输入密码&quot;
+                    &#125;]
+                &#125;
+            &#125;;
+        &#125;,
+        methods: &#123;
+            submitForm() &#123;
+                this.$refs[&#39;loginForm&#39;].validate(valid = &gt;&#123;
+                    if (valid) &#123;
+                        alert(&quot;请求登录!&quot;);
+                    &#125; else &#123;
+                        alert(&quot;校验失败!&quot;);
+                    &#125;
+                &#125;);
+            &#125;
+        &#125;
+    &#125;; &lt; /script&gt;/
+</code></pre>
+<ol>
+<li>数据校验</li>
+</ol>
+<p>Input通知校验</p>
+<pre><code>onInput(e) &#123; // ...
+    // $parent指FormItem
+    this.$parent.$emit(&#39;validate&#39;);
+&#125;
+</code></pre>
+<p>FormItem监听校验通知，获取规则并执行校验</p>
+<pre><code>inject: [&#39;form&#39;],
+// 注入 mounted()&#123;// 监听校验事件
+this.$on(&#39;validate&#39;, () = &gt;&#123;
+    this.validate()
+&#125;)
+&#125;,
+methods: &#123;
+    validate() &#123;
+        // 获取对应FormItem校验规则 console.log(this.form.rules[this.prop]);
+    &#125;
+&#125;,
+import Schema from &quot;async-validator&quot;;
+
+validate() &#123;
+    // 获取对应FormItem校验规则
+    const rules = this.form.rules[this.prop];
+    // 获取校验值
+    const value = this.form.model[this.prop];
+    // 校验
+    const schema = new Schema(descriptor);
+    // 返回Promise，没有触发catch就说明验证通过
+    return schema.validate(&#123; [this.prop] : value
+    &#125;,
+    errors = &gt;&#123;
+        if (errors) &#123;
+            // 将错误信息显示
+            this.error = errors[0].message;
+        &#125; else &#123;
+            // 校验通过 this.error = &quot;&quot;;
+        &#125;
+    &#125;);
+&#125;
+</code></pre>
+<p>表单全局验证，为<code>Form</code>提供<code>validate</code>方法</p>
+<pre><code>validate(cb) &#123;
+    // 调用所有含有prop属性的子组件的validate方法并得到Promise数组 const tasks = this.$children
+    .filter(item = &gt;item.prop).map(item = &gt;item.validate());
+    // 所有任务必须全部成功才算校验通过，任一失败则校验失败
+    Promise.all(tasks).then(() = &gt;cb(true)).catch(() = &gt;cb(false))
+&#125;
+</code></pre>
+<h3 id="实现弹窗组件"><a href="#实现弹窗组件" class="headerlink" title="实现弹窗组件"></a>实现弹窗组件</h3><blockquote>
+<p>弹窗这类组件的特点是它们在当前<strong>vue</strong>实例之外独立存在，通常挂载于body;它们是通过JS动态创建的，不需要在任何组件中声明。常⻅使用姿势</p>
+</blockquote>
+<pre><code>this.$create(Notice, &#123;
+    title: &#39;喊你来搬砖&#39;,
+    message: &#39;提示信息&#39;,
+    duration: 1000
+&#125;).show();
+</code></pre>
+<p>create函数</p>
+<pre><code>import Vue from &quot;vue&quot;;
+// 创建函数接收要创建组件定义
+function create(Component, props) &#123;
+    // 创建一个Vue新实例 const vm = new Vue(&#123;
+    render(h) &#123;
+        // render函数将传入组件配置对象转换为虚拟dom console.log(h(Component, &#123; props &#125;)); return h(Component, &#123; props &#125;);
+    &#125;
+&#125;).$mount(); //执行挂载函数，但未指定挂载目标，表示只执行初始化工作
+
+  // 将生成dom元素追加至
+  body document.body.appendChild(vm.$el);
+
+  // 给组件实例添加销毁方法
+  const comp = vm.$children[0];
+  comp.remove = () = &gt;&#123;
+      document.body.removeChild(vm.$el);
+      vm.$destroy();
+  &#125;;
+  return comp;
+&#125;
+// 暴露调用接口
+export default create
+</code></pre>
+<blockquote>
+<p>另一种创建组件实例的方式: <code>Vue.extend(Component)</code></p>
+</blockquote>
+<pre><code>const Ctor = Vue.extend(Component) 
+const comp = new Ctor(&#123;
+    propsData: props
+&#125;) 
+comp.$mount();
+
+document.body.appendChild(comp.$el) 
+
+comp.remove = () = &gt;&#123;
+    // 移除dom document.body.removeChild(comp.$el) // 销毁组件
+    comp.$destroy();
+&#125;
+</code></pre>
+<h3 id="通知组件"><a href="#通知组件" class="headerlink" title="通知组件"></a>通知组件</h3><p>建通知组件，Notice.vue</p>
+<pre><code>&lt;template&gt;
+  &lt;div class=&quot;box&quot; v-if=&quot;isShow&quot;&gt;
+    &lt;h3&gt;&#123;&#123;title&#125;&#125;&lt;/h3&gt;
+    &lt;p class=&quot;box-content&quot;&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default &#123;
+  props: &#123;
+    title: &#123;
+      type: String,
+      default: &quot;&quot;
+    &#125;,
+    message: &#123;
+      type: String,
+      default: &quot;&quot;
+    &#125;,
+    duration: &#123;
+      type: Number,
+      default: 2000
+    &#125;
+  &#125;,
+  data() &#123;
+    return &#123;
+      isShow: false
+    &#125;;
+  &#125;,
+  methods: &#123;
+    show() &#123;
+      this.isShow = true;
+      setTimeout(this.hide, this.duration);
+    &#125;,
+    hide() &#123;
+      this.isShow = false;
+      this.remove();
+    &#125;
+  &#125;
+&#125;;
+&lt;/script&gt;
+
+&lt;style&gt;
+.box &#123;
+  position: fixed;
+  width: 100%;
+  top: 16px;
+  left: 0;
+  text-align: center;
+  pointer-events: none;
+  background-color: #fff;
+  border: grey 3px solid;
+  box-sizing: border-box;
+&#125;
+.box-content &#123;
+  width: 200px;
+  margin: 10px auto;
+  font-size: 14px;  
+  padding: 8px 16px;
+  background: #fff;
+  border-radius: 3px;
+  margin-bottom: 8px;
+&#125;
+&lt;/style&gt;
+</code></pre>
+<blockquote>
+<p>使用插件进一步封装便于使用，<code>create.js</code></p>
+</blockquote>
+<pre><code>import Notice from &#39;@/components/Notice.vue&#39; //...
+export default &#123;
+  install(Vue) &#123;
+      Vue.prototype.$notice = function(options) &#123;
+          return create(Notice, options)
+      &#125;
+  &#125;
+&#125;
+</code></pre>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2020/07/01/JavaScript/jsPromise%E5%8E%9F%E7%90%86/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>ES Promise.all/race</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2020/03/06/vue/mvc-mvp-mvvm%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/">
+        <span>MVC、MVP、MVVM之间的关系</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">valine</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="vcomments"></div>
+<script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = ''.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  var notify = '' === 'true';
+  var verify = '' === 'true';
+  new Valine({
+    el: '#vcomments',
+    notify: notify,
+    verify: verify,
+    appId: 'K384DoBsTJo09tPYtLMxDJz1-gzGzoHsz',
+    appKey: 'Bp5G6BLH11s6zkpTjHkvoG1g',
+    placeholder: '',
+    pageSize: '',
+    avatar: '',
+    lang: '',
+    guest_info: guest_info
+  });
+</script>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2022 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Dalu Kuankuan
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >
