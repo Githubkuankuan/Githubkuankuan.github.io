@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="https://z3.ax1x.com/2021/11/29/oM334O.png">
+    
+
+    
+    
+        
+<link rel="stylesheet" href="/css/mdui.min.v1.0.0.css">
+
+    
+    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            Restful-API的接口规范 | KKBlog
+        
+    </title>
+    
+    
+        <style type="text/css">
+            html{filter:grayscale(100%);-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);filter:url("data:p_w_picpath/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\"><filter id=\"grayscale\"><feColorMatrix type=\"matrix\" values=\"0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\"/></filter></svg>#grayscale");filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);filter:gray;-webkit-filter:grayscale(1)}
+        </style> 
+    
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">KKBlog</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-1">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/tools/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-tools"></i>
+                    </div>
+                    <div class="mdui-list-item-content">工具箱</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-1">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="https://s3.bmp.ovh/imgs/2021/11/b74ba8f7a70ffeb0.jpg"/>
+                
+            </div>
+            <div class="sidebar-author-name">Dalu Kuankuan</div>
+            <div class="sidebar-description">选择有时候比努力更重要</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="mailto:xxx@xxx.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Steam</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-weibo"></i></span>
+                    <a target="_blank" rel="noopener" href="https://your.url" class="mdui-chip-title">Weibo</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
+                            Meadow说明文档
+                        </a>
+                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2021/05/23/%E6%B5%8F%E8%A7%88%E5%99%A8/Restful-API%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/">Restful-API的接口规范</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2021-05-23
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2021-05-23
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/django/">django</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=Restful-API的接口规范&url=http://example.com/2021/05/23/%E6%B5%8F%E8%A7%88%E5%99%A8/Restful-API%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/&pic=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=Restful-API的接口规范&url=http://example.com/2021/05/23/%E6%B5%8F%E8%A7%88%E5%99%A8/Restful-API%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/&via=Dalu Kuankuan" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2021/05/23/%E6%B5%8F%E8%A7%88%E5%99%A8/Restful-API%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://example.com/2021/05/23/%E6%B5%8F%E8%A7%88%E5%99%A8/Restful-API%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://example.com/2021/05/23/%E6%B5%8F%E8%A7%88%E5%99%A8/Restful-API%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/&title=Restful-API的接口规范" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=KKBlog&title=Restful-API的接口规范&summary=选择有时候比努力更重要&pics=http://example.comhttps://z3.ax1x.com/2021/11/29/oM334O.png&url=http://example.com/2021/05/23/%E6%B5%8F%E8%A7%88%E5%99%A8/Restful-API%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://example.com/2021/05/23/%E6%B5%8F%E8%A7%88%E5%99%A8/Restful-API%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/&text=Restful-API的接口规范" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/restful-API/ >restful API</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <h1 id="Restful-API的接口规范"><a href="#Restful-API的接口规范" class="headerlink" title="Restful-API的接口规范"></a>Restful-API的接口规范</h1><p>发展背景及简介</p>
+<p>网络应用程序，分为前端和后端两个部分。当前的发展趋势，就是前端设备层出不穷（手机、平板、桌面电脑、其他专用设备…）。因此，必须有一种统一的机制，方便不同的前端设备与后端进行通信。这导致API构架的流行，RESTful<br>API是目前比较成熟的一套互联网应用程序的API设计理论。</p>
+<p>rest是Representational State Transfer三个单词的缩写，由Roy<br>Fielding于2000年论文中提出的一种web软件结构风格，注意它仅仅只是代表着一种风格，并不代表着约束、标准。基于REST构建的API就是Restful风格。<br>如果一个架构符合REST的约束条件和原则，我们就称它为RESTful架构。REST本身并没有创造新的技术、组件或服务，而隐藏在RESTful背后的理念就是使用Web的现有特征和能力，<br>更好地使用现有Web标准中的一些准则和约束。虽然REST本身受Web技术的影响很深， 但是理论上REST架构风格并不是绑定在HTTP上，只不过目前HTTP是唯一与REST相关的实例。 以webServer来解释:<br>非Rest设计，以往我们都会这么写：</p>
+<pre><code>http://xxx.com:8080/posts/getAtricle (查询文章)
+http://xxx.com:8080/posts/addAtricle (新增文章)
+http://xxx.com:8080/posts/updateAtricle (更新文章)
+http://xxx.com:8080/posts/deleteAtricle (删除文章)
+</code></pre>
+<p>总结：以不同的URL（主要为使用动词）进行不同的操作</p>
+<p>Rest架构：</p>
+<pre><code>GET http://xxx.com:8080/posts/atricle（查询文章）
+POST http://xxx.com:8080/posts/atricle（新增文章）
+PUT http://xxx.com:8080/posts/atricle（新增文章）
+DELETE http://xxx.com:8080/posts/atricle（删除文章）
+</code></pre>
+<p>总结：URL只指定资源，以HTTP方法动词进行不同的操作,用HTTP STATUS/CODE定义操作结果。</p>
+<p>Restful：遵守了rest风格的web服务便可称为Restful结构.</p>
+<h1 id="REST架构风格的设计原则"><a href="#REST架构风格的设计原则" class="headerlink" title="REST架构风格的设计原则"></a>REST架构风格的设计原则</h1><h2 id="客户端-服务器（Client-Server）"><a href="#客户端-服务器（Client-Server）" class="headerlink" title="客户端-服务器（Client-Server）"></a>客户端-服务器（Client-Server）</h2><ul>
+<li>客户端-服务器结构限制的目的是将客户端和服务器端的关注点分离。将用户界面数据存储所关注的逻辑分离开来有助于提高用户界面的跨平台的可移植性，通过简化服务器模块也有助于服务器模块的可扩展性</li>
+</ul>
+<h2 id="无状态（Stateless）"><a href="#无状态（Stateless）" class="headerlink" title="无状态（Stateless）"></a>无状态（Stateless）</h2><ul>
+<li>服务器不能保存客户端的信息每一次从客户端发送的请求中, 要包含所有的状态信息, 会话信息由客户端保存, 服务器端根据这些状态信息来处理请求。服务器可以将会话状态信息传递给其他服务, 比如数据库服务, 这样可以保持一段时间的状态信息,<br>从而实现认证功能。当客户端可以切换到一个新状态的时候发送请求信息。当一个或者多个请求被发送之后, 客户端就处于一个状态变迁过程中。 每一个应用的状态描述可以被客户端用来初始化下一次的状态变迁</li>
+</ul>
+<h2 id="缓存（Cacheability）"><a href="#缓存（Cacheability）" class="headerlink" title="缓存（Cacheability）"></a>缓存（Cacheability）</h2><ul>
+<li>如同万维网一样, 客户端和中间的通讯传递者可以将回复缓存起来。回复必须明确的或者间接的表明本身是否可以进行缓存, 这可以预防客户端在将来进行请求的时候得到陈旧的或不恰当的数据。管理良好的缓存机制可以减少客户端-服务器之间的交互,<br>甚至完全避免客户端-服务器交互, 这进一步提了高性能和可扩展性</li>
+</ul>
+<h2 id="统一接口（Uniform-Interface）"><a href="#统一接口（Uniform-Interface）" class="headerlink" title="统一接口（Uniform Interface）"></a>统一接口（Uniform Interface）</h2><ul>
+<li>这是 restful 系统设计的基本出发点。它简化了系统架构, 减少了耦合性, 可以让所有模块各自独立的进行改进各自独立的进行改进</li>
+</ul>
+<h1 id="Restful-API架构风格中请求规范规范"><a href="#Restful-API架构风格中请求规范规范" class="headerlink" title="Restful API架构风格中请求规范规范"></a>Restful API架构风格中请求规范规范</h1><h2 id="一、http状态码："><a href="#一、http状态码：" class="headerlink" title="一、http状态码："></a>一、http状态码：</h2><p>使用http状态码定义api执行结果，http 定义了一系列可以用在接口返回的有含义的状态码。下面是常用状态码解释：<br><img src="https://img-blog.csdnimg.cn/img_convert/517108500d3b3945933c2beada041ebb.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/b720642cc820a59c177729fb705afd0e.png"></p>
+<h2 id="二、路径规范："><a href="#二、路径规范：" class="headerlink" title="二、路径规范："></a>二、路径规范：</h2><ol>
+<li>分隔符<ul>
+<li>/“分隔符一般用来对资源层级的划分，例如 <a target="_blank" rel="noopener" href="http://api.domain.com/school/classes">http://api.domain.com/school/classes</a></li>
+<li>对于REST API来说，”/“只是一个分隔符，并无其他含义。为了避免混淆，”/“不应该出现在URL的末尾。例如以下两个地址实际表示的都是同一个资源：</li>
+<li><a target="_blank" rel="noopener" href="http://api.domain.com/school/classes/">http://api.domain.com/school/classes/</a></li>
+<li><a target="_blank" rel="noopener" href="http://api.domain.com/school/classes">http://api.domain.com/school/classes</a></li>
+<li>REST API对URI资源的定义具有唯一性，一个资源对应一个唯一的地址。为了使接口保持清晰干净，如果访问到末尾包含 “/“ 的地址，服务端应该301到没有 “/“的地址上。当然这个规则也仅限于REST<br>API接口的访问，对于传统的WEB页面服务来说，并不一定适用这个规则</li>
+</ul>
+</li>
+<li>路径中使用连字符 -代替下划线 _<ul>
+<li>连字符”-“一般用来分割URI中出现的字符串(单词)，来提高URI的可读性，例如：</li>
+<li><a target="_blank" rel="noopener" href="http://api.example.restapi.org/blogs/mark-masse/entries/this-is-my-first-post">http://api.example.restapi.org/blogs/mark-masse/entries/this-is-my-first-post</a></li>
+<li><a target="_blank" rel="noopener" href="http://api.domain.com/school/class/%7Bclass_id%7D/reading-corner">http://api.domain.com/school/class/{class_id}/reading-corner</a></li>
+<li>使用下划线”<em>“来分割字符串(单词)可能会和链接的样式冲突重叠，而影响阅读性。但实际上，”-“和”</em>“对URL中字符串的分割语意上还是有些差异的：”-“分割的字符串(单词)一般各自都具有独立的含义，可参见上面的例子。而”_”<br>一般用于对一个整体含义的字符串做了层级的分割，方便阅读，例如你想在URL中体现一个ip地址的信息：210_110_25_88</li>
+<li>对于参数名称，使用下划线进行连接，比如 app_id</li>
+</ul>
+</li>
+<li>路径中崇义使用小写字母<ul>
+<li>根据RFC3986定义，URI是对大小写敏感的，所以为了避免歧义，我们尽量用小写字符。但主机名(Host)和scheme（协议名称:http/ftp/…）对大小写是不敏感的</li>
+</ul>
+</li>
+</ol>
+<h2 id="三、请求方式"><a href="#三、请求方式" class="headerlink" title="三、请求方式"></a>三、请求方式</h2><ul>
+<li>http method 对应不同的请求动作</li>
+<li><img src="https://img-blog.csdnimg.cn/img_convert/3b34fbfbd56c765374dd1a1f21cc708a.png"></li>
+</ul>
+<h1 id="总-结"><a href="#总-结" class="headerlink" title="总 结"></a>总 结</h1><p>Restful API的接口架构风格中制定了一些规范，极大的简化了前后端对接的时间，以及增加了开发效率，在实际开发中，比如在获取列表分页的时候，对于查询参数过多的接口，会导致uri的长度过长、请求失败，在这种情况下的接口就不能完全按照Restful<br>API的请求规范来。Restful API也就只是一种接口架构的风格，接口API永远不会强约束于此，因按照实际需求做出相应的接口需改。</p>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+      <a rel="prev" class="post-nav-item mdui-float-left" href="/2021/05/23/vue/vue%E4%B8%AD%E7%9A%84$nextTick%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8/">
+        <i class="iconfont icon-angle-left"></i>
+        <span>vue中的$nextTick有什么作用</span>
+      </a>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2021/05/18/JavaScript/JSON-parse-JSON-stringify-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%97%B6%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9/">
+        <span>JSON.parse(JSON.stringify())实现深拷贝时有什么缺点</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2021/05/23/%E6%B5%8F%E8%A7%88%E5%99%A8/Restful-API%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Restful-API%E7%9A%84%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83"><span class="toc-number">1.</span> <span class="toc-text">Restful-API的接口规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#REST%E6%9E%B6%E6%9E%84%E9%A3%8E%E6%A0%BC%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-number">2.</span> <span class="toc-text">REST架构风格的设计原则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF-%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88Client-Server%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">客户端-服务器（Client-Server）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%8A%B6%E6%80%81%EF%BC%88Stateless%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">无状态（Stateless）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%EF%BC%88Cacheability%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">缓存（Cacheability）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E6%8E%A5%E5%8F%A3%EF%BC%88Uniform-Interface%EF%BC%89"><span class="toc-number">2.4.</span> <span class="toc-text">统一接口（Uniform Interface）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Restful-API%E6%9E%B6%E6%9E%84%E9%A3%8E%E6%A0%BC%E4%B8%AD%E8%AF%B7%E6%B1%82%E8%A7%84%E8%8C%83%E8%A7%84%E8%8C%83"><span class="toc-number">3.</span> <span class="toc-text">Restful API架构风格中请求规范规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81http%E7%8A%B6%E6%80%81%E7%A0%81%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">一、http状态码：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%B7%AF%E5%BE%84%E8%A7%84%E8%8C%83%EF%BC%9A"><span class="toc-number">3.2.</span> <span class="toc-text">二、路径规范：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F"><span class="toc-number">3.3.</span> <span class="toc-text">三、请求方式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB-%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总 结</span></a></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">valine</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="vcomments"></div>
+<script src="//cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = ''.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  var notify = '' === 'true';
+  var verify = '' === 'true';
+  new Valine({
+    el: '#vcomments',
+    notify: notify,
+    verify: verify,
+    appId: 'K384DoBsTJo09tPYtLMxDJz1-gzGzoHsz',
+    appKey: 'Bp5G6BLH11s6zkpTjHkvoG1g',
+    placeholder: '',
+    pageSize: '',
+    avatar: '',
+    lang: '',
+    guest_info: guest_info
+  });
+</script>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2022 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Dalu Kuankuan
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+    
+<script src="/js/mdui.min.v1.0.0.js"></script>
+
+
+
+
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >

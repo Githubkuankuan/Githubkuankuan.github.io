@@ -118,6 +118,10 @@
     </title>
     
     
+        <style type="text/css">
+            html{filter:grayscale(100%);-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);filter:url("data:p_w_picpath/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\"><filter id=\"grayscale\"><feColorMatrix type=\"matrix\" values=\"0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\"/></filter></svg>#grayscale");filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);filter:gray;-webkit-filter:grayscale(1)}
+        </style> 
+    
 <meta name="generator" content="Hexo 5.4.2"></head>
 <body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
   
@@ -282,212 +286,15 @@
       
       
         <div class="post-header"> 
-  <a class="post-header-title" href="/2022/05/05/react/React-Router%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%8F%8A%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88/">React-Router的实现原理及工作方式分别是什么</a>
+  <a class="post-header-title" href="/2022/04/05/react/redux%E5%8E%9F%E7%90%86/">redux原理</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-05-05
+      发布于:&nbsp;2022-04-05
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-05
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/reactRouter/">reactRouter</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="tag-line-space"></div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <p>React Router 路由的基础实现原理分为两种，如果是切换 Hash 的方式，那么依靠浏览器 Hash 变化即可；如果是切换网址中的 Path，就要用到 HTML5 History API 中的 pushState、replaceState 等。在使用这个方式时，还需要在服务端完成 historyApiFallback 配置<br>在 React Router 内部主要依靠 history 库完成，这是由 React Router 自己封装的库，为了实现跨平台运行的特性，内部提供两套基础 history，一套是直接使用浏览器的 History API，用于支持 react-r...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/05/react/React-Router%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%8F%8A%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2022/05/05/react/react%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E9%80%9A%E4%BF%A1/">react组件之间通信</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-05-05
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-05
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/react/">react</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="tag-line-space"></div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <ul>
-<li><p>父子组件通信</p>
-</li>
-<li><p>自定义事件</p>
-</li>
-<li><p>redux和context</p>
-</li>
-<li><p><em>context如何运用</em>*</p>
-</li>
-<li><p>父组件向其下所有子孙组件传递信息</p>
-</li>
-<li><p>如一些简单的信息：主题、语言</p>
-</li>
-<li><p>复杂的公共信息用redux</p>
-<blockquote>
-<p>在跨层级通信中，主要分为一层或多层的情况</p>
-</blockquote>
-</li>
-<li><p>如果只有一层，那么按照 Reac...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/05/react/react%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E9%80%9A%E4%BF%A1/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2022/05/05/react/react%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6%E5%92%8C%E9%9D%9E%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6/">react受控组件和非受控组件</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-05-05
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-05
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/react/">react</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="tag-line-space"></div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <pre><code class="jsx">&lt;FInput value = &#123;x&#125; onChange = &#123;fn&#125; /&gt; 
-// 上面的是受控组件 下面的是非受控组件
-&lt;FInput defaultValue = &#123;x&#125; /&gt;
-</code></pre>
-<ul>
-<li>当你一个组件同时传递一个value以及onChange事件时，它就是一个受控组件，收入输出都是我来控制的。</li>
-<li>第二个只是传递了默认的初时值，并没有传onchange事件，</li>
-<li>非受控组件是一种反模式，它的...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/05/react/react%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6%E5%92%8C%E9%9D%9E%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2022/05/05/JavaScript/JS%E4%B8%ADcall-%E3%80%81apply-%E3%80%81bind-%E7%9A%84%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%94%A8%E6%B3%95/">JS中call()、apply()、bind()的区别及用法</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-05-05
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-05
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/JavaScript/">JavaScript</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="tag-line-space"></div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h1 id="1-区别"><a href="#1-区别" class="headerlink" title="1.区别"></a>1.区别</h1><h2 id="1-1三者的相同点：都是用来改变this的指向"><a href="#1-1三者的相同点：都是用来改变this的指向" class="headerlink" title="1.1三者的相同点：都是用来改变this的指向"></a>1.1三者的相同点：都是用来改变this的指向</h2><h2 id="1-2-call-和apply-的区别："><a href="#1-2-call-和apply-的区别：" class="he...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/05/JavaScript/JS%E4%B8%ADcall-%E3%80%81apply-%E3%80%81bind-%E7%9A%84%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%94%A8%E6%B3%95/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2022/05/05/react/redux%E5%8E%9F%E7%90%86/">redux原理</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-05-05
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-05
+      更新于:&nbsp;2022-04-05
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -514,7 +321,7 @@
         </div>
         
         <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/05/react/redux%E5%8E%9F%E7%90%86/">阅读更多</a>
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/04/05/react/redux%E5%8E%9F%E7%90%86/">阅读更多</a>
         </div>
       </div>
     </article>
@@ -523,109 +330,15 @@
       
       
         <div class="post-header"> 
-  <a class="post-header-title" href="/2022/05/05/react/react%E4%B8%8Evue%E7%9A%84%E8%99%9A%E6%8B%9Fdom%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/">react与vue的虚拟dom有什么区别</a>
+  <a class="post-header-title" href="/2022/03/23/vue/Vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%A0%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E7%9A%84%E5%91%A2%EF%BC%9F/">Vue项目中你是如何解决跨域的呢？</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-05-05
+      发布于:&nbsp;2022-03-23
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-05
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/vue-react/">vue&&react</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="tag-line-space"></div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h2 id="react与vue的虚拟dom有什么区别"><a href="#react与vue的虚拟dom有什么区别" class="headerlink" title="react与vue的虚拟dom有什么区别"></a>react与vue的虚拟dom有什么区别</h2><p>没有区别</p>
-<p>react和vue的虚拟dom都是一样的，都是用js对象来模拟真是dom，然后用虚拟dom的diff最小化更新真实dom。<br>除了极个别实现外，前者前半部分（用js对象来模拟真实dom）几乎是一样的。<br>而对于后半部分（用虚拟dom的diff来最小化更新真实dom）两者算法也是...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/05/react/react%E4%B8%8Evue%E7%9A%84%E8%99%9A%E6%8B%9Fdom%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2022/05/03/JavaScript/%E5%AE%9E%E4%BE%8B/">js中构造函数 原型对象 实例</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-05-03
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-05
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/JavaScript/">JavaScript</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="tag-line-space"></div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h2 id="一、构造函数"><a href="#一、构造函数" class="headerlink" title="一、构造函数"></a>一、构造函数</h2><p>工作原理：</p>
-<ol>
-<li>创建一个新对象</li>
-<li>让构造函数的this，指向新对象</li>
-<li>执行构造函数</li>
-<li>返回实例</li>
-</ol>
-<h2 id="二、原型对象-prototype"><a href="#二、原型对象-prototype" class="headerlink" title="二、原型对象 prototype"></a>二、原型对象 prototyp...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/03/JavaScript/%E5%AE%9E%E4%BE%8B/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2022/05/03/vue/vue%E7%9A%84diff%E7%AE%97%E6%B3%95/">vue的diff算法</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-05-03
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-03
+      更新于:&nbsp;2022-03-23
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -646,17 +359,20 @@
       <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
         <div class="post-abstract mdui-typo ">
           
-            <h2 id="一、是什么"><a href="#一、是什么" class="headerlink" title="一、是什么"></a>一、是什么</h2><p>diff 算法是一种通过同层的树节点进行比较的高效算法<br>其有两个特点：</p>
+            <h1 id="一、跨域是什么"><a href="#一、跨域是什么" class="headerlink" title="一、跨域是什么"></a>一、跨域是什么</h1><p>跨域本质是浏览器基于同源策略的一种安全手段</p>
+<p>同源策略（Sameoriginpolicy），是一种约定，它是浏览器最核心也最基本的安全功能</p>
+<p>所谓同源（即指在同一个域）具有以下三个相同点</p>
 <ul>
-<li>比较只会在同层级进行, 不会跨层级比较</li>
-<li>在diff比较的过程中，循环从两边向中间比较<br>diff 算法在很多场景下都有应用，在 vue 中，作用于虚拟 dom 渲染成真实 dom 的新旧 VNode 节点比较</li>
+<li>协议相同（protocol）</li>
+<li>主机相同（host）</li>
+<li>端口相同（port）</li>
 </ul>
-<h2 id="二、比较方式"><a href="#二、比较方式" cl...
+<p>反之非同源请求，也就是协议、端口、主机...
           
         </div>
         
         <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/03/vue/vue%E7%9A%84diff%E7%AE%97%E6%B3%95/">阅读更多</a>
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/03/23/vue/Vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%A0%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E7%9A%84%E5%91%A2%EF%BC%9F/">阅读更多</a>
         </div>
       </div>
     </article>
@@ -665,19 +381,118 @@
       
       
         <div class="post-header"> 
-  <a class="post-header-title" href="/2022/05/03/vue/%E4%BB%80%E4%B9%88%E6%98%AF%E8%99%9A%E6%8B%9FDOM%EF%BC%9F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9FDOM%EF%BC%9F/">什么是虚拟DOM？如何实现一个虚拟DOM？</a>
+  <a class="post-header-title" href="/2022/03/22/react/react-redux%E7%9A%84%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/">react-redux的核心原理</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-05-03
+      发布于:&nbsp;2022-03-22
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-03
+      更新于:&nbsp;2022-03-22
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+      分类于:&nbsp;<a class="category-link" href="/categories/react/">react</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/react-redux/ >react-redux</a>
+      </i>
+    
+  </div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <h1 id="react-redux的核心原理是什么？"><a href="#react-redux的核心原理是什么？" class="headerlink" title="react-redux的核心原理是什么？"></a>react-redux的核心原理是什么？</h1><ol>
+<li>将Provider高阶组件包裹在组件的最外层，并且将创建的store传入Provider高阶组件中，<br>然后再Provider高阶组件内部获取传入的store并将它添加到Provider高阶组件的context上下文中，context是react组件特有的一种不用手动一层层传递props就能在...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/03/22/react/react-redux%E7%9A%84%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2022/03/22/react/react-router%E8%B7%AF%E7%94%B1%E5%8E%9F%E7%90%86/">react-router路由原理</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-03-22
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-03-22
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/react/">react</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/react-router%E8%B7%AF%E7%94%B1/ >react-router路由</a>
+      </i>
+    
+  </div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <h1 id="一、正确理解react-router"><a href="#一、正确理解react-router" class="headerlink" title="一、正确理解react-router"></a>一、正确理解react-router</h1><h2 id="1-理解单页面应用"><a href="#1-理解单页面应用" class="headerlink" title="1. 理解单页面应用"></a>1. 理解单页面应用</h2><p><strong>什么是单页面应用？</strong><br>个人理解，单页面应用是使用一个html下，一次性加载js，css等资源，...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/03/22/react/react-router%E8%B7%AF%E7%94%B1%E5%8E%9F%E7%90%86/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2022/03/05/react/React-Router%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%8F%8A%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88/">React-Router的实现原理及工作方式分别是什么</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-03-05
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-03-05
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/reactRouter/">reactRouter</a>
     </span>
     
   </div>
@@ -694,14 +509,12 @@
       <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
         <div class="post-abstract mdui-typo ">
           
-            <h2 id="一、什么是虚拟DOM"><a href="#一、什么是虚拟DOM" class="headerlink" title="一、什么是虚拟DOM"></a>一、什么是虚拟DOM</h2><p>虚拟 DOM （Virtual DOM ）这个概念相信大家都不陌生，从 React 到 Vue ，虚拟 DOM 为这两个框架都带来了跨平台的能力（React-Native 和 Weex）</p>
-<p>实际上它只是一层对真实DOM的抽象，以JavaScript 对象 (VNode 节点) 作为基础的树，用对象的属性来描述节点，最终可以通过一系列操作使这棵树映射到真实环境上</p>
-<p>...
+            <p>React Router 路由的基础实现原理分为两种，如果是切换 Hash 的方式，那么依靠浏览器 Hash 变化即可；如果是切换网址中的 Path，就要用到 HTML5 History API 中的 pushState、replaceState 等。在使用这个方式时，还需要在服务端完成 historyApiFallback 配置<br>在 React Router 内部主要依靠 history 库完成，这是由 React Router 自己封装的库，为了实现跨平台运行的特性，内部提供两套基础 history，一套是直接使用浏览器的 History API，用于支持 react-r...
           
         </div>
         
         <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/03/vue/%E4%BB%80%E4%B9%88%E6%98%AF%E8%99%9A%E6%8B%9FDOM%EF%BC%9F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9FDOM%EF%BC%9F/">阅读更多</a>
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/03/05/react/React-Router%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%8F%8A%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88/">阅读更多</a>
         </div>
       </div>
     </article>
@@ -710,15 +523,15 @@
       
       
         <div class="post-header"> 
-  <a class="post-header-title" href="/2022/05/02/react/React-setstate%E5%8E%9F%E7%90%86/">React-setState原理</a>
+  <a class="post-header-title" href="/2022/03/01/react/React-setstate%E5%8E%9F%E7%90%86/">React-setState原理</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2022-05-02
+      发布于:&nbsp;2022-03-01
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-23
+      更新于:&nbsp;2022-03-01
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -751,7 +564,181 @@
         </div>
         
         <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/05/02/react/React-setstate%E5%8E%9F%E7%90%86/">阅读更多</a>
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/03/01/react/React-setstate%E5%8E%9F%E7%90%86/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2022/02/07/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/OpenCV%E8%BF%9B%E9%98%B6%E7%AF%87/">OpenCV进阶篇</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-02-07
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-04-20
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="tag-line-space"></div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <h1 id="OpenCV进阶篇"><a href="#OpenCV进阶篇" class="headerlink" title="OpenCV进阶篇"></a>OpenCV进阶篇</h1><h1 id="第10章-模板匹配"><a href="#第10章-模板匹配" class="headerlink" title="第10章　模板匹配"></a>第10章　模板匹配</h1><p>模板匹配是一种最原始、最基本的识别方法，可以在原始图像中寻找特定图像的位置。模板匹配经常应用于简单的图像查找场景中，例如，在集体合照中找到某个人的位置。本章将介绍如何利用OpenCV实现模板匹配。</p>
+<p><img src="/2022/02/07/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/OpenCV%E8%BF%9B%E9%98%B6%E7%AF%87/image-20211122082012339.png" alt="image-20211122082012339"></p>
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/02/07/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/OpenCV%E8%BF%9B%E9%98%B6%E7%AF%87/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2022/02/07/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/OpenCV%E5%9F%BA%E7%A1%80%E7%AF%87/">OpenCV基础篇</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-02-07
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-02-07
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="tag-line-space"></div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <h1 id="PythonOpenCV基础篇"><a href="#PythonOpenCV基础篇" class="headerlink" title="PythonOpenCV基础篇"></a>PythonOpenCV基础篇</h1><h1 id="第6章-绘制图形和文字"><a href="#第6章-绘制图形和文字" class="headerlink" title="第6章　绘制图形和文字"></a>第6章　绘制图形和文字</h1><p>OpenCV提供了许多绘制图形的方法，包括绘制线段的line()方法、绘制矩形的rectangle()方法、绘制圆形的circle()方法、绘制...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/02/07/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/OpenCV%E5%9F%BA%E7%A1%80%E7%AF%87/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2022/02/07/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/OpenCV%E8%BF%9B%E9%98%B6%E7%AF%8701/">OpenCV基础篇01</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-02-07
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-02-07
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="tag-line-space"></div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <h1 id="OpenCV进阶篇01"><a href="#OpenCV进阶篇01" class="headerlink" title="OpenCV进阶篇01"></a>OpenCV进阶篇01</h1><h1 id="第14章-视频处理"><a href="#第14章-视频处理" class="headerlink" title="第14章　视频处理"></a>第14章　视频处理</h1><p>OpenCV不仅能够处理图像，还能够处理视频。视频是由大量的图像构成的，这些图像以固定的时间间隔从视频中获取。这样，就能够使用图像处理的方法对这些图像进行处理，进而达到处理视频的目的。要处理视...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/02/07/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/OpenCV%E8%BF%9B%E9%98%B6%E7%AF%8701/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2022/01/15/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/scikit-learn/">scikit-learn</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2022-01-15
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2022-01-15
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="tag-line-space"></div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <h1 id="第一章-scikit-learn初级"><a href="#第一章-scikit-learn初级" class="headerlink" title="第一章 scikit-learn初级"></a>第一章 scikit-learn初级</h1><p>课程介绍：本阶段课程学习人工智能机器学习入门算法以及opencv人脸识别基础。机器学习方向主要通过Scikit-learn模块来学习。人脸识别基础主要通过opencv来实现与了解。</p>
+<h1 id="scikit-learn"><a href="#scikit-learn" class="headerlink" tit...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2022/01/15/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/scikit-learn/">阅读更多</a>
         </div>
       </div>
     </article>

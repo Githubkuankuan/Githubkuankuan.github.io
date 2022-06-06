@@ -62,6 +62,10 @@
     </title>
     
     
+        <style type="text/css">
+            html{filter:grayscale(100%);-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);filter:url("data:p_w_picpath/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\"><filter id=\"grayscale\"><feColorMatrix type=\"matrix\" values=\"0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\"/></filter></svg>#grayscale");filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);filter:gray;-webkit-filter:grayscale(1)}
+        </style> 
+    
 <meta name="generator" content="Hexo 5.4.2"></head>
 <body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
   
@@ -234,7 +238,7 @@
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-02
+      更新于:&nbsp;2020-06-10
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -1099,8 +1103,8 @@ export default &#123;
       </a>
     
     
-      <a rel="next" class="post-nav-item mdui-float-right" href="/2020/03/06/vue/mvc-mvp-mvvm%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB/">
-        <span>MVC、MVP、MVVM之间的关系</span>
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2020/03/10/JavaScript/seajs/">
+        <span>seajs</span>
         <i class="iconfont icon-angle-right"></i>
       </a>
     
@@ -1109,6 +1113,16 @@ export default &#123;
 
 
 
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2020/06/10/vue/vue-%E7%BB%84%E4%BB%B6%E5%8C%96/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text">组件化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1%E5%B8%B8%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">组件通信常用方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-props"><span class="toc-number">2.1.</span> <span class="toc-text">1. props</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="toc-number">2.2.</span> <span class="toc-text">2. 自定义事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF"><span class="toc-number">2.3.</span> <span class="toc-text">3. 事件总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-vuex"><span class="toc-number">2.4.</span> <span class="toc-text">4. vuex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-parent-root"><span class="toc-number">2.5.</span> <span class="toc-text">5. $parent&#x2F;$root</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-children"><span class="toc-number">2.6.</span> <span class="toc-text">6. $children</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-attrs-listeners"><span class="toc-number">2.7.</span> <span class="toc-text">7. $attrs&#x2F;$listeners</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-refs"><span class="toc-number">2.8.</span> <span class="toc-text">8. refs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-provide-inject"><span class="toc-number">2.9.</span> <span class="toc-text">9. provide&#x2F;inject</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E6%A7%BD"><span class="toc-number">3.</span> <span class="toc-text">插槽</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8C%BF%E5%90%8D%E6%8F%92%E6%A7%BD"><span class="toc-number">3.1.</span> <span class="toc-text">1. 匿名插槽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%85%B7%E5%90%8D%E6%8F%92%E6%A7%BD"><span class="toc-number">3.2.</span> <span class="toc-text">2. 具名插槽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD"><span class="toc-number">3.3.</span> <span class="toc-text">3. 作用域插槽</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8C%96%E5%AE%9E%E6%88%98"><span class="toc-number">4.</span> <span class="toc-text">组件化实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E8%A1%A8%E5%8D%95%E7%BB%84%E4%BB%B6"><span class="toc-number">4.1.</span> <span class="toc-text">通用表单组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%BC%B9%E7%AA%97%E7%BB%84%E4%BB%B6"><span class="toc-number">4.2.</span> <span class="toc-text">实现弹窗组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E7%9F%A5%E7%BB%84%E4%BB%B6"><span class="toc-number">4.3.</span> <span class="toc-text">通知组件</span></a></li></ol></li></ol>
+      </li>
+    </ul>
+  </div>
 
 
 

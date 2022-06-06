@@ -118,6 +118,10 @@
     </title>
     
     
+        <style type="text/css">
+            html{filter:grayscale(100%);-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);filter:url("data:p_w_picpath/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\"><filter id=\"grayscale\"><feColorMatrix type=\"matrix\" values=\"0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\"/></filter></svg>#grayscale");filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);filter:gray;-webkit-filter:grayscale(1)}
+        </style> 
+    
 <meta name="generator" content="Hexo 5.4.2"></head>
 <body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
   
@@ -282,19 +286,19 @@
       
       
         <div class="post-header"> 
-  <a class="post-header-title" href="/2021/11/24/django/if-name-main-%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/">if__name__==&#39;__main__&#39; 理解和总结</a>
+  <a class="post-header-title" href="/2021/05/17/JavaScript/webWorker%E4%BB%8B%E7%BB%8D/">webWorker介绍</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2021-11-24
+      发布于:&nbsp;2021-05-17
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2021-11-30
+      更新于:&nbsp;2021-05-17
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/python/">python</a>
+      分类于:&nbsp;<a class="category-link" href="/categories/JavaScript/">JavaScript</a>
     </span>
     
   </div>
@@ -308,7 +312,7 @@
   <div class="post-tags">
     
       <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/python/ >python</a>
+        <a rel="tag" href = /tags/worker/ >worker</a>
       </i>
     
   </div>
@@ -317,207 +321,17 @@
       <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
         <div class="post-abstract mdui-typo ">
           
-            <h1 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h1><p>在Python当中，如果代码写得规范一些，通常会写上一句“if <strong>name</strong>==’<strong>main</strong>:”作为程序的入口，但似乎没有这么一句代码，程序也能正常运行。这句代码多余吗？原理又在哪里？本篇博文对此进行总结说明。</p>
-<h1 id="二、程序入口"><a href="#二、程序入口" class="headerlink" title="二、程序入口"></a>二、程序入口...
+            <h2 id="1-简单使用"><a href="#1-简单使用" class="headerlink" title="1. 简单使用"></a>1. 简单使用</h2><p>介绍</p>
+<ol>
+<li>Web Worker 的作用，就是为 JavaScript 创造多线程环境，允许主线程创建 Worker 线程，将一些任务分配给后者运行。<br>在主线程运行的同时，Worker 线程在后台运行，两者互不干扰。等到 Worker 线程完成计算任务，再把结果返回给主线程。</li>
+<li>Web Worker简单使用</li>
+</ol>
+<pre><code class="js">...
           
         </div>
         
         <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/11/24/django/if-name-main-%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2021/11/24/django/Django-filter%E4%B8%AD%E7%94%A8contains%E5%92%8Cicontains%E5%8C%BA%E5%88%AB/">Django filter中用contains和icontains区别</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2021-11-24
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2021-11-30
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="tag-line-space"></div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <p>用 django 的人经常会用到filter过滤集合的功能，这里对比下contains和icontains区别：</p>
-<pre><code class="python">queryset.filter(name__contains=&quot;e&quot;)
-queryset.filter(name__icontains=&quot;e&quot;)
-</code></pre>
-<p>打印一下这两行代码对应的sql语句就会看到区别：</p>
-<pre><code class="python">&#39;contains&#39;: &#39;LIKE BINARY %s&#3...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/11/24/django/Django-filter%E4%B8%AD%E7%94%A8contains%E5%92%8Cicontains%E5%8C%BA%E5%88%AB/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2021/11/24/vue/vue%E5%8D%95%E6%96%87%E4%BB%B6/">Vue  单文件</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2021-11-24
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-02-09
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/vue/">vue</a>
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/vue/ >vue</a>
-      </i>
-    
-  </div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h1 id="初识Vue："><a href="#初识Vue：" class="headerlink" title="初识Vue："></a>初识Vue：</h1><p>​        1.想让Vue工作，就必须创建一个Vue实例，且要传入一个配置对象；</p>
-<p>​        2.root容器里的代码依然符合html规范，只不过混入了一些特殊的Vue语法；</p>
-<p>​        3.root容器里的代码被称为【Vue模板】；</p>
-<p>​        4.Vue实例和容器是一一对应的；</p>
-<p>​        5.真实开发中只有一个Vue实例，并且会...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/11/24/vue/vue%E5%8D%95%E6%96%87%E4%BB%B6/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2021/11/24/vue/vue%E8%84%9A%E6%89%8B%E6%9E%B6/">Vue  脚手架</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2021-11-24
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-02-11
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="tag-line-space"></div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><h2 id="脚手架文件结构"><a href="#脚手架文件结构" class="headerlink" title="脚手架文件结构"></a>脚手架文件结构</h2><pre><code>├── node_modules 
-├── public
-│   ├── favicon.ico: 页签图标
-│   └── index.html: 主页面
-├── src
-│   ├── assets: 存放静态资源
-│   │   └── logo.png
-│...
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/11/24/vue/vue%E8%84%9A%E6%89%8B%E6%9E%B6/">阅读更多</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
-      
-      
-        <div class="post-header"> 
-  <a class="post-header-title" href="/2021/11/10/one/">第一篇博客</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2021-11-10
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-04-26
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;
-    </span>
-    
-  </div>
-</div>   
-    
-
-
-
-      
-      
-  <div class="tag-line-space"></div>
-
-      
-      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
-        <div class="post-abstract mdui-typo ">
-          
-            <h1 id="这是第一篇博客内容"><a href="#这是第一篇博客内容" class="headerlink" title="这是第一篇博客内容"></a>这是第一篇博客内容</h1><p>为什么会突然搭建一个自己博客呢？  好问题！<br>在  **B站 ** 上看到一个资深程序员的一篇博客内容: 说一个代码代码习惯良好的程序员都会有自己的博客<br>后来我信誓旦旦的开始了我的搭建之旅！<br>现在也是搭建完成了  因为一个项目，没有及时的发布一篇博客内容。<br>好了认识一个吧   我叫大路宽宽！</p>
-          
-        </div>
-        
-        <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/11/10/one/">阅读更多</a>
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/05/17/JavaScript/webWorker%E4%BB%8B%E7%BB%8D/">阅读更多</a>
         </div>
       </div>
     </article>
@@ -534,7 +348,7 @@ queryset.filter(name__icontains=&quot;e&quot;)
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-02
+      更新于:&nbsp;2021-05-16
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -585,7 +399,7 @@ queryset.filter(name__icontains=&quot;e&quot;)
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-02
+      更新于:&nbsp;2021-05-16
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -635,7 +449,7 @@ queryset.filter(name__icontains=&quot;e&quot;)
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-02
+      更新于:&nbsp;2021-05-12
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -678,15 +492,164 @@ queryset.filter(name__icontains=&quot;e&quot;)
       
       
         <div class="post-header"> 
-  <a class="post-header-title" href="/2021/04/27/JavaScript/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/">深浅拷贝</a>
+  <a class="post-header-title" href="/2021/05/05/JavaScript/cookies-sessionStorage-localStorage%E7%9A%84%E5%8C%BA%E5%88%AB/">cookies,sessionStorage,localStorage的区别</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2021-04-27
+      发布于:&nbsp;2021-05-05
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2021-04-27
+      更新于:&nbsp;2021-05-05
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="tag-line-space"></div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <ul>
+<li><p>cookie是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）</p>
+</li>
+<li><p>cookie数据始终在同源的http请求中携带（即使不需要），记会在浏览器和服务器间来回传递</p>
+</li>
+<li><p>sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存</p>
+</li>
+<li><p>存储大小：</p>
+<ul>
+<li>cookie数据大小不能超过4k</li>
+<li>sessionStorage和localStorage虽然也有存储大小的限制，但比c...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/05/05/JavaScript/cookies-sessionStorage-localStorage%E7%9A%84%E5%8C%BA%E5%88%AB/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2021/05/05/JavaScript/%E4%BB%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9C%B0%E5%9D%80%E6%A0%8F%E8%BE%93%E5%85%A5url%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%AD%A5%E9%AA%A4/">从浏览器地址栏输入url到显示页面的步骤</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2021-05-05
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2021-05-05
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="tag-line-space"></div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <h2 id="基础版本"><a href="#基础版本" class="headerlink" title="基础版本"></a>基础版本</h2><ul>
+<li>浏览器根据请求的URL交给DNS域名解析，找到真实IP，向服务器发起请求；</li>
+<li>服务器交给后台处理完成后返回数据，浏览器接收文件（HTML、JS、CSS、图象等）；</li>
+<li>浏览器对加载到的资源（HTML、JS、CSS等）进行语法解析，建立相应的内部数据结构（如HTML的DOM）；</li>
+<li>载入解析到的资源文件，渲染页面，完成。</li>
+</ul>
+<h2 id="详细版"><a hre...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/05/05/JavaScript/%E4%BB%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9C%B0%E5%9D%80%E6%A0%8F%E8%BE%93%E5%85%A5url%E5%88%B0%E6%98%BE%E7%A4%BA%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%AD%A5%E9%AA%A4/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2021/05/05/JavaScript/%E5%89%8D%E7%AB%AF%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E5%93%AA%E4%BA%9BSEO/">前端需要注意哪些SEO</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2021-05-05
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2021-05-05
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="tag-line-space"></div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <ul>
+<li>合理的title、description、keywords：搜索对着三项的权重逐个减小，title值强调重点即可，重要关键词出现不要超过2次，而且要靠前，不同页面title要有所不同；description把页面内容高度概括，长度合适，不可过分堆砌关键词，不同页面description有所不同；keywords列举出重要关键词即可</li>
+<li>语义化的HTML代码，符合W3C规范：语义化代码让搜索引擎容易理解网页</li>
+<li>重要内容HTML代码放在最前：搜索引擎抓取HTML顺序是从上到下，有的搜索引擎对抓取长度有限制，保证重要内容一定会被抓取</li>
+<...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/05/05/JavaScript/%E5%89%8D%E7%AB%AF%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E5%93%AA%E4%BA%9BSEO/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2021/05/05/JavaScript/JS%E4%B8%ADcall-%E3%80%81apply-%E3%80%81bind-%E7%9A%84%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%94%A8%E6%B3%95/">JS中call()、apply()、bind()的区别及用法</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2021-05-05
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2021-05-05
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -701,30 +664,18 @@ queryset.filter(name__icontains=&quot;e&quot;)
 
       
       
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/ >深浅拷贝</a>
-      </i>
-    
-  </div>
+  <div class="tag-line-space"></div>
 
       
       <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
         <div class="post-abstract mdui-typo ">
           
-            <h2 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h2><h2 id="深浅拷贝都只针对于引用数据类型"><a href="#深浅拷贝都只针对于引用数据类型" class="headerlink" title="深浅拷贝都只针对于引用数据类型"></a>深浅拷贝都只针对于引用数据类型</h2><ul>
-<li>浅拷贝<ul>
-<li>只复制指向对象的指针，而不复制对象本身，新旧对象还是共享一个内存；</li>
-</ul>
-</li>
-<li>深拷贝<ul>
-<li>另外创建一个一模一样的对象，新...
+            <h1 id="1-区别"><a href="#1-区别" class="headerlink" title="1.区别"></a>1.区别</h1><h2 id="1-1三者的相同点：都是用来改变this的指向"><a href="#1-1三者的相同点：都是用来改变this的指向" class="headerlink" title="1.1三者的相同点：都是用来改变this的指向"></a>1.1三者的相同点：都是用来改变this的指向</h2><h2 id="1-2-call-和apply-的区别："><a href="#1-2-call-和apply-的区别：" class="he...
           
         </div>
         
         <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/04/27/JavaScript/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/">阅读更多</a>
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/05/05/JavaScript/JS%E4%B8%ADcall-%E3%80%81apply-%E3%80%81bind-%E7%9A%84%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%94%A8%E6%B3%95/">阅读更多</a>
         </div>
       </div>
     </article>
@@ -733,19 +684,19 @@ queryset.filter(name__icontains=&quot;e&quot;)
       
       
         <div class="post-header"> 
-  <a class="post-header-title" href="/2021/04/26/react/Redux-%E4%B8%AD%E9%97%B4%E4%BB%B6/">Redux 中间件</a>
+  <a class="post-header-title" href="/2021/05/03/JavaScript/%E5%AE%9E%E4%BE%8B/">js中构造函数 原型对象 实例</a>
   <div class="post-header-meta">
     <span>
       <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2021-04-26
+      发布于:&nbsp;2021-05-03
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2022-05-02
+      更新于:&nbsp;2021-05-03
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;<a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>
+      分类于:&nbsp;<a class="category-link" href="/categories/JavaScript/">JavaScript</a>
     </span>
     
   </div>
@@ -756,26 +707,70 @@ queryset.filter(name__icontains=&quot;e&quot;)
 
       
       
-  <div class="post-tags">
-    
-      <i class="iconfont icon-tag">
-        <a rel="tag" href = /tags/Redux/ >Redux</a>
-      </i>
-    
-  </div>
+  <div class="tag-line-space"></div>
 
       
       <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
         <div class="post-abstract mdui-typo ">
           
-            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><ul>
-<li>在<code>redux</code>里，<code>middleware</code>是发送<code>action</code>和<code>action</code>到达<code>reducer</code>之间的第三方扩展，也就是中间层。也可以这样说，<code>middleware</code>是架在<code>action</code>和<code>store</code>之间的一座桥梁</li>
-<li>在...
+            <h2 id="一、构造函数"><a href="#一、构造函数" class="headerlink" title="一、构造函数"></a>一、构造函数</h2><p>工作原理：</p>
+<ol>
+<li>创建一个新对象</li>
+<li>让构造函数的this，指向新对象</li>
+<li>执行构造函数</li>
+<li>返回实例</li>
+</ol>
+<h2 id="二、原型对象-prototype"><a href="#二、原型对象-prototype" class="headerlink" title="二、原型对象 prototype"></a>二、原型对象 prototyp...
           
         </div>
         
         <div style="text-align:center;">
-          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/04/26/react/Redux-%E4%B8%AD%E9%97%B4%E4%BB%B6/">阅读更多</a>
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/05/03/JavaScript/%E5%AE%9E%E4%BE%8B/">阅读更多</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="mdui-card mdui-m-b-5 mdui-hoverable">    
+      
+      
+        <div class="post-header"> 
+  <a class="post-header-title" href="/2021/05/03/vue/%E4%BB%80%E4%B9%88%E6%98%AF%E8%99%9A%E6%8B%9FDOM%EF%BC%9F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9FDOM%EF%BC%9F/">什么是虚拟DOM？如何实现一个虚拟DOM？</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2021-05-03
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2021-05-03
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+    </span>
+    
+  </div>
+</div>   
+    
+
+
+
+      
+      
+  <div class="tag-line-space"></div>
+
+      
+      <div id="achieve-abstract" class="mdui-card-content mdui-p-x-4">
+        <div class="post-abstract mdui-typo ">
+          
+            <h2 id="一、什么是虚拟DOM"><a href="#一、什么是虚拟DOM" class="headerlink" title="一、什么是虚拟DOM"></a>一、什么是虚拟DOM</h2><p>虚拟 DOM （Virtual DOM ）这个概念相信大家都不陌生，从 React 到 Vue ，虚拟 DOM 为这两个框架都带来了跨平台的能力（React-Native 和 Weex）</p>
+<p>实际上它只是一层对真实DOM的抽象，以JavaScript 对象 (VNode 节点) 作为基础的树，用对象的属性来描述节点，最终可以通过一系列操作使这棵树映射到真实环境上</p>
+<p>...
+          
+        </div>
+        
+        <div style="text-align:center;">
+          <a class="post-readmore mdui-btn mdui-ripple mdui-btn-raised" href="/2021/05/03/vue/%E4%BB%80%E4%B9%88%E6%98%AF%E8%99%9A%E6%8B%9FDOM%EF%BC%9F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9FDOM%EF%BC%9F/">阅读更多</a>
         </div>
       </div>
     </article>
